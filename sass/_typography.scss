@@ -1,0 +1,173 @@
+/* 
+ * Font Stacks
+ * ------------
+ */
+
+// TODO: Replace OSP-DIN outside of h1. It looks like shit.
+$title_fjalla:   5em 'Fjalla One',Impact, Charcoal, sans-serif;
+$title_verdana:  3em Verdana, Geneva, sans-serif;
+$font_sans:      0.9em 'Source Sans Pro', sans-serif, 'Trebuchet MS';
+$font_monospace: 0.9em 'Source Code Pro', 'Courier New', Courier, monospace;
+$font_serif:     0.9em 'Noto Serif', Georgia, serif;
+
+/*
+ * Header Items
+ * ------------
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0; 
+}
+
+h1, h2, h3 {
+    color: $default_grey;
+    font: $title_fjalla;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h2 { font-size: 4em; }
+h3 { font-size: 3em; }
+
+h4, h5, h6 {
+    // Verdana font stack. Used for article titles.
+    font: $font_serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+h4 { font-size: 2.5em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1em; }
+
+/*
+ * Non-header Defaults 
+ * -------------------
+ */
+
+b, strong {
+    font-weight: bold;
+}
+
+a, abbr, acronym, big, cite, code, del, em, ins, small, span, strike, strong, sub, sup {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+em, i, ins, q, var {
+    color: inherit;
+    font-style: italic;
+}
+
+code, kbd, pre, pre span, tt, var {
+    font: $font_monospace;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-font-smoothing: antialiased;
+}
+
+pre {
+    @extend %border-box;
+    background-color: $default_grey;
+    color: $ouro_green_light;
+    line-height: 1.2em;
+    overflow: auto;
+}
+
+abbr, acronym {
+    background: $ouro_green_light;
+    padding: 1px 3px;
+}
+
+big {
+    font-size: 130%;
+}
+
+cite {
+    font-size: 85%;
+    display: block;
+    margin: 7px 0 0 2px;
+
+    &:before {
+        content: '-';
+    }
+}
+
+del, strike {
+    text-decoration: line-through;
+}
+
+dt {
+    font-size: 105%;
+    font-weight: bold;
+}
+
+dd {
+    margin-bottom: 5px;
+    padding-left: 15px;
+
+    &:before {
+        content: '» ';
+    }
+}
+
+ins { 
+    font-size: 90%;
+}
+
+li {
+    line-height: 1em;
+}
+
+q {
+    font-size: 95%;
+}
+
+small {
+    font-size: 88%;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+cite, strong {
+    font-weight: bold;
+}
+
+sub, sup {
+    font-size: 85%;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+sup {
+    vertical-align: super;
+}
+
+ol, ul {
+    margin: 0 30px;
+}
+
+ul {
+    list-style-type: square;   
+}
+
+address, dd, dt, p, li, th, td {
+    font: $font_serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4em;
+}
+
+input,textarea,button {
+    font: $font_sans;
+}
+
+blockquote, ol, p, pre, ul {
+    margin-bottom: $db_margin;
+}
+
+li {
+    margin-bottom: 0;
+}

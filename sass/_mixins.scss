@@ -1,0 +1,75 @@
+@mixin transform_scale_y($amount) {
+    // Vertically stretch text.
+    -webkit-transform: scaleY($amount);
+    -ms-transform: scaleY($amount);
+    transform: scaleY($amount);
+}
+
+@mixin vertical_center($amount) {
+    // Useful for vertically centering elements.
+    padding-bottom: $amount;
+    padding-top: $amount;
+}
+
+@mixin box_shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@function rgba_opposite($red: 255, $green: 255, $blue: 255, $alpha: 0) {
+    // I do not intend for this to be called directly. 
+    // This function inverts RGB colours.
+    $red: 255 - $red;
+    $green: 255 - $green;
+    $blue: 255 - $blue;
+    $alpha: 1 - $alpha;
+
+    @return rgba($red, $green, $blue, $alpha);
+}
+
+@mixin columns($count, $gap) {
+    // Mozilla Firefox
+    -moz-column-count: $count;
+    -moz-column-gap: $gap;
+    // Webkit Browsers.
+    -webkit-column-count: $count;
+    -webkit-column-gap : $gap;
+    // CSS 3
+    column-count: $count;
+    column-gap: $gap;
+}
+
+@mixin placeholder_style($color, $font) {
+    // See: http://css-tricks.com/snippets/css/style-placeholder-text/
+    input[placeholder], textarea[placeholder] {
+        color: $color;
+        font: $font;
+    }
+
+    ::-moz-placeholder {
+        // Mozilla Firefox 19+
+        color: $color;
+        font: $font;
+    }
+
+    :-ms-input-placeholder {
+        // Internet Explorer 10+
+        color: $color;
+        font: $font;
+    }
+
+    ::-webkit-input-placeholder {
+        // Webkit browsers-Chrome and Opera
+        color: $color;
+        font: $font;
+    }
+}
+
+@mixin light_mask($opacity) {
+    background-color: rgba(255,255,255,$opacity);
+}
+
+@mixin dark_mask($opacity) {
+    background-color: rgba(0,0,0,$opacity);
+}

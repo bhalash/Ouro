@@ -1,0 +1,283 @@
+/*
+Theme Name: Ouro
+Theme URI: https://github.com/bhalash/ouro
+Author: Mark Grealish
+Author URI: http://bhalash.com/
+Description: Ouro landing page.
+Version: 1.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
+*/
+
+/*
+ * Colours 
+ * -------
+ */
+
+$ouro_green_dark: #669c5f;
+$ouro_green_light: #b9dfbc;
+$ouro_green_term: #00ff00;
+$default_grey: rgba(0,0,0,0.8);
+// For active buttons.
+$active_grey: #bbb;
+$light_grey: #eee;
+
+/*
+ * Margins
+ * -------
+ */
+
+$db_margin: 16px;
+
+/*
+ * Imports
+ * ------- 
+ */
+
+// CSS resets
+@import 'reset';
+// All font: styling.
+@import 'typography';
+// Code-intensive mixins.
+@import 'mixins';
+// Useful partial files, such as margins, box-sizings and clears.
+@import 'partials';
+
+/*
+ * Content
+ * -------
+ */
+
+body, html {
+    width: 100%;
+}
+
+body {
+    margin-bottom: 120px;
+}
+
+p, li, blockquote {
+    color: $default_grey;
+}
+
+#contact {
+    h5 {
+        margin-bottom: $db_margin;
+    }
+}
+
+%cool-pre {
+    @extend %noselect;
+    font-size: 1.5vh;
+    overflow: hidden;
+    margin-bottom: 30px;
+    padding: $db_margin 0;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+}
+
+pre.matrix, pre.print {
+    span.highlight, span.letter {
+        color: $default_grey;
+        background: $ouro_green_light;
+    }
+}
+
+pre.matrix {
+    @extend %cool-pre;
+
+    > div {
+        display: inline-block;
+        margin-right: 1.3vw;
+        width: auto;
+
+        &:first-child {
+            margin-left: -20px;
+        }
+    }
+}
+
+pre.print {
+    @extend %cool-pre;
+
+    div {
+        margin-left: -20px;
+    }
+}
+
+.placeholder {
+    background: $default_grey;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.separator {
+    background: center center/auto 100% no-repeat border-box url('images/ouro_logo.svg');
+    margin: 30px 0;
+    padding: 30px 0;
+    width: 100%;
+}
+
+#header {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+
+    h1 {
+        font-size: 10vh;
+        line-height: 90vh;
+        text-align: center;
+        width: 100%;
+    }
+
+    #logo {
+        background: rgba(255,255,255,0.1) center 41%/auto 40% no-repeat border-box url('images/ouro_logo.svg');
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+#scroll-prompt {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 67vh;
+    width: 100%;
+
+    > a {
+        background: center center/contain no-repeat border-box url('images/down_arrow.svg');
+        display: block;
+        height: 6.5vh;
+        margin: 0 auto;
+        max-width: 25vh;
+    }
+}
+
+nav#menu {
+    @include box_shadow(0px -5px 39px -17px rgba(0,0,0,0.75));
+
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 5;
+
+    ul {
+        list-style-type: none;
+        margin: 0 auto;
+        position: initial;
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        line-height: 50px;
+        padding: 0 15px;
+
+        &:hover {
+            font-weight: bold;
+            letter-spacing: 0;
+        }
+    }
+}
+
+.interior {
+    @extend %border-box;
+    @extend %clearfix;
+    padding: 0 7%;
+    height: 100%;
+    width: 100%;
+}
+
+#content {
+    a {
+        box-shadow: rgba(0,0,0,0.4) 0 -3px 0 0 inset;
+    }
+
+    blockquote {
+        border-left: 3px solid rgba(0,0,0,0.4);
+        padding: 0 20px;
+    }
+
+    .showcase {
+        background-image: url('images/polaris.jpg');
+    }
+
+    header h3 {
+        padding: 30px 7%;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+}
+
+#team {
+    @extend %border-box;
+
+    .teamlist, .member {
+        @extend %clearfix;
+        width: 100%;
+    }
+
+    .member {
+        float: left;
+        margin-bottom: $db_margin;
+        width: 31.33%;
+
+        &:nth-child(2) {
+            padding: 0 3%;
+        }
+
+        p, h5 {
+            white-space: initial;
+        }
+    }
+
+    .avatar {
+        @extend %cover-picture;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    .social {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    .bio {
+        @extend %border-box;
+        background-color: $light_grey;
+        font: $font_sans;
+        padding: 15px;
+
+        span.title {
+            font-size: 1.2em;
+            font-variant: small-caps;
+            text-transform: lowercase;
+        }
+    }
+}
+
+/*
+ * More Imports
+ * ------------
+ * Media queries come after the rest of the site content. 
+ */
+
+// Social sharing links.
+@import 'share';
+// Website media queries.
+@import 'media_queries';

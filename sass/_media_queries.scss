@@ -1,0 +1,82 @@
+/* 
+ * Small Desktop Screens
+ * ---------------------
+ */
+
+@media only screen and (max-width: 1000px) {
+}
+
+/* 
+ * Smaller Desktops and Large Smartphones 
+ * --------------------------------------
+ */
+
+@media only screen and (max-width: 800px) {
+}
+
+@media only screen and (max-width: 700px) {
+    .split-two {
+        float: none;
+        padding: 0;
+        width: 100%;
+    }
+}
+
+/*
+ * Cellphone Devices
+ * -----------------
+ * Shotgunned smartphone media query, for landscape /and/ portrait orientation. 
+ * This should cover every smartphone device ranging from the iPhone 3S through 
+ * to the iPhone 6, and other equivalent screen sizes too (Smasung Galaxy III).
+*/
+
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 736px) 
+    and (orientation: portrait),
+only screen
+    and (min-device-width: 320px) 
+    and (max-device-width: 736px) 
+    and (orientation: landscape) {
+    #header {
+        h1 {
+            line-height: 75vh;
+        }
+
+        #logo {
+            background-position: center 29%;
+        }
+
+        #scroll-prompt {
+            top: 58vh;
+        }
+    }
+
+    section > header {
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+        }
+    }
+
+    nav#menu {
+        ul {
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #team {
+        .member {
+            float: none;
+            width: 100%;
+
+            &:nth-child(2) {
+                padding: 0;
+            }
+        }
+    }
+}

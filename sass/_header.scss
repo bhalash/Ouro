@@ -1,0 +1,234 @@
+/*
+ * Website Header
+ * --------------
+ * This theme uses a statically-placed header and nav bar. Both the header and 
+ * nav bar behave responsively, with the nav bar's opacity being set via JS.
+ *
+ * Rules here are split into two parts:
+ * 
+ * 1. Branding: The big background image and title text.
+ * 2. Nav: The top navigation menu and its many states.
+ *
+ * Social media link appareance is set in _share.scss. There's a lot in the 
+ * sharing, and it covers two sets of sharing rules. Made sense for me to split
+ * it off. 
+ */
+ 
+$nav_toggle_width:  40px;
+$nav_toggle_height: 40px;
+
+/*
+ * Toggle Button
+ * ------------- 
+ * Used to toggle the various sections of the nav.
+ */
+
+.toggle {
+    @extend %border-box;
+    color: #fff;
+    height: $nav_toggle_height;
+    display: block;
+    width: $nav_toggle_width;
+}
+
+/*
+ * Header Container and Overall Rules
+ * ----------------------------------
+ */
+
+#header {
+    // Insert any header-specific rules here. 
+}
+
+/*
+ * Site Header Image
+ * -----------------
+ * The title section of the site with a background image. The image is set via
+ * HTML (set by the CMS PHP/Python script) and rules set by .featured-image 
+ */
+
+#branding {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+
+    a {
+        /* I don't want to distinguish hyperlinks here. Users are usually bright
+         * enough to click the shiny pretty big picture bit. Usually. */
+        color: inherit;
+        text-transform: uppercase;
+
+        &:active, &:hover {
+            color: inherit;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    h1, h6, li, p {
+        color: #fff;
+        text-align: center;
+    }
+
+    h1 {
+        // Site name or article name.
+        margin-bottom: -13px;
+    }
+
+    h6 {
+        // Subtitle.
+        padding-left: 5px;
+        letter-spacing: 1px;
+
+        a {
+            // For parts of the site where it might contain author attribution.
+            color: $logo_blue;
+        }
+    }
+
+    .wrapper {
+        @include dark_mask(0.6);
+        @include vertical_center(125px);
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/*
+ * Nav Container
+ * -------------
+ * Fixed to the top of the page with an opacity that varies as the page scrolls. 
+ * Background opacity is set in layout.js
+ */
+
+nav {
+    @extend %border-box;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+
+    > div {
+        /* This sets the position of the nav item containers. Children items
+         * should extend %nav-button in order to set height. */
+        float: right;
+        position: relative;
+    }
+
+    a, a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+/*
+ * Expanding Search Box
+ * --------------------
+ * Not a full form so it is styled separately form other forms. Expands and 
+ * contracts as you focus in and out.
+ */
+
+#search {
+    form {
+        height: $nav_toggle_height;
+        position: relative;
+        transition: width 0.2s;
+        width: $nav_toggle_width;
+    }
+
+    @include placeholder_style(#fff, $font_sans);
+
+    input[type=text] {
+        @extend .toggle;
+        background: transparent;
+        color: #fff;
+        font-size: 1em;
+        font-weight: normal;
+        margin: 0;
+        padding-left: 15px;
+        width: 100%;
+    }
+
+    input[type=submit] {
+        // TODO: Repalce with thin icon.
+        background: center top/auto 100% no-repeat border-box url('images/social/search.png');
+        height: $nav_toggle_height;
+        right: 0;
+        position: absolute;
+        top: 0;
+        width: $nav_toggle_width;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .toggle {
+        float: right;
+    }
+
+    .search-open {
+        width: 300px;
+
+        input[type=text] {
+            // background: $logo_blue;
+            // background: #fff;
+            // color: $footer_grey;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+    }
+}
+
+/*
+ * Site Top Navigation Menu
+ * ------------------------
+ * Dropdown site-navigation menu located on the left side of the nav section.
+ */
+
+#menu {
+    min-height: $nav_toggle_height;
+    float: left;
+    position: relative;
+
+    /* Strictly debug until I get the hover/click event working. Had a hell of
+     * a time getting this to work because I self-cleared its parent. */
+
+    > ul {
+        @extend %border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        color: #fff;
+        display: inline-block;
+        font-size: 1.1em;
+        line-height: $nav_toggle_height;
+        padding: 0 15px; 
+    }
+
+    a {
+        @extend %block;
+        color: inherit;
+        transition: color .2s;
+
+        &:active {
+            color: $logo_grey;
+        }
+    }
+
+    .toggle {
+        // To fit with height of %nav-button.
+        display: none;
+        line-height: $nav_toggle_height;
+        text-align: center;
+        padding: 0 5px;
+    }
+}

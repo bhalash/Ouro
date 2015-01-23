@@ -1,0 +1,64 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, 
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, 
+dl, dt, dd, ol, ul, li, fieldset, form, label,legend, table, caption, tbody, 
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, 
+figcaption, footer, header, hgroup menu, nav, output, ruby, section, summary, 
+time, mark, audio, video {
+    border: 0; 
+    color: inherit;
+    font-size: 100%;
+    font: inherit;
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+
+html, body {
+    width: 100%
+}
+
+img, iframe {
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+form { 
+    input, button, textarea {
+        // Remove all default appearance and focus appearance styling. 
+        @extend %border-box;
+        -webkit-border-radius: 0;
+        -webkit-appearance: none;
+        background-color: #eee;
+        border-radius: 0;
+        border: 0;
+        display: block;
+        font-size: 1em;
+        margin: 0;
+        margin-bottom: $db_margin / 3;
+        outline: 0;
+        padding: 10px;
+        width: 100%;
+
+        &:focus {
+            border: 0;
+            outline: 1px solid $default_grey;
+        }
+    }
+
+    button {
+        width: auto;
+
+        &:active {
+            background: $active_grey;
+        }
+    }
+
+    input:-webkit-autofill {
+        color: rgba(255,255,255,0.2) !important;
+    }
+}
