@@ -1,0 +1,102 @@
+#content {
+    a {
+        box-shadow: rgba(0,0,0,0.4) 0 -3px 0 0 inset;
+    }
+
+    blockquote {
+        border-left: 3px solid rgba(0,0,0,0.4);
+        padding: 0 20px;
+    }
+
+    .showcase {
+        background-image: url('images/polaris.jpg');
+    }
+
+    section:not(#footer) {
+        @extend %border-box;
+        height: 100vh;
+    }
+}
+
+#pos, #pos > * {
+    margin: 0;
+    padding: 0;
+}
+
+.interior {
+    @extend %border-box;
+    @extend %clearfix;
+    padding: 0 15%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    >:first-child {
+        display: inline-block;
+        margin-bottom: 13px;
+        text-align: left;
+    }
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: transparent;
+    outline: 0;
+    width: 100%;
+}
+
+pre.matrix, pre.print {
+    @extend %noselect;
+    @extend %border-box;
+    font-size: 1.5vh;
+    overflow: hidden;
+    padding: $db_margin;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+}
+
+pre.matrix, pre.print {
+    span.highlight, span.letter {
+        color: $default_grey;
+        background: $ouro_green_light;
+    }
+}
+
+pre.matrix {
+    > div {
+        display: inline-block;
+        margin-right: 1.3vw;
+        width: auto;
+
+        &:first-child {
+            margin-left: -10px;
+        }
+    }
+}
+
+pre.print {
+    div {
+        margin-left: -20px;
+    }
+}
+
+#footer {
+    background-color: $default_grey;
+
+    .interior {
+        top: 0;
+        transform: none;
+    }
+
+    a {
+        box-shadow: none;
+        color: $ouro_green_light;
+    }
+
+    p {
+        color: #fff;
+    }
+}

@@ -1,0 +1,61 @@
+#team {
+    @extend %border-box;
+
+    .teamlist, .member {
+        @extend %clearfix;
+        width: 100%;
+    }
+
+    .member {
+        float: left;
+        margin-bottom: $db_margin;
+
+        // Use these rules if there are four team members.
+        // width: 23.5%;
+        // padding-right: 2%;
+        
+        // &:last-child {
+        //     padding-right: 0;
+        // }
+
+        // Use these rules if there are three team members.
+        width: 31.33%;
+
+        &:nth-child(2) {
+            padding: 0 3%;
+        }
+
+        p, h5 {
+            white-space: initial;
+        }
+    }
+
+    .avatar {
+        @extend %cover-picture;
+        height: 0;
+        padding-bottom: 100%;
+        width: 100%;
+    }
+
+    .social {
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .bio {
+        @extend %border-box;
+        background-color: $light_grey;
+        font: $font_sans;
+        min-height: 350px;
+        padding: 15px;
+        position: relative;
+
+        span.title {
+            font-size: 1.2em;
+            font-variant: small-caps;
+            text-transform: lowercase;
+        }
+    }
+}
