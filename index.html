@@ -6,96 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Ouro</title>
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Fjalla+One|Noto+Serif:400|Source+Code+Pro" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Fjalla+One|Noto+Serif:400|Source+Code+Pro|Roboto" rel="stylesheet" type="text/css" />
     <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
     <body>
-        <div id="header">
-            <!-- <div id="wallpaper"></div> -->
-            <div id="logo"></div>
+        <section id="header">
+            <div class="logo"></div>
             <h1>ouro</h1>
-            <div id="scroll-prompt">
+            <div class="prompt">
                 <a class="nav" href="#content"></a>
             </div>
-        </div>
+        </section>
         <nav id="menu">
             <ul>
-                <li><a class="nav" href="#header">Home</a></li>
-                <li><a class="nav" href="#introduction">3D Printing</a></li>
+                <li><a class="current-section nav" href="#header">Home</a></li>
+                <li><a class="nav" href="#intro">3D Bioprinting</a></li>
                 <li><a class="nav" href="#ouro">Ouro</a></li>
                 <li><a class="nav" href="#team">The Team</a></li>
                 <li><a class="nav" href="#contact">Contact Us</a></li>
         </nav>
         <div id="content">
-            <section id="introduction">
-                <header>
-                    <h3>3D Printing</h3>
-                </header>
-                <pre class="matrix"></pre>
+            <section class="split" id="intro">
                 <div class="interior">
-                    <p>
-                        3D printing is any of various processes to make a three-dimensional object. In 3D printing, additive processes are used, in which successive layers of material are laid down under computer control. These objects can be of almost any shape or geometry, and are produced from a 3D model or other electronic data source. A 3D printer is a type of industrial robot.
+                    <h2>3D Bioprinting</h2>
+                    <hr />
+                    <pre class="matrix" data-cols="7" data-rows="3"></pre>
+                    <p class="onethird">
+                        The field of 3D printing is today one of the most dynamic areas of manufacturing technologies. Hobbyists and professional manufacturies alike can conceptualize a three-dimensional creation, diagram it with CAD software, and bring it into reality then and there from their desk. Many exotic and mundance materials have been used in 3D printers over time; plastic, paper, ice, molten metal, gelatin and even liquid chocolate. 3D bioprinting is the is the evolutionary next step in this line: Spatially-controlled cell patterns; muscles, bones, skin and eventually even whole organs printed layer by layer from a seed of cloned stem cells. 
                     </p>
-                    <p>
-                        3D printing in the term's original and technically precise sense refers to processes that sequentially deposit material onto a powder bed with inkjet printer heads. More recently the meaning of the term has expanded to encompass a wider variety of techniques such as extrusion and sintering based processes. Technical standards use the term additive manufacturing (AM) for this broader sense.
+                    <p class="onethird">
+                        We have developed the Ouro Bioprinter – a scalable technology platform to fabricate reproducible organ-specific biocompatible 3D biopolymer hydrogels (alginate, collagen, chitosan, fibrin). The Ouro Bioprinter will enable you to create stem cell niches for stem cell biology and has broad implications for designing better drug screening models, using fewer animals and developing approaches for personal medicines beyond genomic.
                     </p>
-                    <blockquote>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </blockquote>
-                    <h1>Lorem Ipsum</h1>
-                    <h2>Lorem Ipsum</h2>
-                    <h3>Lorem Ipsum</h3>
-                    <h4>Lorem Ipsum</h4>
-                    <h5>Lorem Ipsum</h5>
-                    <h6>Lorem Ipsum</h6>
-                    <p class="text-four">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <br />
+                    <p class="onethird">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <br /><br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="split">
-                        <div class="split-two">
-                            <p>
-                                <a href="javascript:void(0)">Lorem ipsum dolor sit</a> amet, consectetur adipiscing elit, <strong>sed do eiusmod</strong> tempor incididunt ut <em>labore et dolore</em> magna aliqua. Ut enim ad minim veniam, <del>quis nostrud exercitation</del> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <code>reprehenderit in voluptate</code> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident<sup>2</sup>, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                Lorem ipsum dolor sit amet, consectetur<sub>10</sub> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
-                        <div class="split-two">
-                            <img src="images/ouro_logo.svg" alt="" width="25%" />
-                        </div>
-                    </div>
-                    <ul>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                    </ul>
-                   <ol>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                        <li>Lorem ipsum dolo sit amet.</li>
-                    </ol>
                 </div>
             </section>
             <section id="ouro">
-                <header>
-                    <h3>About Ouro</h3>
-                </header>
-                <pre class="print"></pre>
                 <div class="interior">
+                    <h3>Ouro</h3>
+                    <hr />
                     <p>Born in fire, Ouro is literally the greatest thing ever. <em>Ever</em>. <em>Evar</em>.
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        We have developed the Ouro Bioprinter – a scalable technology platform to fabricate reproducible organ-specific biocompatible 3D biopolymer hydrogels (alginate, collagen, chitosan, fibrin). The Ouro Bioprinter will enable you to create stem cell niches for stem cell biology and has broad implications for designing better drug screening models, using fewer animals and developing approaches for personal medicines beyond genomic.
                     </p>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -103,14 +58,12 @@
                 </div>
             </section>
             <section id="team">
-                <header>
-                    <h3>The Ouro Team</h3>
-                </header>
-                <div class="placeholder"></div>
                 <div class="interior">
+                    <h3>The Ouro Team</h3>
+                    <hr />
                     <div class="teamlist">
                         <div class="member">
-                            <div id="jemma" class="avatar" style="background-image: url('images/team/jemma.jpg');"><div class="social"></div></div>
+                            <div id="jemma" class="avatar" style="background-image: url('images/team/amywong.png');"><div class="social"></div></div>
                             <div class="bio">
                                 <h5>Jemma Redmond</h5>
                                 <p><span class="title">Our glorious leader</span><br /></p>
@@ -118,7 +71,7 @@
                             </div>
                         </div>
                         <div class="member">
-                            <div id="alanna" class="avatar" style="background-image: url('images/team/alanna.jpg');"></div>
+                            <div id="alanna" class="avatar" style="background-image: url('images/team/leela.png');"></div>
                             <div class="bio">
                                 <h5>Alanna Kelly</h5>
                                 <p><span class="title">Hardware Guru</span><br /></p>
@@ -126,7 +79,7 @@
                             </div>
                         </div>
                         <div class="member">
-                            <div id="mark" class="avatar" style="background-image: url('images/team/mark.jpg');"><a href="javascript:void(0)"></a></div>
+                            <div id="mark" class="avatar" style="background-image: url('images/team/scruffy.png');"></div>
                             <div class="bio">
                                 <h5>Mark Grealish</h5>
                                 <p><span class="title">Web developer</span><br /></p>
@@ -138,34 +91,29 @@
                 </div>
             </section>
             <section id="contact">
-                <header>
-                    <h3>Contact Ouro</h3>
-                </header>
-                <div class="placeholder"></div>
                 <div class="interior">
-                    <div class="split-two">
-                        <h5>Get in touch with Ouro:</h5>
-                        <p>Ouro is super-active on all of these über cool social networking sites:</p>
-                        <ul>
-                            <li class="phone">011 234 567 8901</li>
-                            <li class="email"><a href="javascript:void(0)">foo@tr3life.eu</a></li>
-                            <li class="twitter"><a href="javascript:void(0)">@foo</a></li>
-                            <li class="facebook"><a href="javascript:void(0)">/ouro</a></li>
+                    <h3>Contact Ouro</h3>
+                    <hr />
+                    <div class="half">
+                        <ul class="presence">
+                            <li class="email"><a href="javascript:void(0)"></a></li>
+                            <li class="twitter"><a href="javascript:void(0)"></a></li>
+                            <li class="google"><a href="javascript:void(0)"></a></li>
+                            <li class="facebook"><a href="javascript:void(0)"></a></li>
                         </ul>
-                    </div>
-                    <div class="split-two">
-                        <form action="javascript:void(0)">
-                            <h5>Send us a message:</h5>
-                            <input type="text" name="name" placeholder="Name" required>
-                            <input type="text" name="email" placeholder="Email" required>
-                            <textarea name="message" placeholder="Your message" rows="15" required></textarea>
-                            <button type="submit">Send Message</button>
-                        </form>
                     </div>
                 </div>
             </section>
+            <section id="footer">
+                <div class="interior">
+                    <div></div>
+                    <p>Copyright &copy; 2015 <a title="tr3life home" href="http://tr3life.eu/">tr3life</a><small>&trade;</small>. All rights reserved.</p>
+                </div>
+            </section>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="layout.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+        <script src="js/jquery-2.1.3.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/matrix.js"></script>
     </body>
 </html>
