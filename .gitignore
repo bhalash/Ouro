@@ -10,6 +10,12 @@ sftp-config.json
 sass/.sass-cache/
 
 #################
+## jQuery Library
+#################
+
+jquery-*min.js
+
+#################
 ## Eclipse
 #################
 
