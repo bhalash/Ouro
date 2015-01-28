@@ -11,6 +11,16 @@ jQuery(function($) {
         sec: 'current-section',
     }
 
+    function navToggle(element) {
+        $(element).addClass(cur.nav);
+        $('.nav').not(element).removeClass(cur.nav);
+    }
+
+    function secToggle(element) {
+        $(element).addClass(cur.sec);
+        $('section').not(element).removeClass(cur.sec);
+    }
+
     if ($(window).scrollTop() == 0 && !$('#menu').find('a').first().hasClass(cur.nav)) {
         $('#menu').find('a').first().addClass(cur.nav);
     }
@@ -19,11 +29,8 @@ jQuery(function($) {
         $('section').each(function() {
             if (!$(this).hasClass(cur.sec)) {
                 if ($(window).scrollTop() >= $(this).offset().top && $(window).scrollTop() <= $(this).offset().top + $(this).outerHeight()) {
-                    var hrefID = 'a[href="#' + $(this).attr('id') + '"]';
-                    $('section').removeClass(cur.sec);
-                    $(this).addClass(cur.sec);
-                    $('#menu a').not(hrefID).removeClass(cur.nav);
-                    $(hrefID).addClass(cur.nav);
+                    navToggle('a[href="#' + $(this).attr('id') + '"]');
+                    secToggle(this);
                 }
             }
         });
@@ -37,9 +44,8 @@ jQuery(function($) {
 
     $('.nav').click(function(click) {
         $(window).unbind('scroll');
-        $($(this).attr('href')).addClass(cur.sec);
-        $(this).addClass(cur.nav);
-        $('.nav').not(this).removeClass(cur.nav);
+        secToggle(this);
+        navToggle(this);
 
         $('html, body').animate({ 
             scrollTop: $($(this).attr('href')).offset().top
