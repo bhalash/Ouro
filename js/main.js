@@ -21,8 +21,8 @@ jQuery(function($) {
         $('section').not(element).removeClass(cur.sec);
     }
 
-    if ($(window).scrollTop() == 0 && !$('#menu').find('a').first().hasClass(cur.nav)) {
-        $('#menu').find('a').first().addClass(cur.nav);
+    if ($(window).scrollTop() == 0) {
+        navToggle($('#menu nav').first());
     }
 
     function toggleHighlightedNav() {
