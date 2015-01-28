@@ -4,6 +4,36 @@
  */
 
 @media only screen and (max-width: 1000px) {
+    .interior {
+        padding: 0 4%;
+        transform: none;
+    }
+
+    #content section {
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .quarter, .half {
+        float: none;
+        padding: 0;
+        width: 100%;
+    }
+
+    #team .member {
+        padding: 0;
+        width: 48%; 
+
+        &:nth-child(odd) {
+            margin-right: 2%;
+        }
+
+        &:nth-child(even):after {
+            clear: both;
+            display: table;
+            width: 100%
+        }
+    }
 }
 
 /* 
@@ -12,14 +42,18 @@
  */
 
 @media only screen and (max-width: 800px) {
+    #header {
+        h1 {
+            line-height: 75vh;
+        }
+
+        .logo {
+            background-position: center 29%;
+        }
+    }
 }
 
 @media only screen and (max-width: 700px) {
-    .split-two {
-        float: none;
-        padding: 0;
-        width: 100%;
-    }
 }
 
 /*
@@ -38,18 +72,9 @@ only screen
     and (min-device-width: 320px) 
     and (max-device-width: 736px) 
     and (orientation: landscape) {
-    #header {
-        h1 {
-            line-height: 75vh;
-        }
 
-        #logo {
-            background-position: center 29%;
-        }
-
-        #scroll-prompt {
-            top: 58vh;
-        }
+    .text-two, .text-three, .text-four {
+        @include columns(1,0);
     }
 
     section > header {
@@ -74,8 +99,8 @@ only screen
             float: none;
             width: 100%;
 
-            &:nth-child(2) {
-                padding: 0;
+            &:last-child {
+                padding-right: 0;
             }
         }
     }
