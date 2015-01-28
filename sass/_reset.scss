@@ -21,6 +21,10 @@ html, body {
     width: 100%
 }
 
+body {
+    // margin-bottom: 120px;
+}
+
 img, iframe {
     height: auto;
     margin: 0 auto;
@@ -61,4 +65,13 @@ form {
     input:-webkit-autofill {
         color: rgba(255,255,255,0.2) !important;
     }
+}
+
+/*
+ * Content
+ * -------
+ */
+
+p, li, blockquote {
+    color: $default_grey;
 }
