@@ -9,7 +9,7 @@ jQuery(function($) {
     var print = {
         element: '.print',
         interval: 10,
-        // url: 'ouro.txt',
+        // url: 'eadaoin.txt',
         url: 'ouro.txt',
         full: false,
         data: {
@@ -57,7 +57,8 @@ jQuery(function($) {
 
             var setText = setInterval(function() {
                 var div = $(print.element).children('div').eq(print.pos.row);
-                var spanChar = randChar(1);
+                // var spanChar = randChar(1);
+                var spanChar = randRange(0,1);
 
                 if (print.pos.row < 0) {
                     print.pos.full = true;
