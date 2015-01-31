@@ -21,14 +21,10 @@ jQuery(function($) {
         $('section').not(element).removeClass(cur.sec);
     }
 
-    if ($(window).scrollTop() == 0) {
-        navToggle($('#menu nav').first());
-    }
-
     function toggleHighlightedNav() {
         $('section').each(function() {
             if (!$(this).hasClass(cur.sec)) {
-                if ($(window).scrollTop() >= $(this).offset().top && $(window).scrollTop() <= $(this).offset().top + $(this).outerHeight()) {
+                if ($(window).scrollTop() >= $(this).offset().top - 20 && $(window).scrollTop() <= $(this).offset().top + $(this).outerHeight() - 20) {
                     navToggle('a[href="#' + $(this).attr('id') + '"]');
                     secToggle(this);
                 }
