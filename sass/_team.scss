@@ -6,23 +6,58 @@
         width: 100%;
     }
 
-    .member {
-        float: left;
-        margin-bottom: $db_margin;
-
-        // Use these rules if there are four team members.
-        // width: 23.5%;
-        // padding-right: 2%;
-        
-        // &:last-child {
-        //     padding-right: 0;
-        // }
-
-        // Use these rules if there are three team members.
+    %three {
+        // If there are three team members.
         width: 31.33%;
 
         &:nth-child(2) {
             padding: 0 3%;
+        }
+    }
+
+    %four {
+        // If there are four team members.
+        padding-right: 2%;
+        width: 23.5%;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    .member {
+        @extend %three;
+        float: left;
+        margin-bottom: $bottom_default;
+
+        @include breakpoint(max, 1000) {
+            padding: 0;
+            width: 48%;
+        }
+
+        @include breakpoint(smartphone) {
+            float: none;
+            width: 100%;
+        }
+
+        &:last-child {
+            @include breakpoint(smartphone) {
+                padding-right: 0;
+            }
+        }
+
+        &:nth-child(odd) {
+            @include breakpoint(max, 1000) {
+                margin-right: 2%;
+            }
+        }
+
+        &:nth-child(even):after {
+            @include breakpoint(max, 1000) {
+                clear: both;
+                display: table;
+                width: 100%;
+            }
         }
 
         p, h5 {

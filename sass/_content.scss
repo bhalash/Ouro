@@ -1,6 +1,6 @@
 #content {
     a {
-        box-shadow: rgba(0,0,0,0.4) 0 -3px 0 0 inset;
+        @include box_shadow(rgba(0,0,0,0.4) 0 -3px 0 0 inset);
     }
 
     blockquote {
@@ -9,12 +9,27 @@
     }
 
     .showcase {
-        background-image: url('images/polaris.jpg');
+        background-image: url('../images/polaris.jpg');
     }
 
-    section:not(#footer) {
-        @extend %border-box;
-        height: 100vh;
+    section {
+        &:not(#footer) {
+            @extend %border-box;
+            height: 100vh;
+        }
+
+        @include breakpoint(max, 1000) {
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        > header {
+            h1, h2, h3, h4, h5, h6 {
+                @include breakpoint(smartphone) {
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 
@@ -31,6 +46,11 @@
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+
+    @include breakpoint(max, 1000) {
+        padding: 0 4%;
+        transform: none;
+    }
 
     >:first-child {
         display: inline-block;
@@ -52,7 +72,7 @@ pre.matrix, pre.print {
     @extend %border-box;
     font-size: 1.5vh;
     overflow: hidden;
-    padding: $db_margin;
+    padding: $bottom_default;
     position: relative;
     text-align: left;
     white-space: nowrap;

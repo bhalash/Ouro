@@ -28,26 +28,24 @@ $light_grey: #eee;
  * -------
  */
 
-$db_margin: 16px;
+$bottom_default: 16px;
+
+/*
+ * Mixins and Partials
+ * -------------------
+ */
+
+@import 'mixins';
+@import 'partials';
 
 /*
  * Imports
  * ------- 
  */
 
-// CSS resets
 @import 'reset';
-// All font: styling.
 @import 'typography';
-// Code-intensive mixins.
-@import 'mixins';
-// Useful partial files, such as margins, box-sizings and clears.
-@import 'partials';
-// Rules for the header. 
 @import 'header';
 @import 'content';
 @import 'team';
-// Social sharing links.
 @import 'share';
-// Website media queries.
-@import 'media_queries';

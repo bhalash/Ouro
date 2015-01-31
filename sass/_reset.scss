@@ -43,7 +43,7 @@ form {
         display: block;
         font-size: 1em;
         margin: 0;
-        margin-bottom: $db_margin / 3;
+        margin-bottom: $bottom_default / 3;
         outline: 0;
         padding: 10px;
         width: 100%;
@@ -56,6 +56,10 @@ form {
 
     button {
         width: auto;
+
+        @include breakpoint(smartphone) {
+            width: 100%;
+        }
 
         &:active {
             background: $active_grey;
