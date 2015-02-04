@@ -12,22 +12,21 @@
         background-image: url('../images/polaris.jpg');
     }
 
+    h3 {
+        @extend %ouro-border;
+    }
+
     section {
+        @extend %border-box;
+        padding: $section_padding;
+
         &:not(#footer) {
             @extend %border-box;
             height: 100vh;
-        }
 
-        @include breakpoint(max, 1000) {
-            height: auto;
-            margin-bottom: 30px;
-        }
-
-        > header {
-            h1, h2, h3, h4, h5, h6 {
-                @include breakpoint(smartphone) {
-                    text-align: center;
-                }
+            @include breakpoint(max, 1000) {
+                height: auto;
+                margin-bottom: 60px;
             }
         }
     }
@@ -41,21 +40,23 @@
 .interior {
     @extend %border-box;
     @extend %clearfix;
-    padding: 0 15%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    padding: 15px 20%;
+    min-height: 100%;
     width: 100%;
 
-    @include breakpoint(max, 1000) {
-        padding: 0 4%;
-        transform: none;
+    @include breakpoint(max, 1500) {
+        padding-left: 15%;
+        padding-right: 15%;
     }
 
-    >:first-child {
-        display: inline-block;
-        margin-bottom: 13px;
-        text-align: left;
+    @include breakpoint(max, 1200) {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    @include breakpoint(max, 1000) {
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
@@ -63,7 +64,9 @@ hr {
     border: 0;
     height: 1px;
     background: transparent;
+    margin: 0;
     outline: 0;
+    padding: 0;
     width: 100%;
 }
 
@@ -92,7 +95,7 @@ pre.matrix {
         width: auto;
 
         &:first-child {
-            margin-left: -10px;
+            margin-left: -$section_padding;
         }
     }
 }
@@ -103,13 +106,18 @@ pre.print {
     }
 }
 
+#contact {
+    position: relative;
+}
+
 #footer {
     background-color: $default_grey;
-
-    .interior {
-        top: 0;
-        transform: none;
-    }
+    bottom: $section_padding;
+    left: $section_padding;
+    padding: 0;
+    position: absolute;
+    right: $section_padding;
+    z-index: 2;
 
     a {
         box-shadow: none;
@@ -118,5 +126,35 @@ pre.print {
 
     p {
         color: #fff;
+        margin-bottom: 0;
     }
 }
+
+/*
+ * Section Colours
+ * ---------------
+ */
+
+section:not(#header) > .interior {
+    background-color: $light_grey;
+}
+
+// #intro .interior {
+//     background-color: rgba($section_2, 0.1);
+// }
+
+// #ouro .interior {
+//     background-color: rgba($ouro_green_light, 0.1);
+// }
+
+// #team .interior {
+//     background-color: $light_grey;
+// }
+
+// #contact > .interior {
+//     background-color: rgba($section_1, 0.1);
+// }
+
+// #footer .interior {
+//     background-color: $default_grey;
+// }
