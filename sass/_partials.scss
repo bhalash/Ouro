@@ -165,3 +165,37 @@
         @include columns(1,0);
     }
 }
+
+/*
+ * Team Member Split Columns
+ * -------------------------
+ * The padding and margin are both important in having the content laid out in a
+ * pleasing manner.
+ */
+
+%three {
+    // If there are three team members.
+    width: 32.667%;
+
+    &:not(:last-child) {
+        margin-right: 1%;
+    }
+}
+
+%four {
+    // If there are four team members.
+    width: 23.5%;
+
+    &:not(:last-child) {
+        margin-right: 2%;
+    }
+}
+
+%three, %four {
+    @include breakpoint(smartphone) {
+        float: none;
+        margin: 0;
+        margin-bottom: $bottom_default;
+        width: 100%;
+    }
+}
