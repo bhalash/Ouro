@@ -44,13 +44,6 @@
     }
 }
 
-@mixin transform_scale_y($amount) {
-    // Vertically stretch text.
-    -webkit-transform: scaleY($amount);
-    -ms-transform: scaleY($amount);
-    transform: scaleY($amount);
-}
-
 @mixin vertical_center($amount) {
     // Useful for vertically centering elements.
     padding-bottom: $amount;
@@ -117,5 +110,5 @@
 }
 
 @mixin dark_mask($opacity) {
-    background-color: rgba(0,0,0,$opacity);
+    background-color: rgba(24,41,77,$opacity);
 }
