@@ -1,96 +1,103 @@
 #team {
     @extend %border-box;
 
-    .teamlist, .member {
+    a {
+        box-shadow: none;
+    }
+
+    h5, p {
+        color: #fff;
+    }
+
+    h5 {
+        border-bottom: 1px solid #fff;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    
+    .teamlist {
         @extend %clearfix;
-        width: 100%;
-    }
-
-    %three {
-        // If there are three team members.
-        width: 31.33%;
-
-        &:nth-child(2) {
-            padding: 0 3%;
-        }
-    }
-
-    %four {
-        // If there are four team members.
-        padding-right: 2%;
-        width: 23.5%;
-
-        &:last-child {
-            padding-right: 0;
-        }
     }
 
     .member {
         @extend %three;
-        float: left;
-        margin-bottom: $bottom_default;
-
-        @include breakpoint(max, 1000) {
-            padding: 0;
-            width: 48%;
-        }
-
-        @include breakpoint(smartphone) {
-            float: none;
-            width: 100%;
-        }
-
-        &:last-child {
-            @include breakpoint(smartphone) {
-                padding-right: 0;
-            }
-        }
-
-        &:nth-child(odd) {
-            @include breakpoint(max, 1000) {
-                margin-right: 2%;
-            }
-        }
-
-        &:nth-child(even):after {
-            @include breakpoint(max, 1000) {
-                clear: both;
-                display: table;
-                width: 100%;
-            }
-        }
-
-        p, h5 {
-            white-space: initial;
-        }
-    }
-
-    .avatar {
         @extend %cover-picture;
-        height: 0;
-        padding-bottom: 100%;
-        width: 100%;
-    }
-
-    .social {
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .bio {
-        @extend %border-box;
-        background-color: $light_grey;
-        font: $font_sans;
-        min-height: 350px;
-        padding: 15px;
+        float: left;
+        min-height: 500px;
         position: relative;
 
-        span.title {
+        .job-title {
             font-size: 1.2em;
             font-variant: small-caps;
+            margin: 0;
+            text-align: center;
             text-transform: lowercase;
         }
     }
+
+    #mark {
+        background-image: url('../images/team/mark_corrib.jpg');
+    }
+
+    #alanna {
+        background-image: url('../images/team/amywong.png');
+    }
+
+    #jemma {
+        background-image: url('../images/team/leela.png');
+    }
+
+    .wrap {
+        background: -moz-linear-gradient(top,  rgba(0,0,0,0) 3%, rgba(0,0,0,0) 22%, rgba(0,0,0,0.39) 99%, rgba(0,0,0,0.39) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,rgba(0,0,0,0)), color-stop(22%,rgba(0,0,0,0)), color-stop(99%,rgba(0,0,0,0.39)), color-stop(100%,rgba(0,0,0,0.39))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#63000000',GradientType=0 ); /* IE6-9 */
+
+        @extend %border-box;
+        bottom: 0;
+        left: 0;
+        padding: $bottom_default * 0.5;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        // @include dark_mask(0.3);
+    }
+
+    .bio {
+        bottom: $bottom_default * 0.5;
+        left: $bottom_default * 0.5;
+        right: $bottom_default * 0.5;
+        font: $font_sans;
+        position: inherit;
+
+        p {
+            word-wrap: break-word;
+        }        
+    }
+
+    /*
+     * Team Member Social Avatar 
+     * -------------------------
+     * This isn't used, but I did some cool things with transforms that I want
+     * to take a look at later.
+     *
+     */
+
+    // .social-avatar {
+    //     @extend %cover-picture;
+    //     bottom: 0;
+    //     border: 3px solid #fff;
+    //     border-radius: 50%;
+    //     height: 0;
+    //     left: 50%;
+    //     padding-bottom: 30%;
+    //     position: absolute;
+    //     transform: translateX(-50%) translateY(50%);
+    //     width: 30%;
+    //     z-index: 2;
+    // }
 }
