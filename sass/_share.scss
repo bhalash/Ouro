@@ -27,23 +27,42 @@
  * </ul>
  */
 
-.comments  { background-color: #30b351; background-image: url('../images/social/comments.png'); }
-.email     { background-color: #f5756c; background-image: url('../images/social/email.png'); }
-.facebook  { background-color: #3B5998; background-image: url('../images/social/facebook.png'); }
-.flickr    { background-color: #ff0084; background-image: url('../images/social/flickr.png'); } 
-.github    { background-color: #333333; background-image: url('../images/social/github.png'); }
-.google    { background-color: #dd4b39; background-image: url('../images/social/google.png'); }
-.instagram { background-color: #3f729b; background-image: url('../images/social/instagram.png'); }
-.linkedin  { background-color: #0976b4; background-image: url('../images/social/linkedin.png'); }
-.pinterest { background-color: #cc2127; background-image: url('../images/social/pinterest.png'); }
-// .print     { background-color: #007aaf; background-image: url('../images/social/print.png'); }
-.reddit    { background-color: #ff5700; background-image: url('../images/social/reddit.png'); }
-.rss       { background-color: #ff6600; background-image: url('../images/social/rss.png'); }
-.tumblr    { background-color: #35465c; background-image: url('../images/social/tumblr.png'); }
-.twitter   { background-color: #55acee; background-image: url('../images/social/twitter.png'); }
-.youtube   { background-color: #b31217; background-image: url('../images/social/youtube.png'); }
+$color_rmwb: #343537;
+$color_comments: #30b351;
+$color_email: #f5756c;
+$color_facebook: #3B5998;
+$color_flickr: #ff0084;
+$color_github: #666666;
+$color_google: #dd4b39;
+$color_instagram: #3f729b;
+$color_linkedin: #0976b4;
+$color_pinterest: #cc2127;
+$color_print: #007aaf;
+$color_reddit: #ff5700;
+$color_rss: #ff6600;
+$color_tumblr: #35465c;
+$color_twitter: #55acee;
+$color_youtube: #b31217;
 
-.social, .presence {
+.beard     { background-color: $color_rmwb; background-image: url('../images/social/beard.png'); }
+.comments  { background-color: $color_comments; background-image: url('../images/social/comments.png'); }
+.email     { background-color: $color_email; background-image: url('../images/social/email.png'); }
+.facebook  { background-color: $color_facebook; background-image: url('../images/social/facebook.png'); }
+.flickr    { background-color: $color_flickr; background-image: url('../images/social/flickr.png'); } 
+.github    { background-color: $color_github; background-image: url('../images/social/github.png'); }
+.google    { background-color: $color_google; background-image: url('../images/social/google.png'); }
+.instagram { background-color: $color_instagram; background-image: url('../images/social/instagram.png'); }
+.linkedin  { background-color: $color_linkedin; background-image: url('../images/social/linkedin.png'); }
+.pinterest { background-color: $color_pinterest; background-image: url('../images/social/pinterest.png'); }
+// FIXME
+.print:not(pre) { background-color: $color_print; background-image: url('../images/social/print.png'); }
+.reddit    { background-color: $color_reddit; background-image: url('../images/social/reddit.png'); }
+.rss       { background-color: $color_rss; background-image: url('../images/social/rss.png'); }
+.tumblr    { background-color: $color_tumblr; background-image: url('../images/social/tumblr.png'); }
+.twitter   { background-color: $color_twitter; background-image: url('../images/social/twitter.png'); }
+.youtube   { background-color: $color_youtube; background-image: url('../images/social/youtube.png'); }
+
+ul.social {
     @extend %clearfix;
     list-style-type: none;
     margin: 0;
@@ -52,37 +71,25 @@
         background-size: auto 90%;
         background-repeat: no-repeat;
         background-position: center center;
+        float: left;
+        height: 0;
+        padding-bottom: 10%;
+        width: 10%;
+
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
     }
 
     a {
+        border: 0;
         display: block;
-        height: 100%;
-        text-align: right;
+        height: 0;
+        padding-top: 100%;
         width: 100%;
     }
 }
 
-.social {
-    li {
-        float: left;
-        height: 0;
-        padding-bottom: 25%;
-        width: 25%;
-    }
-}
-
 .presence {
-    li {
-        background-position: center center;
-        display: inline-block;
-        color: #fff;
-        margin: 0;
-        width: 50%; 
-    }
-
-    a {
-        @extend %border-box;
-        box-shadow: none !important;
-        padding: 30px 20px;
-    }
+    display: none !important;
 }
