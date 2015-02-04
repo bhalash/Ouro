@@ -23,12 +23,19 @@ $default_grey: rgba(0,0,0,0.8);
 $active_grey: #bbb;
 $light_grey: #eee;
 
+$section_1: #9acccd;
+$section_2: #cbd890;
+// $section_3: ;
+// $section_4: ;
+// $section_5: ;
+
 /*
  * Margins
  * -------
  */
 
 $bottom_default: 16px;
+$section_padding: 10px;
 
 /*
  * Mixins and Partials
