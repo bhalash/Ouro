@@ -12,10 +12,6 @@
         background-image: url('../images/polaris.jpg');
     }
 
-    h3 {
-        @extend %ouro-border;
-    }
-
     section {
         @extend %border-box;
         padding: $section_padding;
@@ -40,6 +36,7 @@
 .interior {
     @extend %border-box;
     @extend %clearfix;
+    border-radius: 10px;
     padding: 15px 20%;
     min-height: 100%;
     width: 100%;
@@ -73,7 +70,7 @@ hr {
 pre.matrix, pre.print {
     @extend %noselect;
     @extend %border-box;
-    font-size: 1.5vh;
+    font-size: 0.95em;
     overflow: hidden;
     padding: $bottom_default;
     position: relative;
@@ -108,6 +105,42 @@ pre.print {
 
 #contact {
     position: relative;
+
+    form {
+        @extend .ouro-card;
+        @extend %border-box;
+        padding: 8px;
+
+        p {
+            padding: 5px;
+
+            &:not(.messages) {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        textarea {
+            min-height: 150px;
+        }
+
+        .unfilled {
+            background: #ed8787;
+        }
+
+        .success {
+            background: #87ed90;
+        }
+
+        .unfilled, .success {
+            color: #fff;
+            transition: background-color .2s;
+
+            @include placeholder_style() {
+                color: #fff;
+            }
+        }
+    }
 }
 
 #footer {
@@ -133,10 +166,11 @@ pre.print {
 /*
  * Section Colours
  * ---------------
+ * FIXME
  */
 
 section:not(#header) > .interior {
-    background-color: $light_grey;
+    background-color: rgba($ouro_green_light, 0.1);
 }
 
 // #intro .interior {
