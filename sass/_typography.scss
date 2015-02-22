@@ -1,23 +1,10 @@
-/* 
- * Font Stacks
- * ------------
- */
-
-// TODO: Replace OSP-DIN outside of h1. It looks like shit.
-$title_fjalla:   5em 'Fjalla One', Impact, Charcoal, sans-serif;
-$title_verdana:  3em Verdana, Geneva, sans-serif;
-$font_sans:      0.95em 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
-$font_monospace: 0.9em 'Source Code Pro', 'Courier New', Courier, monospace;
-$font_serif:     0.9em 'Noto Serif', Georgia, serif;
-
 /*
  * Header Items
  * ------------
  */
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0; 
+    margin-bottom: $bottom_default;
 }
 
 h1, h2, h3 {
@@ -28,7 +15,7 @@ h1, h2, h3 {
 }
 
 h2, h3 {
-    @extend %ouro-border;
+    @extend .ouro-border;
 }
 
 h2 { font-size: 4em; }
@@ -42,8 +29,6 @@ h3 {
 }
 
 h4, h5, h6 {
-    // Verdana font stack. Used for article titles.
-    // font: $font_serif;
     font: $title_fjalla;
     font-weight: bold;
     text-transform: uppercase;
