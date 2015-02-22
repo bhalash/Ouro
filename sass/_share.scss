@@ -62,34 +62,6 @@ $color_youtube: #b31217;
 .twitter   { background-color: $color_twitter; background-image: url('../images/social/twitter.png'); }
 .youtube   { background-color: $color_youtube; background-image: url('../images/social/youtube.png'); }
 
-ul.social {
-    @extend %clearfix;
-    list-style-type: none;
-    margin: 0;
-
-    li {
-        background-size: auto 90%;
-        background-repeat: no-repeat;
-        background-position: center center;
-        float: left;
-        height: 0;
-        padding-bottom: 10%;
-        width: 10%;
-
-        &:not(:first-child) {
-            margin-left: 5px;
-        }
-    }
-
-    a {
-        border: 0;
-        display: block;
-        height: 0;
-        padding-top: 100%;
-        width: 100%;
-    }
-}
-
 .presence {
     display: none !important;
 }
