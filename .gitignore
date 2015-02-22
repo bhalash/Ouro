@@ -11,6 +11,11 @@ sass/.sass-cache/
 *.css
 *.css.map
 
+###################
+## Local PHP Config
+###################
+
+config.php
 
 #################
 ## jQuery Library
