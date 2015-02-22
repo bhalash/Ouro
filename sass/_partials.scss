@@ -5,6 +5,18 @@
  * aren't attached to a given section of the site. 
 */
 
+.ouro-card {
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    background: #fff;
+}
+
+.ouro-border {
+    border-bottom: 6px solid $ouro_green_light;
+}
+
+
 /*
  * Shadows and Gradients
  * ---------------------
@@ -12,13 +24,13 @@
 
 %smooth-gradient {
     // Gradient via http://www.colorzilla.com/gradient-editor/
-    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); 
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); 
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); 
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 3%, rgba(0,0,0,0) 22%, rgba(0,0,0,0.39) 99%, rgba(0,0,0,0.39) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,rgba(0,0,0,0)), color-stop(22%,rgba(0,0,0,0)), color-stop(99%,rgba(0,0,0,0.39)), color-stop(100%,rgba(0,0,0,0.39))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#63000000',GradientType=0 ); /* IE6-9 */
 }
 
 %noselect {
@@ -88,10 +100,6 @@
     // the child of a parent with both.  
     margin: 0;
     padding: 0;
-}
-
-%ouro-border {
-    border-bottom: 6px solid $ouro_green_light;
 }
 
 /* 
