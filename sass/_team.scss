@@ -1,3 +1,5 @@
+$team_mar: $bottom_default * 0.5;
+
 #team {
     @extend %border-box;
 
@@ -5,99 +7,90 @@
         box-shadow: none;
     }
 
-    h5, p {
-        color: #fff;
-    }
-
     h5 {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $default_grey;
         letter-spacing: 1px;
+        margin: 0;
         text-align: center;
     }
-    
+
+    p {
+        margin-bottom: $team_mar;
+        word-wrap: break-word;
+    }
+
     .teamlist {
         @extend %clearfix;
+        padding: $bottom_default;
     }
 
     .member {
         @extend %three;
-        @extend %cover-picture;
+        @extend .ouro-card;
         float: left;
-        min-height: 500px;
-        position: relative;
-
-        .job-title {
-            font-size: 1.2em;
-            font-variant: small-caps;
-            margin: 0;
-            text-align: center;
-            text-transform: lowercase;
-        }
-    }
-
-    #mark {
-        background-image: url('../images/team/mark_corrib.jpg');
-    }
-
-    #alanna {
-        background-image: url('../images/team/amywong.png');
-    }
-
-    #jemma {
-        background-image: url('../images/team/leela.png');
+        min-height: 620px;
     }
 
     .wrap {
-        background: -moz-linear-gradient(top,  rgba(0,0,0,0) 3%, rgba(0,0,0,0) 22%, rgba(0,0,0,0.39) 99%, rgba(0,0,0,0.39) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,rgba(0,0,0,0)), color-stop(22%,rgba(0,0,0,0)), color-stop(99%,rgba(0,0,0,0.39)), color-stop(100%,rgba(0,0,0,0.39))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* IE10+ */
-        background: linear-gradient(to bottom,  rgba(0,0,0,0) 3%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.39) 99%,rgba(0,0,0,0.39) 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#63000000',GradientType=0 ); /* IE6-9 */
-
         @extend %border-box;
-        bottom: 0;
-        left: 0;
-        padding: $bottom_default * 0.5;
-        position: absolute;
-        right: 0;
-        top: 0;
+        padding: $team_mar;
+        width: 100%;
+    }
 
-        // @include dark_mask(0.3);
+    .job-title {
+        font-size: 1.2em;
+        font-variant: small-caps;
+        text-align: center;
+        text-transform: lowercase;
+    }
+
+    .avatar {
+        @extend %border-box;
+        @extend %cover-picture;
+        margin-bottom: $team_mar;
+        @include flex_size(100%, 1);
+    }
+
+    #mark .avatar {
+        background-image: url('../images/team/mark_corrib.jpg');
+    }
+
+    #alanna .avatar {
+        background-image: url('../images/team/alanna.jpg');
+    }
+
+    #jemma .avatar {
+        background-image: url('../images/team/leela.png');
     }
 
     .bio {
-        bottom: $bottom_default * 0.5;
-        left: $bottom_default * 0.5;
-        right: $bottom_default * 0.5;
         font: $font_sans;
-        position: inherit;
-
-        p {
-            word-wrap: break-word;
-        }        
     }
 
-    /*
-     * Team Member Social Avatar 
-     * -------------------------
-     * This isn't used, but I did some cool things with transforms that I want
-     * to take a look at later.
-     *
-     */
+    ul.social {
+        @extend %clearfix;
+        list-style-type: none;
+        margin: 0;
 
-    // .social-avatar {
-    //     @extend %cover-picture;
-    //     bottom: 0;
-    //     border: 3px solid #fff;
-    //     border-radius: 50%;
-    //     height: 0;
-    //     left: 50%;
-    //     padding-bottom: 30%;
-    //     position: absolute;
-    //     transform: translateX(-50%) translateY(50%);
-    //     width: 30%;
-    //     z-index: 2;
-    // }
+        li {
+            background-size: auto 90%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            float: left;
+
+            @include flex_size(30px, 1);
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+
+        a {
+            border: 0;
+            display: block;
+            height: 0;
+            padding-top: 100%;
+            width: 100%;
+        }
+    }
 }
