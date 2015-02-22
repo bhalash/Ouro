@@ -44,6 +44,13 @@
     }
 }
 
+@mixin flex_size($width, $ratio) {
+    // Ratio should be between 0 and foo.
+    height: 0;
+    padding-bottom: $width * $ratio;
+    width: $width;
+}
+
 @mixin vertical_center($amount) {
     // Useful for vertically centering elements.
     padding-bottom: $amount;
@@ -79,29 +86,27 @@
     column-gap: $gap;
 }
 
-@mixin placeholder_style($color, $font) {
-    // See: http://css-tricks.com/snippets/css/style-placeholder-text/
-    input[placeholder], textarea[placeholder] {
-        color: $color;
-        font: $font;
+@mixin placeholder_style() {
+    &::-webkit-input-placeholder {
+       @content;
     }
 
-    ::-moz-placeholder {
-        // Mozilla Firefox 19+
-        color: $color;
-        font: $font;
+    &::-webkit-input-placeholder {
+        @content;
     }
 
-    :-ms-input-placeholder {
-        // Internet Explorer 10+
-        color: $color;
-        font: $font;
+    &:-moz-placeholder {
+        @content;
+        opacity: 1;
     }
 
-    ::-webkit-input-placeholder {
-        // Webkit browsers-Chrome and Opera
-        color: $color;
-        font: $font;
+    &::-moz-placeholder {
+        @content;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
     }
 }
 
