@@ -1,0 +1,36 @@
+pre.matrix, pre.print {
+    @extend %noselect;
+    @extend %border-box;
+    font-size: 0.95em;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+}
+
+pre.matrix, pre.print {
+    span.highlight, span.letter {
+        color: $default_grey;
+        background: $ouro_green_light;
+    }
+}
+
+pre.matrix {
+    background: transparent;
+    
+    > div {
+        display: inline-block;
+        margin-right: 1.3vw;
+        width: auto;
+
+        &:first-child {
+            margin-left: -$section_padding;
+        }
+    }
+}
+
+pre.print {
+    div {
+        margin-left: -20px;
+    }
+}
