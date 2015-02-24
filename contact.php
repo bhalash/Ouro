@@ -22,12 +22,9 @@ if (!empty($errors)) {
     // If we have errors.
 }
 
-// Leave unused fields until final recipient is decided.
-$mail->addAddress('mark@bhalash.com', 'Mark Grealish');
-// $mail->addReplyTo('info@example.com', 'Information');
-// $mail->addCC('cc@example.com');
-// $mail->addBCC('bcc@example.com');
-
+// https://github.com/PHPMailer/PHPMailer
+$mail->addAddress('hello@tr3life.eu', 'Tr3life');
+$mail->addReplyTo($data['email'], $data['name']);
 $mail->Subject = mail_subject($data);
 $mail->Body = mail_body($data);
 
