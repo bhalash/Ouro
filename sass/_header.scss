@@ -1,46 +1,39 @@
 #header {
-    position: relative;
-    width: 100%;
+    height: 100vh;
 
-    h1 {
-        font-size: 10vh;
-        line-height: 100vh;
-        margin-bottom: 0;
-        text-align: center;
+    .logo {
+        background: center center/auto 40% no-repeat border-box url('../images/ouro_logo.svg');
+        display: table;
+        height: 100%;
+        position: relative;
         width: 100%;
+
+        h1 {
+            font-size: 10vh;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
     }
-}
 
-.logo {
-    background: center center/auto 40% no-repeat border-box url('../images/ouro_logo.svg');
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
+    .prompt {
+        bottom: 7.5%;
+        height: 50px;
+        left: 50%;
+        max-width: 250px;
+        position: absolute;
+        right: 0;
+        transform: translateX(-50%);
+        width: 50%;
 
-.prompt {
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 85vh;
-    width: 100%;
-
-    > a {
-        background: center center/contain no-repeat border-box url('../images/down_arrow.svg');
-        display: block;
-        height: 6.5vh;
-        margin: 0 auto;
-        max-width: 25vh;
+        > a {
+            background: center center/contain no-repeat border-box url('../images/down_arrow.svg');
+            display: block;
+            height: 100%;
+            margin: 0 auto;
+            width: 100%;
+        }
     }
-}
-
-.wallpaper {
-    background: center center/cover no-repeat border-box url('../images/placeholders/bubbles.jpg');
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 .nav-shadow {
@@ -49,7 +42,6 @@
 
 nav#menu {
     background-color: #fff;
-    // bottom: 0;
     left: 0;
     position: fixed;
     right: 0;
@@ -62,7 +54,7 @@ nav#menu {
         position: initial;
         text-align: center;
 
-        @include breakpoint(smartphone) {
+        @include breakpoint(max, 670) {
             overflow-x: scroll;
             white-space: nowrap;
         }
