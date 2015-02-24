@@ -21,20 +21,23 @@ $team_mar: $bottom_default * 0.5;
 
     .teamlist {
         @extend %clearfix;
-        padding: $bottom_default;
+        margin: 0 auto;
+
+        @include breakpoint(smartphone) {
+            padding: 0;
+            max-width: 100%;
+        }
     }
 
     .member {
         @extend %three;
         @extend .ouro-card;
         float: left;
-        min-height: 620px;
-    }
+        min-height: 350px;
 
-    .wrap {
-        @extend %border-box;
-        padding: $team_mar;
-        width: 100%;
+        // @include breakpoint(smartphone) {
+        //     min-height: 0;
+        // }
     }
 
     .job-title {
