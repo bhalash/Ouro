@@ -18,6 +18,7 @@ Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, respon
 // TODO: Replace OSP-DIN outside of h1. It looks like shit.
 $title_fjalla:   5em 'Fjalla One', Charcoal, sans-serif;
 $title_verdana:  3em Verdana, Geneva, sans-serif;
+$title_opensans: 5em 'Open Sans Condensed', Verdana, Geneva, sans-serif;
 $font_sans:      0.95em 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
 $font_monospace: 0.9em 'Source Code Pro', 'Courier New', Courier, monospace;
 $font_serif:     0.9em 'Noto Serif', Georgia, serif;
@@ -31,15 +32,10 @@ $ouro_green_dark: #669c5f;
 $ouro_green_light: #b9dfbc;
 $ouro_green_term: #00ff00;
 $default_grey: rgba(0,0,0,0.8);
+$default_white: rgba(255,255,255,0.8);
 // For active buttons.
 $active_grey: #bbb;
 $light_grey: #eee;
-
-$section_1: #9acccd;
-$section_2: #cbd890;
-// $section_3: ;
-// $section_4: ;
-// $section_5: ;
 
 /*
  * Margins
@@ -47,7 +43,7 @@ $section_2: #cbd890;
  */
 
 $bottom_default: 16px;
-$section_padding: 10px;
+$section_padding: 30px;
 
 /*
  * Mixins and Partials
@@ -67,4 +63,5 @@ $section_padding: 10px;
 @import 'header';
 @import 'content';
 @import 'team';
+@import 'contact';
 @import 'share';
