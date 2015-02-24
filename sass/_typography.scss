@@ -4,36 +4,21 @@
  */
 
 h1, h2, h3, h4, h5, h6 {
-    margin-bottom: $bottom_default;
-}
-
-h1, h2, h3 {
     color: $default_grey;
-    font: $title_fjalla;
+    font: $title_opensans;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    margin-bottom: $bottom_default;
+    // text-transform: uppercase;
 }
 
-h2, h3 {
-    @extend .ouro-border;
+h1 {
+    font: $title_fjalla;
+    margin-bottom: 0;
+    text-transform: uppercase;
 }
 
 h2 { font-size: 4em; }
-
-h3 { 
-    font-size: 3em; 
-
-    @include breakpoint(smartphone) {
-        font-size: 2.5em;
-    }
-}
-
-h4, h5, h6 {
-    font: $title_fjalla;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
+h3 { font-size: 3em; }
 h4 { font-size: 2.5em; }
 h5 { font-size: 1.5em; }
 h6 { font-size: 1em; }
@@ -65,8 +50,8 @@ code, kbd, pre, pre span, tt, var {
 
 pre {
     @extend %border-box;
-    background-color: $default_grey;
-    color: $ouro_green_light;
+    background-color: transparent;
+    color: #fff;
     line-height: 1.2em;
     overflow: auto;
 }
@@ -162,6 +147,10 @@ input,textarea,button {
 
 blockquote, ol, p, pre, ul {
     margin-bottom: $bottom_default;
+}
+
+p, li, blockquote {
+    color: $default_grey;
 }
 
 li {
