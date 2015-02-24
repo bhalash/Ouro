@@ -6,16 +6,25 @@
 */
 
 .ouro-card {
-    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
-    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
-    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    @extend %border-box;
+    // -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    // -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    // box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
     background: #fff;
+    padding: 8px !important;
 }
 
 .ouro-border {
     border-bottom: 6px solid $ouro_green_light;
 }
 
+.bottom-margin {
+    margin-bottom: $bottom_default;
+}
+
+.right-margin {
+    margin-right: 1%;
+}
 
 /*
  * Shadows and Gradients
@@ -45,9 +54,9 @@
 
 %top-box-shadow {
     // Add a box shadow to the top of an element.
-    -webkit-box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);
-    box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);    
+    -webkit-box-shadow: 0 0 60px 30px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 60px 30px rgba(0,0,0,0.75);
+    box-shadow: 0 0 60px 30px rgba(0,0,0,0.75);    
 }
 
 %no-box-shadow {
@@ -62,7 +71,7 @@
  */
 
 %cover-picture {
-    background-position: center 20%;
+    background-position: center 30%;
     background-repeat: no-repeat;
     background-size: cover; 
 }
@@ -111,44 +120,60 @@
 
 .split {
     @extend %clearfix;
+    height: 100%;
 }
 
-.twothirds {
-    width: 66%;
-}
-
-.onethird {
-    width: 33%;
-}
-
-.quarter {
-    width: 25%; 
-}
-
-.half {
-    width: 50%;
-}
-
-.onefifth {
-    width: 66%;
-}
-
-.twothirds, .onethird, .quarter, .half, .onefifth {
+%column {
     @extend %border-box;
-    float: left;
     height: 100%;
     min-height: 1px;
-    padding-right: $bottom_default;
+    position: relative;
+}
 
-    &:last-child {
-        padding-right: 0;
+.col-onethird {
+    @extend %column;
+    width: 25%;
+
+    .interior {
+        @include breakpoint(smartphone) {
+            background-size: contain;
+            margin-bottom: $bottom_default;
+            @include flex_size(100%, 0.25);
+        }
     }
+}
 
+.col-twothirds {
+    @extend %column;
+    width: 75%;
+
+    .interior {
+        padding: $section_padding;
+
+        @include breakpoint(smartphone) {
+            padding: 2.5%;
+        }
+    }
+}
+
+.col-onethird, .col-twothirds {
+    @include breakpoint(smartphone) {
+        width: 100%;
+    }
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left, .float-right {
     @include breakpoint(smartphone) {
         float: none;
-        margin-bottom: $bottom_default;
-        width: 100%;
-    } 
+    }
 }
 
 /*
@@ -157,15 +182,15 @@
  */
 
 .text-two {
-    @include columns(2, 20px);
+    @include columns(2, 30px);
 }
 
 .text-three {
-    @include columns(3, 20px);
+    @include columns(3, 30px);
 }
 
 .text-four {
-    @include columns(4, 20px);
+    @include columns(4, 30px);
 }
 
 .text-two, .text-three, .text-four {
