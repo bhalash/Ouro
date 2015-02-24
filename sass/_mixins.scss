@@ -1,5 +1,5 @@
 @mixin breakpoint($point, $size: '') {
-    $cell_min: 320px;
+    $cell_min: 200px;
     $cell_max: 736px;
 
     $tablet_min: 736px;
