@@ -133,15 +133,9 @@ jQuery(function($) {
     var isIos7 = !!navigator.userAgent.match(/i(Pad|Phone|Pod).+(Version\/7\.\d+ Mobile)/i);
 
     if (isIos7 || isIos6) {
-        $('section').not('#footer').css('height', $(window).height());
-
         $('#header h1').css({
-            fontSize: $(window).height() * 0.1,
-            lineHeight: $(window).height(),
+            lineHeight: $(window).height() + 'px',
         });
-
-        $('.prompt').css('top', $(window).height() * 0.85);
-        $('.prompt a').css('height', $(window).height() * 0.065);
     }
 
     /*
@@ -159,6 +153,22 @@ jQuery(function($) {
     });
 
     /*
+     * Section Top Padding
+     * -------------------
+     * Add the height of the nav menu to the top padding of each element.
+     */
+
+    function sectionTopPadding() {
+        $('section').not('#header').each(function() {
+            var a = parseInt($(this).css('padding-top'));
+            var b = $('nav#menu').height();
+            $(this).css('padding-top', a + b);
+        });
+    }
+
+    sectionTopPadding();
+
+    /*
      * Nav Buttons
      * -----------
      */
@@ -170,10 +180,6 @@ jQuery(function($) {
 
     $('#team a').each(function() {
         $(this).attr('target', '_blank');
-    });
-
-    $('section').not('#footer').not('#header').each(function() {
-        $(this).css('padding-top', $('nav#menu').height() + 15);
     });
 
     function navToggle(element) {
@@ -198,7 +204,7 @@ jQuery(function($) {
     function toggleHighlightedNav() {
         $('section').each(function() {
             if (!$(this).hasClass(cur.sec)) {
-                if ($(window).scrollTop() >= $(this).offset().top - 20 && $(window).scrollTop() <= $(this).offset().top + $(this).outerHeight() - 20) {
+                if ($(window).scrollTop() >= $(this).offset().top - 40 && $(window).scrollTop() <= $(this).offset().top + $(this).outerHeight() - 40) {
                     navToggle('a[href="#' + $(this).attr('id') + '"]');
                     secToggle(this);
                 }
@@ -213,7 +219,7 @@ jQuery(function($) {
     });
 
     if (Modernizr.touch) {
-        $('current-nav').hover(function() {
+        $('.current-nav').hover(function() {
             $(this).css('background-color', 'transparent');
         });
     }
