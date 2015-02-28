@@ -150,7 +150,8 @@ blockquote, ol, p, pre, ul {
 }
 
 p, li, blockquote {
-    color: map-get($colours, text_grey);
+    // color: map-get($colours, text_grey);
+    color: map-get($colours, text_white);
 }
 
 li {
