@@ -15,35 +15,52 @@ Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, respon
  * ------------
  */
 
-// TODO: Replace OSP-DIN outside of h1. It looks like shit.
-$title_fjalla:   5em 'Fjalla One', Charcoal, sans-serif;
-$title_verdana:  3em Verdana, Geneva, sans-serif;
+$title_fjalla: 5em 'Fjalla One', Charcoal, sans-serif;
+$title_verdana: 3em Verdana, Geneva, sans-serif;
 $title_opensans: 5em 'Open Sans Condensed', Verdana, Geneva, sans-serif;
-$font_sans:      0.95em 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
+$font_sans: 1em 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
 $font_monospace: 0.9em 'Source Code Pro', 'Courier New', Courier, monospace;
-$font_serif:     0.9em 'Noto Serif', Georgia, serif;
+$font_serif: 0.9em 'Noto Serif', Georgia, serif;
 
 /*
  * Colours 
  * -------
  */
 
-$ouro_green_dark: #669c5f;
-$ouro_green_light: #b9dfbc;
-$ouro_green_term: #00ff00;
-$default_grey: rgba(0,0,0,0.8);
-$default_white: rgba(255,255,255,0.8);
-// For active buttons.
-$active_grey: #bbb;
-$light_grey: #eee;
+$colours: (
+    ouro_dark: #669c5f,
+    ouro_light: #b9dfbc,
+    terminal_green: #00ff00,
+    text_grey: rgba(0, 0, 0, 0.8),
+    off_white: rgba(255, 255, 255, 0.8),
+    active_grey: #bbb,
+    light_grey: #eee
+);
+
+// #id, primary colour, accent colour, background image.
+
+$sections: (
+    contact: (#88c7ca, #4b7a9b, '../images/sections/section-contact.png'),
+    intro: (#649b89, #395b50, '../images/sections/section-ouro.png'),
+    hiring: (#e0c57d, #968155, '../images/sections/section-hiring.png'),
+    ouro: (#bed68b, #6b7e4f, '../images/sections/section-bioprinter.png'),
+    team: (#6997da, #4170b3, '../images/sections/section-team.png')
+);
+
+// #id, background image.
+$team: (
+    alanna: ('../images/team/team-alanna.jpg'),
+    jemma: ('../images/team/team-jemma.jpg'),
+    mark: ('../images/team/team-mark.jpg')
+);
 
 /*
  * Margins
  * -------
  */
 
-$bottom_default: 16px;
-$section_padding: 30px;
+$bottom_default: 13px;
+$section_padding: 18px;
 
 /*
  * Mixins and Partials
