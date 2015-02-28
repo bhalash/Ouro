@@ -72,6 +72,7 @@ nav#menu {
     }
 
     a {
+        color: map-get($colours, text_grey);
         display: block;
         padding: 20px 15px;
 
