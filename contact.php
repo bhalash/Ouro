@@ -23,6 +23,8 @@ if (!empty($errors)) {
 }
 
 // https://github.com/PHPMailer/PHPMailer
+$mail->From = $data['email'];
+$mail->FromName = $data['name'];
 $mail->addAddress('hello@tr3life.eu', 'Tr3life');
 $mail->addReplyTo($data['email'], $data['name']);
 $mail->Subject = mail_subject($data);
