@@ -35,13 +35,12 @@
 
 section:not(#header) {
     @extend %border-box;
-    padding: $section_padding;
     height: 100vh;
+    margin-bottom: 2px;
     position: relative;
 
     @include breakpoint(smartphone) {
         height: auto;        
-        padding: 3%;
     }
 
     &:nth-child(odd) .section-accent {
@@ -64,9 +63,7 @@ section:not(#header) {
     // Iterate through sections list to generate their colours and 
     // background-image
     section##{$value} {
-        div.wrapper {
-            background-color: nth($key, 1);
-        }
+        background-color: nth($key, 1);
 
         div.accent {
             background-color: nth($key, 2);
@@ -98,7 +95,6 @@ div.interior {
     }
 
     @include breakpoint(smartphone) {
-        padding: $section_padding;
         position: initial; 
         height: auto;
     }
@@ -138,7 +134,7 @@ div.section-content {
     }
 
     .interior {
-        padding: $section_padding;
+        padding: $bottom_default;
 
         @include breakpoint(smartphone) {
             padding: 0;
@@ -149,10 +145,10 @@ div.section-content {
 div.wrapper {
     @extend %clearfix;
     height: 100%;
-    padding: 0 15%;
+    padding: 0 20%;
 
     @include breakpoint(max, 1150) {
-        padding: 0 10%;
+        padding: 0 12%;
     }
 
     @include breakpoint(max, 1050) {
@@ -160,7 +156,7 @@ div.wrapper {
     }
 
     @include breakpoint(max, 950) {
-        padding: 0 $section_padding;
+        padding: 0 $bottom_default;
     }
 
     @include breakpoint(smartphone) {
