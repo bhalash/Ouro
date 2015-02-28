@@ -8,9 +8,10 @@ $team_mar: $bottom_default * 0.5;
     }
 
     h5 {
-        border-bottom: 1px solid $default_grey;
+        @extend %border-box;
         letter-spacing: 1px;
         margin: 0;
+        padding: 3px;
         text-align: center;
     }
 
@@ -25,7 +26,6 @@ $team_mar: $bottom_default * 0.5;
 
         @include breakpoint(smartphone) {
             padding: 0;
-            max-width: 100%;
         }
     }
 
@@ -33,11 +33,6 @@ $team_mar: $bottom_default * 0.5;
         @extend %three;
         @extend .ouro-card;
         float: left;
-        min-height: 350px;
-
-        // @include breakpoint(smartphone) {
-        //     min-height: 0;
-        // }
     }
 
     .job-title {
@@ -52,18 +47,6 @@ $team_mar: $bottom_default * 0.5;
         @extend %cover-picture;
         margin-bottom: $team_mar;
         @include flex_size(100%, 1);
-    }
-
-    #mark .avatar {
-        background-image: url('../images/team/mark_corrib.jpg');
-    }
-
-    #alanna .avatar {
-        background-image: url('../images/team/alanna.jpg');
-    }
-
-    #jemma .avatar {
-        background-image: url('../images/team/leela.png');
     }
 
     .bio {
@@ -81,7 +64,7 @@ $team_mar: $bottom_default * 0.5;
             background-position: center center;
             float: left;
 
-            @include flex_size(30px, 1);
+            @include flex_size(15px, 1);
 
             &:not(:last-child) {
                 margin-right: 5px;
@@ -94,6 +77,13 @@ $team_mar: $bottom_default * 0.5;
             height: 0;
             padding-top: 100%;
             width: 100%;
+        }
+    }
+
+    @each $value, $key in $team {
+        // Styles for taem member avatars.
+        ##{$value} .avatar {
+            background-image: url(nth($key, 1));
         }
     }
 }
