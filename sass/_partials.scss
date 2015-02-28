@@ -130,7 +130,7 @@
 }
 
 .text-two, .text-three, .text-four {
-    @include breakpoint(smartphone) {
+    @include breakpoint(max, 950) {
         @include columns(1,0);
     }
 }
