@@ -59,12 +59,12 @@
 }
 
 #footer {
-    background-color: $default_grey;
+    background-color: map-get($colours, text_grey);
     padding: 20px;
 
     a {
         box-shadow: none;
-        color: $ouro_green_light;
+        color: map-get($colours, ouro_light);
     }
 
     p {

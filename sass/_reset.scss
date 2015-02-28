@@ -20,10 +20,6 @@ html, body {
     width: 100%
 }
 
-body {
-    // margin-bottom: 120px;
-}
-
 img, iframe {
     height: auto;
     margin: 0 auto;
@@ -49,7 +45,7 @@ form {
 
         &:focus {
             border: 0;
-            outline: 1px solid $default_grey;
+            outline: 1px solid map-get($colours, text_grey);
         }
     }
 
@@ -61,7 +57,7 @@ form {
         }
 
         &:active {
-            background: $active_grey;
+            background: map-get($colours, active_grey);
         }
     }
 
@@ -70,7 +66,12 @@ form {
     }
 }
 
-/*
- * Content
- * -------
- */
+hr {
+    border: 0;
+    height: 1px;
+    background: transparent;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    width: 100%;
+}

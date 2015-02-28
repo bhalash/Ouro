@@ -1,8 +1,15 @@
+/*
+ * Site Header
+ * -----------
+ * Nav menu and header.
+ */
+
+
 #header {
     height: 100vh;
 
     .logo {
-        background: center center/auto 40% no-repeat border-box url('../images/ouro_logo.svg');
+        background: center center/auto 40% no-repeat border-box url('../images/logo-ouro.svg');
         display: table;
         height: 100%;
         position: relative;
@@ -27,7 +34,7 @@
         width: 50%;
 
         > a {
-            background: center center/contain no-repeat border-box url('../images/down_arrow.svg');
+            background: center center/contain no-repeat border-box url('../images/header-prompt.svg');
             display: block;
             height: 100%;
             margin: 0 auto;
@@ -80,7 +87,7 @@ nav#menu {
         transition: background-color .2s;
 
         &:hover {
-            background-color: $light_grey;
+            background-color: map-get($colours, light_grey);
         }
     }
 }

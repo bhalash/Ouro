@@ -4,7 +4,7 @@
  */
 
 h1, h2, h3, h4, h5, h6 {
-    color: $default_grey;
+    color: map-get($colours, text_grey);
     font: $title_opensans;
     letter-spacing: 1px;
     margin-bottom: $bottom_default;
@@ -57,7 +57,7 @@ pre {
 }
 
 abbr, acronym {
-    background: $ouro_green_light;
+    background: map-get($colours, ouro_light);
     padding: 1px 3px;
 }
 
@@ -150,7 +150,7 @@ blockquote, ol, p, pre, ul {
 }
 
 p, li, blockquote {
-    color: $default_grey;
+    color: map-get($colours, text_grey);
 }
 
 li {
