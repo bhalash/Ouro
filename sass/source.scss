@@ -32,7 +32,7 @@ $colours: (
     ouro_light: #b9dfbc,
     terminal_green: #00ff00,
     text_grey: rgba(0, 0, 0, 0.8),
-    off_white: rgba(255, 255, 255, 0.8),
+    text_white: #fff,
     active_grey: #bbb,
     light_grey: #eee
 );
@@ -41,9 +41,9 @@ $colours: (
 
 $sections: (
     contact: (#88c7ca, #4b7a9b, '../images/sections/section-contact.png'),
-    intro: (#649b89, #395b50, '../images/sections/section-ouro.png'),
+    intro: (#649b89, #395b50, '../images/sections/section-bioprinter.png'),
     hiring: (#e0c57d, #968155, '../images/sections/section-hiring.png'),
-    ouro: (#bed68b, #6b7e4f, '../images/sections/section-bioprinter.png'),
+    ouro: (#96ab68, #6b7e4f, '../images/sections/section-ouro.png'),
     team: (#6997da, #4170b3, '../images/sections/section-team.png')
 );
 
@@ -60,7 +60,6 @@ $team: (
  */
 
 $bottom_default: 13px;
-$section_padding: 18px;
 
 /*
  * Mixins and Partials
