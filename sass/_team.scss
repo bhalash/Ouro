@@ -7,13 +7,11 @@ $team_mar: $bottom_default * 0.5;
         box-shadow: none;
     }
 
-    h5 {
-        @extend %border-box;
+    h6 {
         letter-spacing: 1px;
         margin: 0;
-        padding: 3px;
         text-align: center;
-    }
+    } 
 
     p {
         margin-bottom: $team_mar;
@@ -21,18 +19,95 @@ $team_mar: $bottom_default * 0.5;
     }
 
     .teamlist {
-        @extend %clearfix;
-        margin: 0 auto;
-
         @include breakpoint(smartphone) {
-            padding: 0;
+            overflow: auto;
         }
     }
 
     .member {
-        @extend %three;
-        @extend .ouro-card;
-        float: left;
+        @extend %border-box;
+        display: inline-block;
+        opacity: 0.8;
+        position: relative; 
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:hover .bio {
+            display: initial;
+            visibility: visible;
+        }
+
+        @include flex_size(20%, 1);
+
+        @include breakpoint(smartphone) {
+            margin-bottom: $bottom_default * 0.25; 
+            opacity: 1;
+
+            @include flex_size(100%, 1);
+        }
+    }
+
+    .avatar {
+        @extend %cover-picture;
+        @include flex_size(100%, 1);  
+
+        > a {
+            display: block;
+            height: 0;
+            padding-top: 100%;
+            width: 100%;
+        }
+    }
+
+    .bio {
+        @extend %border-box;
+        background: no-repeat center bottom/auto 100% url('../images/team-bio-triangle.svg');
+        display: none;
+        font: $font_sans;
+        left: 50%;
+        margin-top: 3px;
+        padding-top: $bottom_default;
+        position: absolute;
+        top: 100%;
+        transition: visibility .4s linear;
+        visibility: hidden;
+        z-index: 2;
+
+        @include translate(-50%, 0);
+
+        @include breakpoint(smartphone) {
+            background: none;
+            display: initial;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            top: auto;
+            width: 100%;
+            visibility: visible;
+
+            @include translate(0, 0);
+        }
+
+        .text {
+            background-color: #fff;
+            padding: $bottom_default 8px 8px 8px;
+            white-space: nowrap;
+
+            > * {
+                @extend %zero;
+                color: map-get($colours, text_grey);
+                text-align: center;
+            }
+
+            p {
+                font-weight: bold;
+                color: map-get($colours, ouro_dark);
+            }
+        }
     }
 
     .job-title {
@@ -40,17 +115,6 @@ $team_mar: $bottom_default * 0.5;
         font-variant: small-caps;
         text-align: center;
         text-transform: lowercase;
-    }
-
-    .avatar {
-        @extend %border-box;
-        @extend %cover-picture;
-        margin-bottom: $team_mar;
-        @include flex_size(100%, 1);
-    }
-
-    .bio {
-        font: $font_sans;
     }
 
     ul.social {
