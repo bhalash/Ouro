@@ -44,6 +44,13 @@
     }
 }
 
+@mixin translate($x, $y) {
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
 @mixin flex_size($width, $ratio) {
     // Ratio should be between 0 and foo.
     height: 0;
@@ -58,8 +65,9 @@
 }
 
 @mixin box_shadow($shadow) {
-    -webkit-box-shadow: $shadow;
     -moz-box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
     box-shadow: $shadow;
 }
 
@@ -78,7 +86,10 @@
     // Mozilla Firefox
     -moz-column-count: $count;
     -moz-column-gap: $gap;
-    // Webkit Browsers.
+    // Internet Explorer
+    -ms-column-count: $count;
+    -ms-column-gap: $gap;
+    // Webkit Browsers
     -webkit-column-count: $count;
     -webkit-column-gap : $gap;
     // CSS 3
