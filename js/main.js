@@ -1,6 +1,6 @@
-'use strict';
-
 jQuery(function($) {
+    'use strict';
+    
     /*
      * Form Submit
      * -----------
@@ -17,7 +17,7 @@ jQuery(function($) {
         }
 
         return true;
-    }
+    };
 
     var form = {
         sendmessage: '#sendmessage',
@@ -63,7 +63,7 @@ jQuery(function($) {
 
         $(this).find('textarea, input').each(function() {
             // Validated further on server. Just make sure they have a value.
-            if ($(this).prop('required') && $(this).val().length == 0) {
+            if ($(this).prop('required') && $(this).val().length === 0) {
                 $(this).addClass(form.unfilled);
                 form.filled.push(false);
             } else {
@@ -145,7 +145,7 @@ jQuery(function($) {
      */
 
     $(window).scroll(function() {
-        if ($(this).scrollTop() == 0) {
+        if ($(this).scrollTop() === 0) {
             $('nav#menu').removeClass('nav-shadow');
         } else {
             $('nav#menu').addClass('nav-shadow');
@@ -176,7 +176,7 @@ jQuery(function($) {
     var cur = {
         nav: 'current-nav',
         sec: 'current-section',
-    }
+    };
 
     $('#team a').each(function() {
         $(this).attr('target', '_blank');
