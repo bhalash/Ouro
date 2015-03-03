@@ -20,6 +20,10 @@
             min-height: 150px;
         }
 
+        .messages {
+            color: map-get($colours, text_grey);
+        }
+
         .unfilled {
             background: #ed8787;
         }
