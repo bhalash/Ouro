@@ -11,11 +11,17 @@
     -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
     background: #fff;
-    padding: 8px !important;
+    // padding: 8px !important;
 }
 
 .ouro-border {
     border-bottom: 6px solid map-get($colours, ouro_light);
+}
+
+.ouro-box-shadow {
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
 }
 
 /*
@@ -91,25 +97,6 @@
     // the child of a parent with both.  
     margin: 0;
     padding: 0;
-}
-
-/* 
- * Flexible Columns
- * ----------------
- * Used in the site's footer. These ultimately weren't used on the index page as
- * the final layout was rather convoluted. 
-*/
-
-%column {
-    @extend %border-box;
-    float: left;
-    min-height: 1px;
-    position: relative;
-
-    @include breakpoint(smartphone) {
-        float: none;
-        width: 100%;
-    }
 }
 
 /*
