@@ -62,35 +62,10 @@ $team_mar: $bottom_default * 0.5;
         }
     }
 
-    .bio {
-        @extend %border-box;
-        background: no-repeat center bottom/auto 100% url('../images/team-bio-triangle.svg');
-        display: none;
-        font: $font_sans;
-        left: 50%;
-        margin-top: 3px;
-        padding-top: $bottom_default;
-        position: absolute;
-        top: 100%;
-        transition: visibility .4s linear;
-        visibility: hidden;
-        z-index: 2;
-
-        @include translate(-50%, 0);
-
-        @include breakpoint(smartphone) {
-            background: none;
-            display: initial;
-            bottom: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
-            top: auto;
-            width: 100%;
-            visibility: visible;
-
-            @include translate(0, 0);
-        }
+    > a {
+        display: block;
+        @include flex_size(100%, 1);
+    }
 
         .text {
             background-color: #fff;
