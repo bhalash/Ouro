@@ -1,21 +1,9 @@
 /*
  * Content Sections
  * ----------------
- * The empty <section> structure appears thus:
- * 
- * <section id="foo">
- *      <div class="wrapper">
- *          <div class="section-accent">
- *              <div class="accent interior"></div>
- *          </div>
- *          <div class="section-body">
- *              <div class="interior">
- *                  <!-- Content goes here->
- *              </div>
- *          </div>
- *      </div>
- * </section> 
  */
+
+$section_padding: 15px;
 
 #content {
     a {
@@ -26,50 +14,11 @@
         border-left: 3px solid rgba(0,0,0,0.4);
         padding: 0 20px;
     }
-}
 
-/*
- * Section
- * -------
- */
-
-section:not(#header) {
-    @extend %border-box;
-    height: 100vh;
-    margin-bottom: 2px;
-    position: relative;
-
-    @include breakpoint(smartphone) {
-        height: auto;        
-    }
-
-    &:nth-child(odd) .section-accent {
-        // Alternate the position of the accent bar.
-        float: right;
-
-        @include breakpoint(smartphone) {
-            float: none;
-        }
-    }
-
-    &:last-of-type {
-        @include breakpoint(smartphoe) {
-            margin-bottom: 30px;
-        }
-    }
-}
-
-@each $value, $key in $sections {
-    // Iterate through sections list to generate their colours and 
-    // background-image
-    section##{$value} {
-        background-color: nth($key, 1);
-
-        div.accent {
-            background-color: nth($key, 2);
-            background-image: url(nth($key, 3));
-        }
-    } 
+    h4.sec-title {
+        color: #fff;
+        margin: 0;
+    }    
 }
 
 /*
@@ -77,94 +26,113 @@ section:not(#header) {
  * -------------------------
  */
 
-div.interior {
+div.content {
     @extend %border-box;
-    height: 75%;
-    position: absolute;
-    top: 25%;
-    width: 100%;
-
-    @include breakpoint(max, 1000) {
-        height: 90%;
-        top: 10%;
-    }
-
-    @include breakpoint(tablet) {
-        height: 90%;
-        top: 10%;
-    }
+    @extend %clearfix;
+    @extend .ouro-box-shadow;
+    flex: 0 1 85%;
+    position: relative;
+    height: 100%;
 
     @include breakpoint(smartphone) {
-        position: initial; 
         height: auto;
     }
-}
 
-div.section-accent {
-    @extend %column;
-    height: 100%;
-    width: 25%;
+    div.wrapper {
+        @extend %border-box;
+        left: 0;
+        right: 0;
+        padding: 0 20%;
+        position: absolute;
+        top: 50%;
 
-    @include breakpoint(smartphone) {
-        width: 100%;
-    }
+        @include translate(0, -50%);
 
-    div.accent {
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
+        @include breakpoint(max, 1200) {
+            padding: 0 10%;
+            top: 25%;
+            @include translate(0, -25%);
+        }
 
         @include breakpoint(smartphone) {
-            @include flex_size(100%, 0.5);
-            background-position: center center;
-            background-size: auto 90%;
-            margin-bottom: $bottom_default;
+            padding: 2.5%;
         }
     }
 }
 
-div.section-content {
-    @extend %column;
+div.accent {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    flex: 0 1 15%;
     height: 100%;
-    width: 75%;
 
     @include breakpoint(smartphone) {
-        padding: 2.5%;
-        width: 100%;
+        background-position: center center;
+        background-size: auto 100%;
+
+        @include flex_size(100%, 0.4);
+    }
+}
+
+/*
+ * Section
+ * -------
+ */
+
+section:not(#home) {
+    @extend %border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100vh;
+    margin: $bottom_default * 2;
+    margin-top: 0;
+    padding: $section_padding $section_padding $section_padding 0;
+    position: relative;
+
+    @include breakpoint(smartphone) {
+        display: block;
+        height: 100%;     
+        margin: 0;
+        margin-bottom: $bottom_default;
+        padding: 0;
+        position: initial;
     }
 
-    .interior {
-        padding: $bottom_default;
+    &:nth-child(odd) {
+        flex-direction: row-reverse;
+        padding: $section_padding 0 $section_padding $section_padding;
 
         @include breakpoint(smartphone) {
             padding: 0;
         }
     }
-}
 
-div.wrapper {
-    @extend %clearfix;
-    height: 100%;
-    padding: 0 20%;
-
-    @include breakpoint(max, 1150) {
-        padding: 0 12%;
-    }
-
-    @include breakpoint(max, 1050) {
-        padding: 0 5%;
-    }
-
-    @include breakpoint(max, 950) {
-        padding: 0 $bottom_default;
-    }
-
-    @include breakpoint(smartphone) {
-        padding: 0;
+    &:last-of-type {
+        @include breakpoint(smartphone) {
+            margin-bottom: 30px;
+        }
     }
 }
 
-h4.sec-title {
-    color: #fff;
-    margin: 0;
+/*
+ * Section Style Iteration
+ * -----------------------
+ */
+
+@each $value, $key in $sections {
+    /* Iterate through sections list to generate their colours and 
+     * background-image. */
+    section##{$value} {
+        background-color: nth($key, 2);
+
+        div.content {
+            background-color: nth($key, 1);
+        }
+
+        div.accent {
+            background-image: url(nth($key, 3));
+        }
+    } 
 }
