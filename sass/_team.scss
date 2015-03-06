@@ -1,128 +1,133 @@
+/*
+ * Team Member Section
+ * -------------------
+ */
+
 $team_mar: $bottom_default * 0.5;
 
-#team {
-    @extend %border-box;
+section#team a {
+    box-shadow: none;
+}
+
+.teamlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     a {
         box-shadow: none;
     }
 
-    h6 {
-        letter-spacing: 1px;
-        margin: 0;
-        text-align: center;
-    } 
-
     p {
-        margin-bottom: $team_mar;
+        font-size: 90%;
         word-wrap: break-word;
     }
+}
 
-    .teamlist {
-        @include breakpoint(smartphone) {
-            overflow: auto;
-        }
+.member-box {
+    @extend %border-box;
+    flex: 0 1 25%;
+    padding: 3px;
+
+    @include breakpoint(max, 1200) {
+        flex: 0 1 33%;
     }
 
-    .member {
-        @extend %border-box;
-        display: inline-block;
-        opacity: 0.8;
-        position: relative; 
-        transition: opacity .2s;
+    @include breakpoint(smartphone) {
+        flex: 0 1 100%;
+    }
+}
 
-        &:hover {
-            opacity: 1;
-        }
+.member {
+    @extend %border-box;
+    height: 0;
+    margin-bottom: 3px;
+    position: relative; 
+    @include flex_size(100%, 1);
 
-        &:hover .bio {
-            display: initial;
-            visibility: visible;
-        }
-
-        @include flex_size(20%, 1);
-
-        @include breakpoint(smartphone) {
-            margin-bottom: $bottom_default * 0.25; 
-            opacity: 1;
-
-            @include flex_size(100%, 1);
-        }
+    @include breakpoint(tablet) {
+        @include flex_size(100%, 1.5);
     }
 
-    .avatar {
-        @extend %cover-picture;
-        @include flex_size(100%, 1);  
-
-        > a {
-            display: block;
-            height: 0;
-            padding-top: 100%;
-            width: 100%;
-        }
+    @include breakpoint(smartphone) {
+        @include flex_size(100%, 1);
     }
+
+    &:hover .bio {
+        display: initial;
+        visibility: visible;
+    }
+
+}
+
+.avatar {
+    @extend %cover-picture;
+    @include flex_size(100%, 1);
 
     > a {
         display: block;
         @include flex_size(100%, 1);
     }
 
-        .text {
-            background-color: #fff;
-            padding: $bottom_default 8px 8px 8px;
-            white-space: nowrap;
-
-            > * {
-                @extend %zero;
-                color: map-get($colours, text_grey);
-                text-align: center;
-            }
-
-            p {
-                font-weight: bold;
-                color: map-get($colours, ouro_dark);
-            }
-        }
+    @include breakpoint(tablet) {
+        @include flex_size(100%, 1.5);
     }
 
-    .job-title {
-        font-size: 1.2em;
-        font-variant: small-caps;
-        text-align: center;
-        text-transform: lowercase;
+    @include breakpoint(smartphone) {
+        @include flex_size(100%, 1);
     }
 
-    ul.social {
-        @extend %clearfix;
-        list-style-type: none;
-        margin: 0;
+}
 
-        li {
-            background-size: auto 90%;
-            background-repeat: no-repeat;
-            background-position: center center;
-            float: left;
+.bio {
+    @extend %border-box;
+    bottom: 5px;
+    display: none;
+    font: $font_sans;
+    left: 5px;
+    position: absolute;
+    right: 5px;
+    z-index: 2;
 
-            @include flex_size(15px, 1);
-
-            &:not(:last-child) {
-                margin-right: 5px;
-            }
-        }
-
-        a {
-            border: 0;
-            display: block;
-            height: 0;
-            padding-top: 100%;
-            width: 100%;
-        }
+    @include breakpoint(tablet) {
+        bottom: 0;
+        display: initial;
+        left: 0;
+        right: 0;
     }
 
-    @each $value, $key in $team {
-        // Styles for taem member avatars.
-        ##{$value} .avatar {
-            background-image: url(nth($key, 1));
+    @include breakpoint(smartphone) {
+        bottom: 0;
+        display: initial;
+        left: 0;
+        right: 0;
+    }
+
+    .text {
+        @extend .ouro-card;
+        white-space: nowrap;
+
+        h5, p {
+            @extend %zero;
+            text-align: center;
         }
+
+        h5 {
+            margin-bottom: -$bottom_default;
+        }
+    }
+}
+
+p.job-title {
+    color: map-get($colours, ouro_dark);
+    font-variant: small-caps;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+@each $value, $key in $team {
+    // Iterate avatars for team members.
+    ##{$value} .avatar {
+        background-image: url(nth($key, 1));
     }
 }
