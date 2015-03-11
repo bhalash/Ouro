@@ -3,7 +3,9 @@
  * -------------------
  */
 
-$team_mar: $bottom_default * 0.5;
+section#team .sec-title {
+    text-align: right;
+}
 
 section#team .solid-backdrop {
     background-color: map-get($colours, ouro_dark);
@@ -11,7 +13,7 @@ section#team .solid-backdrop {
 
 .teamlist {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
     justify-content: flex-start;
 
@@ -27,12 +29,11 @@ section#team .solid-backdrop {
 
 .member {
     @extend %border-box;
-    flex: 0 1 24%;
+    flex: 0 1 33%;
     height: 0;
     margin-bottom: 3px;
-    margin-right: 1%;
     position: relative; 
-    @include flex_size(24%, 1);
+    @include flex_size(33%, 1);
 
     a.avatar {
         background-position: center center;
@@ -60,6 +61,8 @@ section#team .solid-backdrop {
  */
 
 #team-feature {
+    $feature_space: 5px;
+
     .avatar {
         background-size: cover;
         background-position: center top;
@@ -69,11 +72,30 @@ section#team .solid-backdrop {
 
     .name {
         border-bottom: 1px solid #fff;
-        margin-bottom: 5px;
+        margin-bottom: $feature_space;
     }
 
     p.blurb {
         border-top: 1px solid #fff;
-        margin-top: 5px;
+        margin-top: $feature_space;
+    }
+
+    ul.social {
+        @extend %zero;
+        bottom: 0;
+        left: $feature_space / 2;
+        list-style-type: none;
+        position: absolute;
+
+        li {
+            display: inline-block;
+            margin-right: $feature_space;
+            @include flex_size(45px, 1);
+        }
+
+        a {
+            display: block;
+            @include flex_size(100%, 1);
+        }
     }
 }
