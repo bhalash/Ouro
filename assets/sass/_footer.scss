@@ -1,0 +1,24 @@
+/*
+ * Ouro Site Footer
+ * ----------------
+ */
+
+#footer {
+    // background-color: map-get($colours, text_grey);
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+
+    a {
+        box-shadow: none;
+        color: map-get($colours, ouro_light);
+    }
+
+    p {
+        color: #fff;
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
