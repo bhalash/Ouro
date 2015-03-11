@@ -23,6 +23,8 @@ jQuery(document).ready(function($) {
         $('#home h1').css({
             lineHeight: $(window).height() + 'px',
         });
+
+        $('.gallery').css('height', $(window).height() * 0.9);
     }
 
     /*
