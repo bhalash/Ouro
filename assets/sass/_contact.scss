@@ -1,0 +1,95 @@
+/*
+ * Newsletters and Contact Form
+ * ----------------------------
+ */
+
+form { 
+    input, button, textarea {
+        @extend %border-box;
+        // Remove all default appearance and focus appearance styling. 
+        -webkit-border-radius: 0;
+        -webkit-appearance: none;
+        background-color: #fff;
+        border-radius: 0;
+        border: 0;
+        display: block;
+        font-size: 1em;
+        margin: 0;
+        margin-bottom: $bottom_default;
+        outline: 0;
+        padding: 12px;
+        position: relative;
+        width: 100%;
+
+        &:focus {
+            border: 0;
+            box-shadow: 0 0 1px 1px map-get($colours, ouro_light);
+        }
+    }
+
+    textarea {
+        min-height: 125px;
+        resize: none;
+    }
+
+    input {
+        @include breakpoint(portrait) {
+            width: 100%;
+        }
+    }
+
+    input:-webkit-autofill {
+        color: rgba(255,255,255,0.2) !important;
+    }
+
+    button {
+        background-color: map-get($colours, ouro_light);
+        text-transform: uppercase;
+        width: 50%;
+
+        @include breakpoint(portrait) {
+            width: 100%;
+        }
+
+        @include breakpoint(smartphone) {
+            width: 100%;
+        }
+
+        &:active {
+            background: map-get($colours, ouro_dark);
+        }
+    }
+
+    p {
+        padding: 5px;
+
+        &:not(.messages) {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+#contact form {
+
+    .messages {
+        color: map-get($colours, text_grey);
+    }
+
+    .unfilled {
+        background: #ed8787;
+    }
+
+    .success {
+        background: #87ed90;
+    }
+
+    .unfilled, .success {
+        color: #fff;
+        transition: background-color .2s;
+
+        @include placeholder_style() {
+            color: #fff;
+        }
+    }
+}
