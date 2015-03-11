@@ -54,7 +54,14 @@ $(document).ready(function() {
         $(nav.section).data(nav.dataCurrent, false);
         $(section).data(nav.dataCurrent, true);
         currentNavToggle($(menu).find('a[href^=#' + $(section).attr('id') + ']'));
-        history.pushState(null, null, '#' + $(section).attr('id'));
+
+        if ($('body').hasClass('webkit')) {
+            // This causes the page to scroll in Firefox.
+            document.location.hash = $(section).attr('id');
+        } else {
+            // This causes juddery reload behaviour in Chrome.
+            history.pushState(null, null, '#' + $(section).attr('id'));
+        }
     };
 
     var toggleOnScroll = function() {
