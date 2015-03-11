@@ -3,44 +3,54 @@
 $(document).ready(function($) {
     'use strict';
 
-    var team = {
-        member: '.member',
-        avatar: '.avatar',
-        name:  '.bio span.name',
-        blurb: '.bio span.blurb',
-        title: '.bio span.title'
-    };
-
     var feature = {
         id: '#team-feature',
         avatar: '#team-feature .avatar',
         name: '#team-feature .name',
-        blurb: '#team-feature .blurb',
-        setAvatar: function(object) {
-            var img = $(object).find(team.avatar).css('background-image');
-            console.log(object, img);
-
-            $(feature.avatar).css({
-                'background-image': img,
-            });
-        }, setName: function(object) {
-            $(feature.name).text($(object).find(team.name).text());
+        bio: '#team-feature .blurb',
+        social: '#team-feature .social',
+        setAvatar: function(avatar) {
+            $(this.avatar).css('background-image', avatar);
         }, 
-        setBlurb: function(object) {
-            $(feature.blurb).text($(object).find(team.blurb).text());
+        setName: function(name) {
+            $(this.name).text(name);
+        }, 
+        setBio: function(bio) {
+            $(this.bio).text(bio);
+        },
+        setSocial: function(social) {
+            $(this.social).empty();
+            social.clone().appendTo(this.social);
+        },
+        setPerson: function(person) {
+            this.setName(person.name);
+            this.setBio(person.bio);
+            this.setAvatar(person.avatar);
+            this.setSocial(person.social);    
         }
     };
 
-    function setFeaturedMember(object) {
-        feature.setAvatar(object);
-        feature.setBlurb(object);
-        feature.setName(object);
-    };
+    function Member(id) {
+        this.id = '#' + id;
+        this.avatar = $(this.id).find('.avatar').css('background-image');
+        this.name = $(this.id).find('span.name').text();
+        this.social = $(this.id).find('ul.social');
+        this.bio = $(this.id).find('span.blurb').text();
+        this.title = $(this.id).find('span.title').text();
 
-    $(team.member).click(function() {
-        setFeaturedMember(this);
-        return false;
+        var member = this;
+
+        $(this.id).click(function() {
+            feature.setPerson(member);
+            return false;
+        });
+    }
+
+    var members = [];
+
+    $('.member').each(function() {
+        members.push(new Member($(this).attr('id')));
     });
 
-    setFeaturedMember($(team.member).first());
+    feature.setPerson(members[0]);
 });
