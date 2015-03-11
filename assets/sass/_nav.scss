@@ -29,7 +29,7 @@ nav#menu {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 5;
+    z-index: 3;
 
     ul {
         margin: 0 auto;
@@ -44,7 +44,7 @@ nav#menu {
 
     a {
         color: map-get($colours, text_grey);
-        padding: 10px 20px;
+        padding: 15px 20px;
         transition: color .2s, background-color .4s;
 
         &:hover {
@@ -85,6 +85,9 @@ $social: (
     .#{$value} {
         background-color: nth($key, 1);
         background-image: url(nth($key, 2));
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto 95%;
     }
 }
 
@@ -95,31 +98,13 @@ nav#social {
 
     li {
         float: right;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 90% auto;
+        margin-left: 5px;
         @include flex_size(75px, 1);
-
-        &:not(:last-child) {
-            margin-left: 5px;
-
-            @include breakpoint(portrait) {
-                margin: 0;
-            }
-
-            @include breakpoint(smartphone) {
-                margin: 0;
-            }
-        }
 
         @include breakpoint(portrait) {
             float: none;
-            margin: 0 atuo;
+            margin: 5px atuo;
         }
-
-        // @include breakpoint(smartphone) {
-        //     @include flex_size(32%, 1);
-        // }
     }
 
     a {
