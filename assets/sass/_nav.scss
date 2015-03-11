@@ -1,0 +1,128 @@
+/*
+ * Site Top Navigation Menu
+ * ------------------------
+ */
+
+.nav-box-shadow {
+    @include prefix(box-shadow, 0px -5px 39px -17px rgba(0,0,0,0.75));
+}
+
+nav {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+    }
+}
+
+nav#menu {
+    background-color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 5;
+
+    ul {
+        margin: 0 auto;
+        position: initial;
+        text-align: center;
+
+        @include breakpoint(max, 670) {
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+    }
+
+    a {
+        color: map-get($colours, text_grey);
+        padding: 10px 20px;
+        transition: color .2s, background-color .4s;
+
+        &:hover {
+            @extend .ouro-background;
+        }
+    }
+
+    .current-nav {
+        @extend .ouro-background;
+    }
+}
+
+/*
+ * Nav Menu Social Links
+ * ----------------------
+ */
+
+$social: (
+    comments: (#30b351, '../images/social/social-comments.png'),
+    email: (#f5756c, '../images/social/social-email.png'),
+    facebook: (#3B5998, '../images/social/social-facebook.png'),
+    flickr: (#ff0084, '../images/social/social-flickr.png'),
+    github: (#666666, '../images/social/social-github.png'),
+    google: (#dd4b39, '../images/social/social-google.png'),
+    instagram: (#3f729b, '../images/social/social-instagram.png'),
+    linkedin: (#0976b4, '../images/social/social-linkedin.png'),
+    pinterest: (#cc2127, '../images/social/social-pinterest.png'),
+    print: (#007aaf, '../images/social/social-print.png'),
+    reddit: (#ff5700, '../images/social/social-reddit.png'),
+    rmwb: (#343537, '../images/social/social-beard.png'),
+    rss: (#ff6600, '../images/social/social-rss.png'),
+    tumblr: (#35465c, '../images/social/social-tumblr.png'),
+    twitter: (#55acee, '../images/social/social-twitter.png'),
+    youtube: (#b31217, '../images/social/social-youtube.png')
+);
+
+@each $value, $key in $social {
+    .#{$value} {
+        background-color: nth($key, 1);
+        background-image: url(nth($key, 2));
+    }
+}
+
+nav#social {
+    ul {
+        @extend %clearfix;
+    }
+
+    li {
+        float: right;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 90% auto;
+        @include flex_size(75px, 1);
+
+        &:not(:last-child) {
+            margin-left: 5px;
+
+            @include breakpoint(portrait) {
+                margin: 0;
+            }
+
+            @include breakpoint(smartphone) {
+                margin: 0;
+            }
+        }
+
+        @include breakpoint(portrait) {
+            float: none;
+            margin: 0 atuo;
+        }
+
+        // @include breakpoint(smartphone) {
+        //     @include flex_size(32%, 1);
+        // }
+    }
+
+    a {
+        @include flex_size(100%, 1);
+    }
+}
