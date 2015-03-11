@@ -8,33 +8,21 @@ jQuery(document).ready(function($) {
      * instead of vh of the viewport. 
      */
 
-    var isIos6 = !!navigator.userAgent.match(/i(Pad|Phone|Pod).+(Version\/6\.\d+ Mobile)/i);
-    var isIos7 = !!navigator.userAgent.match(/i(Pad|Phone|Pod).+(Version\/7\.\d+ Mobile)/i);
+    var sectionSize = function() {
+        // There is currently no support in CSS3 for calc(vh - px);
+        $('section').not('#home').each(function() {
+            var b = $('nav#menu').height();
+            $(this).css('min-height', $(window).height() - b);
+        });
+    }
 
-    if (isIos7 || isIos6) {
+    $(window).on('load', sectionSize);
+    $(window).on('resize', sectionSize);
+
+    if ($('body').hasClass('ios-6') || $('body').hasClass('ios-7')) {
         $('#home h1').css({
             lineHeight: $(window).height() + 'px',
         });
-    }
-
-    var isMobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    /*
-     * Section Top Padding
-     * -------------------
-     * Add the height of the nav menu to the top padding of each element.
-     */
-
-    var sectionSize = function() {
-        $('section').not('#home').each(function() {
-            var b = $('nav#menu').height();
-            $(this).css('height', $(window).height() - b);
-        });
-    }
-
-    if (!isMobile) {
-        $(window).on('load', sectionSize);
-        $(window).on('resize', sectionSize);
     }
 
     /*
