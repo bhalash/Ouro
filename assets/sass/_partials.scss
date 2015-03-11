@@ -114,6 +114,32 @@
 }
 
 /*
+ * Right-facing Arrow
+ * ------------------
+ */
+
+span.right-arrow {
+    color: inherit;
+    display: block;
+    font-family: inherit; 
+    font-size: inherit;
+    text-align: inherit;
+    text-transform: inherit;
+
+    &:after {
+        content: '⟶';
+    }
+
+    @include breakpoint(portrait) {
+        display: none;
+    }
+
+    @include breakpoint(smartphone) {
+        display: none;
+    }
+} 
+
+/*
  * Backdrop
  * --------
  */
