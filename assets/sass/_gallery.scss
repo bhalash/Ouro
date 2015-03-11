@@ -1,0 +1,55 @@
+/*
+ * Gallery and Lightbox
+ * --------------------
+ */
+
+section#ouro {
+    display: flex;
+}
+
+div.gallery {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    width: 90vh;
+    margin: auto;
+
+    @include breakpoint(portrait) {
+        height: 90vw;
+        width: 90vw;
+    }
+}
+
+div.image-col {
+    display: flex;
+    flex: 0 1 20%;
+    flex-direction: column;
+}
+
+a.image {
+    @extend %border-box;
+    display: block;
+    overflow: hidden;
+    padding: 5px;
+    flex: 1;
+
+    &:hover {
+        background-color: rgba(map-get($colours, ouro_light), 0.7);
+    }
+
+    img {
+        height: auto;
+        overflow: hidden;
+        width: 100%;
+    }
+}
+
+div#lightbox {
+    display: none;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
