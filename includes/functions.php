@@ -9,11 +9,6 @@ function mail_body($data = null) {
 
     $body .= '<strong>Name:</strong>&nbsp;' . $data['name'] . '<br />';
     $body .= '<strong>Email:</strong>&nbsp;' . $data['email'] . '<br />';
-
-    if ($data['website'] !== '') {
-        $body .= '<strong>Website:</strong>&nbsp;' . $data['website'] . '<br />';
-    }
-
     $body .= '<strong>Message:</strong>&nbsp;' . $data['message'];
     return $body;
 }

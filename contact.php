@@ -6,7 +6,7 @@ $data = array();
 
 foreach ($_POST as $key => $post) {
     // Sanitize $_POST
-    if (empty($post) && $key !== 'website') {
+    if (empty($post)) {
         $errors[$key] = $messages['empty'][$key];
     } else {
         switch ($key) {
