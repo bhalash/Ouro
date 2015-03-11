@@ -1,12 +1,12 @@
 /*global $:false */
 
-/*
- * The Ouro Contact Form of Awesomeitude
- * -------------------------------------
- */
-
 jQuery(function($) {
     'use strict'; 
+    /*
+     * The Ouro Contact Form of Awesomeitude
+     * -------------------------------------
+     */
+
 
     /*
      * Objects
