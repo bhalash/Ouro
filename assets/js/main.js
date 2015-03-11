@@ -1,4 +1,4 @@
-jQuery(function($) {
+jQuery(document).ready(function($) {
     'use strict';
     /*
      * Fallback for iOS Devices
@@ -27,7 +27,7 @@ jQuery(function($) {
 
     var sectionSize = function() {
         $('section').not('#home').each(function() {
-            var b = $('nav#menu').height() + 30;
+            var b = $('nav#menu').height();
             $(this).css('height', $(window).height() - b);
         });
     }

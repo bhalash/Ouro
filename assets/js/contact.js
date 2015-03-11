@@ -21,12 +21,11 @@ jQuery(function($) {
         success: 'success',
         output: 'p.messages',
         messages: {
-            initial: 'Required fields are marked *'
+            initial: 'Required fields are highlighted red'
         },
         inputs: {
             name: 'input[id=name]',
             email: 'input[id=email]',
-            website: 'input[id=website]',
             message: 'textarea[id=message]',
             hidden: 'input[id=unseen]',
             button: 'button[id=submit'
@@ -91,7 +90,6 @@ jQuery(function($) {
             var dataOut = {
                 'name': $(form.inputs.name).val(),
                 'email': $(form.inputs.email).val(),
-                'website': $(form.inputs.website).val(),
                 'message': $(form.inputs.message).val()
             };
 

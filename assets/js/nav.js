@@ -25,7 +25,7 @@ $(document).ready(function() {
         // In case I need to change it later. 
         section: 'section',
         // Box shadow at the bottom of the nav menu.
-        shadow: 'nav-shadow'
+        shadow: 'nav-box-shadow'
     };
 
     /*
