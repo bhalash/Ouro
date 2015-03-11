@@ -7,9 +7,7 @@
 
 .ouro-card {
     @extend %border-box;
-    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
-    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
-    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.10);
+    @include prefix(box-shadow, 0px 0px 7px 0px rgba(0,0,0,0.10));
     background: #fff;
     // padding: 8px !important;
 }
@@ -18,10 +16,13 @@
     border-bottom: 6px solid map-get($colours, ouro_light);
 }
 
+.ouro-background {
+    color: #fff;
+    background-color: map-get($colours, ouro_light);
+}
+
 .ouro-box-shadow {
-    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
-    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    @include prefix(box-shadow, 0px 0px 7px 0px rgba(0,0,0,0.3));
 }
 
 /*
@@ -32,24 +33,16 @@
 %noselect {
     cursor: default;
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include prefix(user-select, none);
 }
 
 %top-box-shadow {
     // Add a box shadow to the top of an element.
-    -webkit-box-shadow: 0 0 60px 30px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 0 60px 30px rgba(0,0,0,0.75);
-    box-shadow: 0 0 60px 30px rgba(0,0,0,0.75);    
+    @include prefix(box-shadow, 0 0 60px 30px rgba(0,0,0,0.75));
 }
 
 %no-box-shadow {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+    @include prefix(box-shadow, none);
 }
 
 /*
@@ -67,9 +60,7 @@
 %border-box {
     /* ALL GLORY TO THE BORDER BOX-this is used across the site in a great many
      * spots where I need to pad an element without increasing the size. */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include prefix(box-sizing, border-box);
 }
 
 %clearfix {
@@ -123,19 +114,43 @@
 }
 
 /*
- * Team Member "Cards"
- * -------------------
- * The padding and margin are both important in having the content laid out in a
- * pleasing manner.
+ * Backdrop
+ * --------
  */
 
-$cards: (
-    three: (32.667%, 1%),
-    four: (24.25%, 1%),
-    five: (19.2%, 1%),
-    six: (15.833%, 1%)
-);
+%backdrop {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
-%three {
-    display: none;
+.solid-backdrop {
+    @extend %backdrop;
+}
+
+.blurred-backdrop {
+    @extend %backdrop;
+    z-index: -1;
+
+    // Left separate as I continue to tweak this.
+    margin: -5px;
+    padding: 5px;
+
+    bottom: 5px;
+    left: 0;
+    right: 5px;
+    top: 5px;
+
+    @include prefix(filter, blur(5px));
+
+    @include breakpoint(smartphone) {
+        background: #000 !important;
+        @include prefix(filter, none);
+    }
 }

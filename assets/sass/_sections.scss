@@ -1,0 +1,149 @@
+/*
+ * Content Sections
+ * ----------------
+ */
+
+$section_padding: 15px;
+
+/*
+ * Parent Content Container 
+ * ------------------------
+ */
+
+#content {
+    // Left blank in case of future content.
+}
+
+/*
+ * Base Section Layout
+ * -------------------
+ */
+
+section:not(#home) {
+    @extend %border-box;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    padding: $section_padding;
+    position: relative;
+
+    @include breakpoint(portrait) {
+        height: auto;
+        padding: 50px $section_padding;
+    }
+
+    @include breakpoint(smartphone) {
+        display: block;
+        padding: 0;
+        position: initial;
+    }
+}
+
+section.flex {
+    // align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    @include breakpoint(portrait) {
+        display: block;
+    }
+
+    div.side * {
+        // Reverse text direction too.
+        text-align: right;   
+
+        @include breakpoint(portrait) {
+            text-align: center;
+        }
+    }
+}
+
+section.flex-alt {
+    @extend section.flex;
+    flex-direction: row-reverse;
+
+    div.side .wrapper {
+        padding: 0 20% 0 0;
+    }
+
+    div.side * {
+        text-align: left;
+    }
+}
+
+div.main, div.side {
+    @extend %border-box;
+    flex: 0 1 50%;
+    position: relative;
+
+    @include breakpoint(portrait) {
+        flex: 0 1 100%;
+        height: auto;
+    }
+}
+
+/*
+ * Section Interior Elements
+ * -------------------------
+ * There is an asymmetric 3:7 ratio layout, accent and main. The positions of 
+ * each alternate back and forth through odd/even children.
+ * 
+ * div.main: 70% width.
+ * div.accent: 30% width.
+ */
+
+div.main {
+    div.wrapper {
+        // Main interior wrapper pads out content.
+        padding: 0 25%;
+
+        @include breakpoint(max, 1100) {
+            padding: 0 20%;
+        }
+
+        @include breakpoint(max, 950) {
+            padding: 0 15%;
+        }
+    }
+}
+
+div.wrapper {
+    // Interior content wrapper.
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    @include prefix(transform, translateY(-50%));
+
+    @include breakpoint(portrait) {
+        position: initial;
+        @include prefix(transform, translateY(0));
+    }
+}
+
+/*
+ * Right Arrow
+ * -----------
+ */
+
+span.right-arrow {
+    color: inherit;
+    display: block;
+    font-family: inherit; 
+    font-size: inherit;
+    text-align: inherit;
+    text-transform: inherit;
+
+    &:after {
+        content: '⟶';
+    }
+
+    @include breakpoint(portrait) {
+        display: none;
+    }
+
+    @include breakpoint(smartphone) {
+        display: none;
+    }
+}

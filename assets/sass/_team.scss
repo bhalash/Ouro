@@ -1,0 +1,79 @@
+/*
+ * Team Member Section
+ * -------------------
+ */
+
+$team_mar: $bottom_default * 0.5;
+
+section#team .solid-backdrop {
+    background-color: map-get($colours, ouro_dark);
+}
+
+.teamlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    a {
+        box-shadow: none;
+    }
+
+    p {
+        font-size: 90%;
+        word-wrap: break-word;
+    }
+}
+
+.member {
+    @extend %border-box;
+    flex: 0 1 24%;
+    height: 0;
+    margin-bottom: 3px;
+    margin-right: 1%;
+    position: relative; 
+    @include flex_size(24%, 1);
+
+    a.avatar {
+        background-position: center center;
+        background-size: cover;
+        display: block;
+        @include flex_size(100%, 1);
+    }
+
+    .bio {
+        // Content gets displayed in a different box via JS.
+        display: none;
+    }
+}
+
+@each $value, $key in $team {
+    // Iterate avatars for team members.
+    ##{$value} .avatar {
+        background-image: url(nth($key, 1));
+    }
+}
+
+/*
+ * Showcase for Team
+ * -----------------
+ */
+
+#team-feature {
+    .avatar {
+        background-size: cover;
+        background-position: center top;
+        position: relative;
+        @include flex_size(100%, 0.8);
+    }
+
+    .name {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 5px;
+    }
+
+    p.blurb {
+        border-top: 1px solid #fff;
+        margin-top: 5px;
+    }
+}

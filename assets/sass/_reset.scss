@@ -26,46 +26,6 @@ img, iframe {
     max-width: 100%;
 }
 
-form { 
-    input, button, textarea {
-        // Remove all default appearance and focus appearance styling. 
-        @extend %border-box;
-        -webkit-border-radius: 0;
-        -webkit-appearance: none;
-        background-color: #eee;
-        border-radius: 0;
-        border: 0;
-        display: block;
-        font-size: 1em;
-        margin: 0;
-        margin-bottom: $bottom_default / 3;
-        outline: 0;
-        padding: 10px;
-        width: 100%;
-
-        &:focus {
-            border: 0;
-            outline: 1px solid map-get($colours, text_grey);
-        }
-    }
-
-    button {
-        width: auto;
-
-        @include breakpoint(smartphone) {
-            width: 100%;
-        }
-
-        &:active {
-            background: map-get($colours, active_grey);
-        }
-    }
-
-    input:-webkit-autofill {
-        color: rgba(255,255,255,0.2) !important;
-    }
-}
-
 hr {
     border: 0;
     height: 1px;

@@ -1,8 +1,8 @@
 @mixin breakpoint($point, $size: '') {
     $cell_min: 200px;
-    $cell_max: 736px;
+    $cell_max: 599px;
 
-    $tablet_min: 736px;
+    $tablet_min: 600px;
     $tablet_max: 1024px;
 
     @if $point == smartphone {
@@ -44,11 +44,16 @@
     }
 }
 
-@mixin translate($x, $y) {
-    -moz-transform: translate($x, $y);
-    -ms-transform: translate($x, $y);
-    -webkit-transform: translate($x, $y);
-    transform: translate($x, $y);
+@mixin prefix($property, $value) {
+    // Automatically add vendor prefixed to a CSS rule.
+    -khtml-#{$property}: $value;
+    // Mozilla Firefox.
+    -moz-#{$property}: $value;
+    // Microsoft Internet Explorer.
+    -ms-#{$property}: $value;
+    // Webkit Browsers (Chrome, Safari);
+    -webkit-#{$property}: $value;
+    #{$property}: $value;
 }
 
 @mixin flex_size($width, $ratio) {
@@ -64,13 +69,6 @@
     padding-top: $amount;
 }
 
-@mixin box_shadow($shadow) {
-    -moz-box-shadow: $shadow;
-    -ms-box-shadow: $shadow;
-    -webkit-box-shadow: $shadow;
-    box-shadow: $shadow;
-}
-
 @function rgba_opposite($red: 255, $green: 255, $blue: 255, $alpha: 0) {
     // I do not intend for this to be called directly. 
     // This function inverts RGB colours.
@@ -83,18 +81,8 @@
 }
 
 @mixin columns($count, $gap) {
-    // Mozilla Firefox
-    -moz-column-count: $count;
-    -moz-column-gap: $gap;
-    // Internet Explorer
-    -ms-column-count: $count;
-    -ms-column-gap: $gap;
-    // Webkit Browsers
-    -webkit-column-count: $count;
-    -webkit-column-gap : $gap;
-    // CSS 3
-    column-count: $count;
-    column-gap: $gap;
+    @include prefix(column-count, $count);
+    @include prefix(column-gap, $gap);
 }
 
 @mixin placeholder_style() {
