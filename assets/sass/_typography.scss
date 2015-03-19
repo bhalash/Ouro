@@ -4,24 +4,46 @@
  */
 
 h1, h2, h3, h4, h5, h6 {
-    color: #fff;
-    font: $title_opensans;
     letter-spacing: 1px;
     margin-bottom: $bottom_default;
-    // text-transform: uppercase;
 }
 
 h1, h2, h3 {
+    color: map-get($colours, ouro_light);
     font: $title_fjalla;
     margin-bottom: 0;
     text-transform: uppercase;
 }
 
-h2 { font-size: 4em; }
-h3 { font-size: 3em; }
-h4 { font-size: 2.5em; }
-h5 { font-size: 1.5em; }
-h6 { font-size: 1em; }
+h2 { 
+    font-size: 4em;
+}
+
+h3 { 
+    font-size: 3em; 
+
+    @include breakpoint(smartphone) {
+        font-size: 2.5em;
+    }
+}
+
+
+h4, h5, h5 {
+    color: map-get($colours, text_grey);
+    font: $title_opensans;
+}
+
+h4 { 
+    font-size: 2.5em;
+}
+
+h5 { 
+    font-size: 1.5em;
+}
+
+h6 { 
+    font-size: 1em;
+}
 
 /*
  * Non-header Defaults 
@@ -155,8 +177,7 @@ blockquote {
 }
 
 p, li, blockquote {
-    // color: map-get($colours, text_grey);
-    color: map-get($colours, text_white);
+    color: map-get($colours, text_grey);
 }
 
 li {
