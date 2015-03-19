@@ -8,29 +8,40 @@ jQuery(document).ready(function($) {
      * instead of vh of the viewport. 
      */
 
-    var sectionSize = function() {
+    var sectionSizes = function() {
         // There is currently no support in CSS3 for calc(vh - px);
         $('section').not('#home').each(function() {
             var b = $('nav#menu').height();
             $(this).css('min-height', $(window).height() - b);
         });
+
+        // $('#gallery').css({
+        //     'height': $('#gallery').width(),
+        //     'width': $('#gallery').parent().width()
+        // });
     }
 
-    $(window).on('load', sectionSize);
-    $(window).on('resize', sectionSize);
+    $(window).on('load', sectionSizes);
+    $(window).on('resize', sectionSizes);
 
-    if ($('body').hasClass('ios-6') || $('body').hasClass('ios-7')) {
+    if ($('html').hasClass('ios-6') || $('html').hasClass('ios-7')) {
         $('#home h1').css({
             lineHeight: $(window).height() + 'px',
         });
-
-        $('.gallery').css('height', $(window).height() * 0.9);
     }
 
     /*
      * Miscellaneous
      * -------------
      */
+
+    $('.member').each(function() { 
+        // Fallback for Mozilla Firefox until I can devise a better solution.
+        $(this).css('height', $(this).find('.avatar').css('padding-bottom')); 
+    });
+
+    // Chrome adds 4px to the height of each anchor. I have no idea why.
+    $('.gallery a').css('height', $('.gallery a').outerWidth());
 
     $('#team a').each(function() {
         $(this).attr('target', '_blank');
