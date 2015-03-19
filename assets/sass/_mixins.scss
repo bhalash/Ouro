@@ -44,15 +44,29 @@
     }
 }
 
+@mixin cover($image) {
+    background: center center/cover no-repeat url($image);
+}
+
 @mixin prefix($property, $value) {
-    // Automatically add vendor prefixed to a CSS rule.
-    -khtml-#{$property}: $value;
+    // Automatically add vendor prefixed to a CSS property.
     // Mozilla Firefox.
     -moz-#{$property}: $value;
     // Microsoft Internet Explorer.
     -ms-#{$property}: $value;
     // Webkit Browsers (Chrome, Safari);
     -webkit-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin prefix_value($property, $value) {
+    // Automatically add vendor prefixed to a CSS value.
+    // Mozilla Firefox.
+    #{$property}: -moz-#{$value};
+    // Microsoft Internet Explorer.
+    #{$property}: -ms-#{$value};
+    // Webkit Browsers (Chrome, Safari);
+    #{$property}: -webkit-#{$value};
     #{$property}: $value;
 }
 
