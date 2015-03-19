@@ -55,7 +55,7 @@ $(document).ready(function() {
         $(section).data(nav.dataCurrent, true);
         currentNavToggle($(menu).find('a[href^=#' + $(section).attr('id') + ']'));
 
-        if ($('body').hasClass('webkit')) {
+        if ($('html').hasClass('webkit')) {
             // This causes the page to scroll in Firefox.
             document.location.hash = $(section).attr('id');
         } else {
@@ -79,6 +79,17 @@ $(document).ready(function() {
         });
     };
 
+    var navOpacityonScroll = function() {
+        // Set the opacity of the nav menu on page scroll.
+        var a = $(window).height(), b = $(window).scrollTop(), opacity = 0;
+
+        opacity = b / a;
+        opacity = (opacity < 0) ? 0 : opacity;
+        opacity = (opacity > 1) ? 1 : opacity;
+
+        $(nav.menu).css('background-color', 'rgba(255,255,255,' + opacity + ')');
+    };
+
     if ($('html').hasClass('touch')) {
         $(nav.current).hover(function() {
             $(this).css('background-color', 'transparent');
@@ -90,6 +101,7 @@ $(document).ready(function() {
      * ------------
      */
 
+    $(window).on('scroll', navOpacityonScroll);
     $(window).on('scroll', navBoxShadow);
     $(window).on('scroll', toggleOnScroll);
 
