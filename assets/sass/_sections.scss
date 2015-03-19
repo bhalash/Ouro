@@ -4,6 +4,8 @@
  */
 
 $section_padding: 15px;
+$section_padding_wide: 35%;
+$section_padding_narrow: 15%;
 
 /*
  * Parent Content Container 
@@ -19,68 +21,70 @@ $section_padding: 15px;
  * -------------------
  */
 
+section#intro .main {
+    // Temporary: waiting on a HTML5 video for this section.
+    background-size: auto 70%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('../images/sections/section-ouro.png');
+}
+
 section:not(#home) {
     @extend %border-box;
     margin: 0;
     min-height: 100vh;
     overflow: hidden;
-    padding: $section_padding;
     position: relative;
 
-    @include breakpoint(portrait) {
-        padding: 20px 10%;
-    }
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, nowrap);
 
     @include breakpoint(smartphone) {
-        padding: 0;
-        position: initial;
-    }
-}
-
-section.flex {
-    // align-items: stretch;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-
-    @include breakpoint(portrait) {
-        display: block;
+        @include prefix(flex-direction, column);
+        padding: 20px 2.5%;
     }
 
-    div.side * {
-        // Reverse text direction too.
-        text-align: right;   
+    &:nth-child(odd) {
+        background-color: #f5f5f5;
+        @include prefix(flex-direction, row-reverse);
 
-        @include breakpoint(portrait) {
-            text-align: center;
+        @include breakpoint(smartphone) {
+            @include prefix(flex-direction, column);
+        }
+
+        .side .wrapper {
+            padding-right: $section_padding_wide;
+            
+
+            @include breakpoint(max, 1200) {
+                padding-right: $section_padding_narrow;
+            }
+
+            @include breakpoint(smartphone) {
+                padding: 0;
+            }
         }
     }
-}
 
-section.flex-alt {
-    @extend section.flex;
-    flex-direction: row-reverse;
+    &:nth-child(even) .side .wrapper {
+        padding-left: $section_padding_wide;
 
-    div.side .wrapper {
-        padding: 0 20% 0 0;
-
-        @include breakpoint(portrait) {
+        @include breakpoint(max, 1200) {
+            padding-left: $section_padding_narrow;
+        }
+        
+        @include breakpoint(smartphone) {
             padding: 0;
         }
-    }
 
-    div.side * {
-        text-align: left;
-    }
-}
+        h3, p {
+            text-align: right;
 
-div.main, div.side {
-    @extend %border-box;
-    flex: 0 1 50%;
-    position: relative;
-
-    @include breakpoint(portrait) {
-        flex: 0 1 100%;
+            @include breakpoint(smartphone) {
+                text-align: left;
+            }
+        }
     }
 }
 
@@ -94,35 +98,57 @@ div.main, div.side {
  * div.accent: 30% width.
  */
 
+div.side {
+    @include prefix(flex, 0 1 40%);
+}
+
 div.main {
+    @include prefix(flex, 0 1 60%);
+}
+
+div.main, div.side {
+    @include prefix_value(display, flex);
+
     div.wrapper {
-        // Main interior wrapper pads out content.
-        padding: 0 25%;
+        margin: auto;
+        width: 100%;
+    }
 
-        @include breakpoint(max, 1100) {
-            padding: 0 20%;
-        }
-
-        @include breakpoint(max, 950) {
-            padding: 0 15%;
-        }
-
-        @include breakpoint(portrait) {
-            padding: 0;
-        }
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 1);
     }
 }
 
-div.wrapper {
-    // Interior content wrapper.
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    @include prefix(transform, translateY(-50%));
+div.main div.wrapper {
+    // Main interior wrapper pads out content.
+    @extend %border-box;
 
-    @include breakpoint(portrait) {
-        position: initial;
-        @include prefix(transform, translateY(0));
+    padding: 0 $section_padding_wide 0 $section_padding_narrow;
+
+    @include breakpoint(max, 1200) {
+        padding: 0 $section_padding_narrow;
+    }
+
+    @include breakpoint(smartphone) {
+        padding: 0;
     }
 }
+
+/*
+ * Section Backdrops
+ * -----------------
+ */
+
+section#home {
+    @include cover('../images/backgrounds/background-home.jpg'); 
+}
+
+section#contact {
+    @include cover('../images/backgrounds/background-contact.jpg'); 
+}
+
+// @each $value, $key in $sections {
+//     section##{$value} {
+//         background-color: nth($key, 1);
+//     }
+// }
