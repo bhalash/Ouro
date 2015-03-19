@@ -3,19 +3,15 @@
  * -------------------
  */
 
-section#team .sec-title {
-    text-align: right;
-}
-
 section#team .solid-backdrop {
     background-color: map-get($colours, ouro_dark);
 }
 
 .teamlist {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, wrap);
+    @include prefix(justify-content, flex-start);
 
     a {
         box-shadow: none;
@@ -29,15 +25,20 @@ section#team .solid-backdrop {
 
 .member {
     @extend %border-box;
-    flex: 0 1 33%;
-    height: 0;
     margin-bottom: 3px;
+    padding-left: 5px;
     position: relative; 
-    @include flex_size(33%, 1);
+
+    @include prefix(flex, 0 1 50%);
+    @include flex_size(50%, 1);
+
+    /* Quirk: There is some combination of flex and padding in Firefox that 
+     * causes the calculated height of this element to be calculated as 0 unless
+     * I change this to auto. */
+    // height: auto;
 
     a.avatar {
-        background-position: center center;
-        background-size: cover;
+        @extend %cover-picture;
         display: block;
         @include flex_size(100%, 1);
     }
@@ -45,6 +46,10 @@ section#team .solid-backdrop {
     .bio {
         // Content gets displayed in a different box via JS.
         display: none;
+    }
+
+    .focus {
+        outline: 4px solid rgba(map-get($colours, ouro_light), 0.7);
     }
 }
 
@@ -61,36 +66,57 @@ section#team .solid-backdrop {
  */
 
 #team-feature {
-    $feature_space: 5px;
+    h3, p {
+        // color: #fff;
+    }
 
     .avatar {
-        background-size: cover;
+        @extend %cover-picture;
         background-position: center top;
         position: relative;
-        @include flex_size(100%, 0.8);
+        @include flex_size(100%, 1);
+    }
+
+    .mask {
+        background-color: rgba(#000, 0.4);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
     .name {
-        border-bottom: 1px solid #fff;
-        margin-bottom: $feature_space;
+        display: block;
+        font-weight: bold;
+        margin: 10px 0;
     }
 
-    p.blurb {
-        border-top: 1px solid #fff;
-        margin-top: $feature_space;
+    p {
+        margin: 0;
+        min-height: 125px;
+
+        @include breakpoint(smartphone) {
+            min-height: none;
+        }
     }
 
     ul.social {
         @extend %zero;
-        bottom: 0;
-        left: $feature_space / 2;
+        bottom: 5px;
         list-style-type: none;
         position: absolute;
+        left: 5px;
+        width: 100%;
 
         li {
-            display: inline-block;
-            margin-right: $feature_space;
+            float: left;
+            font-size: 0;
             @include flex_size(45px, 1);
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
         }
 
         a {
