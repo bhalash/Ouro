@@ -3,27 +3,55 @@
  * --------------------
  */
 
-section#ouro {
-    display: flex;
-}
+/*
+ * Lightbox Controls
+ * -----------------
+ */
+
+// Size of control image.
+$control_size: auto 40%;
+// Inset of previous-next image controls.
+$control_inset: 20px;
+$control_left_inset: calc(100% - #{$control_inset}) center;
+$control_right_inset: $control_inset center; 
+// Fallback gallery height and width.
+$gallery_width: 100%;
 
 div.gallery {
-    display: flex;
-    flex-direction: row;
-    height: 90vh;
-    width: 90vh;
+    // height: 90vh;
+    height: auto;
     margin: auto;
+    width: $gallery_width;
+
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
 
     @include breakpoint(portrait) {
-        height: 90vw;
-        width: 90vw;
+        @include prefix(align-items, flex-start);
+        height: auto;
+        width: 90%;
+    }
+
+    @include breakpoint(smartphone) {
+        display: initial;
+        width: 100%;
     }
 }
 
 div.image-col {
-    display: flex;
-    flex: 0 1 20%;
-    flex-direction: column;
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, column);
+    @include prefix(flex, 0 1 20%);
+
+    @include breakpoint(portrait) {
+        @include prefix(justify-content, flex-start);
+    }
+
+    @include breakpoint(smartphone) {
+        @include prefix(flex-direction, row);
+        @include prefix(flex, 0 1 100%);
+        width: 100%;
+    }
 }
 
 a.image {
@@ -31,10 +59,20 @@ a.image {
     display: block;
     overflow: hidden;
     padding: 5px;
-    flex: 1;
+    transition: background-color .3s;
+
+    @include prefix(flex, 1);
 
     &:hover {
         background-color: rgba(map-get($colours, ouro_light), 0.7);
+    }
+
+    @include breakpoint(portrait) {
+        padding: 2.5px;
+    }
+
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 0 1 50%);
     }
 
     img {
@@ -45,11 +83,67 @@ a.image {
 }
 
 div#lightbox {
-    display: none;
+    background-color: rgba(#000, 0.9);
     bottom: 0;
+    display: none;
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 5;
+
+    img {
+        margin: auto;
+        max-height: 95%;
+        width: auto;
+
+        @include breakpoint(portrait) {
+            height: auto;
+            max-width: 95%;
+            max-height: none;
+        }
+    }
+
+    a.close {
+        background: center center/$control_size no-repeat url('../images/lightbox/lightbox-close.svg');
+        display: block;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 50px;
+
+        @include breakpoint(smartphone) {
+            height: 60px;
+            width: 60px;
+        }
+    }
+
+    nav.controls {
+        bottom: 10px;
+        height: 60px;
+        left: 0;
+        position: absolute;
+        right: 0;
+
+        @include prefix_value(display, flex);
+        @include prefix(flex-direction, row);
+        @include prefix(justify-content, space-between);
+
+        .control {
+            height: 100%;
+            width: 50%;
+
+            @include prefix_value(display, flex);
+            @include prefix(justify-content, flex-start);
+        }
+
+        .left {
+            background: $control_left_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-left.svg');
+        }
+
+        .right {
+            background: $control_right_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-right.svg');
+        }
+    }
 }
