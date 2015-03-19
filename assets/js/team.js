@@ -9,18 +9,24 @@ $(document).ready(function($) {
         name: '#team-feature .name',
         bio: '#team-feature .blurb',
         social: '#team-feature .social',
+        speed: 300,
         setAvatar: function(avatar) {
-            $(this.avatar).css('background-image', avatar);
+            var $avatarDiv = $(this.avatar);
+            $avatarDiv.css('background-image', avatar);
         }, 
         setName: function(name) {
-            $(this.name).text(name);
+            var $nameDiv = $(this.name);
+            $($nameDiv).text(name);
         }, 
         setBio: function(bio) {
-            $(this.bio).text(bio);
+            var $bioDiv = $(this.bio);
+            $bioDiv.text(bio);
         },
         setSocial: function(social) {
+            var $socialDiv = $(this.social); 
+            $(this.social).show();
             $(this.social).empty();
-            social.clone().appendTo(this.social);
+            social.children('li').clone().appendTo($socialDiv);
         },
         setPerson: function(person) {
             this.setName(person.name);
@@ -41,6 +47,8 @@ $(document).ready(function($) {
         var member = this;
 
         $(this.id).click(function() {
+            $('.avatar').removeClass('focus');
+            $(this).find('a.avatar').addClass('focus');
             feature.setPerson(member);
             return false;
         });
