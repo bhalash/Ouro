@@ -25,6 +25,14 @@
     @include prefix(box-shadow, 0px 0px 7px 0px rgba(0,0,0,0.3));
 }
 
+.ouro-dark {
+    color: map-get($colours, ouro_dark);
+}
+
+.ouro-light {
+    color: map-get($colours, ouro_light);
+}
+
 /*
  * Shadows and Gradients
  * ---------------------
@@ -51,8 +59,7 @@
  */
 
 %cover-picture {
-    // Offset the top of a picture, since rule of thirds. 
-    background-position: center 30%;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover; 
 }
@@ -128,6 +135,14 @@ span.right-arrow {
 
     &:after {
         content: '⟶';
+
+        @include breakpoint(tablet) {
+            content: '>';
+        }
+
+        @include breakpoint(smartphone) {
+            content: '>';
+        }
     }
 
     @include breakpoint(portrait) {
@@ -138,6 +153,23 @@ span.right-arrow {
         display: none;
     }
 } 
+
+span.left-arrow {
+    @extend span.right-arrow;
+    text-align: left;
+
+    &:after {
+        content: '⟵';
+
+        @include breakpoint(tablet) {
+            content: '<';
+        }
+
+        @include breakpoint(smartphone) {
+            content: '<';
+        }
+    }
+}
 
 /*
  * Backdrop
