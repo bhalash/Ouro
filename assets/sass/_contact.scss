@@ -3,13 +3,24 @@
  * ----------------------------
  */
 
+section#contact {
+    p {
+        color: #fff;
+    }
+}
+
 form { 
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+
     input, button, textarea {
         @extend %border-box;
         // Remove all default appearance and focus appearance styling. 
         -webkit-border-radius: 0;
         -webkit-appearance: none;
-        background-color: #fff;
+        // background-color: #fff;
+        background-color: map-get($colours, light_grey);
         border-radius: 0;
         border: 0;
         display: block;
@@ -33,6 +44,8 @@ form {
     }
 
     input {
+        width: 75%;
+        
         @include breakpoint(portrait) {
             width: 100%;
         }
@@ -44,15 +57,17 @@ form {
 
     button {
         background-color: map-get($colours, ouro_light);
+        color: #fff;
         text-transform: uppercase;
         width: 50%;
 
         @include breakpoint(portrait) {
-            width: 100%;
+            width: 50%;
         }
 
         @include breakpoint(smartphone) {
-            width: 100%;
+            // margin: 0 auto;
+            width: 50%;
         }
 
         &:active {
@@ -71,7 +86,6 @@ form {
 }
 
 #contact form {
-
     .messages {
         color: map-get($colours, text_grey);
     }
