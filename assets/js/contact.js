@@ -58,6 +58,7 @@ jQuery(function($) {
     });
 
     $(form.sendmessage).submit(function(event) {
+    // $(form.sendmessage).bind('submit', function(event) {
         event.preventDefault();
         form.filled = [];
 
