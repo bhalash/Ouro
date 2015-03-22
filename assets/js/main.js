@@ -9,16 +9,19 @@ jQuery(document).ready(function($) {
      */
 
     var sectionSizes = function() {
-        // There is currently no support in CSS3 for calc(vh - px);
         $('section').not('#home').each(function() {
-            var b = $('nav#menu').height();
-            $(this).css('min-height', $(window).height() - b);
-        });
+            // There is currently no support in CSS3 for calc(vh - px);
+            var navHeight = $('nav#menu').height();
+            if (!$('html').hasClass('internet-explorer')) {
+                $(this).css('min-height', $(window).height() - navHeight);
+            } else {
+                /* I would much rather use min-height for this, but TL;DR IE 11
+                 * will not vertically center children if the parent has a min-height
+                 * attribute set. */
 
-        // $('#gallery').css({
-        //     'height': $('#gallery').width(),
-        //     'width': $('#gallery').parent().width()
-        // });
+                
+            }
+        });
     }
 
     $(window).on('load', sectionSizes);
@@ -40,7 +43,8 @@ jQuery(document).ready(function($) {
         $(this).css('height', $(this).find('.avatar').css('padding-bottom')); 
     });
 
-    // Chrome adds 4px to the height of each anchor. I have no idea why.
+    /* Chrome adds 4px to the height of each anchor. I have no idea why. 
+     * Like, really, no idea. I spent two hours drilling into it. */
     $('.gallery a').css('height', $('.gallery a').outerWidth());
 
     $('#team a').each(function() {
