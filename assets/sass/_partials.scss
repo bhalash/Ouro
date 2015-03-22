@@ -12,6 +12,14 @@
     // padding: 8px !important;
 }
 
+.focus {
+    transition: background-color .3s;
+    
+    &:hover {
+        background-color: rgba(map-get($colours, ouro_light), 0.7);
+    }    
+}
+
 .ouro-border {
     border-bottom: 6px solid map-get($colours, ouro_light);
 }
