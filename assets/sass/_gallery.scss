@@ -26,28 +26,26 @@ div.gallery {
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
     @include prefix(flex-wrap, wrap);
-    @include prefix(justify-content, space-between);
 }
 
 a.image {
-    @extend %border-box;
+    @extend .focus;
     display: block;
-    margin-bottom: 3px;
+    // Otherwise Chrome adds a tiny amount to the height.
+    font-size: 0 !important;
     overflow: hidden;
-    transition: background-color .3s;
 
-    @include prefix(flex, 0 1 24.5%);
+    @include prefix(align-self, center);
+    @include prefix(flex, 0 1 25%);
 
     @include breakpoint(smartphone) {
-        @include prefix(flex, 0 1 49.5%);
-    }
-
-    &:hover {
-        background-color: rgba(map-get($colours, ouro_light), 0.7);
+        @include prefix(flex, 0 1 50%);
     }
 
     img {
+        @extend %border-box;
         overflow: hidden;
+        padding: 5px;
         width: 100%;
     }
 }
