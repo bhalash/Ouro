@@ -37,17 +37,4 @@ jQuery(document).ready(function($) {
      * Miscellaneous
      * -------------
      */
-
-    $('.member').each(function() { 
-        // Fallback for Mozilla Firefox until I can devise a better solution.
-        $(this).css('height', $(this).find('.avatar').css('padding-bottom')); 
-    });
-
-    /* Chrome adds 4px to the height of each anchor. I have no idea why. 
-     * Like, really, no idea. I spent two hours drilling into it. */
-    $('.gallery a').css('height', $('.gallery a').outerWidth());
-
-    $('#team a').each(function() {
-        $(this).attr('target', '_blank');
-    });
 });
