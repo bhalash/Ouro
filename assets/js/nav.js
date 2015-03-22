@@ -55,12 +55,14 @@ $(document).ready(function() {
         $(section).data(nav.dataCurrent, true);
         currentNavToggle($(menu).find('a[href^=#' + $(section).attr('id') + ']'));
 
-        if ($('html').hasClass('webkit')) {
-            // This causes the page to scroll in Firefox.
-            document.location.hash = $(section).attr('id');
-        } else {
-            // This causes juddery reload behaviour in Chrome.
-            history.pushState(null, null, '#' + $(section).attr('id'));
+        if (!$('html').hasClass('mobile')) {
+            if ($('html').hasClass('webkit')) {
+                // This causes the page to scroll in Firefox.
+                document.location.hash = $(section).attr('id');
+            } else {
+                // This causes juddery reload behaviour in Chrome.
+                history.pushState(null, null, '#' + $(section).attr('id'));
+            }
         }
     };
 
@@ -78,6 +80,42 @@ $(document).ready(function() {
             }
         });
     };
+
+    var invertTextColour = function() {
+        /* Graduallly invert the colour of the anchor element as the page
+         * scrolls, using RGB values. */
+
+        var limits = {
+            /* The dark grey colour is 88,88,88, and white is 255,255,255
+             * The output RGB colour should be constrained between these. */ 
+            upper: 255,
+            lower: 88
+        };
+
+            // Initial colour.
+        var color = limits.upper, 
+            difference = limits.upper - limits.lower,
+            contentTop = $('#home').height(),
+            windowPos = $(window).scrollTop(),
+            percentage = windowPos / contentTop;
+
+        percentage = (percentage < 0) ? 0 : percentage;
+        percentage = (percentage > 1) ? 1 : percentage;
+
+        /* For example: 
+         * color = 255(, 255, 2555)
+         * difference = 255 - 80 = 167
+         * percentange = (randomly) 0.46
+         * 
+         * color = 255 - (167 * 0.46) = 178 (rounded)
+         */
+
+        color = Math.floor(limits.upper - (difference * percentage));
+        color = (color > limits.upper) ? limits.upper : color;
+        color = (color < limits.lower) ? limits.lower : color;
+
+        $(nav.menu + ' li').css('color', 'rgba(' + color + ',' + color + ',' + color + ', 1)');
+    }
 
     var navOpacityonScroll = function() {
         // Set the opacity of the nav menu on page scroll.
@@ -104,6 +142,7 @@ $(document).ready(function() {
     $(window).on('scroll', navOpacityonScroll);
     $(window).on('scroll', navBoxShadow);
     $(window).on('scroll', toggleOnScroll);
+    $(window).on('scroll', invertTextColour);
 
     $(nav.anchor).click(function() {
         /*
