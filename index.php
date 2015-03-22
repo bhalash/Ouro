@@ -77,41 +77,22 @@
                 <div class="main">
                     <div class="wrapper">
                         <div class="gallery" id="gallery">
-                            <div class="image-col">
-                                <a class="image" href="/assets/images/gallery/full/0.jpg"><img src="/assets/images/gallery/thumb/0.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/1.jpg"><img src="/assets/images/gallery/thumb/1.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/2.jpg"><img src="/assets/images/gallery/thumb/2.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/3.jpg"><img src="/assets/images/gallery/thumb/3.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/4.jpg"><img src="/assets/images/gallery/thumb/4.jpg" alt="Grahhhh" /></a>
-                            </div>
-                            <div class="image-col">
-                                <a class="image" href="/assets/images/gallery/full/5.jpg"><img src="/assets/images/gallery/thumb/5.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/6.jpg"><img src="/assets/images/gallery/thumb/6.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/7.jpg"><img src="/assets/images/gallery/thumb/7.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/8.jpg"><img src="/assets/images/gallery/thumb/8.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/9.jpg"><img src="/assets/images/gallery/thumb/9.jpg" alt="Grahhhh" /></a>
-                            </div>
-                            <div class="image-col">
-                                <a class="image" href="/assets/images/gallery/full/10.jpg"><img src="/assets/images/gallery/thumb/10.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/11.jpg"><img src="/assets/images/gallery/thumb/11.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/12.jpg"><img src="/assets/images/gallery/thumb/12.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/13.jpg"><img src="/assets/images/gallery/thumb/13.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/14.jpg"><img src="/assets/images/gallery/thumb/14.jpg" alt="Grahhhh" /></a>
-                            </div>
-                            <div class="image-col">
-                                <a class="image" href="/assets/images/gallery/full/15.jpg"><img src="/assets/images/gallery/thumb/15.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/16.jpg"><img src="/assets/images/gallery/thumb/16.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/17.jpg"><img src="/assets/images/gallery/thumb/17.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/18.jpg"><img src="/assets/images/gallery/thumb/18.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/19.jpg"><img src="/assets/images/gallery/thumb/19.jpg" alt="Grahhhh" /></a>
-                            </div>
-                            <div class="image-col">
-                                <a class="image" href="/assets/images/gallery/full/20.jpg"><img src="/assets/images/gallery/thumb/20.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/21.jpg"><img src="/assets/images/gallery/thumb/21.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/22.jpg"><img src="/assets/images/gallery/thumb/22.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/23.jpg"><img src="/assets/images/gallery/thumb/23.jpg" alt="Grahhhh" /></a>
-                                <a class="image" href="/assets/images/gallery/full/24.jpg"><img src="/assets/images/gallery/thumb/24.jpg" alt="Grahhhh" /></a>
-                            </div>
+                            <a class="image" href="/assets/images/gallery/full/0.jpg"><img src="/assets/images/gallery/thumb/0.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/1.jpg"><img src="/assets/images/gallery/thumb/1.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/2.jpg"><img src="/assets/images/gallery/thumb/2.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/3.jpg"><img src="/assets/images/gallery/thumb/3.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/4.jpg"><img src="/assets/images/gallery/thumb/4.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/5.jpg"><img src="/assets/images/gallery/thumb/5.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/6.jpg"><img src="/assets/images/gallery/thumb/6.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/7.jpg"><img src="/assets/images/gallery/thumb/7.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/8.jpg"><img src="/assets/images/gallery/thumb/8.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/9.jpg"><img src="/assets/images/gallery/thumb/9.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/10.jpg"><img src="/assets/images/gallery/thumb/10.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/11.jpg"><img src="/assets/images/gallery/thumb/11.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/12.jpg"><img src="/assets/images/gallery/thumb/12.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/13.jpg"><img src="/assets/images/gallery/thumb/13.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/14.jpg"><img src="/assets/images/gallery/thumb/14.jpg" alt="Grahhhh" /></a>
+                            <a class="image" href="/assets/images/gallery/full/15.jpg"><img src="/assets/images/gallery/thumb/15.jpg" alt="Grahhhh" /></a>
                         </div>
                     </div>
                 </div>

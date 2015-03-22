@@ -18,65 +18,35 @@ $control_right_inset: $control_inset center;
 $gallery_width: 100%;
 
 div.gallery {
-    // height: 90vh;
-    height: auto;
+    @extend %border-box;
+    // height: auto;
     margin: auto;
     width: $gallery_width;
 
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
-
-    @include breakpoint(portrait) {
-        @include prefix(align-items, flex-start);
-        height: auto;
-        width: 90%;
-    }
-
-    @include breakpoint(smartphone) {
-        display: initial;
-        width: 100%;
-    }
-}
-
-div.image-col {
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, column);
-    @include prefix(flex, 0 1 20%);
-
-    @include breakpoint(portrait) {
-        @include prefix(justify-content, flex-start);
-    }
-
-    @include breakpoint(smartphone) {
-        @include prefix(flex-direction, row);
-        @include prefix(flex, 0 1 100%);
-        width: 100%;
-    }
+    @include prefix(flex-wrap, wrap);
+    @include prefix(justify-content, space-between);
 }
 
 a.image {
     @extend %border-box;
     display: block;
+    margin-bottom: 3px;
     overflow: hidden;
-    padding: 5px;
     transition: background-color .3s;
 
-    @include prefix(flex, 1);
+    @include prefix(flex, 0 1 24.5%);
+
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 0 1 49.5%);
+    }
 
     &:hover {
         background-color: rgba(map-get($colours, ouro_light), 0.7);
     }
 
-    @include breakpoint(portrait) {
-        padding: 2.5px;
-    }
-
-    @include breakpoint(smartphone) {
-        @include prefix(flex, 0 1 50%);
-    }
-
     img {
-        height: auto;
         overflow: hidden;
         width: 100%;
     }
