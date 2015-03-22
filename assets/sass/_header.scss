@@ -8,14 +8,15 @@
     height: 100vh;
 
     .logo {
-        background: center center/auto 40% no-repeat border-box url('../images/logo-ouro.svg');
+        background: center center/auto 35% no-repeat border-box url('../images/logo-ouro.svg');
         display: table;
         height: 100%;
         position: relative;
         width: 100%;
 
         h1 {
-            color: map-get($colours, text_grey);
+            // color: map-get($colours, text_grey);
+            color: map-get($colours, ouro_light);
             font-size: 10vh;
             display: table-cell;
             text-align: center;

@@ -1,4 +1,4 @@
-/*
+back/*
  * Site Top Navigation Menu
  * ------------------------
  */
@@ -37,6 +37,7 @@ a#ouro-twitter {
 }
 
 nav#menu {
+    // background-color: #fff;
     left: 0;
     position: fixed;
     right: 0;
@@ -54,8 +55,13 @@ nav#menu {
         }
     }
 
+    li {
+        // color: map-get($colours, text_grey);
+        color: #fff;
+    }
+
     a {
-        color: map-get($colours, text_grey);
+        color: inherit;
         padding: 15px 20px;
         transition: color .2s, background-color .4s;
 
