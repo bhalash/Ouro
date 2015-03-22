@@ -18,8 +18,7 @@ jQuery(document).ready(function($) {
                 /* I would much rather use min-height for this, but TL;DR IE 11
                  * will not vertically center children if the parent has a min-height
                  * attribute set. */
-
-                
+                $(this).css('height', $(window).height() - navHeight);
             }
         });
     }
