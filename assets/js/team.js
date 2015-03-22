@@ -12,7 +12,7 @@ $(document).ready(function($) {
         speed: 300,
         setAvatar: function(avatar) {
             var $avatarDiv = $(this.avatar);
-            $avatarDiv.css('background-image', avatar);
+            $avatarDiv.css('background-image', 'url(\'' + avatar + '\')');
         }, 
         setName: function(name) {
             var $nameDiv = $(this.name);
@@ -29,6 +29,7 @@ $(document).ready(function($) {
             social.children('li').clone().appendTo($socialDiv);
         },
         setPerson: function(person) {
+            console.log(person);
             this.setName(person.name);
             this.setBio(person.bio);
             this.setAvatar(person.avatar);
@@ -38,7 +39,7 @@ $(document).ready(function($) {
 
     function Member(id) {
         this.id = '#' + id;
-        this.avatar = $(this.id).find('.avatar').css('background-image');
+        this.avatar = $(this.id).find('.avatar img').attr('src');
         this.name = $(this.id).find('span.name').text();
         this.social = $(this.id).find('ul.social');
         this.bio = $(this.id).find('span.blurb').text();
@@ -47,8 +48,8 @@ $(document).ready(function($) {
         var member = this;
 
         $(this.id).click(function() {
-            $('.avatar').removeClass('focus');
-            $(this).find('a.avatar').addClass('focus');
+            $('.avatar img').removeClass('focus');
+            $(this).find('a.avatar img').addClass('focus');
             feature.setPerson(member);
             return false;
         });

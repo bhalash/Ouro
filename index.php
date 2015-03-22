@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="no">
     <?php $title = (strpos($_SERVER['HTTP_HOST'], 'bhalash') !== false) ? 'Ix Sandbox' : 'Ouro'; ?>
     <title><?php printf($title); ?></title>
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Fjalla+One|Source+Code+Pro|Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="assets/sass/style.css" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Fjalla+One|Source+Code+Pro|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="assets/sass/style.css">
     <!-- [if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif] -->
     <link rel="icon" href="images/favicon.png">
     <!-- Bing Webmaster Tools -->
@@ -104,7 +104,9 @@
                         <p>Staffed by rugged beards and fearsome pirate queeens, Ouro's diverse team is drawn from two continents.</p>
                         <div class="teamlist">
                             <div class="member" id="jemma">
-                                <a class="avatar" target="_blank" href="javascript:void(0)"></a>
+                                <a class="avatar" target="_blank" href="javascript:void(0)">
+                                    <img src="assets/images/team/team-jemma.jpg" alt="Jemma Redmond" />
+                                </a>
                                 <div class="bio">
                                     <span class="name">Jemma Redmond</span>
                                     <span class="title">Ouro Designer and CEO</span>
@@ -115,7 +117,9 @@
                                 </div>
                             </div>
                             <div class="member" id="alanna">
-                                <a class="avatar" target="_blank" href="javascript:void(0)"></a>
+                                <a class="avatar" target="_blank" href="javascript:void(0)">
+                                    <img src="assets/images/team/team-alanna.jpg" alt="Alanna Kelly" />
+                                </a>
                                 <div class="bio">
                                     <span class="name">Alanna Kelly</span>
                                     <span class="title">Hardware Guru</span>
@@ -123,7 +127,9 @@
                                 </div>
                             </div>
                             <div class="member" id="mark">
-                                <a class="avatar" target="_blank" href="javascript:void(0)"></a>
+                                <a class="avatar" target="_blank" href="javascript:void(0)">
+                                    <img src="assets/images/team/team-mark.jpg" alt="Mark Grealish" />
+                                </a>
                                 <div class="bio">
                                     <span class="name">Mark Grealish</span>
                                     <span class="title">Web Developer</span>
@@ -135,7 +141,9 @@
                                 </div>
                             </div>
                             <div class="member" id="joe">
-                                <a class="avatar" target="_blank" href="javascript:void(0)"></a>
+                                <a class="avatar" target="_blank" href="javascript:void(0)">
+                                    <img src="assets/images/team/team-joe.jpg" alt="Joe Keane" />
+                                </a>
                                 <div class="bio">
                                     <span class="name">Joe Keane</span>
                                     <span class="title">Design Engineer</span>
