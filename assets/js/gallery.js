@@ -235,23 +235,11 @@ jQuery(document).ready(function($) {
         }
     });
 
-    var touched = false;
-
     $('.gallery a').bind('click touchstart', function() {
-        if ($('html').hasClass('mobile')) {
-            if (!touched) {
-                touched = true;
-                
-                setTimeout(function() {
-                    touched = false;
-                }, 250);
-
-                return false;
-            }
+        if (!$('html').hasClass('mobile')) {
+            lightbox.setLightboxImage($(this).data('img'));
+            return false;
         }
-
-        lightbox.setLightboxImage($(this).data('img'));
-        return false;
     });
 
     $('#lightbox a.left').bind('click touchend', function(event) {
