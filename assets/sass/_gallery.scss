@@ -38,10 +38,6 @@ a.image {
     @include prefix(align-self, center);
     @include prefix(flex, 0 1 25%);
 
-    @include breakpoint(smartphone) {
-        @include prefix(flex, 0 1 50%);
-    }
-
     img {
         @extend %border-box;
         overflow: hidden;
