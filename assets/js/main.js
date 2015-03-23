@@ -26,12 +26,6 @@ jQuery(document).ready(function($) {
     $(window).on('load', sectionSizes);
     $(window).on('resize', sectionSizes);
 
-    if ($('html').hasClass('ios-6') || $('html').hasClass('ios-7')) {
-        $('#home h1').css({
-            lineHeight: $(window).height() + 'px',
-        });
-    }
-
     /*
      * Miscellaneous
      * -------------
