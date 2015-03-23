@@ -12,22 +12,20 @@ $section_padding_narrow: 15%;
  * ------------------------
  */
 
-#content {
-    // Left blank in case of future content.
+#content a {
+    color: map-get($colours, ouro_dark);
 }
 
 /*
  * Base Section Layout
  * -------------------
+ * Sections are a mish-mash, in part because of Internet Explorer and Safari 
+ * Mobile.
+ * 
+ * 1. Flex centering does not work, period, in Internet Explorer if the parent
+ *    container has a min-height set. I would *much* rather set min-height here
+ *    initially, 
  */
-
-section#intro .main {
-    // Temporary: waiting on a HTML5 video for this section.
-    background-size: auto 70%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: url('../images/sections/section-ouro.png');
-}
 
 section:not(#home) {
     @extend %border-box;
@@ -89,9 +87,34 @@ section:not(#home) {
 }
 
 /*
+ * Single Interior Column
+ * ----------------------
+ * An alternate arrangement is a single centered column.
+ */
+
+.single {
+    margin: auto;
+    padding: 0 20%;
+    @include prefix(align-self, center);
+    @include prefix(flex, 1);
+
+    @include breakpoint(max, 1200) {
+        padding-left: 0 $section_padding_narrow;
+    }
+
+    @include breakpoint(smartphone) {
+        padding: 0;
+    }
+
+    h3, h5, p {
+        text-align: center;
+    }
+}
+
+/*
  * Section Interior Elements
  * -------------------------
- * There is an asymmetric 3:7 ratio layout, accent and main. The positions of 
+ * There is an asymmetric 4:6 ratio layout, accent and main. The positions of 
  * each alternate back and forth through odd/even children.
  * 
  * div.main: 70% width.
@@ -141,18 +164,11 @@ div.main div.wrapper {
 /*
  * Section Backdrops
  * -----------------
+ * Backdrop image for each section.
  */
 
-section#home {
-    @include cover('../images/backgrounds/background-home.jpg'); 
+@each $value, $key in $sections {
+    section##{$value} {
+        @include cover(nth($key, 1));
+    }
 }
-
-section#contact {
-    @include cover('../images/backgrounds/background-contact.jpg'); 
-}
-
-// @each $value, $key in $sections {
-//     section##{$value} {
-//         background-color: nth($key, 1);
-//     }
-// }
