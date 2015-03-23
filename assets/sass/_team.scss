@@ -18,6 +18,10 @@ section#team .solid-backdrop {
     @include prefix(align-self, center);
     @include prefix(flex, 0 1 50%);
 
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 0 1 20%);
+    }
+
     a.avatar {
         @extend .focus;
         display: block;
@@ -43,10 +47,6 @@ section#team .solid-backdrop {
  */
 
 #team-feature {
-    h3, p {
-        // color: #fff;
-    }
-
     .avatar {
         @extend %cover-picture;
         background-position: center top;
@@ -75,30 +75,6 @@ section#team .solid-backdrop {
 
         @include breakpoint(smartphone) {
             min-height: none;
-        }
-    }
-
-    ul.social {
-        @extend %zero;
-        bottom: 5px;
-        list-style-type: none;
-        position: absolute;
-        left: 5px;
-        width: 100%;
-
-        li {
-            float: left;
-            font-size: 0;
-            @include flex_size(45px, 1);
-
-            &:not(:last-child) {
-                margin-right: 5px;
-            }
-        }
-
-        a {
-            display: block;
-            @include flex_size(100%, 1);
         }
     }
 }
