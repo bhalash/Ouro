@@ -37,41 +37,26 @@
             <div class="logo">
                 <h1>ouro</h1>
             </div>
+            <div class="ouro-introduction">
+                <h5>Ouro is the next generation of bioprinting technology: a lower-cost tissue engineering platform with superior print resolution.</h5> 
+                <h5>Follow <a title="@ouro_botics" rel="external nofollow" href="https://www.twitter.com/ouro_botics">@ouro_botics</a> on Twitter or check out <a title="The Ouro blog" rel="external" href="http://blog.ouro.ie">our blog</a>.
+            </div>
         </section>
         <nav id="menu">
             <ul>
                 <li><a class="current-nav nav" href="#home">Home</a></li>
-                <li><a class="nav" href="#intro">Bioprinting</a></li>
                 <li><a class="nav" href="#ouro">The Ouro Bioprinter</a></li>
                 <li><a class="nav" href="#team">The Ouro Team</a></li>
                 <li><a class="nav" href="#contact">Contact Us</a></li>
+                <li><a class="blog" href="http://blog.ouro.ie" rel="external nofollow" target="_blank">New: The Ouro Blog!</a></li>
             </ul>
         </nav>
         <div id="content">
-            <section id="intro">
-                <div class="side">
-                    <div class="wrapper">
-                        <h3 class="sec-title">Bioprinting</h3>
-                        <p>
-                        3D printing is, today, one of the most exciting and dynamic fields of manufacturing technologies. 3D printers reduce the complexity and turnaround time of the prototyping workflow: dream it, draw it, print it and repeat until you have the perfect design.
-                        </p>
-                        <p>An amazing range of materials has been used to 3D print: plastics, chocolate, ice, water, metal, paper and even modelling clay.</p>
-                        <p>Bioprinting-tissue engineering-is the next step: skin grafts, bones and eventually whole replacement organs will be grown on demand from scratch.</p>
-                        <p>Ouro-botics plan to be at the forefront of this field.</p>
-                    </div>
-                </div>
-                <div class="main">
-                    <div class="wrapper">
-                    </div>
-                </div>
-            </section>
             <section id="ouro">
                 <div class="side">
                     <div class="wrapper">
                         <h3>The Ouro prototype</h3>
-                        <p>
-                            The Ouro bioprinter will be coming to the market in 2015.
-                        </p>
+                        <p>The Ouro bioprinter will be coming to the market in 2015.</p>
                     </div>
                 </div>
                 <div class="main">
@@ -102,7 +87,18 @@
                     <div class="wrapper">
                         <h3 class="sec-title">The Ouro team</h3>
                         <p>Staffed by rugged beards and fearsome pirate queeens, Ouro's diverse team is drawn from two continents.</p>
+                        <p>Click on an Ouro staffer to find out more about them:</p>
                         <div class="teamlist">
+                            <div class="member" id="alanna">
+                                <a class="avatar" target="_blank" href="javascript:void(0)">
+                                    <img src="assets/images/team/team-alanna.jpg" alt="Alanna Kelly" />
+                                </adad>
+                                <div class="bio">
+                                    <span class="name">Alanna Kelly</span>
+                                    <span class="title">Hardware Guru</span>
+                                    <span class="blurb">The Ouro's hardware guru, Alanna brings the brawn to match Jemma's brains. Alanna handles the development and assembly of the Ouro printer.</span>
+                                </div>
+                            </div>
                             <div class="member" id="jemma">
                                 <a class="avatar" target="_blank" href="javascript:void(0)">
                                     <img src="assets/images/team/team-jemma.jpg" alt="Jemma Redmond" />
@@ -110,20 +106,10 @@
                                 <div class="bio">
                                     <span class="name">Jemma Redmond</span>
                                     <span class="title">Ouro Designer and CEO</span>
-                                    <span class="blurb">The found and CEO of Ouro-botics, this University College Dublin alumni provides us vision and guidance in our plan to conquer the world even before her first cup of morning coffee.</span>
+                                    <span class="blurb">The founder and CEO of Ouro-botics, this University College Dublin alumni provides us vision and guidance in our plan to conquer the world even before her first cup of morning coffee.</span>
                                     <ul class="social">
                                         <li class="twitter"><a target="_blank" rel="nofollow" href="https://www.twitter.com/sciencegirlg"></a></li>
                                     </ul>
-                                </div>
-                            </div>
-                            <div class="member" id="alanna">
-                                <a class="avatar" target="_blank" href="javascript:void(0)">
-                                    <img src="assets/images/team/team-alanna.jpg" alt="Alanna Kelly" />
-                                </a>
-                                <div class="bio">
-                                    <span class="name">Alanna Kelly</span>
-                                    <span class="title">Hardware Guru</span>
-                                    <span class="blurb">The Ouro's hardware guru, Alanna brings the brawn to match Jemma's brains. Alanna handles the development and assembly of the Ouro printer.</span>
                                 </div>
                             </div>
                             <div class="member" id="mark">
@@ -157,40 +143,34 @@
                 </div>
                 <div class="main">
                     <div class="wrapper">
-                        <div id="team-feature">                      
+                        <div id="team-feature">
                             <div class="avatar">
-                                <ul class="social"></ul> 
+                                <ul class="social"></ul>
                             </div>
-                            <p><span class="name"></span><span class="blurb"></span></p>
+                            <p>
+                                <span class="name"></span>
+                                <span class="blurb"></span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
             <section id="contact">
-                <div class="side">
-                    <div class="wrapper">
-                        <h3 class="sec-title">Would you like to know more?</h3>
-                        <p>Stay in the loop on the latest Ouro developments on our mailing list, or follow <a title="@ouro_botics" href="https://www.twitter.com/ouro_botics">@ouro_botics</a> on Twitter!</p>
-                        <nav id="social">
-                            <ul>
-                                <li class="twitter"><a title="@ouro_botics" href="https://www.twitter.com/ouro_botics"></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="main">
-                    <div class="wrapper">
-                        <p class="messages">&nbsp;</p>
-                        <form action="/contact.php" autocomplete="off" id="sendmessage" method="post" novalidate>
-                            <p>
+                <div class="single">
+                    <h3 class="sec-title">Would you like to know more?</h3>
+                    <p>Stay in the loop on the latest Ouro developments on our mailing list, or follow <a title="@ouro_botics" href="https://www.twitter.com/ouro_botics">@ouro_botics</a> on Twitter!</p>
+                    <p class="messages">&nbsp;</p>
+                    <form action="/contact.php" autocomplete="off" id="sendmessage" method="post" novalidate>
+                        <p>
+                            <span class="form-inputs">
                                 <input id="name" name="name" type="text" placeholder="Name" required>
                                 <input id="email" name="email" type="email" placeholder="Email" required>
-                                <textarea id="message" name="message" placeholder="Message" required></textarea>
-                                <input id="unseen" name="unseen" type="hidden"> 
-                                <button id="submit" type="submit">Submit</button>
-                            </p>
-                        </form>
-                    </div>
+                            </span>
+                            <textarea id="message" name="message" placeholder="Message" required></textarea>
+                            <input id="unseen" name="unseen" type="hidden">
+                            <button id="submit" type="submit">Submit</button>
+                        </p>
+                    </form>
                 </div>
                 <div id="footer">
                     <p>Copyright &copy; 2015 <a title="Tr3life home" href="http://tr3life.eu/">Tr3life</a><small>&trade;</small>. All rights reserved.</p>
