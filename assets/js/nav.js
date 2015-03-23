@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     var nav = {
         // Navigation menu anchor element.
-        anchor: '.nav',
+        anchor: 'a.nav',
         // Boolen: Is current section visible and has been handled? 
         dataCurrent: 'is-current',
         // Attached to nav anchor: Current section with a border.
