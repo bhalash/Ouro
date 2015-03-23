@@ -6,40 +6,58 @@
 
 #home {
     height: 100vh;
+    position: relative;
 
-    .logo {
-        background: center center/auto 35% no-repeat border-box url('../images/logo-ouro.svg');
-        display: table;
-        height: 100%;
-        position: relative;
-        width: 100%;
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, column);
 
-        h1 {
-            color: #fff;
-            font-size: 10vh;
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
+    @include breakpoint(smartphone) {
+        height: 125vh;
     }
 
-    .prompt {
-        bottom: 10%;
-        height: 50px;
-        left: 0;
-        position: absolute;
-        width: 100%;
+}
 
-        @include breakpoint(tablet) {
-            bottom: 17%;
-        }
+div.ouro-introduction, div.logo {
+    // Header is a column, with each child item likewise using columns.
+    @include prefix_value(display, flex);
+    @include prefix(justify-content, center);
+    @include prefix(align-items, center);
+}
 
-        > a {
-            background: center center/contain no-repeat border-box url('../images/header-prompt.svg');
-            display: block;
-            height: 100%;
-            margin: 0 auto;
-            width: 250px;
+div.logo {
+    background: center center/auto 50% no-repeat border-box url('../images/logo-ouro.svg');
+    @include prefix(flex, 0 1 75%);
+
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 0 1 60%);
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 6em;
+        text-align: center;
+
+        @include breakpoint(smartphone) {
+            font-size: 4em;
         }
+    }
+}
+
+div.ouro-introduction {
+    @extend %border-box;
+    padding: 0 10%;
+    @include prefix(flex, 0 1 25%);
+    @include prefix(flex-direction, column);
+
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 0 1 40%);
+    }
+
+    > * {
+        text-align: center; 
+    }
+
+    a {
+        color: map-get($colours, ouro_dark);
     }
 }
