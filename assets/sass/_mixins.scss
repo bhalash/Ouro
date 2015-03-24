@@ -1,3 +1,9 @@
+/*
+ * Media Query Mixin
+ * -----------------
+ * This serves as a one-stop mixin for adding responsive rules to CSS.
+ */
+
 @mixin breakpoint($point, $size: '') {
     $cell_min: 200px;
     $cell_max: 599px;
@@ -44,37 +50,54 @@
     }
 }
 
-@mixin cover($image) {
-    background: center center/cover no-repeat url($image);
-}
+/*
+ * Vendor Property and Value Prefixes
+ * ----------------------------------
+ */
 
 @mixin prefix($property, $value) {
     // Automatically add vendor prefixed to a CSS property.
-    // Mozilla Firefox.
     -moz-#{$property}: $value;
-    // Microsoft Internet Explorer.
     -ms-#{$property}: $value;
-    // Webkit Browsers (Chrome, Safari);
     -webkit-#{$property}: $value;
     #{$property}: $value;
 }
 
 @mixin prefix_value($property, $value) {
     // Automatically add vendor prefixed to a CSS value.
-    // Mozilla Firefox.
     #{$property}: -moz-#{$value};
-    // Microsoft Internet Explorer.
     #{$property}: -ms-#{$value};
-    // Webkit Browsers (Chrome, Safari);
     #{$property}: -webkit-#{$value};
     #{$property}: $value;
 }
+
+@mixin webkit($property, $value) {
+    /* Flexbox rules need to be prefixed with -webkit for Safari Mobile. Using
+     * the general prefix mixin for flexbox cluttered up the compiled CSS with 
+     * useless rules. */
+    -webkit-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin webkit_value($property, $value) {
+    #{$property}: -webkit-#{$value};
+    #{$property}: $value;
+}
+
+/*
+ * Miscellaneous Mixins
+ * --------------------
+ */
 
 @mixin flex_size($width, $ratio) {
     // Ratio should be between 0 and foo.
     height: 0;
     padding-bottom: $width * $ratio;
     width: $width;
+}
+
+@mixin cover($image) {
+    background: center center/cover no-repeat url($image);
 }
 
 @mixin vertical_center($amount) {
