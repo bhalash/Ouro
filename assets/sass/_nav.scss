@@ -43,11 +43,10 @@ nav#menu {
     z-index: 3;
 
     ul {
-        margin: 0 auto;
         position: initial;
-        text-align: center;
+        text-align: right;
 
-        @include breakpoint(max, 670) {
+        @include breakpoint(tablet) {
             overflow-x: scroll;
             white-space: nowrap;
         }
@@ -59,7 +58,7 @@ nav#menu {
 
     a {
         color: inherit;
-        padding: 15px 20px;
+        padding: 7px 10px;
         transition: color .2s, background-color .4s;
     }
 
@@ -69,48 +68,6 @@ nav#menu {
 
     .current-nav {
         @extend .ouro-background;
-    }
-}
-
-/*
- * Nav Menu Social Links
- * ----------------------
- * Used in the team-feature: Click on a person and their social links pop up
- * in the feature area.
- */
-
-@each $value, $key in $social {
-    // Iterate to produce social links.
-    .#{$value} {
-        background-color: nth($key, 1);
-        background-image: url(nth($key, 2));
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: auto 95%;
-    }
-}
-
-ul.social {
-    @extend %zero;
-    bottom: 5px;
-    list-style-type: none;
-    position: absolute;
-    left: 5px;
-    width: 100%;
-
-    li {
-        float: left;
-        font-size: 0;
-        @include flex_size(45px, 1);
-
-        &:not(:last-child) {
-            margin-right: 5px;
-        }
-    }
-
-    a {
-        display: block;
-        @include flex_size(100%, 1);
     }
 }
 
