@@ -30,4 +30,9 @@ jQuery(document).ready(function($) {
      * Miscellaneous
      * -------------
      */
+
+    $('.member a.avatar').each(function() {
+        $(this).prepend('<div class="blind-top">');
+        $(this).prepend('<div class="blind-bottom">');
+    });
 });
