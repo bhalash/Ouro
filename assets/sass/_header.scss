@@ -1,39 +1,42 @@
 /*
  * Site Header
  * -----------
- * Nav menu and header.
+ * The site header is stacked vertically, at least in this build.
  */
 
 #home {
     height: 100vh;
     position: relative;
 
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, column);
-
-    @include breakpoint(smartphone) {
-        height: 125vh;
-    }
-
+    @include webkit_value(display, flex);
+    @include webkit(flex-direction, column);
 }
 
-div.ouro-introduction, div.logo {
-    // Header is a column, with each child item likewise using columns.
-    @include prefix_value(display, flex);
-    @include prefix(justify-content, center);
-    @include prefix(align-items, center);
+/****/
+
+div.header-top, div.header-bottom {
+    @include webkit_value(display, flex);
+    @include webkit(justify-content, center);
+    @include webkit(align-items, center);
 }
 
-div.logo {
+div.header-top {
+    @include webkit(flex, 0 1 75%);
+}
+
+div.header-bottom {
+    @include webkit(flex, 1);
+    @include webkit(flex-direction, column);
+}
+
+div.header-top {
     background: center center/auto 50% no-repeat border-box url('../images/logo-ouro.svg');
-    @include prefix(flex, 0 1 75%);
 
     @include breakpoint(smartphone) {
-        @include prefix(flex, 0 1 60%);
+        @include webkit(flex, 0 1 60%);
     }
 
     h1 {
-        color: #fff;
         font-size: 6em;
         text-align: center;
 
@@ -43,15 +46,9 @@ div.logo {
     }
 }
 
-div.ouro-introduction {
+div.header-bottom {
     @extend %border-box;
     padding: 0 10%;
-    @include prefix(flex, 0 1 25%);
-    @include prefix(flex-direction, column);
-
-    @include breakpoint(smartphone) {
-        @include prefix(flex, 0 1 40%);
-    }
 
     > * {
         text-align: center; 
