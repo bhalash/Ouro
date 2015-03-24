@@ -20,13 +20,16 @@ $colours: (
     ouro_light: #b9dfbc,
     ouro_red: #ff5d5d,
     terminal_green: #00ff00,
-    text_grey: rgba(0, 0, 0, 0.8),
+    text_grey: #464646,
     text_white: #fff,
     active_grey: #bbb,
     light_grey: #eee
 );
 
-// #id, primary colour, accent colour, background image.
+/*
+ * Section Backgrounds
+ * -------------------
+ */
 
 $sections: (
     home: ('../images/backgrounds/background-intro.jpg'),
@@ -35,6 +38,11 @@ $sections: (
     ouro: ('../images/backgrounds/background-ouro.jpg'),
     contact: ('../images/backgrounds/background-contact.jpg')
 );
+
+/*
+ * Social Images and Colours
+ * -------------------------
+ */
 
 $social: (
     comments: (#30b351, '../images/social/social-comments.png'),
@@ -61,6 +69,8 @@ $social: (
  */
 
 $bottom_default: 13px;
+$section_padding_narrow: 15%;
+$section_padding_wide: 35%;
 
 /*
  * Mixins and Partials
