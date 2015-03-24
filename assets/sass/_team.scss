@@ -4,14 +4,41 @@
  * Team is now 99% CSS (because I don't want to insert the blind divs by hand).
  */
 
+$team_mode_break: 950;
+
 .teamlist {
+    // Jemma would prefer to keep the team images all at a discreet size.
     height: 100%;
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
+    margin: 0 auto;
+    width: 75%;
 
-    @include breakpoint(max, 850) {
+    @include breakpoint(max, 1300) {
+        width: 90%;
+    }
+
+    @include breakpoint(max, 1110) {
+        width: 100%;
+    }
+
+    @include breakpoint(max, $team_mode_break) {
         @include webkit(flex-wrap, wrap);
+        width: 60%;
+    }
+
+    @include breakpoint(max, 800) {
+        width: 75%;
+    }
+
+    @include breakpoint(max, 650) {
+        width: 100%;
+    }
+
+    @include breakpoint(smartphone) {
+        @include webkit(flex-direction, column);
+        width: 75%;
     }
 }
 
@@ -21,8 +48,12 @@
     @include webkit(flex, 1);
     position: relative;
 
-    @include breakpoint(max, 850) {
+    @include breakpoint(max, $team_mode_break) {
         @include webkit(flex, 0 1 50%);
+    }
+
+    @include breakpoint(smartphone) {
+        @include webkit(flex, 0 1 100%);
     }
 
     a.avatar {
