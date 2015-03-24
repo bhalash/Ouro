@@ -32,12 +32,11 @@
     <meta name="twitter:url" content="<?php printf('%s%s', 'http://', $_SERVER['HTTP_HOST']); ?>">
 </head>
     <body>
-        <a class="twitter" id="ouro-twitter" rel="nofollow" target="_blank" title="@ouro_botics" href="https://www.twitter.com/ouro_botics"></a>
         <section id="home">
-            <div class="logo">
+            <div class="header-top">
                 <h1>ouro</h1>
             </div>
-            <div class="ouro-introduction">
+            <div class="header-bottom">
                 <h5>Ouro is the next generation of bioprinting technology: a lower-cost tissue engineering platform with superior print resolution.</h5> 
                 <h5>Follow <a title="@ouro_botics" rel="external nofollow" href="https://www.twitter.com/ouro_botics">@ouro_botics</a> on Twitter or check out <a title="The Ouro blog" rel="external" href="http://blog.ouro.ie">our blog</a>.
             </div>
@@ -48,7 +47,6 @@
                 <li><a class="nav" href="#ouro">The Ouro Bioprinter</a></li>
                 <li><a class="nav" href="#team">The Ouro Team</a></li>
                 <li><a class="nav" href="#contact">Contact Us</a></li>
-                <li><a class="blog" href="http://blog.ouro.ie" rel="external nofollow" target="_blank">New: The Ouro Blog!</a></li>
             </ul>
         </nav>
         <div id="content">
@@ -83,74 +81,60 @@
                 </div>
             </section>
             <section id="team">
-                <div class="side">
-                    <div class="wrapper">
-                        <h3 class="sec-title">The Ouro team</h3>
-                        <p>Staffed by rugged beards and fearsome pirate queeens, Ouro's diverse team is drawn from two continents.</p>
-                        <p>Click on an Ouro staffer to find out more about them:</p>
-                        <div class="teamlist">
-                            <div class="member" id="alanna">
-                                <a class="avatar" target="_blank" href="javascript:void(0)">
-                                    <img src="assets/images/team/team-alanna.jpg" alt="Alanna Kelly" />
-                                </adad>
-                                <div class="bio">
-                                    <span class="name">Alanna Kelly</span>
-                                    <span class="title">Hardware Guru</span>
-                                    <span class="blurb">The Ouro's hardware guru, Alanna brings the brawn to match Jemma's brains. Alanna handles the development and assembly of the Ouro printer.</span>
-                                </div>
-                            </div>
-                            <div class="member" id="jemma">
-                                <a class="avatar" target="_blank" href="javascript:void(0)">
-                                    <img src="assets/images/team/team-jemma.jpg" alt="Jemma Redmond" />
-                                </a>
-                                <div class="bio">
-                                    <span class="name">Jemma Redmond</span>
-                                    <span class="title">Ouro Designer and CEO</span>
-                                    <span class="blurb">The founder and CEO of Ouro-botics, this University College Dublin alumni provides us vision and guidance in our plan to conquer the world even before her first cup of morning coffee.</span>
-                                    <ul class="social">
-                                        <li class="twitter"><a target="_blank" rel="nofollow" href="https://www.twitter.com/sciencegirlg"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="member" id="mark">
-                                <a class="avatar" target="_blank" href="javascript:void(0)">
-                                    <img src="assets/images/team/team-mark.jpg" alt="Mark Grealish" />
-                                </a>
-                                <div class="bio">
-                                    <span class="name">Mark Grealish</span>
-                                    <span class="title">Web Developer</span>
-                                    <span class="blurb">Tall, handsome, manly: many men have earned at least one of these distinguished adjectives in their lives. Mark has not. In the meantime, this Software Design graduate handles the Ouro website.</span>
-                                    <ul class="social">
-                                        <li class="twitter"><a target="_blank" rel="nofollow" href="https://www.twitter.com/bhalash"></a></li>
-                                        <li class="github"><a target="_blank" rel="nofollow" href="https://www.github.com/bhalash"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="member" id="joe">
-                                <a class="avatar" target="_blank" href="javascript:void(0)">
-                                    <img src="assets/images/team/team-joe.jpg" alt="Joe Keane" />
-                                </a>
-                                <div class="bio">
-                                    <span class="name">Joe Keane</span>
-                                    <span class="title">Design Engineer</span>
-                                    <span class="blurb">Joe is a talented mechanical engineer who has contributed greatly to the architecture of the Ouro bioprinter.</span>
-                                    <ul class="social">
-                                    </ul>
-                                </div>
-                            </div>
+                <div class="single">
+                <h3 class="sec-title">The Ouro team</h3>
+                <p>Staffed by rugged beards and fearsome pirate queeens, Ouro's diverse team is drawn from two continents. Hover over or tap to find out more!</p>
+                <div class="teamlist">
+                    <div class="member" id="jemma">
+                        <a class="avatar" target="_blank" href="javascript:void(0)">
+                            <img src="assets/images/team/team-jemma.jpg" alt="Jemma Redmond" />
+                        </a>
+                        <div class="bio">
+                            <ul class="social">
+                                <li><a class="twitter" target="_blank" rel="external nofollow" href="https://www.twitter.com/sciencegirlg"></a></li>
+                            </ul>
+                            <p>
+                                <span class="name">Jemma Redmond</span><br />
+                                <span class="title">Ouro CEO</span>
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="main">
-                    <div class="wrapper">
-                        <div id="team-feature">
-                            <div class="avatar">
-                                <ul class="social"></ul>
-                            </div>
+                    <div class="member" id="alanna">
+                        <a class="avatar" target="_blank" href="javascript:void(0)">
+                            <img src="assets/images/team/team-alanna.jpg" alt="Alanna Kelly" />
+                        </a>
+                        <div class="bio">
                             <p>
-                                <span class="name"></span>
-                                <span class="blurb"></span>
+                                <span class="name">Alanna Kelly</span><br />
+                                <span class="title">Chief Engineer</span>
                             </p>
+                        </div>
+                    </div>
+                    <div class="member" id="mark">
+                        <a class="avatar" target="_blank" href="javascript:void(0)">
+                            <img src="assets/images/team/team-mark.jpg" alt="Mark Grealish" />
+                        </a>
+                        <div class="bio">
+                            <ul class="social">
+                                <li><a class="twitter" target="_blank" rel="nofollow" href="https://www.twitter.com/bhalash"></a></li>
+                                <li><a class="github" arget="_blank" rel="nofollow" href="https://www.github.com/bhalash"></a></li>
+                            </ul>
+                            <p>
+                                <span class="name">Mark Grealish</span><br />
+                                <span class="title">Web Developer</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="member" id="joe">
+                        <a class="avatar" target="_blank" href="javascript:void(0)">
+                            <img src="assets/images/team/team-joe.jpg" alt="Joe Keane" />
+                        </a>
+                        <div class="bio">
+                            <p>
+                                <span class="name">Joe Keane</span><br />
+                                <span class="title">Mechanical Engineer</span>
+                            </p>
+                            <ul class="social"></ul>
                         </div>
                     </div>
                 </div>
@@ -182,7 +166,6 @@
         <script src="assets/js/browser_detect.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/nav.js"></script>
-        <script src="assets/js/team.js"></script>
         <script src="assets/js/gallery.js"></script>
         <script src="assets/js/contact.js"></script>
         <script>
