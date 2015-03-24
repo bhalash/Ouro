@@ -4,7 +4,8 @@
  */
 
 h1, h2, h3, h4, h5, h6 {
-    color: map-get($colours, text_white);
+    // color: map-get($colours, text_white);
+    color: map-get($colours, text_grey);
     letter-spacing: 1px;
     margin-bottom: $bottom_default;
 }
@@ -176,7 +177,8 @@ blockquote {
 }
 
 p, li, blockquote {
-    color: map-get($colours, text_white);
+    // color: map-get($colours, text_white);
+    color: map-get($colours, text_grey);
 }
 
 li {
