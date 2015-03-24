@@ -42,15 +42,48 @@
 }
 
 /*
+ * Section Interior Padding
+ * ------------------------
+ */
+
+%section-padding-left {
+    padding-left: $section_padding_wide;
+
+    @include breakpoint(max, 1200) {
+        padding-left: $section_padding_narrow;
+    }
+    
+    @include breakpoint(smartphone) {
+        padding-left: 0;
+    }
+}
+
+%section-padding-right {
+    padding-right: $section_padding_wide;
+
+    @include breakpoint(max, 1200) {
+        padding-right: $section_padding_narrow;
+    }
+
+    @include breakpoint(smartphone) {
+        padding-right: 0;
+    }
+}
+
+%single-section-padding {
+    padding-left: $section_padding_narrow;
+    padding-right: $section_padding_narrow;
+
+    @include breakpoint(smartphone) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/*
  * Shadows and Gradients
  * ---------------------
  */
-
-%noselect {
-    cursor: default;
-    -webkit-touch-callout: none;
-    @include prefix(user-select, none);
-}
 
 %top-box-shadow {
     // Add a box shadow to the top of an element.
@@ -65,6 +98,14 @@
  * Assorted Helper Classes
  * -----------------------
  */
+
+%noselect {
+    /* Disable all text selection on an element. Useful for those elements where
+     * the text is supposed to be "background". */
+    cursor: default;
+    -webkit-touch-callout: none;
+    @include prefix(user-select, none);
+}
 
 %cover-picture {
     background-position: center center;
