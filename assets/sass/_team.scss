@@ -5,6 +5,7 @@
  */
 
 $team_mode_break: 950;
+$transition_speed: .1s;
 
 .teamlist {
     // Jemma would prefer to keep the team images all at a discreet size.
@@ -12,39 +13,14 @@ $team_mode_break: 950;
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
-    margin: 0 auto;
-    width: 75%;
-
-    @include breakpoint(max, 1300) {
-        width: 90%;
-    }
-
-    @include breakpoint(max, 1110) {
-        width: 100%;
-    }
-
-    @include breakpoint(max, $team_mode_break) {
-        @include webkit(flex-wrap, wrap);
-        width: 60%;
-    }
-
-    @include breakpoint(max, 800) {
-        width: 75%;
-    }
-
-    @include breakpoint(max, 650) {
-        width: 100%;
-    }
 
     @include breakpoint(smartphone) {
         @include webkit(flex-direction, column);
-        width: 75%;
     }
 }
 
 .member {
     // Team member starts as a 1x4 grid that collapses to 2x2.
-    @extend %border-box;
     @include webkit(flex, 1);
     position: relative;
 
@@ -53,11 +29,10 @@ $team_mode_break: 950;
     }
 
     @include breakpoint(smartphone) {
-        @include webkit(flex, 0 1 100%);
+        @include webkit(flex, 1);
     }
 
     a.avatar {
-        @extend .focus;
         display: block;
         // Otherwise Chrome adds a tiny amount to the height.
         font-size: 0 !important;
@@ -69,9 +44,14 @@ $team_mode_break: 950;
             width: 100%;
         }
     }
+
+    &:hover {
+        @extend %ouro-card;
+    }
 }
 
 .bio {
+    @extend %noselect;
     bottom: 0;
     left: 0;
     /* I use opacity instead of display in order to take advantageof the 
@@ -80,7 +60,7 @@ $team_mode_break: 950;
     position: absolute;
     right: 0;
     // Transition to stop text appearaning immediately.
-    transition: opacity .3s linear;
+    transition: opacity $transition_speed linear;
     top: 0;
 
     @include webkit_value(display, flex);
@@ -90,8 +70,6 @@ $team_mode_break: 950;
 
     p {
         @extend %zero;
-        // color: #fff;
-        // color: map-get($colours, ouro_dark);
         color: map-get($colours, text_grey);
         margin: auto;    
         text-align: center;
@@ -110,10 +88,6 @@ $team_mode_break: 950;
         font-size: 1.3em;
         font-weight: bold;
         border-bottom: 1px solid map-get($colours, text_grey);
-
-        @include breakpoint(smartphone) {
-            font-size: 0.95em;
-        }
     }
 }
 
@@ -123,7 +97,7 @@ $team_mode_break: 950;
  * Links appear in a horizontal row below the text on hover.
  */
 
-ul.social {
+ul.team-social {
     bottom: $bottom_default;
     list-style-type: none;
     margin: 0;
@@ -145,14 +119,6 @@ ul.social {
         height: 45px;
         width: 45px;
     }
-
-    @each $value, $key in $social {
-        // Iterate map to produce social links.
-        .#{$value} {
-            background-color: nth($key, 1);
-            background-image: url(nth($key, 2));
-        }
-    }
 }
 
 /*
@@ -170,7 +136,7 @@ div[class^=blind-] {
     height: 0;
     left: 0;
     right: 0;
-    transition: height .2s;
+    transition: height $transition_speed;
 }
 
 .blind-top {
@@ -179,14 +145,4 @@ div[class^=blind-] {
 
 .blind-bottom {
     bottom: 0;
-}
-
-div.member:hover { 
-    div[class^=blind-] {
-        height: 50%;
-    }
-
-    div.bio {
-        opacity: 1;
-    }
 }
