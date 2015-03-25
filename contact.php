@@ -1,6 +1,4 @@
 <?php
-require_once('config.php');
-
 $errors = array();
 $data = array();
 
@@ -32,7 +30,7 @@ $mail->Body = mail_body($data);
 
 if ($mail->send()) {
     $data['success'] = true;
-    $data['message'] = $messages['mail']['sent'];
+    $data['message'] = $mailer_messages['mail']['sent'];
 } else {
     $data['success'] = false;
     $data['message'] = $mail->ErrorInfo;
