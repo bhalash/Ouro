@@ -3,63 +3,49 @@
 $(document).ready(function($) {
     'use strict';
 
-    var feature = {
-        id: '#team-feature',
-        avatar: '#team-feature .avatar',
-        name: '#team-feature .name',
-        bio: '#team-feature .blurb',
-        social: '#team-feature .social',
-        speed: 300,
-        setAvatar: function(avatar) {
-            var $avatarDiv = $(this.avatar);
-            $avatarDiv.css('background-image', 'url(\'' + avatar + '\')');
-        }, 
-        setName: function(name) {
-            var $nameDiv = $(this.name);
-            $($nameDiv).text(name);
-        }, 
-        setBio: function(bio) {
-            var $bioDiv = $(this.bio);
-            $bioDiv.text(bio);
-        },
-        setSocial: function(social) {
-            var $socialDiv = $(this.social); 
-            $(this.social).show();
-            $(this.social).empty();
-            social.children('li').clone().appendTo($socialDiv);
-        },
-        setPerson: function(person) {
-            console.log(person);
-            this.setName(person.name);
-            this.setBio(person.bio);
-            this.setAvatar(person.avatar);
-            this.setSocial(person.social);    
-        }
+    /*
+     * Team Member Handling for Touch Devices
+     * --------------------------------------
+     * <insert remonstration about the lack of touch events in CSS>
+     */
+
+    var team = {
+        member: '.teamlist div.member',
+        avatar: '.teamlist div.member a.avatar',
+        blind: 'div[class^=blind-]',
+        bio: 'div.bio'
     };
 
-    function Member(id) {
-        this.id = '#' + id;
-        this.avatar = $(this.id).find('.avatar img').attr('src');
-        this.name = $(this.id).find('span.name').text();
-        this.social = $(this.id).find('ul.social');
-        this.bio = $(this.id).find('span.blurb').text();
-        this.title = $(this.id).find('span.title').text();
-
-        var member = this;
-
-        $(this.id).click(function() {
-            $('.avatar img').removeClass('focus');
-            $(this).find('a.avatar img').addClass('focus');
-            feature.setPerson(member);
-            return false;
-        });
-    }
-
-    var members = [];
-
-    $('.member').each(function() {
-        members.push(new Member($(this).attr('id')));
+    $(team.avatar).each(function() {
+        $(this).prepend('<div class="blind-top">').prepend('<div class="blind-bottom">');
     });
 
-    feature.setPerson(members[0]);
+    $.fn.extend({
+        showBio: function() {
+            $(this).find(team.blind).css('height', '50%');
+            $(this).find(team.bio).css('opacity', 1);
+        },
+        hideBio: function() {
+            $(this).find(team.blind).css('height', 0);
+            $(this).find(team.bio).css('opacity', 0);
+        }
+    });
+
+    if ($('html').hasClass('touch')) {
+        $(window).on('swipe', function() {
+            $(team.member).hideBio();
+        });
+
+        $(team.member).on('tap', function(event) {
+            $(team.member).not(this).hideBio();
+            $(this).showBio();
+            event.preventDefault();
+        });
+    } else {
+        $(team.member).hover(function() {
+            $(this).showBio();
+        }).mouseleave(function() {
+            $(this).hideBio();
+        });
+    }
 });
