@@ -28,7 +28,7 @@ jQuery(function($) {
             email: 'input[id=email]',
             message: 'textarea[id=message]',
             hidden: 'input[id=unseen]',
-            button: 'button[id=submit'
+            button: 'button[id=submit]'
         },
         filled: []
     };
