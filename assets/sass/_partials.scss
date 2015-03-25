@@ -5,19 +5,9 @@
  * aren't attached to a given section of the site. 
 */
 
-.ouro-card {
-    @extend %border-box;
-    @include prefix(box-shadow, 0px 0px 7px 0px rgba(0,0,0,0.10));
-    background: #fff;
-    // padding: 8px !important;
-}
-
-.focus {
-    transition: background-color .3s;
-    
-    &:hover {
-        background-color: rgba(map-get($colours, ouro_light), 0.7);
-    }    
+%ouro-card {
+    @extend .ouro-box-shadow;
+    border-radius: 5px;
 }
 
 .ouro-border {
@@ -25,8 +15,7 @@
 }
 
 .ouro-background {
-    color: #fff;
-    background-color: map-get($colours, ouro_light);
+    color: map-get($colours, ouro_light);
 }
 
 .ouro-box-shadow {
@@ -35,10 +24,25 @@
 
 .ouro-dark {
     color: map-get($colours, ouro_dark);
+    font: inherit;
 }
 
 .ouro-light {
     color: map-get($colours, ouro_light);
+    font: inherit;
+}
+
+.ui-loader {
+    // Top stop jQuery Mobile's loader displaying.
+    display: none !important;
+}
+
+.feature {
+    margin-top: 30px;
+
+    @include breakpoint(smartphone) {
+        margin-top: $bottom_default;
+    }
 }
 
 /*
@@ -46,33 +50,14 @@
  * ------------------------
  */
 
-%section-padding-left {
-    padding-left: $section_padding_wide;
-
-    @include breakpoint(max, 1200) {
-        padding-left: $section_padding_narrow;
-    }
-    
-    @include breakpoint(smartphone) {
-        padding-left: 0;
-    }
-}
-
-%section-padding-right {
-    padding-right: $section_padding_wide;
-
-    @include breakpoint(max, 1200) {
-        padding-right: $section_padding_narrow;
-    }
-
-    @include breakpoint(smartphone) {
-        padding-right: 0;
-    }
-}
-
 %single-section-padding {
     padding-left: $section_padding_narrow;
     padding-right: $section_padding_narrow;
+
+    @include breakpoint(tablet) {
+        padding-left: $section_padding_narrow * 0.5;
+        padding-right: $section_padding_narrow * 0.5;
+    }
 
     @include breakpoint(smartphone) {
         padding-left: 0;
@@ -166,98 +151,5 @@
 .text-two, .text-three, .text-four {
     @include breakpoint(max, 950) {
         @include columns(1,0);
-    }
-}
-
-/*
- * Right-facing Arrow
- * ------------------
- */
-
-span.right-arrow {
-    color: inherit;
-    display: block;
-    font-family: inherit; 
-    font-size: inherit;
-    text-align: inherit;
-    text-transform: inherit;
-
-    &:after {
-        content: '⟶';
-
-        @include breakpoint(tablet) {
-            content: '>';
-        }
-
-        @include breakpoint(smartphone) {
-            content: '>';
-        }
-    }
-
-    @include breakpoint(portrait) {
-        display: none;
-    }
-
-    @include breakpoint(smartphone) {
-        display: none;
-    }
-} 
-
-span.left-arrow {
-    @extend span.right-arrow;
-    text-align: left;
-
-    &:after {
-        content: '⟵';
-
-        @include breakpoint(tablet) {
-            content: '<';
-        }
-
-        @include breakpoint(smartphone) {
-            content: '<';
-        }
-    }
-}
-
-/*
- * Backdrop
- * --------
- */
-
-%backdrop {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.solid-backdrop {
-    @extend %backdrop;
-}
-
-.blurred-backdrop {
-    @extend %backdrop;
-    z-index: -1;
-
-    // Left separate as I continue to tweak this.
-    margin: -5px;
-    padding: 5px;
-
-    bottom: 5px;
-    left: 0;
-    right: 5px;
-    top: 5px;
-
-    @include prefix(filter, blur(5px));
-
-    @include breakpoint(smartphone) {
-        background: #000 !important;
-        @include prefix(filter, none);
     }
 }
