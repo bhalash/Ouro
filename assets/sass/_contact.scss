@@ -3,17 +3,37 @@
  * ----------------------------
  */
 
-section#contact {
-    p {
+ section#contact form {
+    .messages {
+        color: map-get($colours, text_grey);
+    }
+
+    .unfilled {
+        background: #ed8787;
+    }
+
+    .success {
+        background: #87ed90;
+    }
+
+    .unfilled, .success {
         color: #fff;
+        transition: background-color .2s;
+
+        @include placeholder_style() {
+            color: #fff;
+        }
     }
 }
 
 form { 
     display: block;
     margin: 0 auto;
-    max-width: 600px;
-    width: 100%;
+    width: 600px;
+
+    @include breakpoint(smartphone) {
+        width: 100%;
+    }
 
     input, button, textarea {
         @extend %border-box;
@@ -65,8 +85,7 @@ form {
         }
 
         @include breakpoint(smartphone) {
-            // margin: 0 auto;
-            width: 50%;
+            width: 100%;
         }
 
         &:active {
@@ -80,29 +99,6 @@ form {
         &:not(.messages) {
             margin: 0;
             padding: 0;
-        }
-    }
-}
-
-#contact form {
-    .messages {
-        color: map-get($colours, text_grey);
-    }
-
-    .unfilled {
-        background: #ed8787;
-    }
-
-    .success {
-        background: #87ed90;
-    }
-
-    .unfilled, .success {
-        color: #fff;
-        transition: background-color .2s;
-
-        @include placeholder_style() {
-            color: #fff;
         }
     }
 }
