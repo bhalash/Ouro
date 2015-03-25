@@ -15,34 +15,42 @@ $control_inset: 20px;
 $control_left_inset: calc(100% - #{$control_inset}) center;
 $control_right_inset: $control_inset center; 
 // Fallback gallery height and width.
-$gallery_width: 100%;
 
 div.gallery {
     @extend %border-box;
-    // height: auto;
-    margin: auto;
-    width: $gallery_width;
 
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(flex-wrap, wrap);
+    @include webkit_value(display, flex);
+    @include webkit(flex-direction, row);
+    @include webkit(flex-wrap, wrap);
 }
 
 a.image {
-    @extend .focus;
     display: block;
     // Otherwise Chrome adds a tiny amount to the height.
     font-size: 0 !important;
     overflow: hidden;
 
-    @include prefix(align-self, center);
-    @include prefix(flex, 0 1 25%);
+    @include webkit(align-self, center);
+    @include webkit(flex, 0 1 12.5%);
+
+    @include breakpoint(portrait) {
+        @include webkit(flex, 0 1 16.6667%);
+    }
+
+    @include breakpoint(smartphone) {
+        @include webkit(flex, 0 1 33.3%);
+    }
 
     img {
         @extend %border-box;
         overflow: hidden;
         padding: 5px;
         width: 100%;
+    }
+
+    &:hover {
+        background: rgba(#fff, 0.7);
+        @extend %ouro-card;
     }
 }
 
@@ -90,16 +98,16 @@ div#lightbox {
         position: absolute;
         right: 0;
 
-        @include prefix_value(display, flex);
-        @include prefix(flex-direction, row);
-        @include prefix(justify-content, space-between);
+        @include webkit_value(display, flex);
+        @include webkit(flex-direction, row);
+        @include webkit(justify-content, space-between);
 
         .control {
             height: 100%;
             width: 50%;
 
-            @include prefix_value(display, flex);
-            @include prefix(justify-content, flex-start);
+            @include webkit_value(display, flex);
+            @include webkit(justify-content, flex-start);
         }
 
         .left {
