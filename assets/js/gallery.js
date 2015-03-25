@@ -235,12 +235,17 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('.gallery a').bind('click touchstart', function() {
-        if (!$('html').hasClass('mobile')) {
+    if ($('html').hasClass('mobile')) {
+        $('.gallery a').on('tap', function(event) {
             lightbox.setLightboxImage($(this).data('img'));
-            return false;
-        }
-    });
+        });
+    } else {
+        $('.gallery a').on('click', function(event) {
+            lightbox.setLightboxImage($(this).data('img'));
+            event.preventDefault();
+        });
+
+    }
 
     $('#lightbox a.left').bind('click touchend', function(event) {
         lightbox.decrementImage();
