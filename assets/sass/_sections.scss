@@ -8,10 +8,6 @@
  * ------------------------
  */
 
-#content a {
-    color: map-get($colours, ouro_dark);
-}
-
 /*
  * Base Section Layout
  * -------------------
@@ -22,119 +18,76 @@
  *    container has a min-height set. I would *much* rather set min-height here
  *    initially, 
  */
+ 
+.squished {
+    padding: $bottom_default 20%;
+
+    @include breakpoint(max, 1100) {
+        padding: $bottom_default 15%;
+    }
+
+    @include breakpoint(max, 850) {
+        padding: $bottom_default 5%;
+    }
+
+    @include breakpoint(smartphone) {
+        padding: $bottom_default 2.5%;
+    }
+}
+
+.inverse {
+    .sec-title, p {
+        color: #fff;
+    }
+}
+
+.light {
+    .sec-title {
+        color: map-get($colours, ouro_light);
+    }
+}
+
+section#product {
+    background: rgba(0,0,0,0.1);
+}
+
+section#team {
+    // background: rgba(0,0,0,0.3);
+}
+
+section {
+    @extend %border-box;
+    padding: $bottom_default 2.5%;
+
+    a {
+        color: map-get($colours, ouro_dark);
+    }
+
+    p, h3, .sec-title {
+        text-align: center;
+
+        @include breakpoint(smartphone) {
+            text-align: left;
+        }
+    }
+}
 
 section:not(#home) {
     @extend %border-box;
-    // height: 100vh;
-    margin: 0;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     position: relative;
 
     @include webkit_value(display, flex);
-    @include webkit(flex-direction, row);
-    @include webkit(flex-wrap, nowrap);
+    @include webkit(flex-direction, column);
+    @include webkit(justify-content, center);
 
-    @include breakpoint(smartphone) {
-        @include webkit(flex-direction, column);
-        padding: 20px 2.5%;
-    }
+    > * {
+        @include webkit(flex, 0 1 100%);
 
-    &:nth-child(odd) {
-        // Alternating sections have a reversed layout.
-        background-color: #f5f5f5;
-
-        @include webkit(flex-direction, row-reverse);
-
-        // See if this is actually needed.
-
-        // @include breakpoint(smartphone) {
-        //     @include prefix(flex-direction, column);
-        // }
-
-        .side .wrapper {
-            @extend %section-padding-right;
+        @include breakpoint(smartphone) {
+            @include webkit(flex, 1);
         }
-    }
-
-    &:nth-child(even) .side .wrapper {
-        @extend %section-padding-left; 
-
-        h3, p {
-            text-align: right;
-
-            @include breakpoint(smartphone) {
-                text-align: left;
-            }
-        }
-    }
-}
-
-/*
- * Single Interior Column
- * ----------------------
- * An alternate arrangement is a single centered column.
- */
-
-.single {
-    @extend %single-section-padding;
-    margin: auto;
-
-    @include webkit(align-self, center);
-    @include webkit(flex, 1);
-
-    h3, h5, p {
-        text-align: center;
-    }
-}
-
-/*
- * Section Interior Elements
- * -------------------------
- * There is an asymmetric 4:6 ratio layout, accent and main. The positions of 
- * each alternate back and forth through odd/even children.
- * 
- * div.main: 60% width.
- * div.accent: 40% width.
- */
-
-div.side {
-    @include webkit(flex, 0 1 40%);
-}
-
-div.main {
-    @include webkit(flex, 0 1 60%);
-}
-
-div.main, div.side {
-    @include webkit_value(display, flex);
-    // Fallback for Internet Explorer
-    @include webkit(align-items, center);
-    @include webkit(flex-align, center);
-    @include webkit(flex-pack, center);
-
-    div.wrapper {
-        margin: auto;
-        width: 100%;
-    }
-
-    @include breakpoint(smartphone) {
-        @include webkit(flex, 1);
-    }
-}
-
-div.main div.wrapper {
-    // Main interior wrapper pads out content.
-    @extend %border-box;
-
-    // These containers are notable for their asymmetric padding.
-    padding: 0 $section_padding_wide 0 $section_padding_narrow;
-
-    @include breakpoint(max, 1200) {
-        padding: 0 $section_padding_narrow;
-    }
-
-    @include breakpoint(smartphone) {
-        padding: 0;
     }
 }
 
@@ -143,6 +96,10 @@ div.main div.wrapper {
  * -----------------
  * Backdrop image for each section.
  */
+
+section#contact {
+    @include cover(nth(map-get($sections, contact), 1));
+}
 
 // @each $value, $key in $sections {
 //     section##{$value} {
