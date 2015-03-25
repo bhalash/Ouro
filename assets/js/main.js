@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
         $('section').not('#home').each(function() {
             // There is currently no support in CSS3 for calc(vh - px);
             var navHeight = $('nav#menu').height();
+
             if (!$('html').hasClass('internet-explorer')) {
                 $(this).css('min-height', $(window).height() - navHeight);
             } else {
@@ -30,9 +31,4 @@ jQuery(document).ready(function($) {
      * Miscellaneous
      * -------------
      */
-
-    $('.member a.avatar').each(function() {
-        $(this).prepend('<div class="blind-top">');
-        $(this).prepend('<div class="blind-bottom">');
-    });
 });
