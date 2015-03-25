@@ -119,7 +119,7 @@ $(document).ready(function() {
 
     var navOpacityonScroll = function() {
         // Set the opacity of the nav menu on page scroll.
-        var a = $(window).height(), b = $(window).scrollTop(), opacity = 0;
+        var a = $(window).height() + $('.' + nav.menu).height(), b = $(window).scrollTop(), opacity = 0;
 
         opacity = b / a;
         opacity = (opacity < 0) ? 0 : opacity;
@@ -138,45 +138,52 @@ $(document).ready(function() {
      * Nav Handlers
      * ------------
      */
-
-    $(window).on('scroll', navOpacityonScroll);
+     
     $(window).on('scroll', navBoxShadow);
-    $(window).on('scroll', toggleOnScroll);
-    $(window).on('scroll', invertTextColour);
+    $(window).on('scroll', navOpacityonScroll);
 
-    $(nav.anchor).click(function() {
-        /*
-         * Nav On-click
-         * ------------
-         * 1. Disable toggleOnScroll highlight.
-         * 2. Determine point to scroll to (a - b - c).
-         * 3. Scroll to a - b - c.
-         * 4. Change URL to current section.
-         * 5. Reenable toggleOnScroll highlight.
-         */
+    if (!$('html').hasClass('mobile')) {
+        $(window).on('scroll', toggleOnScroll);
+        // $(window).on('scroll', invertTextColour);
 
-        var section = $(this).attr('href'),
-            callbackExecuted = false,
-            a = $(section).offset().top,
-            b = $(this).outerHeight(),
-            c = parseInt($(section).css('margin-bottom')) / 2;
+        $(nav.anchor).click(function() {
+            /*
+             * Nav On-click
+             * ------------
+             * 1. Disable toggleOnScroll highlight.
+             * 2. Determine point to scroll to (a - b - c).
+             * 3. Scroll to a - b - c.
+             * 4. Change URL to current section.
+             * 5. Reenable toggleOnScroll highlight.
+             */
 
-        $(window).off('scroll', toggleOnScroll);
-        currentNavToggle(this);
+            var section = $(this).attr('href'),
+                callbackExecuted = false,
+                a = $(section).offset().top,
+                b = $('nav#menu').outerHeight();
 
-        $('html, body').animate({
-            scrollTop: a - b - c 
-        }, 500, function() {
-            if (!callbackExecuted) {
-                currentSectionToggle($(section));
-                callbackExecuted = true;
+            $(window).off('scroll', toggleOnScroll);
+            currentNavToggle(this);
 
-                setTimeout(function() {
-                    $(window).scroll(toggleOnScroll);
-                }, 100);
-            }
+            $('html, body').animate({
+                scrollTop: a - b 
+            }, 500, function() {
+                if (!callbackExecuted) {
+                    currentSectionToggle($(section));
+                    callbackExecuted = true;
+
+                    setTimeout(function() {
+                        $(window).scroll(toggleOnScroll);
+                    }, 100);
+                }
+            });
+
+            return false;
         });
-
-        return false;
-    });
+    } else {
+        $('.' + nav.current).click(function() {
+            $('html, body').animate({ scrollTop : 0 });
+            return false;;
+        });
+    }
 });
