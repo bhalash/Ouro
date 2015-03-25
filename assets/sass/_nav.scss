@@ -1,65 +1,78 @@
 /*
- * General Navigation Rules
- * ------------------------
- */
-
-nav {
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-    }
-
-    a {
-        display: block;
-    }
-}
-
-/*
  * Site Top Navigation Menu
  * ------------------------
  */
 
 .nav-box-shadow {
     // Box shadow attached on window scroll.
-    @include prefix(box-shadow, 0px -5px 39px -17px rgba(0,0,0,0.75));
-}
-
-a.blog {
-    // Link to the blog.
-    background: map-get($colours, ouro_red);
-    color: #fff;
+    border-bottom: 1px solid map-get($colours, light_grey);
 }
 
 nav#menu {
+    @extend %single-section-padding;
     left: 0;
+    height: 70px;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 3;
 
-    ul {
-        position: initial;
-        text-align: right;
+    @include webkit_value(display, flex);
+    @include webkit(flex-direction, row);
+    @include webkit(flex-wrap, nowrap);
+    @include webkit(justify-content, flex-start);
+    @include webkit(align-items, center);
 
-        @include breakpoint(tablet) {
-            overflow-x: scroll;
-            white-space: nowrap;
-        }
-    }
-
-    li {
-        color: #fff;
+    @include breakpoint(smartphone) {
+        @include webkit(justify-content, center);
     }
 
     a {
-        color: inherit;
-        padding: 7px 10px;
+        border: 0;
+        color: map-get($colours, text_grey);
+        font-weight: 100;
+        text-shadow: none;
         transition: color .2s, background-color .4s;
+    }
+
+    ul, h4 {
+        @extend %zero;
+        display: inline-block;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+
+    >:nth-child(1) {
+        border-right: 1px solid map-get($colours, light_grey);
+        padding-right: $bottom_default * 2;
+
+        @include breakpoint(smartphone) {
+            border: 0;
+            padding: 0 $bottom_default;
+        }
+    }
+
+    >:nth-child(2) {
+        @include breakpoint(smartphone) {
+            display: none;
+        }
+    }
+
+    >:nth-child(3) {
+        border-left: 1px solid map-get($colours, light_grey);
+        padding-left: $bottom_default * 2;
+
+        @include breakpoint(smartphone) {
+            
+            padding: 0 $bottom_default;
+        }
     }
 
     a.nav:hover {
@@ -71,23 +84,69 @@ nav#menu {
     }
 }
 
+
+ul.navigation {
+    @include webkit(flex, 1);
+
+    @include breakpoint(portrait) {
+        text-align: center;
+    }
+
+    a {
+        padding: 0 12px;
+    }
+}
+
+ul.social {
+    a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto 95%;
+        display: block;
+
+        @include flex_size(35px, 1);
+    }
+}
+
 /*
- * Standalone Twitter Link
- * -----------------------
- * Positioned in the bottom-left corner of the Ouro page.
+ * Ouro Brand Text
+ *
  */
 
-a#ouro-twitter {
-    @extend .nav-box-shadow;
-    border-radius: 50%;
-    bottom: 20px;
-    left: 20px;
-    position: fixed;
-    z-index: 7;
+h4.ouro-brand {
+    display: inline-block;
+    font-size: 2em;
 
-    @include flex_size(50px, 1);
+    @include webkit(flex, 0 1 auto);
 
-    @include breakpoint(smartphone) {
-        display: none;
+    @include breakpoint(portrait) {
+        padding-right: $bottom_default;
+    }
+
+    span {
+        color: inherit;
+    }
+}
+
+h4.ouro-brand a.current-nav {
+    span:first-child {
+        @extend .ouro-light;
+    }
+
+    span:last-child {
+        @extend .ouro-dark;
+    }
+}
+
+/*
+ * Geneate Social Links
+ * --------------------
+ */
+
+@each $value, $key in $social {
+    // Iterate map to produce social links.
+    .#{$value} {
+        background-color: nth($key, 1);
+        background-image: url(nth($key, 2));
     }
 }
