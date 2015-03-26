@@ -29,6 +29,11 @@
         html.classList.add('ios-8');
     }
 
+    if (!!agent.match(/ipad/i)) {
+        // iPad
+        html.classList.add('ipad');
+    }
+
     if (/webkit/.test(agent)) {
         // Webkit 
         html.classList.add('webkit');
