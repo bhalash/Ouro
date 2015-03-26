@@ -10,7 +10,7 @@
     <title><?php printf('%s', (IS_DEV_SITE) ? 'Ix Sandbox' : COMPANY_NAME); ?></title>
 
     <?php // Stylesheets and favicon ?>
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro|Fjalla+One|Source+Code+Pro|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro|Fjalla+One|Source+Code+Pro" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?php printf('%s', ASSETS . '/sass/style.css'); ?>">
     <!-- [if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif] -->
     <link rel="icon" href="<?php printf('%s', ASSETS . '/images/favicon.png'); ?>">
