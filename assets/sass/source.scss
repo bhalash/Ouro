@@ -5,7 +5,7 @@
 
 $title_fjalla: 5em 'Fjalla One', Charcoal, sans-serif;
 $title_verdana: 3em Verdana, Geneva, sans-serif;
-$title_opensans: 400 5em 'Open Sans Condensed', Verdana, Geneva, sans-serif;
+$title_opensans: 400 5em 'Open Sans', Verdana, Geneva, sans-serif;
 $font_sans: 400 1em 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
 $font_monospace: 0.9em 'Source Code Pro', 'Courier New', Courier, monospace;
 $font_serif: 0.9em 'Noto Serif', Georgia, serif;
@@ -23,7 +23,10 @@ $colours: (
     text_grey: #464646,
     text_white: #fff,
     active_grey: #bbb,
-    light_grey: #eee
+    light_grey: #eee,
+    header_grey: #fafafa,
+    error_red: #ed8787,
+    anchor_alt_red: #d75d6b
 );
 
 /*
@@ -45,8 +48,7 @@ $sections: (
  */
 
 $social: (
-    comments: (#30b351, '../images/social/social-comments.png'),
-    email: (#f5756c, '../images/social/social-email.png'),
+    blog: (#b9dfbc, '../images/social/social-blog.png'),
     facebook: (#3B5998, '../images/social/social-facebook.png'),
     flickr: (#ff0084, '../images/social/social-flickr.png'),
     github: (#666666, '../images/social/social-github.png'),
@@ -71,6 +73,7 @@ $social: (
 $bottom_default: 13px;
 $section_padding_narrow: 15%;
 $section_padding_wide: 35%;
+$navigation_menu_height: 70px;
 
 /*
  * Mixins and Partials
