@@ -4,7 +4,7 @@
  */
 
 /*
- * Lightbox Controls
+ * Gallery Variables
  * -----------------
  */
 
@@ -16,6 +16,11 @@ $control_left_inset: calc(100% - #{$control_inset}) center;
 $control_right_inset: $control_inset center; 
 // Fallback gallery height and width.
 
+/*
+ * Gallery Container
+ * -----------------
+ */
+
 div.gallery {
     @extend %border-box;
 
@@ -24,10 +29,16 @@ div.gallery {
     @include webkit(flex-wrap, wrap);
 }
 
+/*
+ * Gallery Individual Image
+ * ------------------------
+ */
+
 a.image {
     display: block;
     // Otherwise Chrome adds a tiny amount to the height.
     font-size: 0 !important;
+    opacity: 0;
     overflow: hidden;
 
     @include webkit(align-self, center);
@@ -52,7 +63,17 @@ a.image {
         background: rgba(#fff, 0.7);
         @extend %ouro-card;
     }
+
+    span {
+        font-size: 1em;
+        font-family: inherit;
+    }
 }
+
+/*
+ * Gallery Lightbox
+ * ----------------
+ */
 
 div#lightbox {
     background-color: rgba(#000, 0.9);
@@ -62,6 +83,7 @@ div#lightbox {
     position: fixed;
     right: 0;
     top: 0;
+    width: 100%;
     z-index: 5;
 
     img {
@@ -75,47 +97,52 @@ div#lightbox {
             max-height: none;
         }
     }
+}
 
-    a.close {
-        background: center center/$control_size no-repeat url('../images/lightbox/lightbox-close.svg');
-        display: block;
-        height: 50px;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        width: 50px;
+/*
+ * Gallery Lightbox Controls
+ * -------------------------
+ */
 
-        @include breakpoint(smartphone) {
-            height: 60px;
-            width: 60px;
-        }
-    }
+a.close {
+    background: center center/$control_size no-repeat url('../images/lightbox/lightbox-close.svg');
+    display: block;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 50px;
 
-    nav.controls {
-        bottom: 10px;
+    @include breakpoint(smartphone) {
         height: 60px;
-        left: 0;
-        position: absolute;
-        right: 0;
+        width: 60px;
+    }
+}
+
+nav.controls {
+    bottom: 10px;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    right: 0;
+
+    @include webkit_value(display, flex);
+    @include webkit(flex-direction, row);
+    @include webkit(justify-content, space-between);
+
+    .control {
+        height: 100%;
+        width: 50%;
 
         @include webkit_value(display, flex);
-        @include webkit(flex-direction, row);
-        @include webkit(justify-content, space-between);
+        @include webkit(justify-content, flex-start);
+    }
 
-        .control {
-            height: 100%;
-            width: 50%;
+    .left {
+        background: $control_left_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-left.svg');
+    }
 
-            @include webkit_value(display, flex);
-            @include webkit(justify-content, flex-start);
-        }
-
-        .left {
-            background: $control_left_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-left.svg');
-        }
-
-        .right {
-            background: $control_right_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-right.svg');
-        }
+    .right {
+        background: $control_right_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-right.svg');
     }
 }
