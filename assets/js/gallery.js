@@ -244,7 +244,6 @@ jQuery(document).ready(function($) {
             lightbox.setLightboxImage($(this).data('img'));
             event.preventDefault();
         });
-
     }
 
     $('#lightbox a.left').bind('click touchend', function(event) {
