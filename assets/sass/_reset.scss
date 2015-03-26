@@ -35,3 +35,23 @@ hr {
     padding: 0;
     width: 100%;
 }
+
+input, button, textarea {
+    // Remove all default appearance and focus appearance styling. 
+    @extend %border-box;
+    @extend %zero;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: 0;
+    outline: 0;
+
+    &:focus {
+        border: 0;
+        outline: 0;
+    }
+
+    textarea {
+        resize: none;
+    }
+}
