@@ -4,50 +4,44 @@
  * The site header is stacked vertically, at least in this build.
  */
 
+$header_brand_height: 65vh;
+
 section#home {
-    height: 100vh;
-    @include webkit_value(display, flex);
-    @include webkit(flex-direction, column);
-    @include webkit(justify-content, center);
+    background-color: map-get($colours, header_grey);
+    min-height: 100vh;
 
     @include breakpoint(smartphone) {
-        height: 125vh;
+        background: transparent;
+        min-height: initial;
     }
 
-    div.brand, div.blurb {
-        @include webkit_value(display, flex);
-        @include webkit(flex-direction, column);
-        @include webkit(justify-content, center);
-    }
-
-    div.brand {
-        background: center center/auto 50% no-repeat border-box url('../images/logo-ouro.svg');
-        @include webkit(flex, 0 1 75%);
-
-        @include breakpoint(smartphone) {
-            background-size: auto 55%; 
-            @include webkit(flex, 1);
-        }
-    }
-
-    div.blurb {
-        @include webkit(flex, 1);
-    }
-
-    h1 {
-        font-size: 6em;
+    h1.brand {
+        background: center center/auto 65% no-repeat border-box url('../images/logo-ouro.svg');
+        font-size: 7em;
+        line-height: $header_brand_height;
         text-align: center;
+        text-transform: uppercase;
 
         @include breakpoint(tablet) {
-            font-size: 5.5em;
+            font-size: 6em;
         }
 
         @include breakpoint(smartphone) {
-            font-size: 4em;
+            background-color: map-get($colours, header_grey);
+            background-size: auto 50%;
+            font-size: 4.4em;
+            line-height: 90vh;
         }
     }
 
-    p {
-        margin: 0;
+    div.blurbs {
+        // It's child content is absolutely positioned.
+        height: 100vh - $header_brand_height;
+        position: relative;
+
+        @include breakpoint(smartphone) {
+            height: initial;
+            position: relative;
+        }
     }
 }
