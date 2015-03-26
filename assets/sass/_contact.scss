@@ -3,13 +3,25 @@
  * ----------------------------
  */
 
+section#contact:after {
+    height: 0; 
+}
+
  section#contact form {
+    p {
+        padding: 5px;
+
+        &:not(.messages) {
+            @extend %zero;
+        }
+    }
+    
     .messages {
         color: map-get($colours, text_grey);
     }
 
     .unfilled {
-        background: #ed8787;
+        background: map-get($colours, error_red);
     }
 
     .success {
@@ -28,61 +40,32 @@
 
 form { 
     display: block;
+    overflow: hidden;
     margin: 0 auto;
-    width: 600px;
+    max-width: 660px;
 
-    @include breakpoint(smartphone) {
-        width: 100%;
-    }
-
-    input, button, textarea {
-        @extend %border-box;
-        // Remove all default appearance and focus appearance styling. 
-        -webkit-border-radius: 0;
-        -webkit-appearance: none;
-        // background-color: #fff;
+    input, textarea {
         background-color: map-get($colours, light_grey);
-        border-radius: 0;
-        border: 0;
         display: block;
         font-size: 1em;
-        margin: 0;
-        margin-bottom: $bottom_default;
-        outline: 0;
         padding: 12px;
-        position: relative;
         width: 100%;
 
-        &:focus {
-            border: 0;
-            box-shadow: 0 0 1px 1px map-get($colours, ouro_light);
+        &:not([type=submit]) {
+            margin-bottom: $bottom_default;
+
+            &:focus {
+                box-shadow: 0 0 1px 1px map-get($colours, ouro_light);
+            }
         }
     }
 
-    textarea {
-        min-height: 125px;
-        margin-bottom: $bottom_default * 2;
-        resize: none;
-    }
-
-    input {
-        width: 100%;
-    }
-
-    input:-webkit-autofill {
-        color: rgba(255,255,255,0.2) !important;
-    }
-
-    button {
+    input[type=submit] {
         background-color: map-get($colours, ouro_light);
         color: #fff;
         text-transform: uppercase;
         margin: 0 auto;
         width: 50%;
-
-        @include breakpoint(portrait) {
-            width: 50%;
-        }
 
         @include breakpoint(smartphone) {
             width: 100%;
@@ -91,14 +74,25 @@ form {
         &:active {
             background: map-get($colours, ouro_dark);
         }
+
+        &:after {
+            @extend %clearfix;
+        }
     }
 
-    p {
-        padding: 5px;
+    textarea {
+        min-height: 125px;
+    }
 
-        &:not(.messages) {
-            margin: 0;
-            padding: 0;
+    input:-webkit-autofill {
+        color: rgba(255,255,255,0.2) !important;
+    }
+
+    .mce_inline_error {
+        background: map-get($colours, error_red) !important;
+
+        @include placeholder_style() {
+            color: #fff !important;
         }
     }
 }
