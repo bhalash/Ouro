@@ -14,22 +14,9 @@
     border-bottom: 6px solid map-get($colours, ouro_light);
 }
 
-.ouro-background {
-    color: map-get($colours, ouro_light);
-}
-
 .ouro-box-shadow {
+    // Box shadow is used for several elements.
     @include prefix(box-shadow, 0px 0px 7px 0px rgba(0,0,0,0.3));
-}
-
-.ouro-dark {
-    color: map-get($colours, ouro_dark);
-    font: inherit;
-}
-
-.ouro-light {
-    color: map-get($colours, ouro_light);
-    font: inherit;
 }
 
 .ui-loader {
@@ -50,13 +37,35 @@
  * ------------------------
  */
 
-%single-section-padding {
-    padding-left: $section_padding_narrow;
-    padding-right: $section_padding_narrow;
+%content-padding {
+    $int_padding: 20%;
 
-    @include breakpoint(tablet) {
-        padding-left: $section_padding_narrow * 0.5;
-        padding-right: $section_padding_narrow * 0.5;
+    padding-left: $int_padding;
+    padding-right: $int_padding;
+
+    @include breakpoint(max, 1600) {
+        padding-left: $int_padding * 0.8;
+        padding-right: $int_padding * 0.8;
+    }
+
+    @include breakpoint(max, 1200) {
+        padding-left: $int_padding * 0.6;
+        padding-right: $int_padding * 0.6;
+    }
+
+    @include breakpoint(max, 1000) {
+        padding-left: $int_padding * 0.4;
+        padding-right: $int_padding * 0.4;
+    }
+
+    @include breakpoint(max, 800) {
+        padding-left: $int_padding * 0.2;
+        padding-right: $int_padding * 0.2;
+    }
+
+    @include breakpoint(max, 700) {
+        padding-left: $int_padding * 0.1;
+        padding-right: $int_padding * 0.1;
     }
 
     @include breakpoint(smartphone) {
