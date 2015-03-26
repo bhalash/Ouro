@@ -1,44 +1,14 @@
 /*
- * Content Sections
- * ----------------
- */
-
-/*
- * Parent Content Container 
- * ------------------------
- */
-
-/*
  * Base Section Layout
  * -------------------
- * Sections are a mish-mash, in part because of Internet Explorer and Safari 
- * Mobile.
- * 
- * 1. Flex centering does not work, period, in Internet Explorer if the parent
- *    container has a min-height set. I would *much* rather set min-height here
- *    initially, 
  */
- 
-.squished {
-    padding: $bottom_default 20%;
-
-    @include breakpoint(max, 1100) {
-        padding: $bottom_default 15%;
-    }
-
-    @include breakpoint(max, 850) {
-        padding: $bottom_default 5%;
-    }
-
-    @include breakpoint(smartphone) {
-        padding: $bottom_default 2.5%;
-    }
-}
 
 .inverse {
-    .sec-title, p {
+    .sec-title, p, .mce_inline_error {
+        background: transparent;
         color: #fff;
     }
+
 }
 
 .light {
@@ -47,23 +17,15 @@
     }
 }
 
-section#product {
-    background: rgba(0,0,0,0.1);
-}
-
-section#team {
-    // background: rgba(0,0,0,0.3);
-}
-
 section {
     @extend %border-box;
-    padding: $bottom_default 2.5%;
+    position: relative;
 
     a {
-        color: map-get($colours, ouro_dark);
+        color: map-get($colours, anchor_alt_red);
     }
 
-    p, h3, .sec-title {
+    p, h4, h5, h3, .sec-title {
         text-align: center;
 
         @include breakpoint(smartphone) {
@@ -73,21 +35,32 @@ section {
 }
 
 section:not(#home) {
+    @include prefix(min-height, calc(100vh - #{$navigation_menu_height}));
+}
+
+/*
+ * Section Interior Container
+ * --------------------------
+ * I had a devil of a time with Internet Explorer so I fell back to absolute 
+ * positioning. It's simpler...and it works.
+ */
+
+.content {
     @extend %border-box;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
+    @extend %content-padding;
+    // top: 50%;
+    top: 40%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    @include prefix(transform, translateY(-50%));
 
-    @include webkit_value(display, flex);
-    @include webkit(flex-direction, column);
-    @include webkit(justify-content, center);
-
-    > * {
-        @include webkit(flex, 0 1 100%);
-
-        @include breakpoint(smartphone) {
-            @include webkit(flex, 1);
-        }
+    @include breakpoint(smartphone) {
+        position: initial;
+        padding: 20px 5%;
+        @include prefix(transform, none);
     }
 }
 
@@ -100,9 +73,3 @@ section:not(#home) {
 section#contact {
     @include cover(nth(map-get($sections, contact), 1));
 }
-
-// @each $value, $key in $sections {
-//     section##{$value} {
-//         @include cover(nth($key, 1));
-//     }
-// }
