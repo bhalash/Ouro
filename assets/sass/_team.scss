@@ -4,7 +4,7 @@
  * Team is now 99% CSS (because I don't want to insert the blind divs by hand).
  */
 
-$team_mode_break: 950;
+$team_mode_break: 800;
 $transition_speed: .1s;
 
 .teamlist {
@@ -14,6 +14,10 @@ $transition_speed: .1s;
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
 
+    @include breakpoint(max, $team_mode_break) { 
+        @include webkit(flex-wrap, wrap);
+    }
+
     @include breakpoint(smartphone) {
         @include webkit(flex-direction, column);
     }
@@ -22,14 +26,15 @@ $transition_speed: .1s;
 .member {
     // Team member starts as a 1x4 grid that collapses to 2x2.
     @include webkit(flex, 1);
+    opacity: 0;
     position: relative;
 
     @include breakpoint(max, $team_mode_break) {
-        @include webkit(flex, 0 1 50%);
+        @include webkit(flex, 0 1 33.3%);
     }
 
     @include breakpoint(smartphone) {
-        @include webkit(flex, 1);
+    @include webkit(flex, 1);
     }
 
     a.avatar {
@@ -48,9 +53,53 @@ $transition_speed: .1s;
     &:hover {
         @extend %ouro-card;
     }
+
+    .description {
+        span.name {
+            font-size: 1.3em;
+            font-weight: bold;
+            border-bottom: 1px solid map-get($colours, text_grey);
+        }
+    }
 }
 
-.bio {
+
+/*
+ * Team Member Social Links
+ * ------------------------
+ * Links appear in a horizontal row below the text on hover.
+ */
+
+ul.team-social {
+    bottom: $bottom_default;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; 
+    text-align: center;
+    width: 100%;
+
+    li {
+        display: inline-block;
+        font-size: 0;
+    }
+
+    a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto 95%;
+        display: inline-block;
+        height: 45px;
+        width: 45px;
+    }
+}
+
+/*
+ * Team Member Description Text
+ * ----------------------------
+ */
+
+.description {
     @extend %noselect;
     bottom: 0;
     left: 0;
@@ -82,42 +131,6 @@ $transition_speed: .1s;
     span {
         display: inline-block;
         text-align: inherit;
-    }
-
-    span.name {
-        font-size: 1.3em;
-        font-weight: bold;
-        border-bottom: 1px solid map-get($colours, text_grey);
-    }
-}
-
-/*
- * Team Member Social Links
- * ------------------------
- * Links appear in a horizontal row below the text on hover.
- */
-
-ul.team-social {
-    bottom: $bottom_default;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    position: absolute; 
-    text-align: center;
-    width: 100%;
-
-    li {
-        display: inline-block;
-        font-size: 0;
-    }
-
-    a {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: auto 95%;
-        display: inline-block;
-        height: 45px;
-        width: 45px;
     }
 }
 
