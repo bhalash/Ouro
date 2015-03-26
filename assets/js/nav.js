@@ -25,7 +25,9 @@ $(document).ready(function() {
         // In case I need to change it later. 
         section: 'section',
         // Box shadow at the bottom of the nav menu.
-        shadow: 'nav-box-shadow'
+        shadow: 'nav-box-shadow',
+        // Animations peed
+        speed:  100
     };
 
     /*
@@ -174,7 +176,7 @@ $(document).ready(function() {
 
                     setTimeout(function() {
                         $(window).scroll(toggleOnScroll);
-                    }, 100);
+                    }, nav.speed);
                 }
             });
 
