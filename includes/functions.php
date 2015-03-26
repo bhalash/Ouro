@@ -37,17 +37,23 @@ function mail_subject($data = null) {
  * ----------------------
  */
 
-function generate_social_link($service, $handle) {
+function generate_social_link($service, $handle = null, $title = null) {
     $services = array(
         'facebook' => 'facebook.com',
         'github' => 'github.com',
         'twitter' => 'twitter.com',
+        'blog' => COMPANY_BLOG
     );
 
     $service = strtolower($service);
 
     $social_link = '<a class="' . $service . '" ';
-    $social_link .= 'href="//www.' . $services[$service] . '/';
+
+    if ($title !== '') {
+        $social_link .= 'title="' . $title . '" ';
+    }
+
+    $social_link .= 'href="//' . $services[$service] . '/';
     $social_link .= $handle . '" ';
     $social_link .= 'rel="external nofollow">';
     $social_link .= '</a>';
