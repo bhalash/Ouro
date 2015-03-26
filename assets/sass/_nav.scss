@@ -23,7 +23,7 @@ nav#menu {
     @include webkit(justify-content, flex-start);
     @include webkit(align-items, center);
 
-    @include breakpoint(smartphone) {
+    @include breakpoint(max, 650) {
         @include webkit(justify-content, center);
     }
 
@@ -50,6 +50,7 @@ nav#menu {
 
 
     >:nth-child(1) {
+        // Company name
         border-right: 1px solid map-get($colours, light_grey);
         padding-right: $bottom_default * 2;
 
@@ -60,12 +61,14 @@ nav#menu {
     }
 
     >:nth-child(2) {
-        @include breakpoint(smartphone) {
+        // Navigation menu
+        @include breakpoint(max, 650) {
             display: none;
         }
     }
 
     >:nth-child(3) {
+        // External social links
         border-left: 1px solid map-get($colours, light_grey);
         padding-left: $bottom_default * 2;
 

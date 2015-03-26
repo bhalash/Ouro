@@ -48,6 +48,10 @@ a.image {
         @include webkit(flex, 0 1 16.6667%);
     }
 
+    @include breakpoint(max, 650) {
+        @include webkit(flex, 0 1 20%);
+    }
+
     @include breakpoint(smartphone) {
         @include webkit(flex, 0 1 33.3%);
     }

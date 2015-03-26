@@ -4,7 +4,8 @@
  * Team is now 99% CSS (because I don't want to insert the blind divs by hand).
  */
 
-$team_mode_break: 800;
+$team_mode_break_1: 800;
+$team_mode_break_2: 550;
 $transition_speed: .1s;
 
 .teamlist {
@@ -14,7 +15,7 @@ $transition_speed: .1s;
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
 
-    @include breakpoint(max, $team_mode_break) { 
+    @include breakpoint(max, $team_mode_break_1) { 
         @include webkit(flex-wrap, wrap);
     }
 
@@ -29,12 +30,16 @@ $transition_speed: .1s;
     opacity: 0;
     position: relative;
 
-    @include breakpoint(max, $team_mode_break) {
+    @include breakpoint(max, $team_mode_break_1) {
         @include webkit(flex, 0 1 33.3%);
     }
 
+    @include breakpoint(max, $team_mode_break_2) {
+        @include webkit(flex, 0 1 50%);
+    }
+
     @include breakpoint(smartphone) {
-    @include webkit(flex, 1);
+        @include webkit(flex, 1);
     }
 
     a.avatar {
