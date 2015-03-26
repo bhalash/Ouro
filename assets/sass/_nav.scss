@@ -9,9 +9,9 @@
 }
 
 nav#menu {
-    @extend %single-section-padding;
+    @extend %content-padding;
     left: 0;
-    height: 70px;
+    height: $navigation_menu_height;
     position: fixed;
     right: 0;
     top: 0;
@@ -70,17 +70,12 @@ nav#menu {
         padding-left: $bottom_default * 2;
 
         @include breakpoint(smartphone) {
-            
             padding: 0 $bottom_default;
         }
     }
 
-    a.nav:hover {
-        @extend .ouro-background;
-    }
-
-    .current-nav {
-        @extend .ouro-background;
+    a.nav:hover, .current-nav {
+        color: map-get($colours, ouro_light);
     }
 }
 
@@ -94,6 +89,10 @@ ul.navigation {
 
     a {
         padding: 0 12px;
+
+        @include breakpoint(max, 700) {
+            padding: 0 6px;
+        }
     }
 }
 
@@ -115,7 +114,7 @@ ul.social {
 
 h4.ouro-brand {
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.2em;
 
     @include webkit(flex, 0 1 auto);
 
@@ -130,11 +129,11 @@ h4.ouro-brand {
 
 h4.ouro-brand a.current-nav {
     span:first-child {
-        @extend .ouro-light;
+        color: map-get($colours, ouro_light);
     }
 
     span:last-child {
-        @extend .ouro-dark;
+        color: map-get($colours, ouro_dark);
     }
 }
 
