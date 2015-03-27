@@ -7,10 +7,6 @@ $header_brand_height: 75vh;
 $header_brand_tablet: 70vh;
 $header_brand_height_mobile: 100vh;
 
-$brand_font_desktop: 7em;
-$brand_font_tablet: 6em;
-$brand_font_smartphone: 4.4em;
-
 section#home {
     background-color: map-get($colours, header_grey);
     min-height: 100vh;
@@ -27,21 +23,20 @@ section#home {
  */
 
 h1.brand {
-    background: center center/auto 65% no-repeat border-box url($ouro_brand);
-    font-size: $brand_font_desktop;
+    background: center center/auto 40vh no-repeat border-box url($ouro_brand);
+    font-size: 12vh;
     line-height: $header_brand_height;
     text-align: center;
     text-transform: uppercase;
 
     @include breakpoint(tablet) {
-        font-size: $brand_font_tablet;
         line-height: $header_brand_tablet;
     }
 
     @include breakpoint(smartphone) {
         background-color: map-get($colours, header_grey);
         background-size: auto 50%;
-        font-size: $brand_font_smartphone;
+        font-size: 15vh;
         line-height: $header_brand_height_mobile;
     }
 }
