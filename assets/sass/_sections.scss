@@ -3,27 +3,9 @@
  * -------------------
  */
 
-.inverse {
-    .sec-title, p, .mce_inline_error {
-        background: transparent;
-        color: #fff;
-    }
-
-}
-
-.light {
-    .sec-title {
-        color: map-get($colours, ouro_light);
-    }
-}
-
 section {
     @extend %border-box;
     position: relative;
-
-    a {
-        color: map-get($colours, anchor_alt_red);
-    }
 
     p, h4, h5, h3, .sec-title {
         text-align: center;
@@ -31,6 +13,17 @@ section {
         @include breakpoint(smartphone) {
             text-align: left;
         }
+
+        a {
+            box-shadow: rgba(map-get($colours, ouro_light), 0.4) 0px -5px 0px 0px inset;
+        }
+    }
+}
+
+.inverse {
+    h3, p {
+        background: transparent;
+        color: #fff;
     }
 }
 
@@ -41,15 +34,18 @@ section:not(#home) {
 /*
  * Section Interior Container
  * --------------------------
- * I had a devil of a time with Internet Explorer so I fell back to absolute 
- * positioning. It's simpler...and it works.
+ * Internet Explorer and Safari Mobile both have problems vertically centering
+ * flex children in cases where the parent has a minimum height still. With 
+ * Internet Explorer it appears to be a bug, and 
+ * 
+ * 
  */
 
 .content {
     @extend %border-box;
     @extend %content-padding;
-    // top: 50%;
-    top: 40%;
+    top: 50%;
+    // top: 40%;
     left: 0;
     overflow: hidden;
     position: absolute;
@@ -59,7 +55,7 @@ section:not(#home) {
 
     @include breakpoint(smartphone) {
         position: initial;
-        padding: 20px 5%;
+        padding: 40px 5%;
         @include prefix(transform, none);
     }
 }
