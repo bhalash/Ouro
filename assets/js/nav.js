@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
         $(section).data(nav.dataCurrent, true);
         currentNavToggle($(menu).find('a[href^=#' + $(section).attr('id') + ']'));
 
-        if (!$('html').hasClass('mobile')) {
+        if (!$('html').hasClass('touch')) {
             if ($('html').hasClass('webkit')) {
                 // This causes the page to scroll in Firefox.
                 document.location.hash = $(section).attr('id');
