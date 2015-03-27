@@ -28,16 +28,12 @@ nav#menu {
     }
 
     a {
-        border: 0;
-        color: map-get($colours, text_grey);
-        font-weight: 100;
-        text-shadow: none;
+        // color: map-get($colours, text_grey);
         transition: color .2s, background-color .4s;
     }
 
     ul, h4 {
-        @extend %zero;
-        display: inline-block;
+        margin: 0;
     }
 
     ul {
@@ -48,76 +44,22 @@ nav#menu {
         display: inline-block;
     }
 
-
-    >:nth-child(1) {
-        // Company name
-        border-right: 1px solid map-get($colours, light_grey);
-        padding-right: $bottom_default * 2;
-
-        @include breakpoint(smartphone) {
-            border: 0;
-            padding: 0 $bottom_default;
-        }
-    }
-
-    >:nth-child(2) {
-        // Navigation menu
-        @include breakpoint(max, 650) {
-            display: none;
-        }
-    }
-
-    >:nth-child(3) {
-        // External social links
-        border-left: 1px solid map-get($colours, light_grey);
-        padding-left: $bottom_default * 2;
-
-        @include breakpoint(smartphone) {
-            padding: 0 $bottom_default;
-        }
-    }
-
     a.nav:hover, .current-nav {
         color: map-get($colours, ouro_light);
     }
 }
 
-
-ul.navigation {
-    @include webkit(flex, 1);
-
-    @include breakpoint(portrait) {
-        text-align: center;
-    }
-
-    a {
-        padding: 0 12px;
-
-        @include breakpoint(max, 700) {
-            padding: 0 6px;
-        }
-    }
-}
-
-ul.social {
-    a {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: auto 95%;
-        display: block;
-
-        @include flex_size(35px, 1);
-    }
-}
-
 /*
- * Ouro Brand Text
- *
+ * Ouro Brand Name
+ * ---------------
  */
 
-h4.ouro-brand {
+h4#ouro-name {
+    // Company name
+    border-right: 1px solid map-get($colours, light_grey);
     display: inline-block;
     font-size: 1.2em;
+    padding-right: $bottom_default * 2;
 
     @include webkit(flex, 0 1 auto);
 
@@ -125,18 +67,85 @@ h4.ouro-brand {
         padding-right: $bottom_default;
     }
 
+    @include breakpoint(smartphone) {
+        border: 0;
+        padding: 0 $bottom_default;
+    }
+
     span {
         color: inherit;
+        font-weight: bold;
     }
 }
 
-h4.ouro-brand a.current-nav {
-    span:first-child {
+h4#ouro-name a.current-nav span {
+    &:nth-child(1) {
+        // Ouro_
         color: map-get($colours, ouro_light);
     }
 
-    span:last-child {
+    &:nth-child(2) {
+        // botics
         color: map-get($colours, ouro_dark);
+    }
+}
+
+/*
+ * Section Navigation
+ * ------------------
+ */
+
+ul#nav-sections {
+    display: inline-block;
+
+    @include webkit(flex, 1);
+
+    @include breakpoint(portrait) {
+        text-align: center;
+    }
+
+    @include breakpoint(max, 650) {
+        display: none;
+    }
+
+    a {
+        font-size: inherit;
+        font-weight: 100;
+        font-size: 1vw;
+        padding: 0 12px;
+
+        @include breakpoint(max, 1024) {
+            font-size: 1.5vw;
+        }
+
+        @include breakpoint(max, 700) {
+            padding: 0 6px;
+        }
+    }
+}
+
+/*
+ * Social Navigation
+ * -----------------
+ */
+
+ul#nav-social {
+    // External social links
+    border-left: 1px solid map-get($colours, light_grey);
+    display: inline-block;
+    padding-left: $bottom_default * 2;
+
+    @include breakpoint(smartphone) {
+        padding: 0 $bottom_default;
+    }
+
+    a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto 95%;
+        display: block;
+
+        @include flex_size(35px, 1);
     }
 }
 
