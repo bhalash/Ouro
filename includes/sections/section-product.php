@@ -1,6 +1,6 @@
 <section id="product">
     <div class="content">
-        <h3 class="sec-title">The <?php printf(PRODUCT_NAME); ?> prototype</h3>
+        <h3 class="sec-title">The <?php printf(PRODUCT_NAME); ?> Prototype</h3>
         <p>The <?php printf(PRODUCT_NAME); ?> bioprinter will be coming to the market in 2015.</p>
         <div class="feature gallery" id="gallery">
             <?php 

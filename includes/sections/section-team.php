@@ -1,6 +1,6 @@
 <section id="team">
     <div class="content">
-        <h3 class="sec-title">The <?php printf(COMPANY_NAME); ?> team</h3>
+        <h3 class="sec-title">The <?php printf(COMPANY_NAME); ?> Team</h3>
         <p>Staffed by rugged beards and fearsome pirate queeens, <?php printf(COMPANY_NAME); ?>'s diverse team is drawn from two continents. Hover over or tap to find out more!</p>
         <div class="feature teamlist">
             <?php foreach($ouro_team as $member) : ?>
