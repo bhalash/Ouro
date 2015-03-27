@@ -1,0 +1,46 @@
+$pane_image_size: auto 75%;
+
+div.bioprint-panes {
+    @include webkit_value(display, flex);
+    @include webkit(flex-wrap, nowrap);
+
+    @include breakpoint(smartphone) {
+        @include webkit(flex-wrap, wrap);
+    }
+}
+
+div.pane {
+    @extend %border-box;
+    padding: $bottom_default;
+    @include webkit(flex, 1);
+
+    @include breakpoint(smartphone) {
+        @include webkit(flex, 0 1 50%);
+    }
+
+    h5 {
+        font-size: 2vw;
+        margin: 0;
+
+        @include breakpoint(smartphone) {
+            text-align: center;
+            font-size: 5vw;
+        }
+    }
+}
+
+div.pane-image {
+    background-color: map-get($colours, ouro_light);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: $pane_image_size;
+    opacity: 0;
+
+    @include flex_size(100%, 1);
+}
+
+@each $value, $key in $panes {
+    .pane-#{$value} {
+        background-image: url(nth($key, 1));
+    }
+}
