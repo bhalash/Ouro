@@ -3,11 +3,6 @@
  * --------------------
  */
 
-/*
- * Gallery Variables
- * -----------------
- */
-
 // Size of control image.
 $control_size: auto 40%;
 // Inset of previous-next image controls.
@@ -64,8 +59,7 @@ a.image {
     }
 
     &:hover {
-        background: rgba(#fff, 0.7);
-        @extend %ouro-card;
+        background-color: map-get($colours, ouro_light);
     }
 
     span {
