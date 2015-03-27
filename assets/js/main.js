@@ -42,7 +42,8 @@ jQuery(document).ready(function($) {
 
     var toFadeIn = [
         '.gallery a', 
-        '.member'
+        '.member',
+        '.pane-image'
     ];
 
     var showOnScroll = function() {
@@ -62,9 +63,7 @@ jQuery(document).ready(function($) {
         });
     }
 
-    $(window).on('scroll', showOnScroll);
-    $(window).on('load', showOnScroll);
-
+    $(window).on('scroll load', showOnScroll);
 });
 
 /*
