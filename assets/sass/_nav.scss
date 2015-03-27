@@ -111,11 +111,19 @@ ul#nav-sections {
     a {
         font-size: inherit;
         font-weight: 100;
-        font-size: 1vw;
+        font-size: 0.9vw;
         padding: 0 12px;
 
-        @include breakpoint(max, 1024) {
-            font-size: 1.5vw;
+        @include breakpoint(max, 1650) {
+            font-size: 1.1vw;
+        }
+
+        @include breakpoint(max, 1100) {
+            font-size: 1.4vw;
+        }
+
+        @include breakpoint(max, 800) {
+            font-size: 1.7vw;
         }
 
         @include breakpoint(max, 700) {
