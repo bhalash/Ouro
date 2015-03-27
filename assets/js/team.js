@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
 
     $(team.avatar).each(function() {
         $(this).prepend(blinds.top).prepend(blinds.bottom);
-        $(this).parent().addClass(blinds.parent.substring(1));
+        // $(this).parent().addClass(blinds.parent.substring(1));
     });
 
     $.fn.extend({
@@ -40,16 +40,16 @@ jQuery(document).ready(function($) {
 
     if ($('html').hasClass('touch')) {
         $(window).on('swipe', function() {
-            $(blinds.parent).hideBio();
+            $(team.member).hideBio();
         });
 
-        $(blinds.parent).on('tap', function(event) {
-            $(blinds.parent).not(this).hideBio();
+        $(team.member).on('tap', function(event) {
+            $(team.member).not(this).hideBio();
             $(this).showBio();
             event.preventDefault();
         });
     } else {
-        $(blinds.parent).hover(function() {
+        $(team.member).hover(function() {
             $(this).showBio();
         }).mouseleave(function() {
             $(this).hideBio();
