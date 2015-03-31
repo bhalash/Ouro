@@ -5,6 +5,7 @@
 
 h1, h2, h3, h4, h5, h6 {
     color: $colour-text-grey;
+    font-weight: 100;
     letter-spacing: 1px;
 }
 
@@ -71,7 +72,7 @@ code, kbd, pre, pre span, tt, var {
     font-family: $font-sourcecodepro;
     font-size: $text-size-fixed;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    @include webkit(font-smoothing, antialiased);
+    -webkit-font-smoothing: antialiased;
 }
 
 pre {
@@ -161,8 +162,8 @@ ul {
 }
 
 address, dd, dt, p, li, th, td {
+    -webkit-font-smoothing: antialiased;
     @extend %p;
-    @include webkit(font-smoothing, antialiased);
 }
 
 input, textarea, button, blockquote, li {
