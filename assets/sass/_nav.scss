@@ -3,6 +3,8 @@
  * ------------------------
  */
 
+$nav-center-toggle: 825;
+
 .nav-box-shadow {
     // Box shadow attached on window scroll.
     border-bottom: 1px solid $colour-light-grey;
@@ -21,7 +23,7 @@ nav#menu {
     @include webkit(justify-content, flex-start);
     @include webkit(align-items, center);
 
-    @include breakpoint(max, 650) {
+    @include breakpoint(max, $nav-center-toggle) {
         @include webkit(justify-content, center);
     }
 
@@ -99,32 +101,23 @@ ul#nav-sections {
         text-align: center;
     }
 
-    @include breakpoint(max, 650) {
+    @include breakpoint(max, $nav-center-toggle) {
         display: none;
     }
 
     a {
         font-size: inherit;
-        font-weight: 100;
-        font-size: 0.9vw;
+        font-size: 1vw;
         padding: 0 $margin-default;
 
-        // FIXME
-
-        @include breakpoint(max, 1650) {
-            font-size: 1.1vw;
+        @include breakpoint(max, nth($ouro_breakpoints, 2)) {
+            font-size: 1.2vw;
+            padding: 0 $margin-default-10;
         }
 
-        @include breakpoint(max, 1100) {
-            font-size: 1.4vw;
-        }
-
-        @include breakpoint(max, 800) {
-            font-size: 1.7vw;
-        }
-
-        @include breakpoint(max, 700) {
-            padding: 0 6px;
+        @include breakpoint(max, nth($ouro_breakpoints, 3)) {
+            font-size: 1.5vw;
+            padding: 0 $margin-default-7;
         }
     }
 }
@@ -137,8 +130,9 @@ ul#nav-sections {
 ul#nav-social {
     // External social links
     border-left: 1px solid $colour-light-grey;
-    display: inline-block;
     padding-left: $margin-default-28;
+    @include webkit_value(display, inline-flex);
+    @include webkit(flex, 0 1 auto);
 
     @include breakpoint(smartphone) {
         padding: 0 $margin-default;
