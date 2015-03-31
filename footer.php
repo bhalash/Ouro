@@ -13,6 +13,5 @@
         <script src="<?php printf('%s', ASSETS . '/js/nav.min.js'); ?>"></script>
         <script src="<?php printf('%s', ASSETS . '/js/gallery.min.js'); ?>"></script>
         <script src="<?php printf('%s', ASSETS . '/js/team.min.js'); ?>"></script>
-        <?php // Load /all/ the scripts! ?>
     </body>
 </html>
