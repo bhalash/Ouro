@@ -3,8 +3,7 @@
  * -----------
  */
 
-$header-height-25: 25vh;
-$header-height-75: 75vh;
+$header-height-30: 30vh;
 $header-height-70: 70vh;
 $header-height-100: 100vh;
 
@@ -26,12 +25,8 @@ section#home {
 h1.brand {
     background: center center/auto 40vh no-repeat border-box $ouro-logo;
     font-size: 12vh;
-    line-height: $header-height-75;
+    line-height: $header-height-70;
     text-transform: uppercase;
-
-    @include breakpoint(tablet) {
-        line-height: $header-height-70;
-    }
 
     @include breakpoint(smartphone) {
         background-color: $colour-header-grey;
@@ -48,7 +43,7 @@ h1.brand {
 
 div.blurbs {
     // All hild content is absolutely positioned.
-    height: $header-height-25;
+    height: $header-height-30;
     position: relative;
 
     @include breakpoint(smartphone) {
