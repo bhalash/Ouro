@@ -113,8 +113,8 @@ $colour-anchor-blue: #3399cc;
  * generate responsive padding sizes for the site.
  */
 
-$ouro_breakpoints: (1600, 1200, 1000, 800, 700, smartphone);
-$section-padding: 20%;
+$ouro_breakpoints: (1600, 1200, 1024, 768, 650);
+$section-padding: 15%;
 
 /*
  * Margins, Padding and Heights
@@ -122,6 +122,9 @@ $section-padding: 20%;
  */
 
 $margin-default: 13px;
+$margin-default-4: $margin-default * 0.25;
+$margin-default-7: $margin-default * 0.5;
+$margin-default-10: $margin-default * 0.75;
 $margin-default-19: $margin-default * 1.5;
 $margin-default-28: $margin-default * 2;
 
