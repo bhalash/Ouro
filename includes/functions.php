@@ -40,6 +40,7 @@ function mail_subject($data = null) {
 function generate_social_link($service, $handle = null, $title = null) {
     $services = array(
         'facebook' => 'facebook.com',
+        'youtube' => 'youtube.com',
         'github' => 'github.com',
         'twitter' => 'twitter.com',
         'blog' => COMPANY_BLOG
