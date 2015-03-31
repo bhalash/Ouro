@@ -51,12 +51,35 @@
 }
 
 /*
+ * Section Interior Padding
+ * ------------------------
+ * Responsive padding for sections without having to list it all by hand. 
+ * $padding, $padding * 0.8, $padding * 0.6, etc...
+ */
+
+@mixin content_padding($padding, $breakpoint_arr) {
+    $padding-mod: 1; 
+
+    padding-left: $padding;
+    padding-right: $padding;
+
+    @each $break in $breakpoint_arr {
+        @include breakpoint(max, $break) {
+            padding-left: $padding * $padding-mod;
+            padding-left: $padding * $padding-mod;
+        }
+
+        $padding-mod: $padding-mod - 0.2;
+    }
+}
+
+/*
  * Vendor Property and Value Prefixes
  * ----------------------------------
+ * Automatically vendor prefixes to CSS properties and values.
  */
 
 @mixin prefix($property, $value) {
-    // Automatically add vendor prefixed to a CSS property.
     -moz-#{$property}: $value;
     -ms-#{$property}: $value;
     -webkit-#{$property}: $value;
@@ -64,7 +87,6 @@
 }
 
 @mixin prefix_value($property, $value) {
-    // Automatically add vendor prefixed to a CSS value.
     #{$property}: -moz-#{$value};
     #{$property}: -ms-#{$value};
     #{$property}: -webkit-#{$value};
@@ -122,6 +144,11 @@
     @include prefix(column-gap, $gap);
 }
 
+/*
+ * Placeholder Styles
+ * ------------------
+ */
+
 @mixin placeholder_style() {
     &::-webkit-input-placeholder {
        @content;
@@ -144,12 +171,4 @@
     &:-ms-input-placeholder {
         @content;
     }
-}
-
-@mixin light_mask($opacity) {
-    background-color: rgba(255,255,255,$opacity);
-}
-
-@mixin dark_mask($opacity) {
-    background-color: rgba(24,41,77,$opacity);
 }

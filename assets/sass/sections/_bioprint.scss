@@ -1,4 +1,9 @@
-$pane_image_size: auto 75%;
+/*
+ * Bioprinting Section
+ * -------------------
+ */
+
+$bioprint-background-size: auto 75%;
 
 div.bioprint-panes {
     @include webkit_value(display, flex);
@@ -10,8 +15,8 @@ div.bioprint-panes {
 }
 
 div.pane {
-    @extend %border-box;
-    padding: $bottom_default;
+    box-sizing: border-box;
+    padding: $margin-default;
     @include webkit(flex, 1);
 
     @include breakpoint(smartphone) {
@@ -19,21 +24,20 @@ div.pane {
     }
 
     h5 {
-        font-size: 2vw;
+        // font-size: 2vw;
         margin: 0;
 
         @include breakpoint(smartphone) {
             text-align: center;
-            font-size: 5vw;
+            // font-size: 5vw;
         }
     }
 }
 
 div.pane-image {
-    background-color: map-get($colours, ouro_light);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: $pane_image_size;
+    @extend %cover-picture;
+    background-color: $colour-ouro-light;
+    background-size: $bioprint-background-size;
     opacity: 0;
 
     @include flex_size(100%, 1);

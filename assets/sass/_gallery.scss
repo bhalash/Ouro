@@ -4,12 +4,16 @@
  */
 
 // Size of control image.
-$control_size: auto 40%;
+$lightbox-control-size: auto 40%;
+
+$lightbox-close: url($image-folder + '/lightbox/lightbox-close.svg');
+$lightbox-indicator-left: url($image-folder + '/lightbox/lightbox-indicator-left.svg');
+$lightbox-indicator-right: url($image-folder + '/lightbox/lightbox-indicator-right.svg'); 
+
 // Inset of previous-next image controls.
-$control_inset: 20px;
-$control_left_inset: calc(100% - #{$control_inset}) center;
-$control_right_inset: $control_inset center; 
-// Fallback gallery height and width.
+$control-inset: 20px;
+$control-inset-left: calc(100% - #{$control-inset}) center;
+$control-inset-right: $control-inset center; 
 
 /*
  * Gallery Container
@@ -17,8 +21,7 @@ $control_right_inset: $control_inset center;
  */
 
 div.gallery {
-    @extend %border-box;
-
+    box-sizing: border-box;
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, wrap);
@@ -52,14 +55,14 @@ a.image {
     }
 
     img {
-        @extend %border-box;
+        box-sizing: border-box;
         overflow: hidden;
         padding: 5px;
         width: 100%;
     }
 
     &:hover {
-        background-color: map-get($colours, ouro_light);
+        background-color: $colour-ouro-light;
     }
 
     span {
@@ -103,7 +106,7 @@ div#lightbox {
  */
 
 a.close {
-    background: center center/$control_size no-repeat url('../images/lightbox/lightbox-close.svg');
+    background: center center/$lightbox-control-size no-repeat $lightbox-close;
     display: block;
     height: 50px;
     position: absolute;
@@ -123,24 +126,22 @@ nav.controls {
     left: 0;
     position: absolute;
     right: 0;
-
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(justify-content, space-between);
 
     .control {
-        height: 100%;
+        height: inherit;
         width: 50%;
-
         @include webkit_value(display, flex);
         @include webkit(justify-content, flex-start);
     }
 
     .left {
-        background: $control_left_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-left.svg');
+        background: $control-inset-left/$lightbox-control-size no-repeat $lightbox-indicator-left;
     }
 
     .right {
-        background: $control_right_inset/$control_size no-repeat url('../images/lightbox/lightbox-indicator-right.svg');
+        background: $control-inset-right/$lightbox-control-size no-repeat $lightbox-indicator-right;
     }
 }

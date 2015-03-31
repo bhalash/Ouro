@@ -3,45 +3,7 @@
  * --------------
  */
 
-$images: '../images';
-
-/* 
- * Font Stacks
- * ------------
- */
-
-$title_fjalla: 5em 'Fjalla One', Charcoal, sans-serif;
-$title_verdana: 3em Verdana, Geneva, sans-serif;
-$title_opensans: 400 5em 'Open Sans', Verdana, Geneva, sans-serif;
-$font_sans: 400 1em 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
-$font_monospace: 0.9em 'Source Code Pro', 'Courier New', Courier, monospace;
-$font_serif: 0.9em 'Noto Serif', Georgia, serif;
-
-/*
- * Ouro Brand Logo
- * ---------------
- */
-
-$ouro_brand: $images + '/logo-ouro.svg';
-
-/*
- * Colours 
- * -------
- */
-
-$colours: (
-    ouro_dark: #669c5f,
-    ouro_light: #b9dfbc,
-    ouro_red: #ff5d5d,
-    terminal_green: #00ff00,
-    text_grey: #464646,
-    text_white: #fff,
-    active_grey: #bbb,
-    light_grey: #eee,
-    header_grey: #fafafa,
-    error_red: #ed8787,
-    anchor_blue: #3399cc
-);
+$image-folder: '../images';
 
 /*
  * Section Backgrounds
@@ -49,12 +11,12 @@ $colours: (
  */
 
 $sections: (
-    home: ($images + '/backgrounds/background-intro.jpg'),
-    bioprint: ($images + '/backgrounds/background-bioprint.jpg', #000),
-    intro: ($images + '/backgrounds/background-home.jpg'),
-    team: ($images + '/backgrounds/background-team.jpg'),
-    product: ($images + '/backgrounds/background-product.jpg'),
-    contact: ($images + '/backgrounds/background-contact.jpg')
+    home: ($image-folder + '/backgrounds/background-intro.jpg'),
+    bioprint: ($image-folder + '/backgrounds/background-bioprint.jpg', #000),
+    intro: ($image-folder + '/backgrounds/background-home.jpg'),
+    team: ($image-folder + '/backgrounds/background-team.jpg'),
+    product: ($image-folder + '/backgrounds/background-product.jpg'),
+    contact: ($image-folder + '/backgrounds/background-contact.jpg')
 );
 
 /*
@@ -63,19 +25,10 @@ $sections: (
  */
 
 $panes: (
-    conceive: ($images + '/panes/pane-conceive.svg'),
-    diagram: ($images + '/panes/pane-diagram.svg'),
-    print: ($images + '/panes/pane-print.svg'),
-    iterate: ($images + '/panes/pane-iterate.svg')
-);
-
-/*
- * Responsive Breakpoints
- * ----------------------
- */
-
-$bp: (
-    650px,
+    conceive: ($image-folder + '/panes/pane-conceive.svg'),
+    diagram: ($image-folder + '/panes/pane-diagram.svg'),
+    print: ($image-folder + '/panes/pane-print.svg'),
+    iterate: ($image-folder + '/panes/pane-iterate.svg')
 );
 
 /*
@@ -83,33 +36,96 @@ $bp: (
  * -------------------------
  */
 
-$social: (
-    blog: (#b9dfbc, $images + '/social/social-blog.png'),
-    facebook: (#3B5998, $images + '/social/social-facebook.png'),
-    flickr: (#ff0084, $images + '/social/social-flickr.png'),
-    github: (#666666, $images + '/social/social-github.png'),
-    google: (#dd4b39, $images + '/social/social-google.png'),
-    instagram: (#3f729b, $images + '/social/social-instagram.png'),
-    linkedin: (#0976b4, $images + '/social/social-linkedin.png'),
-    pinterest: (#cc2127, $images + '/social/social-pinterest.png'),
-    print: (#007aaf, $images + '/social/social-print.png'),
-    reddit: (#ff5700, $images + '/social/social-reddit.png'),
-    rmwb: (#343537, $images + '/social/social-beard.png'),
-    rss: (#ff6600, $images + '/social/social-rss.png'),
-    tumblr: (#35465c, $images + '/social/social-tumblr.png'),
-    twitter: (#55acee, $images + '/social/social-twitter.png'),
-    youtube: (#b31217, $images + '/social/social-youtube.png')
+$social-icons: (
+    blog: (#b9dfbc, $image-folder + '/social/social-blog.png'),
+    facebook: (#3B5998, $image-folder + '/social/social-facebook.png'),
+    flickr: (#ff0084, $image-folder + '/social/social-flickr.png'),
+    github: (#666666, $image-folder + '/social/social-github.png'),
+    google: (#dd4b39, $image-folder + '/social/social-google.png'),
+    instagram: (#3f729b, $image-folder + '/social/social-instagram.png'),
+    linkedin: (#0976b4, $image-folder + '/social/social-linkedin.png'),
+    pinterest: (#cc2127, $image-folder + '/social/social-pinterest.png'),
+    print: (#007aaf, $image-folder + '/social/social-print.png'),
+    reddit: (#ff5700, $image-folder + '/social/social-reddit.png'),
+    rmwb: (#343537, $image-folder + '/social/social-beard.png'),
+    rss: (#ff6600, $image-folder + '/social/social-rss.png'),
+    tumblr: (#35465c, $image-folder + '/social/social-tumblr.png'),
+    twitter: (#55acee, $image-folder + '/social/social-twitter.png'),
+    youtube: (#b31217, $image-folder + '/social/social-youtube.png')
 );
 
 /*
- * Margins
+ * Ouro Brand Logo
+ * ---------------
+ */
+
+$ouro-logo: url($image-folder + '/logo-ouro.svg');
+
+/* 
+ * Font Stacks
+ * ------------
+ */
+
+// Headline font sizes.
+$headline-size-h1: 5em;
+$headline-size-h2: $headline-size-h1 * 0.8;
+$headline-size-h3: $headline-size-h1 * 0.6;
+$headline-size-h4: $headline-size-h1 * 0.4;
+$headline-size-h5: $headline-size-h1 * 0.2;
+$headline-size-h6: $headline-size-h1 * 0.1;
+// Text font sizes.
+$text-size-sans: 1em;
+$text-size-fixed: $text-size-sans * 0.9;
+$text-size-serif: $text-size-sans * 0.9;
+// Text font weight.
+$font-weight-text: 400;
+// Text line height.
+$line-height-text: $text-size-sans * 1.4;
+// Font families.
+$font-fjallaone: 'Fjalla One', Charcoal, sans-serif;
+$font-opensans: 'Open Sans', Verdana, Geneva, sans-serif;
+$font-verdana: Verdana, Geneva, sans-serif;
+$font-roboto: 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
+$font-sourcecodepro: 'Source Code Pro', 'Courier New', Courier, monospace;
+$font-notoserif: 'Noto Serif', Georgia, serif;
+
+/*
+ * Colours 
  * -------
  */
 
-$bottom_default: 13px;
-$section_padding_narrow: 15%;
-$section_padding_wide: 35%;
-$navigation_menu_height: 70px;
+$colour-ouro-dark: #669c5f;
+$colour-ouro-light: #b9dfbc;
+$colour-ouro-red: #ff5d5d;
+$colour-terminal-green: #00ff00;
+$colour-text-grey: #464646;
+$colour-text-white: #fff;
+$colour-active-grey: #bbb;
+$colour-light-grey: #eee;
+$colour-header-grey: #fafafa;
+$colour-error-red: #ed8787;
+$colour-anchor-blue: #3399cc;
+
+/*
+ * Website Breakpoints and Padding
+ * -------------------------------
+ * These go hand-in-hand; the mixin section_padding iterates through both to
+ * generate responsive padding sizes for the site.
+ */
+
+$ouro_breakpoints: (1600, 1200, 1000, 800, 700, smartphone);
+$section-padding: 20%;
+
+/*
+ * Margins, Padding and Heights
+ * ----------------------------
+ */
+
+$margin-default: 13px;
+$margin-default-19: $margin-default * 1.5;
+$margin-default-28: $margin-default * 2;
+
+$navigation-height: 70px;
 
 /*
  * Mixins and Partials
@@ -127,12 +143,12 @@ $navigation_menu_height: 70px;
 @import 'reset';
 @import 'typography';
 @import 'sections';
-// Individual Sections
+// Individual Sections.
 @import 'sections/home';
 @import 'sections/team';
 @import 'sections/bioprint';
 @import 'sections/contact';
-// Sub-sections
+// Page subsections.
 @import 'nav';
 @import 'gallery';
 @import 'footer';

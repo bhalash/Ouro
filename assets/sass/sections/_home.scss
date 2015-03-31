@@ -3,12 +3,13 @@
  * -----------
  */
 
-$header_brand_height: 75vh;
-$header_brand_tablet: 70vh;
-$header_brand_height_mobile: 100vh;
+$header-height-25: 25vh;
+$header-height-75: 75vh;
+$header-height-70: 70vh;
+$header-height-100: 100vh;
 
 section#home {
-    background-color: map-get($colours, header_grey);
+    background-color: $colour-header-grey;
     min-height: 100vh;
 
     @include breakpoint(smartphone) {
@@ -23,21 +24,20 @@ section#home {
  */
 
 h1.brand {
-    background: center center/auto 40vh no-repeat border-box url($ouro_brand);
+    background: center center/auto 40vh no-repeat border-box $ouro-logo;
     font-size: 12vh;
-    line-height: $header_brand_height;
-    text-align: center;
+    line-height: $header-height-75;
     text-transform: uppercase;
 
     @include breakpoint(tablet) {
-        line-height: $header_brand_tablet;
+        line-height: $header-height-70;
     }
 
     @include breakpoint(smartphone) {
-        background-color: map-get($colours, header_grey);
+        background-color: $colour-header-grey;
         background-size: auto 50%;
         font-size: 15vh;
-        line-height: $header_brand_height_mobile;
+        line-height: $header-height-100;
     }
 }
 
@@ -47,8 +47,8 @@ h1.brand {
  */
 
 div.blurbs {
-    // It's child content is absolutely positioned.
-    height: 100vh - $header_brand_height;
+    // All hild content is absolutely positioned.
+    height: $header-height-25;
     position: relative;
 
     @include breakpoint(smartphone) {

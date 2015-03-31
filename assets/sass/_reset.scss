@@ -4,20 +4,23 @@ ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
 dl, dt, dd, ol, ul, li, fieldset, form, label,legend, table, caption, tbody, 
 tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, 
 figcaption, footer, header, hgroup menu, nav, output, ruby, section, summary, 
-time, mark, audio, video {
+time, mark, textarea, input, audio, video {
     border: 0; 
     color: inherit;
-    font: $font_sans;
+    font-family: $font-roboto;
     font-size: 100%;
     margin: 0;
+    outline: 0;
     padding: 0;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
     vertical-align: baseline;
+    @include webkit(border-radius, 0);
+    @include webkit(appearance, none);
 }
 
 html, body {
-    width: 100%
+    width: 100%;
 }
 
 img, iframe {
@@ -30,21 +33,12 @@ hr {
     border: 0;
     height: 1px;
     background: transparent;
-    margin: 0;
-    outline: 0;
-    padding: 0;
     width: 100%;
 }
 
 input, button, textarea {
     // Remove all default appearance and focus appearance styling. 
-    @extend %border-box;
-    @extend %zero;
-    -webkit-border-radius: 0;
-    -webkit-appearance: none;
-    border-radius: 0;
-    border: 0;
-    outline: 0;
+    box-sizing: border-box;
 
     &:focus {
         border: 0;

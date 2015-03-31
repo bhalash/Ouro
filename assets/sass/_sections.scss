@@ -1,21 +1,28 @@
 /*
+ * Website Padding
+ * ---------------
+ */
+
+.content, nav#menu {
+    @include content_padding($section-padding, $ouro_breakpoints);
+}
+
+/*
  * Base Section Layout
  * -------------------
  */
 
 section {
-    @extend %border-box;
+    box-sizing: border-box;
     position: relative;
 
     p, h4, h5, h3, .sec-title {
-        text-align: center;
-
         @include breakpoint(smartphone) {
             text-align: left;
         }
 
         a {
-            box-shadow: rgba(map-get($colours, ouro_light), 0.4) 0px -5px 0px 0px inset;
+            box-shadow: rgba($colour-ouro-light, 0.4) 0px -5px 0px 0px inset;
         }
     }
 }
@@ -28,7 +35,7 @@ section {
 }
 
 section:not(#home) {
-    @include prefix(min-height, calc(100vh - #{$navigation_menu_height}));
+    @include prefix(min-height, calc(100vh - #{$navigation-height}));
 }
 
 /*
@@ -42,20 +49,18 @@ section:not(#home) {
  */
 
 .content {
-    @extend %border-box;
-    @extend %content-padding;
-    top: 50%;
-    // top: 40%;
+    box-sizing: border-box;
     left: 0;
     overflow: hidden;
     position: absolute;
     right: 0;
+    top: 50%;
     width: 100%;
     @include prefix(transform, translateY(-50%));
 
     @include breakpoint(smartphone) {
-        position: initial;
         padding: 40px 5%;
+        position: initial;
         @include prefix(transform, none);
     }
 }

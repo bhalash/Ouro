@@ -5,18 +5,16 @@
 
 .nav-box-shadow {
     // Box shadow attached on window scroll.
-    border-bottom: 1px solid map-get($colours, light_grey);
+    border-bottom: 1px solid $colour-light-grey;
 }
 
 nav#menu {
-    @extend %content-padding;
+    height: $navigation-height;
     left: 0;
-    height: $navigation_menu_height;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 3;
-
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
@@ -28,7 +26,6 @@ nav#menu {
     }
 
     a {
-        // color: map-get($colours, text_grey);
         transition: color .2s, background-color .4s;
     }
 
@@ -45,7 +42,7 @@ nav#menu {
     }
 
     a.nav:hover, .current-nav {
-        color: map-get($colours, ouro_light);
+        color: $colour-ouro-light;
     }
 }
 
@@ -56,20 +53,19 @@ nav#menu {
 
 h4#ouro-name {
     // Company name
-    border-right: 1px solid map-get($colours, light_grey);
+    border-right: 1px solid $colour-light-grey;
     display: inline-block;
     font-size: 1.2em;
-    padding-right: $bottom_default * 2;
-
+    padding-right: $margin-default-28;
     @include webkit(flex, 0 1 auto);
 
     @include breakpoint(portrait) {
-        padding-right: $bottom_default;
+        padding-right: $margin-default;
     }
 
     @include breakpoint(smartphone) {
         border: 0;
-        padding: 0 $bottom_default;
+        padding: 0 $margin-default;
     }
 
     span {
@@ -81,12 +77,12 @@ h4#ouro-name {
 h4#ouro-name a.current-nav span {
     &:nth-child(1) {
         // Ouro_
-        color: map-get($colours, ouro_light);
+        color: $colour-ouro-light;
     }
 
     &:nth-child(2) {
         // botics
-        color: map-get($colours, ouro_dark);
+        color: $colour-ouro-dark;
     }
 }
 
@@ -97,7 +93,6 @@ h4#ouro-name a.current-nav span {
 
 ul#nav-sections {
     display: inline-block;
-
     @include webkit(flex, 1);
 
     @include breakpoint(portrait) {
@@ -112,7 +107,9 @@ ul#nav-sections {
         font-size: inherit;
         font-weight: 100;
         font-size: 0.9vw;
-        padding: 0 12px;
+        padding: 0 $margin-default;
+
+        // FIXME
 
         @include breakpoint(max, 1650) {
             font-size: 1.1vw;
@@ -139,20 +136,18 @@ ul#nav-sections {
 
 ul#nav-social {
     // External social links
-    border-left: 1px solid map-get($colours, light_grey);
+    border-left: 1px solid $colour-light-grey;
     display: inline-block;
-    padding-left: $bottom_default * 2;
+    padding-left: $margin-default-28;
 
     @include breakpoint(smartphone) {
-        padding: 0 $bottom_default;
+        padding: 0 $margin-default;
     }
 
     a {
-        background-position: center center;
-        background-repeat: no-repeat;
+        @extend %cover-picture;
         background-size: auto 95%;
         display: block;
-
         @include flex_size(35px, 1);
     }
 }
@@ -162,7 +157,7 @@ ul#nav-social {
  * --------------------
  */
 
-@each $value, $key in $social {
+@each $value, $key in $social-icons {
     // Iterate map to produce social links.
     .#{$value} {
         background-color: nth($key, 1);

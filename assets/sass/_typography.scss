@@ -1,60 +1,42 @@
 /*
- * Header Items
+ * Headline Items
  * ------------
  */
 
 h1, h2, h3, h4, h5, h6 {
-    // color: map-get($colours, text_white);
-    color: map-get($colours, text_grey);
+    color: $colour-text-grey;
     letter-spacing: 1px;
-    margin-bottom: $bottom_default;
 }
 
 h1, h2, h3 {
-    font: $title_fjalla;
-    margin-bottom: 0;
+    font-family: $font-fjallaone;
 }
 
-h2 { 
-    font-size: 4em;
+h4, h5, h6 {
+    font-family: $font-opensans;
+    font-weight: $font-weight-text;
+    margin-bottom: $margin-default;
 }
 
-h3 { 
-    font-size: 3em; 
-
-    @include breakpoint(smartphone) {
-        font-size: 2.5em;
-    }
-}
-
-h4, h5, h5 {
-    font: $title_opensans;
-}
-
-h4 { 
-    font-size: 2.5em;
-}
-
-h5 { 
-    font-size: 1.5em;
-}
-
-h6 { 
-    font-size: 1em;
-}
+h1, %h1 { font-size: $headline-size-h1; }
+h2, %h2 { font-size: $headline-size-h2; }
+h3, %h3 { font-size: $headline-size-h3; }
+h4, %h4 { font-size: $headline-size-h4; }
+h5, %h5 { font-size: $headline-size-h5; }
+h6, %h6 { font-size: $headline-size-h6; }
 
 /*
- * Non-header Defaults 
- * -------------------
+ * Non-healine Items 
+ * -----------------
  */
 
-a {
-    color: inherit;
-    font-weight: bold;
-}
-
-b, strong {
-    font-weight: bold;
+p, %p {
+    // This is the baseline for all non-headline text.
+    color: $colour-text-grey;
+    font-family: $font-opensans;
+    font-size: $text-size-sans;
+    font-weight: $font-weight-text;
+    line-height: $line-height-text;
 }
 
 a, abbr, acronym, big, cite, code, del, em, ins, small, span, strike, strong, sub, sup {
@@ -62,27 +44,50 @@ a, abbr, acronym, big, cite, code, del, em, ins, small, span, strike, strong, su
     font-size: inherit;
 }
 
+/*
+ * Bold Text
+ * ---------
+ */
+
+a, b, cite, dt, strong {
+    font-weight: bold;
+}
+
+/*
+ * Italic Text
+ * -----------
+ */
+
 em, i, ins, q, var {
-    color: inherit;
     font-style: italic;
 }
 
+/*
+ * Code Blocks
+ * -----------
+ */
+
 code, kbd, pre, pre span, tt, var {
-    font: $font_monospace;
+    font-family: $font-sourcecodepro;
+    font-size: $text-size-fixed;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    -webkit-font-smoothing: antialiased;
+    @include webkit(font-smoothing, antialiased);
 }
 
 pre {
-    @extend %border-box;
     background-color: transparent;
     color: #fff;
     line-height: 1.2em;
     overflow: auto;
 }
 
+/*
+ * Miscellaneous Inline Elements
+ * -----------------------------
+ */
+
 abbr, acronym {
-    background: map-get($colours, ouro_light);
+    background: $colour-ouro-light;
     padding: 1px 3px;
 }
 
@@ -106,12 +111,11 @@ del, strike {
 
 dt {
     font-size: 105%;
-    font-weight: bold;
 }
 
 dd {
     margin-bottom: 5px;
-    padding-left: 15px;
+    padding-left: $margin-default;
 
     &:before {
         content: '» ';
@@ -136,10 +140,6 @@ small {
     line-height: normal;
 }
 
-cite, strong {
-    font-weight: bold;
-}
-
 sub, sup {
     font-size: 85%;
 }
@@ -153,7 +153,7 @@ sup {
 }
 
 ol, ul {
-    margin: 0 30px;
+    margin: 0 $margin-default-28;
 }
 
 ul {
@@ -161,27 +161,21 @@ ul {
 }
 
 address, dd, dt, p, li, th, td {
-    font: $font_sans;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.4em;
+    @extend %p;
+    @include webkit(font-smoothing, antialiased);
 }
 
-input,textarea,button {
-    font: $font_sans;
+input, textarea, button, blockquote, li {
+    @extend %p;
 }
 
 blockquote, ol, p, pre, ul {
-    margin-bottom: $bottom_default;
+    margin-bottom: $margin-default;
 }
 
 blockquote {
     border-left: 3px solid rgba(0,0,0,0.4);
-    padding: 0 20px;
-}
-
-p, li, blockquote {
-    // color: map-get($colours, text_white);
-    color: map-get($colours, text_grey);
+    padding: 0 $margin-default-19;
 }
 
 li {

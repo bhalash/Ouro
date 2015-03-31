@@ -4,18 +4,17 @@
  * Team is now 99% CSS (because I don't want to insert the blind divs by hand).
  */
 
-$team_mode_break_1: 800;
-$team_mode_break_2: 550;
-$transition_speed: .1s;
+$team-break-800: 800;
+$team-break-550: 550;
+$hover-transition-speed: .1s;
 
 .teamlist {
-    // Jemma would prefer to keep the team images all at a discreet size.
     height: 100%;
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
 
-    @include breakpoint(max, $team_mode_break_1) { 
+    @include breakpoint(max, $team-break-800) { 
         @include webkit(flex-wrap, wrap);
     }
 
@@ -25,16 +24,17 @@ $transition_speed: .1s;
 }
 
 .member {
-    // Team member starts as a 1x4 grid that collapses to 2x2.
-    @include webkit(flex, 1);
+    /* Team member starts as a 4x1 grid that first collapses to 2x2 and then to
+     * 1x4 on a smartphone. */
     opacity: 0;
     position: relative;
+    @include webkit(flex, 1);
 
-    @include breakpoint(max, $team_mode_break_1) {
+    @include breakpoint(max, $team-break-800) {
         @include webkit(flex, 0 1 33.3%);
     }
 
-    @include breakpoint(max, $team_mode_break_2) {
+    @include breakpoint(max, $team-break-550) {
         @include webkit(flex, 0 1 50%);
     }
 
@@ -49,7 +49,7 @@ $transition_speed: .1s;
         position: relative;
 
         img {
-            @extend %border-box;
+            box-sizing: border-box;
             padding: 5px;
             width: 100%;
         }
@@ -59,12 +59,10 @@ $transition_speed: .1s;
         @extend %ouro-card;
     }
 
-    .description {
-        span.name {
-            font-size: 1.3em;
-            font-weight: bold;
-            border-bottom: 1px solid map-get($colours, text_grey);
-        }
+    .description span.name {
+        font-size: 1.3em;
+        font-weight: bold;
+        border-bottom: 1px solid $colour-text-grey;
     }
 }
 
@@ -76,26 +74,24 @@ $transition_speed: .1s;
  */
 
 ul.team-social {
-    bottom: $bottom_default;
+    bottom: $margin-default;
     list-style-type: none;
     margin: 0;
     padding: 0;
     position: absolute; 
-    text-align: center;
     width: 100%;
 
     li {
         display: inline-block;
-        font-size: 0;
+        // Otherwise Chrome adds a tiny amount to the height.
+        font-size: 0 !important;
     }
 
     a {
-        background-position: center center;
-        background-repeat: no-repeat;
+        @extend %cover-picture;
         background-size: auto 95%;
         display: inline-block;
-        height: 45px;
-        width: 45px;
+        @include flex_size(45px, 1);
     }
 }
 
@@ -114,7 +110,7 @@ ul.team-social {
     position: absolute;
     right: 0;
     // Transition to stop text appearaning immediately.
-    transition: opacity $transition_speed linear;
+    transition: opacity $hover-transition-speed linear;
     top: 0;
 
     @include webkit_value(display, flex);
@@ -123,8 +119,6 @@ ul.team-social {
     @include webkit(flex-wrap, nowrap);
 
     p {
-        @extend %zero;
-        color: map-get($colours, text_grey);
         margin: auto;    
         text-align: center;
         width: 100%;
@@ -148,13 +142,13 @@ ul.team-social {
  */
 
 div[class^=blind-] {
-    background: rgba(#fff, 0.8);
+    background: rgba($colour-text-white, 0.8);
     display: block;
     position: absolute; 
     height: 0;
     left: 0;
     right: 0;
-    transition: height $transition_speed;
+    transition: height $hover-transition-speed;
 }
 
 .blind-top {

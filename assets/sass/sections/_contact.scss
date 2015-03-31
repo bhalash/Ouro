@@ -3,46 +3,44 @@
  * ----------------------------
  */
 
-section#contact:after {
-    height: 0; 
-}
-
  section#contact form {
     /*
      * Contact Form Message Boxes
      * --------------------------
-     * The original contact form was replaced with a MailChimp mailing list form
-     * so these elements are currently unused.
+     * The original contact form was replaced with a MailChimp mailing list.
+     * Commented-out items are relevant to the full contact form, but not 
+     * currently used.
      */
      
     p {
         padding: 5px;
 
         &:not(.messages) {
-            @extend %zero;
+            margin: 0;
+            padding: 0;
         }
     }
     
-    .messages {
-        color: map-get($colours, text_grey);
-    }
+    // .messages {
+    //     color: map-get($colours, text_grey);
+    // }
 
-    .unfilled {
-        background: map-get($colours, error_red);
-    }
+    // .unfilled {
+    //     background: map-get($colours, error_red);
+    // }
 
-    .success {
-        background: #87ed90;
-    }
+    // .success {
+    //     background: #87ed90;
+    // }
 
-    .unfilled, .success {
-        color: #fff;
-        transition: background-color .2s;
+    // .unfilled, .success {
+    //     color: #fff;
+    //     transition: background-color .2s;
 
-        @include placeholder_style() {
-            color: #fff;
-        }
-    }
+    //     @include placeholder_style() {
+    //         color: #fff;
+    //     }
+    // }
 }
 
 form { 
@@ -52,24 +50,25 @@ form {
     max-width: 660px;
 
     input, textarea {
-        background-color: map-get($colours, light_grey);
+        background-color: $colour-light-grey;
         display: block;
-        font-size: 1em;
-        padding: 12px;
+        font-size: $text-size-sans;
+        padding: $margin-default;
         width: 100%;
 
         &:not([type=submit]) {
-            margin-bottom: $bottom_default;
+            margin-bottom: $margin-default;
+            text-align: left;
 
             &:focus {
-                box-shadow: 0 0 1px 1px map-get($colours, ouro_light);
+                box-shadow: 0 0 1px 1px $colour-ouro-light;
             }
         }
     }
 
     input[type=submit] {
-        background-color: map-get($colours, ouro_light);
-        color: #fff;
+        background-color: $colour-ouro-light;
+        color: $colour-text-white;
         text-transform: uppercase;
         margin: 0 auto;
         width: 50%;
@@ -79,11 +78,7 @@ form {
         }
 
         &:active {
-            background: map-get($colours, ouro_dark);
-        }
-
-        &:after {
-            @extend %clearfix;
+            background: $colour-ouro-dark;
         }
     }
 
@@ -92,14 +87,16 @@ form {
     }
 
     input:-webkit-autofill {
-        color: rgba(255,255,255,0.2) !important;
+        color: rgba($colour-text-white, 0.2) !important;
     }
 
     .mce_inline_error {
-        background: map-get($colours, error_red) !important;
+        /* MailChimp tries to charge developers for CSS customization of forms.
+         * Something something YOLO. */
+        background: $colour-error-red !important;
 
         @include placeholder_style() {
-            color: #fff !important;
+            color: $colour-text-white !important;
         }
     }
 }
