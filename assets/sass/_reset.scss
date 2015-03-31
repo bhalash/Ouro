@@ -15,8 +15,6 @@ time, mark, textarea, input, audio, video {
     text-align: center;
     text-decoration: none;
     vertical-align: baseline;
-    @include webkit(border-radius, 0);
-    @include webkit(appearance, none);
 }
 
 html, body {
@@ -24,7 +22,6 @@ html, body {
 }
 
 img, iframe {
-    height: auto;
     margin: 0 auto;
     max-width: 100%;
 }
@@ -38,7 +35,9 @@ hr {
 
 input, button, textarea {
     // Remove all default appearance and focus appearance styling. 
+    -webkit-appearance: none;
     box-sizing: border-box;
+    @include webkit(border-radius, 0);
 
     &:focus {
         border: 0;
