@@ -66,10 +66,15 @@
     @each $break in $breakpoint_arr {
         @include breakpoint(max, $break) {
             padding-left: $padding * $padding-mod;
-            padding-left: $padding * $padding-mod;
+            padding-right: $padding * $padding-mod;
         }
 
         $padding-mod: $padding-mod - 0.2;
+    }
+
+    @include breakpoint(smartphone) {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
