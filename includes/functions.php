@@ -43,23 +43,25 @@ function generate_social_link($service, $handle = null, $title = null) {
         'youtube' => 'youtube.com',
         'github' => 'github.com',
         'twitter' => 'twitter.com',
-        'blog' => COMPANY_BLOG
+        'discuss' => COMPANY_BLOG
     );
+
+    $social_link = array();
 
     $service = strtolower($service);
 
-    $social_link = '<a class="' . $service . '" ';
+    $social_link[] = '<a class="' . $service . '" ';
 
     if ($title !== '') {
-        $social_link .= 'title="' . $title . '" ';
+        $social_link[] = 'title="' . $title . '" ';
     }
 
-    $social_link .= 'href="//' . $services[$service] . '/';
-    $social_link .= $handle . '" ';
-    $social_link .= 'rel="external nofollow">';
-    $social_link .= '</a>';
+    $social_link[] = 'href="//' . $services[$service] . '/';
+    $social_link[] = $handle . '" ';
+    $social_link[] = 'rel="external nofollow">';
+    $social_link[] = '</a>';
 
-    printf($social_link);
+    printf(implode('', $social_link));
 }
 
 /*
