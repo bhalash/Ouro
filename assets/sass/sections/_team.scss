@@ -86,13 +86,6 @@ ul.team-social {
         // Otherwise Chrome adds a tiny amount to the height.
         font-size: 0 !important;
     }
-
-    a {
-        @extend %cover-picture;
-        background-size: auto 95%;
-        display: inline-block;
-        @include flex_size(45px, 1);
-    }
 }
 
 /*

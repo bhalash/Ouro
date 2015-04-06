@@ -37,22 +37,27 @@ $panes: (
  */
 
 $social-icons: (
-    blog: (#b9dfbc, $image-folder + '/social/social-blog.png'),
-    facebook: (#3B5998, $image-folder + '/social/social-facebook.png'),
-    flickr: (#ff0084, $image-folder + '/social/social-flickr.png'),
-    github: (#666666, $image-folder + '/social/social-github.png'),
-    google: (#dd4b39, $image-folder + '/social/social-google.png'),
-    instagram: (#3f729b, $image-folder + '/social/social-instagram.png'),
-    linkedin: (#0976b4, $image-folder + '/social/social-linkedin.png'),
-    pinterest: (#cc2127, $image-folder + '/social/social-pinterest.png'),
-    print: (#007aaf, $image-folder + '/social/social-print.png'),
-    reddit: (#ff5700, $image-folder + '/social/social-reddit.png'),
-    rmwb: (#343537, $image-folder + '/social/social-beard.png'),
-    rss: (#ff6600, $image-folder + '/social/social-rss.png'),
-    tumblr: (#35465c, $image-folder + '/social/social-tumblr.png'),
-    twitter: (#55acee, $image-folder + '/social/social-twitter.png'),
-    youtube: (#b31217, $image-folder + '/social/social-youtube.png')
+    beard: (#343537, 0, 0),
+    discuss: (#b9dfbc, -35px, 0),
+    email: (#f5756c, -70px, 0),
+    facebook: (#3B5998, -105px, 0),
+    flickr: (#ff0084, -140px, 0),
+    github: (#666666, -175px, 0),
+    google: (#dd4b39, 0, -35px),
+    instagram: (#3f729b, -35px, -35px),
+    linkedin: (#0976b4, -70px, -35px),
+    pinterest: (#cc2127, -105px, -35px),
+    print: (#007aaf, -140px, -35px),
+    reddit: (#ff5700, -175px, -35px),
+    rss: (#ff6600, 0, -70px),
+    search: ('', -35px, -70px),
+    share: ('', -70px, -70px),
+    tumblr: (#35465c, -105px, -70px),
+    twitter: (#55acee, -140px, -70px),
+    youtube: (#b31217, -175px, -70px) 
 );
+
+$social-sprites: $image-folder + '/social/social-sprites.png';
 
 /*
  * Ouro Brand Logo

@@ -137,10 +137,11 @@ ul#nav-social {
     @include breakpoint(smartphone) {
         padding: 0 $margin-default;
     }
+}
 
+ul#nav-social, ul.team-social {
     a {
-        @extend %cover-picture;
-        background-size: auto 95%;
+        background-image: url($social-sprites);
         display: block;
         @include flex_size(35px, 1);
     }
@@ -151,10 +152,13 @@ ul#nav-social {
  * --------------------
  */
 
-@each $value, $key in $social-icons {
+.social-icon {
+}
+
+@each $service, $nth in $social-icons {
     // Iterate map to produce social links.
-    .#{$value} {
-        background-color: nth($key, 1);
-        background-image: url(nth($key, 2));
+    .#{$service} {
+        background-color: nth($nth, 1);
+        background-position: nth($nth, 2) nth($nth, 3);
     }
 }
