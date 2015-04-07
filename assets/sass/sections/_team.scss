@@ -14,11 +14,11 @@ $hover-transition-speed: .1s;
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
 
-    @include breakpoint(max, $team-break-800) { 
+    @include media(max, $team-break-800) { 
         @include webkit(flex-wrap, wrap);
     }
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         @include webkit(flex-direction, column);
     }
 }
@@ -30,15 +30,15 @@ $hover-transition-speed: .1s;
     position: relative;
     @include webkit(flex, 1);
 
-    @include breakpoint(max, $team-break-800) {
+    @include media(max, $team-break-800) {
         @include webkit(flex, 0 1 33.3%);
     }
 
-    @include breakpoint(max, $team-break-550) {
+    @include media(max, $team-break-550) {
         @include webkit(flex, 0 1 50%);
     }
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         @include webkit(flex, 1);
     }
 

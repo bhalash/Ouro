@@ -10,7 +10,7 @@
     position: absolute;
     right: 0;
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         position: initial;
         padding-bottom: 0;
     }

@@ -11,7 +11,7 @@ section#home {
     background-color: $colour-header-grey;
     min-height: 100vh;
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         background: transparent;
         min-height: initial;
     }
@@ -28,7 +28,7 @@ h1.brand {
     line-height: $header-height-70;
     text-transform: uppercase;
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         background-color: $colour-header-grey;
         background-size: auto 50%;
         font-size: 15vh;
@@ -46,7 +46,7 @@ div.blurbs {
     height: $header-height-30;
     position: relative;
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         height: initial;
         position: relative;
     }

@@ -17,7 +17,7 @@ section {
     position: relative;
 
     p, h4, h5, h3, .sec-title {
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             text-align: left;
         }
 
@@ -58,7 +58,7 @@ section:not(#home) {
     width: 100%;
     @include prefix(transform, translateY(-50%));
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         padding: 40px 5%;
         position: initial;
         @include prefix(transform, none);

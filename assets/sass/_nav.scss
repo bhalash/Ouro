@@ -23,7 +23,7 @@ nav#menu {
     @include webkit(justify-content, flex-start);
     @include webkit(align-items, center);
 
-    @include breakpoint(max, $nav-center-toggle) {
+    @include media(max, $nav-center-toggle) {
         @include webkit(justify-content, center);
     }
 
@@ -61,11 +61,11 @@ h4#ouro-name {
     padding-right: $margin-default-28;
     @include webkit(flex, 0 1 auto);
 
-    @include breakpoint(portrait) {
+    @include media(portrait) {
         padding-right: $margin-default;
     }
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         border: 0;
         padding: 0 $margin-default;
     }
@@ -97,11 +97,15 @@ ul#nav-sections {
     display: inline-block;
     @include webkit(flex, 1);
 
-    @include breakpoint(portrait) {
+    @include media(portrait) {
         text-align: center;
     }
 
-    @include breakpoint(max, $nav-center-toggle) {
+    @include media(max, $nav-center-toggle) {
+        display: none;
+    }
+
+    @include media(smartphone) {
         display: none;
     }
 
@@ -110,12 +114,12 @@ ul#nav-sections {
         font-size: 1vw;
         padding: 0 $margin-default;
 
-        @include breakpoint(max, nth($ouro_breakpoints, 2)) {
+        @include media(max, nth($ouro_breakpoints, 2)) {
             font-size: 1.2vw;
             padding: 0 $margin-default-10;
         }
 
-        @include breakpoint(max, nth($ouro_breakpoints, 3)) {
+        @include media(max, nth($ouro_breakpoints, 3)) {
             font-size: 1.5vw;
             padding: 0 $margin-default-7;
         }
@@ -134,7 +138,7 @@ ul#nav-social {
     @include webkit_value(display, inline-flex);
     @include webkit(flex, 0 1 auto);
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         padding: 0 $margin-default;
     }
 }
@@ -142,6 +146,7 @@ ul#nav-social {
 ul#nav-social, ul.team-social {
     a {
         background-image: url($social-sprites);
+        background-size: 210px 105px;
         display: block;
         @include flex_size(35px, 1);
     }
@@ -151,9 +156,6 @@ ul#nav-social, ul.team-social {
  * Geneate Social Links
  * --------------------
  */
-
-.social-icon {
-}
 
 @each $service, $nth in $social-icons {
     // Iterate map to produce social links.

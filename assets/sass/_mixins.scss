@@ -1,70 +1,18 @@
 /*
- * Media Query Mixin
- * -----------------
- * This serves as a one-stop mixin for adding responsive rules to CSS.
- */
-
-@mixin breakpoint($point, $size: '') {
-    $cell_min: 200px;
-    $cell_max: 599px;
-
-    $tablet_min: 600px;
-    $tablet_max: 1024px;
-
-    @if $point == smartphone {
-        @media only screen and (min-device-width: $cell_min) and (max-device-width: $cell_max) and (orientation: portrait), 
-        only screen and (min-device-width: $cell_min) and (max-device-width: $cell_max) and (orientation: landscape) {
-            @content;  
-        }
-    }
-
-    @if $point == tablet {
-        @media only screen and (min-device-width: $tablet_min) and (max-device-width: $tablet_max) and (orientation: portrait), 
-        only screen and (min-device-width: $tablet_min) and (max-device-width: $tablet_max) and (orientation: landscape) {
-            @content;
-        }
-    }
-
-    @if $point == portrait {
-        @media only screen and (orientation: portrait) {
-            @content;
-        }
-    }
-
-    @if $point == landscape {
-        @media only screen and (orientation: landscape) {
-            @content;
-        }
-    }
-
-    @if $point == max {
-        @media only screen and (max-width: $size + px) {
-            @content;
-        }
-    }
-
-    @if $point == min {
-        @media only screen and (min-width: $size + px) {
-            @content;
-        }
-    }
-}
-
-/*
  * Section Interior Padding
  * ------------------------
  * Responsive padding for sections without having to list it all by hand. 
  * $padding, $padding * 0.8, $padding * 0.6, etc...
  */
 
-@mixin content_padding($padding, $breakpoint_arr) {
+@mixin content_padding($padding, $media_arr) {
     $padding-mod: 1; 
 
     padding-left: $padding;
     padding-right: $padding;
 
-    @each $break in $breakpoint_arr {
-        @include breakpoint(max, $break) {
+    @each $break in $media_arr {
+        @include media(max, $break) {
             padding-left: $padding * $padding-mod;
             padding-right: $padding * $padding-mod;
         }
@@ -72,7 +20,7 @@
         $padding-mod: $padding-mod - 0.2;
     }
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         padding-left: 0;
         padding-right: 0;
     }

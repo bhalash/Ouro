@@ -9,7 +9,7 @@ div.bioprint-panes {
     @include webkit_value(display, flex);
     @include webkit(flex-wrap, nowrap);
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         @include webkit(flex-wrap, wrap);
     }
 }
@@ -19,7 +19,7 @@ div.pane {
     padding: $margin-default;
     @include webkit(flex, 1);
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         @include webkit(flex, 0 1 50%);
     }
 
@@ -27,7 +27,7 @@ div.pane {
         // font-size: 2vw;
         margin: 0;
 
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             text-align: center;
             // font-size: 5vw;
         }

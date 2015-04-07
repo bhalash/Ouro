@@ -42,15 +42,15 @@ a.image {
     @include webkit(align-self, center);
     @include webkit(flex, 0 1 12.5%);
 
-    @include breakpoint(portrait) {
+    @include media(portrait) {
         @include webkit(flex, 0 1 16.6667%);
     }
 
-    @include breakpoint(max, 650) {
+    @include media(max, 650) {
         @include webkit(flex, 0 1 20%);
     }
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         @include webkit(flex, 0 1 33.3%);
     }
 
@@ -92,7 +92,7 @@ div#lightbox {
         max-height: 95%;
         width: auto;
 
-        @include breakpoint(portrait) {
+        @include media(portrait) {
             height: auto;
             max-width: 95%;
             max-height: none;
@@ -114,7 +114,7 @@ a.close {
     top: 10px;
     width: 50px;
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         height: 60px;
         width: 60px;
     }
