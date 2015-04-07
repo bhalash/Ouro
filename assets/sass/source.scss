@@ -57,7 +57,7 @@ $social-icons: (
     youtube: (#b31217, -175px, -70px) 
 );
 
-$social-sprites: $image-folder + '/social/social-sprites.png';
+$social-sprites: $image-folder + '/social/social-sprites.svg';
 
 /*
  * Ouro Brand Logo
@@ -140,6 +140,7 @@ $navigation-height: 70px;
  * -------------------
  */
 
+@import 'media';
 @import 'mixins';
 @import 'partials';
 
