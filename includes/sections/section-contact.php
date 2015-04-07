@@ -6,13 +6,12 @@
         <div id="mc_embed_signup">
             <form action="//ouro.us10.list-manage.com/subscribe/post?u=d09d427a327a7172115624240&amp;id=c48802699f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                 <div id="mc_embed_signup_scroll">
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <input type="email" value="" name="EMAIL" class="contact-email" id="mce-EMAIL" placeholder="email address" required>
                     <div style="position: absolute; left: -5000px;">
                         <input type="text" name="b_d09d427a327a7172115624240_c48802699f" tabindex="-1" value="">
                     </div>
                     <div class="clear">
-                        <input data-enhance="false" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                        <input data-enhance="false" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" role="button" class="button">
                     </div>
                 </div>
             </form>
