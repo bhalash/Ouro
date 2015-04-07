@@ -55,15 +55,18 @@ jQuery(document).ready(function($) {
                         thisTop = $(v).offset().top;
 
                     if (thisTop < scrollTop + winHeight) {
+                        $(v).find('img').each(function() {
+                            $(this).attr('src', $(this).data('src'));
+                        });
+
                         $(v).animate({ 'opacity' : '1' }, 700);
                     }
                 }
-
             });
         });
     }
 
-    $(window).on('scroll load', showOnScroll);
+    $(window).on('scroll', showOnScroll);
 });
 
 /*

@@ -6,7 +6,7 @@
             <?php foreach($ouro_team as $member) : ?>
                 <div class="member">
                     <a class="avatar" target="_blank" href="javascript:void(0)">
-                        <img src="<?php printf($member['avatar']); ?>" alt="<?php printf($member['name']); ?>" />
+                        <img data-src="<?php printf($member['avatar']); ?>" alt="<?php printf($member['name']); ?>" />
                     </a>
                     <div class="description">
                         <?php if (!empty($member['social'])) : ?>

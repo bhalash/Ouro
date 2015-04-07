@@ -14,7 +14,7 @@
             );
 
             for ($i = 0; $i <= 23; $i++) {
-                printf('<a class="image" href="%s"><img src="%s" alt="%s" /></a>', 
+                printf('<a class="image" href="%s"><img data-src="%s" alt="%s" /></a>', 
                     $ouro_images['full'] . $i . $ouro_images['extension'], 
                     $ouro_images['thumb'] . $i . $ouro_images['extension'], 
                     $ouro_images['alt'] 
