@@ -1,0 +1,351 @@
+/*
+ * Media Queries
+ * -------------
+ */
+
+$smartphone-min-width: 200px; $smartphone-max-width: 599px;
+$tablet-min-width: 600px; $tablet-max-width: 1024px;
+
+@mixin media($type, $range-low: '', $range-high: '') {
+    /*
+     * Cellphone and Tablet
+     * --------------------
+     */
+     
+    @if $type == smartphone {
+        @include smartphone() {
+            @content;
+        }
+    }
+
+    @if $type == tablet {
+        @include tablet() {
+            @content;
+        }
+    }
+
+    /*
+     * Device Orientation and Aspect Ratio
+     * -----------------------------------
+     */
+
+    @if $type == aspect {
+        @include aspect-ratio($range-low) {
+            @content;
+        }
+    }
+
+    @if $type == portrait {
+        @include orient-portrait() {
+            @content;
+        }
+    }
+
+    @if $type == landscape {
+        @include orient-landscape() {
+            @content;
+        }
+    }
+
+    /*
+     * Min and Max Window Width
+     * ------------------------
+     */
+
+    @if $type == min {
+        @include min($range-low) {
+            @content;
+        }
+    }
+
+    @if $type == max {
+        @include max($range-low) {
+            @content;
+        }
+    }
+
+    /*
+     * Min and Max Window Height
+     * -------------------------
+     */
+
+    @if $type == min-height {
+        @include min-height($range-low) {
+            @content;
+        }
+    }
+
+    @if $type == max-height {
+        @include max-height($range-low) {
+            @content;
+        }
+    }
+
+    /*
+     * Min and Max Device Width
+     * ------------------------
+     */
+
+    @if $type == min-device {
+        @include min-device($range-low) {
+            @content;
+        }
+    }
+
+    @if $type == max-device {
+        @include max-device($range-low) {
+            @content;
+        }
+    }
+
+    /*
+     * Min and Max Device Height
+     * -------------------------
+     */
+
+    @if $type == min-device-height {
+        @include min-device-height($range-low) {
+            @content;
+        }
+    }
+
+    @if $type == max-device-height {
+        @include max-device-height($range-low) {
+            @content;
+        }
+    }
+
+    /*
+     * Window Ranges
+     * -------------
+     */
+
+    @if $type == range {
+        @include range($range-low, $range-high) {
+            @content;
+        }
+    }
+
+    @if $type == range-height {
+        @include range-height($range-low, $range-high) {
+            @content;
+        }
+    }
+
+    /*
+     * Device Ranges
+     * -------------
+     */
+
+    @if $type == range-device {
+        @include range-device($range-low, $range-high) {
+            @content;
+        }
+    }
+
+    @if $type == range-device-height {
+        @include range-device-height($range-low, $range-high) {
+            @content;
+        }
+    }
+
+    /*
+     * By Density
+     * ---------
+     */
+
+    @if $type == density {
+        @include density($range-low) {
+            @content;
+        }
+    }
+}
+
+/*
+ * Print or PDF
+ * ------------
+ */
+
+@mixin print() {
+    @media print {
+        @content;
+    }
+}
+
+/*
+ * Generic Smartphone
+ * --------------
+ * Should generally fit small smarphone screen sizes.
+ */
+
+@mixin smartphone() {
+    @media screen and (min-device-width: $smartphone-min-width) and (max-device-width: $smartphone-max-width) and (orientation: portrait), 
+    screen and (min-device-width: $smartphone-min-width) and (max-device-width: $smartphone-max-width) and (orientation: landscape) {
+        @content;  
+    }
+}
+
+/*
+ * Generic Tablet
+ * --------------
+ * Should likewise fit tablet screen sizes.
+ */
+
+@mixin tablet() {
+    @media screen and (min-device-width: $tablet-min-width) and (max-device-width: $tablet-max-width) and (orientation: portrait), 
+    screen and (min-device-width: $tablet-min-width) and (max-device-width: $tablet-max-width) and (orientation: landscape) {
+        @content;
+    }
+}
+
+/*
+ * Min and Max Window Width
+ * ------------------------
+ */
+
+@mixin min($size) {
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin max($size) {
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}
+
+/*
+ * Min and Max Window Height
+ * -------------------------
+ */
+
+@mixin min-height($size) {
+    @media screen and (min-height: $size) {
+        @content;
+    }
+}
+
+@mixin max-height($size) {
+    @media screen and (max-height: $size) {
+        @content;
+    }
+}
+
+/*
+ * Min and Max Device Width
+ * ------------------------
+ */
+
+@mixin min-device($size) {
+    @media screen and (min-device-width: $size) {
+        @content;
+    }
+}
+
+@mixin max-device($size) {
+    @media screen and (max-device-width: $size) {
+        @content;
+    }
+}
+
+/*
+ * Min and Max Device Height
+ * -------------------------
+ */
+
+@mixin min-device-height($size) {
+    @media screen and (min-device-height: $size) {
+        @content;
+    }
+}
+
+@mixin max-device-height($size) {
+    @media screen and (max-device-height: $size) {
+        @content;
+    }
+}
+
+/*
+ * Device Orientation and Aspect Ratio
+ * -----------------------------------
+ */
+
+@mixin aspect-ratio($ratio) {
+    @media screen and (device-aspect-ratio: $ratio) {
+        @content;
+    }
+}
+
+@mixin orient-portrait() {
+    @media screen and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin orient-landscape() {
+    @media screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+/*
+ * Min-to-Max Window Width
+ * -----------------------
+ */
+
+@mixin range($min, $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+/*
+ * Min-to-Max Window Height
+ * ------------------------
+ */
+
+@mixin range-height($min, $max) {
+    @media screen and (min-height: $min) and (max-height: $max) {
+        @content;
+    }
+}
+
+/*
+ * Min-to-Max Device Width
+ * -----------------------
+ */
+
+@mixin range-device($min, $max) {
+    @media screen and (min-device-width: $min) and (max-device-width: $max) {
+        @content;
+    }
+}
+
+/*
+ * Min-to-Max Window Height
+ * ------------------------
+ */
+
+@mixin range-device-height($min, $max) {
+    @media screen and (min-device-height: $min) and (max-device-height: $max) {
+        @content;
+    }
+}
+
+/*
+ * Retina Pixel Density Screen
+ * ---------------------------
+ */
+
+@mixin density($density) {
+    @media
+    screen and (-webkit-min-device-pixel-ratio: $density),
+    screen and (min--moz-device-pixel-ratio: $density),
+    screen and (-o-min-device-pixel-ratio: $density/1),
+    screen and (min-device-pixel-ratio: $density),
+    screen and (min-resolution: #{$density * 96} + dpi),
+    screen and (min-resolution: #{$density} + dppx) {  
+        @content;
+    }
+}
