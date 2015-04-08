@@ -3,8 +3,8 @@
  * -----------
  */
 
-$header-height-30: 30vh;
-$header-height-70: 70vh;
+$header-height-45: 45vh;
+$header-height-55: 65vh;
 $header-height-100: 100vh;
 
 section#home {
@@ -25,7 +25,7 @@ section#home {
 h1.brand {
     background: center center/auto 40vh no-repeat border-box $ouro-logo;
     font-size: 12vh;
-    line-height: $header-height-70;
+    line-height: $header-height-55;
     text-transform: uppercase;
 
     @include media(smartphone) {
@@ -43,7 +43,7 @@ h1.brand {
 
 div.blurbs {
     // All hild content is absolutely positioned.
-    height: $header-height-30;
+    height: calc(100vh - #{$header-height-55});
     position: relative;
 
     @include media(smartphone) {
