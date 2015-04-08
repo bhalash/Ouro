@@ -11,34 +11,32 @@
     @include webkit_value(display, flex);
     @include webkit(flex-direction, row);
     @include webkit(flex-wrap, nowrap);
+    @include webkit(justify-content, center);
+    @include webkit(align-items, flex-end);
     margin: 0 auto;
-    margin-bottom: $margin-default-28;
+    margin-bottom: $margin-default;
     width: 75%;
 
     @include media(smartphone) {
         width: 100%;
-        @include webkit(flex-direction, column);
     }
 
-    a {
-        display: block;
-        height: 75px;
-        width: 100%;
+    img {
+        max-height: 125px;
+
+        @include media(smartphone) {
+            // It's over 9000!
+            max-height: 9001px;
+        }
     }
 
     .funder {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        @include webkit(flex, 1);
-    }
+        @include webkit(align-self, flex-end);
+        @include webkit(flex, 0 1 20%);
 
-    .sosventures {
-        background-image: url(nth($funders, 1));
-    }
-
-    .haxlr8r {
-        background-image: url(nth($funders, 2));
+        @include media(smartphone) {
+            @include webkit(flex, 1);
+        }
     }
 }
 

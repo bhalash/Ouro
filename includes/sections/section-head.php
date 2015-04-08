@@ -3,12 +3,12 @@
     <div class="blurbs">
         <div class="content">
             <div class="funders">
-                <div class="funder haxlr8r">
-                    <a rel="external nofollow" href="http://www.haxlr8r.com/" title="Haxlr8r"></a> 
-                </div>
-                <div class="funder sosventures">
-                    <a rel="external nofollow" href="http://www.sosventures.com/" title="Sosventures"></a> 
-                </div>
+                    <a class="funder haxlr8r" rel="external nofollow" href="http://www.haxlr8r.com/" title="Haxlr8r">
+                        <img src="/assets/images/funders/funder-haxlr8r.png" alt="Haxlr8r" />
+                    </a> 
+                <a class="funder sosventures" rel="external nofollow" href="http://www.sosventures.com/" title="Sosventures">
+                    <img src="/assets/images/funders/funder-sosventures.svg" alt="Sosventures" />
+                </a> 
             </div>
             <h3>Introducing the <?php printf(PRODUCT_NAME); ?> Bioprinter:</h3>
             <p>
