@@ -43,6 +43,7 @@ jQuery(document).ready(function($) {
     var toFadeIn = [
         '.gallery a', 
         '.member',
+        '.funder',
         '.pane-image'
     ];
 
