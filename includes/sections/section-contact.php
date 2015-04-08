@@ -1,5 +1,6 @@
 <section class="inverse" id="contact">
     <div class="content">
+
         <h3 class="sec-title">Would you like to know more?</h3>
         <p>Stay in the loop on the latest Ouro developments on our mailing list, email <a href="mailto:<?php printf(COMPANY_GREETER_EMAIL); ?>"><?php printf(COMPANY_GREETER_EMAIL); ?></a>, check out <a href="<?php printf(COMPANY_BLOG); ?>">our blog</a>, or follow <a title="<?php printf('@%s', COMPANY_TWITTER); ?>" href="https://www.twitter.com/<?php printf('%s', COMPANY_TWITTER); ?>"><?php printf('@%s', COMPANY_TWITTER); ?></a> on Twitter!</p>
 

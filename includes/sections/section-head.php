@@ -2,6 +2,14 @@
     <h1 class="brand">ouro</h1>
     <div class="blurbs">
         <div class="content">
+            <div class="funders">
+                <div class="funder haxlr8r">
+                    <a rel="external nofollow" href="http://www.haxlr8r.com/" title="Haxlr8r"></a> 
+                </div>
+                <div class="funder sosventures">
+                    <a rel="external nofollow" href="http://www.sosventures.com/" title="Sosventures"></a> 
+                </div>
+            </div>
             <h3>Introducing the <?php printf(PRODUCT_NAME); ?> Bioprinter:</h3>
             <p>
                 <?php printf(PRODUCT_NAME); ?> is the next generation of bioprinting technology: a lower-cost tissue engineering platform with superior print resolution. 
