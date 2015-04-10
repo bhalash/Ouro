@@ -22,9 +22,9 @@
     // Open Graph and Twitter Card Information
     $card_url = 'http' . (isset($_SERVER['https']) ? 's' : '') . '://' . $_SERVER['SERVER_NAME'];
     $card_desc = 'Bioprinting-tissue engineering-is the next step: skin grafts,' 
-                         . 'bones and eventually whole replacement organs will be grown '
-                         . 'on demand from scratch. ' . COMPANY_NAME . ' plans to be at '
-                         . 'the forefront of this field with the ' . PRODUCT_NAME . '.';
+        . 'bones and eventually whole replacement organs will be grown '
+        . 'on demand from scratch. ' . COMPANY_NAME . ' plans to be at '
+        . 'the forefront of this field with the ' . PRODUCT_NAME . '.';
 
     $card_image = array(
         'src' => $card_url . '/ouro.jpg',
