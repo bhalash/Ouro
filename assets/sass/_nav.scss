@@ -144,23 +144,5 @@ ul#nav-social {
 }
 
 ul#nav-social, ul.team-social {
-    a {
-        background-image: url($social-sprites);
-        background-size: 210px 105px;
-        display: block;
-        @include flex_size(35px, 1);
-    }
-}
-
-/*
- * Geneate Social Links
- * --------------------
- */
-
-@each $service, $nth in $social-icons {
-    // Iterate map to produce social links.
-    .#{$service} {
-        background-color: nth($nth, 1);
-        background-position: nth($nth, 2) nth($nth, 3);
-    }
+    @include generate-social-links(a, 35px, $social-sprites);
 }
