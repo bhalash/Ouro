@@ -116,7 +116,7 @@ jQuery(document).ready(function($) {
         color = (color > limits.upper) ? limits.upper : color;
         color = (color < limits.lower) ? limits.lower : color;
 
-        $(nav.menu + ' li').css('color', 'rgba(' + color + ',' + color + ',' + color + ', 1)');
+        $(nav.menu).find(nav.anchor).css('color', 'rgba(' + color + ',' + color + ',' + color + ', 1)');
     }
 
     var navOpacityonScroll = function() {
@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
 
     if (!$('html').hasClass('mobile')) {
         $(window).on('scroll', toggleOnScroll);
-        // $(window).on('scroll', invertTextColour);
+        $(window).on('scroll', invertTextColour);
 
         $(nav.anchor).click(function() {
             /*
