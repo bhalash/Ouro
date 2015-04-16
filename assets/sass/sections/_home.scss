@@ -102,6 +102,7 @@ section#home {
  */
 
 #timelapse {
+    background: center center/cover url($video-fallback);
     height: 100vh;
     left: 0;
     overflow: hidden;
@@ -115,16 +116,7 @@ section#home {
          * Therefore I set a width and height followed by object fit. */
         // min-height: 100%;
         // width: auto;
-        background: center center/cover url($video-fallback);
         object-fit: cover;
-
-        @include media(tablet) {
-            display: none;
-        }
-
-        @include media(smartphone) {
-            display: none;
-        }
     }
 }
 
