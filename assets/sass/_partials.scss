@@ -28,7 +28,7 @@
     margin-top: 30px;
 
     @include media(smartphone) {
-        margin-top: $margin-default;
+        margin-top: $margin;
     }
 }
 
