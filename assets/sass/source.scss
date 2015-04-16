@@ -3,7 +3,12 @@
  * --------------
  */
 
-$image-folder: '../images';
+$assets: '../images/';
+$assets-branding: $assets + 'branding/';
+$assets-backgrounds: $assets + 'backgrounds/';
+$assets-social: $assets + 'social/';
+$assets-panes: $assets + 'panes/';
+$assets-gallery: $assets + 'lightbox/';
 
 /*
  * Section Backgrounds
@@ -11,12 +16,12 @@ $image-folder: '../images';
  */
 
 $sections: (
-    home: ($image-folder + '/backgrounds/background-intro.jpg'),
-    bioprint: ($image-folder + '/backgrounds/background-bioprint.jpg', #000),
-    intro: ($image-folder + '/backgrounds/background-home.jpg'),
-    team: ($image-folder + '/backgrounds/background-team.jpg'),
-    product: ($image-folder + '/backgrounds/background-product.jpg'),
-    contact: ($image-folder + '/backgrounds/background-contact.jpg')
+    home: ($assets-backgrounds + 'background-intro.jpg'),
+    bioprint: ($assets-backgrounds + 'background-bioprint.jpg', #000),
+    intro: ($assets-backgrounds + 'background-home.jpg'),
+    team: ($assets-backgrounds + 'background-team.jpg'),
+    product: ($assets-backgrounds + 'background-product.jpg'),
+    contact: ($assets-backgrounds + 'background-contact.jpg')
 );
 
 /*
@@ -25,21 +30,38 @@ $sections: (
  */
 
 $panes: (
-    conceive: ($image-folder + '/panes/pane-conceive.svg'),
-    diagram: ($image-folder + '/panes/pane-diagram.svg'),
-    print: ($image-folder + '/panes/pane-print.svg'),
-    iterate: ($image-folder + '/panes/pane-iterate.svg')
+    conceive: ($assets-panes + 'pane-conceive.svg'),
+    diagram: ($assets-panes + 'pane-diagram.svg'),
+    design: ($assets-panes + 'pane-design.svg'),
+    print: ($assets-panes + 'pane-print.svg'),
+    iterate: ($assets-panes + 'pane-iterate.svg')
 );
 
-
-$social-sprites: $image-folder + '/social/social-sprites.svg';
-
 /*
- * Ouro Brand Logo
- * ---------------
+ * Social Network Logos
+ * --------------------
  */
 
-$ouro-logo: url($image-folder + '/logo-ouro.svg');
+$social-sprites: $assets-social + 'social-sprites.svg';
+
+/*
+ * Video Fallback Image
+ * --------------------
+ */
+
+$video-fallback: $assets + 'video-timelapse-poster.jpg';
+
+/*
+ * Ouro and Funder Branding
+ * ------------------------
+ */
+
+$brand-ouro: $assets-branding + 'logo-ouro.svg';
+$brand-ouro-alt: $assets-branding + 'logo-ouro-alt.svg';
+$brand-ourobotics: $assets-branding + 'banner-ouro-botics.svg';
+$brand-ourobotics-alt: $assets-branding + 'banner-ouro-botics-alt.svg';
+$brand-haxlr8r: $assets-branding + 'funder-haxlr8r.png';
+$brand-sosventures: $assets-branding + 'funder-sosventures.svg';
 
 /* 
  * Font Stacks
@@ -54,13 +76,14 @@ $headline-size-h4: $headline-size-h1 * 0.4;
 $headline-size-h5: $headline-size-h1 * 0.2;
 $headline-size-h6: $headline-size-h1 * 0.1;
 // Text font sizes.
-$text-size-sans: 1em;
-$text-size-fixed: $text-size-sans * 0.9;
-$text-size-serif: $text-size-sans * 0.9;
+$text-size-10: 1em;
+$text-size-09: $text-size-10 * 0.9;
+$text-size-08: $text-size-10 * 0.8;
+$text-size-07: $text-size-10 * 0.7;
 // Text font weight.
 $font-weight-text: 400;
 // Text line height.
-$line-height-text: $text-size-sans * 1.4;
+$line-height-text: $text-size-10 * 1.4;
 // Font families.
 $font-fjallaone: 'Fjalla One', Charcoal, sans-serif;
 $font-opensans: 'Open Sans', Verdana, Geneva, sans-serif;
@@ -101,12 +124,19 @@ $section-padding: 15%;
  * ----------------------------
  */
 
-$margin-default: 13px;
-$margin-default-4: $margin-default * 0.25;
-$margin-default-7: $margin-default * 0.5;
-$margin-default-10: $margin-default * 0.75;
-$margin-default-19: $margin-default * 1.5;
-$margin-default-28: $margin-default * 2;
+$margin: 13px;
+$margin-4: $margin * 0.25;
+$margin-7: $margin * 0.5;
+$margin-10: $margin * 0.75;
+$margin-19: $margin * 1.5;
+$margin-28: $margin * 2;
+
+$padding: $margin;
+$padding-4: $padding * 0.25;
+$padding-7: $padding * 0.5;
+$padding-10: $padding * 0.75;
+$padding-19: $padding * 1.5;
+$padding-28: $padding * 2;
 
 $navigation-height: 70px;
 
