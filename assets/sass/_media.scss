@@ -159,6 +159,12 @@ $tablet-min-width: 600px; $tablet-max-width: 1024px;
             @content;
         }
     }
+
+    @if $type == print {
+        @include print() {
+            @content;
+        }
+    }
 }
 
 /*
