@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
             $nav = $('nav#menu');
 
         $section.css('min-height', $(window).height() - $nav.height());
-    }
+    };
 
     if ($('html').hasClass('ipad') || $('html').hasClass('internet-explorer')) {
         $(window).on('load', sectionSizes);
@@ -68,6 +68,32 @@ jQuery(document).ready(function($) {
     }
 
     $(window).on('scroll', showOnScroll);
+
+    /*
+     * Autoplay Video
+     * --------------
+     */
+
+    var timelapse = {
+        id: '#timelapse',
+        video: $('#timelapse video').get(0),
+    };
+
+    timelapse.video.play();
+
+    $(window).on('scroll', function() {
+        if ($(window).scrollTop() > 50) {
+            timelapse.video.pause();
+        } else {
+            timelapse.video.play();
+        }
+    });
+
+    if ($('html').hasClass('ie')) {
+        $('#timelapse').find('video').css({
+            'height': '100%'
+        });
+    }
 });
 
 /*
