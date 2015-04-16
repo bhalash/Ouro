@@ -7,39 +7,6 @@
     @include content_padding($section-padding, $ouro_breakpoints);
 }
 
-.funders {
-    @include webkit_value(display, flex);
-    @include webkit(flex-direction, row);
-    @include webkit(flex-wrap, nowrap);
-    @include webkit(justify-content, center);
-    @include webkit(align-items, flex-end);
-    margin: 0 auto;
-    margin-bottom: $margin-default;
-    width: 75%;
-
-    @include media(smartphone) {
-        width: 100%;
-    }
-
-    img {
-        max-height: 125px;
-
-        @include media(smartphone) {
-            // It's over 9000!
-            max-height: 9001px;
-        }
-    }
-
-    .funder {
-        @include webkit(align-self, flex-end);
-        @include webkit(flex, 0 1 20%);
-
-        @include media(smartphone) {
-            @include webkit(flex, 1);
-        }
-    }
-}
-
 /*
  * Base Section Layout
  * -------------------
@@ -68,7 +35,7 @@ section {
 }
 
 section:not(#home) {
-    @include prefix(min-height, calc(100vh - #{$navigation-height}));
+    min-height: calc(100vh - #{$navigation-height});
 }
 
 /*
