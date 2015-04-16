@@ -16,7 +16,7 @@ h1, h2, h3 {
 h4, h5, h6 {
     font-family: $font-opensans;
     font-weight: $font-weight-text;
-    margin-bottom: $margin-default;
+    margin-bottom: $margin;
 }
 
 h1, %h1 { font-size: $headline-size-h1; }
@@ -35,7 +35,7 @@ p, %p {
     // This is the baseline for all non-headline text.
     color: $colour-text-grey;
     font-family: $font-opensans;
-    font-size: $text-size-sans;
+    font-size: $text-size-10;
     font-weight: $font-weight-text;
     line-height: $line-height-text;
 }
@@ -70,7 +70,7 @@ em, i, ins, q, var {
 
 code, kbd, pre, pre span, tt, var {
     font-family: $font-sourcecodepro;
-    font-size: $text-size-fixed;
+    font-size: $text-size-09;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     -webkit-font-smoothing: antialiased;
 }
@@ -116,7 +116,7 @@ dt {
 
 dd {
     margin-bottom: 5px;
-    padding-left: $margin-default;
+    padding-left: $padding;
 
     &:before {
         content: '» ';
@@ -154,7 +154,7 @@ sup {
 }
 
 ol, ul {
-    margin: 0 $margin-default-28;
+    margin: 0 $margin-28;
 }
 
 ul {
@@ -171,12 +171,12 @@ input, textarea, button, blockquote, li {
 }
 
 blockquote, ol, p, pre, ul {
-    margin-bottom: $margin-default;
+    margin-bottom: $margin;
 }
 
 blockquote {
     border-left: 3px solid rgba(0,0,0,0.4);
-    padding: 0 $margin-default-19;
+    padding: 0 $margin-19;
 }
 
 li {
