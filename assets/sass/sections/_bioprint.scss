@@ -6,31 +6,22 @@
 $bioprint-background-size: auto 75%;
 
 div.bioprint-panes {
-    @include webkit_value(display, flex);
-    @include webkit(flex-wrap, nowrap);
+    margin: $margin 0;
+    @include prefix-value(display, flex);
+    @include prefix(flex-wrap, nowrap);
 
     @include media(smartphone) {
-        @include webkit(flex-wrap, wrap);
+        @include prefix(flex-direction, column);
     }
 }
 
 div.pane {
     box-sizing: border-box;
-    padding: $margin-default;
-    @include webkit(flex, 1);
+    // padding: $padding;
+    @include prefix(flex, 1);
 
     @include media(smartphone) {
-        @include webkit(flex, 0 1 50%);
-    }
-
-    h5 {
-        // font-size: 2vw;
-        margin: 0;
-
-        @include media(smartphone) {
-            text-align: center;
-            // font-size: 5vw;
-        }
+        @include prefix(flex, 1);
     }
 }
 

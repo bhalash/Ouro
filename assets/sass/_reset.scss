@@ -37,7 +37,7 @@ input, button, textarea {
     // Remove all default appearance and focus appearance styling. 
     -webkit-appearance: none;
     box-sizing: border-box;
-    @include webkit(border-radius, 0);
+    @include prefix(border-radius, 0);
 
     &:focus {
         border: 0;

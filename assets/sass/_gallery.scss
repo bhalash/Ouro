@@ -6,9 +6,9 @@
 // Size of control image.
 $lightbox-control-size: auto 40%;
 
-$lightbox-close: url($image-folder + '/lightbox/lightbox-close.svg');
-$lightbox-indicator-left: url($image-folder + '/lightbox/lightbox-indicator-left.svg');
-$lightbox-indicator-right: url($image-folder + '/lightbox/lightbox-indicator-right.svg'); 
+$lightbox-close: url($assets-gallery + 'lightbox-close.svg');
+$lightbox-indicator-left: url($assets-gallery + 'lightbox-indicator-left.svg');
+$lightbox-indicator-right: url($assets-gallery + 'lightbox-indicator-right.svg'); 
 
 // Inset of previous-next image controls.
 $control-inset: 20px;
@@ -22,9 +22,9 @@ $control-inset-right: $control-inset center;
 
 div.gallery {
     box-sizing: border-box;
-    @include webkit_value(display, flex);
-    @include webkit(flex-direction, row);
-    @include webkit(flex-wrap, wrap);
+    @include prefix-value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, wrap);
 }
 
 /*
@@ -39,19 +39,19 @@ a.image {
     opacity: 0;
     overflow: hidden;
 
-    @include webkit(align-self, center);
-    @include webkit(flex, 0 1 12.5%);
+    @include prefix(align-self, center);
+    @include prefix(flex, 0 1 12.5%);
 
     @include media(portrait) {
-        @include webkit(flex, 0 1 16.6667%);
+        @include prefix(flex, 0 1 16.6667%);
     }
 
     @include media(max, 650) {
-        @include webkit(flex, 0 1 20%);
+        @include prefix(flex, 0 1 20%);
     }
 
     @include media(smartphone) {
-        @include webkit(flex, 0 1 33.3%);
+        @include prefix(flex, 0 1 33.3%);
     }
 
     img {
@@ -126,15 +126,15 @@ nav.controls {
     left: 0;
     position: absolute;
     right: 0;
-    @include webkit_value(display, flex);
-    @include webkit(flex-direction, row);
-    @include webkit(justify-content, space-between);
+    @include prefix-value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(justify-content, space-between);
 
     .control {
         height: inherit;
         width: 50%;
-        @include webkit_value(display, flex);
-        @include webkit(justify-content, flex-start);
+        @include prefix-value(display, flex);
+        @include prefix(justify-content, flex-start);
     }
 
     .left {

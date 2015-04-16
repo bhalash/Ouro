@@ -52,12 +52,12 @@ form {
     input, textarea {
         background-color: $colour-light-grey;
         display: block;
-        font-size: $text-size-sans;
-        padding: $margin-default;
+        font-size: $text-size-10;
+        padding: $padding;
         width: 100%;
 
         &:not([type=submit]) {
-            margin-bottom: $margin-default;
+            margin-bottom: $margin;
             text-align: left;
 
             &:focus {
