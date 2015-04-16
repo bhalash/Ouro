@@ -10,7 +10,7 @@
     <title><?php printf('%s', (IS_DEV_SITE) ? 'Ix Sandbox' : COMPANY_NAME); ?></title>
 
     <?php // Stylesheets and favicon ?>
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans:400,300|Fjalla+One|Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans:400,300|Fjalla+One" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?php printf('%s', ASSETS . '/sass/style.css'); ?>">
     <!-- [if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif] -->
     <link rel="icon" href="<?php printf('%s', ASSETS . '/images/favicon.png'); ?>">
@@ -52,6 +52,5 @@
     <meta name="twitter:url" content="<?php printf($card_url); ?>">
 </head>
     <body>
-        <?php include_once('nav.php'); ?>
         <?php include_once(INCLUDES . '/sections/section-head.php'); ?>
         <div id="content">
