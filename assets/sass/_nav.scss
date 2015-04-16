@@ -3,7 +3,7 @@
  * ------------------------
  */
 
-$nav-center-toggle: 825px;
+$nav-center-toggle: 850px;
 
 .nav-box-shadow {
     // Box shadow attached on window scroll.
@@ -11,20 +11,21 @@ $nav-center-toggle: 825px;
 }
 
 nav#menu {
+    background: #fff;
     height: $navigation-height;
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 3;
-    @include webkit_value(display, flex);
-    @include webkit(flex-direction, row);
-    @include webkit(flex-wrap, nowrap);
-    @include webkit(justify-content, flex-start);
-    @include webkit(align-items, center);
+    @include prefix-value(display, flex);
+    @include prefix(align-items, center);
+    @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, nowrap);
+    @include prefix(justify-content, space-between);
 
     @include media(max, $nav-center-toggle) {
-        @include webkit(justify-content, center);
+        @include prefix(justify-content, center);
     }
 
     a {
@@ -44,7 +45,8 @@ nav#menu {
     }
 
     a.nav:hover, .current-nav {
-        color: $colour-ouro-light;
+        // !important, or otherwise the JS will overwrite it.
+        color: $colour-ouro-light !important;
     }
 }
 
@@ -55,19 +57,24 @@ nav#menu {
 
 h4#ouro-name {
     // Company name
-    border-right: 1px solid $colour-light-grey;
     display: inline-block;
-    font-size: 1.2em;
-    padding-right: $margin-default-28;
-    @include webkit(flex, 0 1 auto);
+    font-size: 1.6em;
+    padding-right: $padding;
+    @include prefix(flex, 0 1 auto);
+
+    @include media(max, $nav-center-toggle) {
+        text-align: right;
+        @include prefix(flex, 1);
+    }
 
     @include media(portrait) {
-        padding-right: $margin-default;
+        padding-right: $padding;
     }
 
     @include media(smartphone) {
-        border: 0;
-        padding: 0 $margin-default;
+        font-size: 1.1em;
+        padding: 0;
+        text-align: center;
     }
 
     span {
@@ -95,11 +102,9 @@ h4#ouro-name a.current-nav span {
 
 ul#nav-sections {
     display: inline-block;
-    @include webkit(flex, 1);
-
-    @include media(portrait) {
-        text-align: center;
-    }
+    text-align: left;
+    // Middle item is set to fill and text is left-aligned.
+    @include prefix(flex, 1 1 auto);
 
     @include media(max, $nav-center-toggle) {
         display: none;
@@ -109,20 +114,12 @@ ul#nav-sections {
         display: none;
     }
 
+    li {
+        font-size: $text-size-09;
+    }
+
     a {
-        font-size: inherit;
-        font-size: 1vw;
-        padding: 0 $margin-default;
-
-        @include media(max, nth($ouro_breakpoints, 2)) {
-            font-size: 1.2vw;
-            padding: 0 $margin-default-10;
-        }
-
-        @include media(max, nth($ouro_breakpoints, 3)) {
-            font-size: 1.5vw;
-            padding: 0 $margin-default-7;
-        }
+        padding: 0 $padding-7;
     }
 }
 
@@ -133,13 +130,16 @@ ul#nav-sections {
 
 ul#nav-social {
     // External social links
-    border-left: 1px solid $colour-light-grey;
-    padding-left: $margin-default-28;
-    @include webkit_value(display, inline-flex);
-    @include webkit(flex, 0 1 auto);
+    padding-left: $padding;
+    @include prefix(flex, 0 1 auto);
+
+    @include media(max, $nav-center-toggle) {
+        text-align: left;
+        @include prefix(flex, 1);
+    }
 
     @include media(smartphone) {
-        padding: 0 $margin-default;
+        padding: 0;
     }
 }
 
