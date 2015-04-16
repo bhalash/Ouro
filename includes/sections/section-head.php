@@ -13,3 +13,16 @@
         <li><?php generate_social_link('discuss', '', COMPANY_NAME . ' blog'); ?></li>
     </ul>
 </nav>
+<section id="home">
+    <div id="timelapse">
+        <video preload loop autoplay poster="/assets/images/video-timelapse-poster.jpg">
+            <source src="/assets/videos/video-timelapse.mp4" type="video/mp4">
+            Your browser can't show you our awesome video, sorry. D:
+        </video>
+    </div>
+    <div class="header-brand" id="brand"></div> 
+    <div id="funders">
+        <a class="funder haxlr8r header-brand" rel="external nofollow" href="http://www.haxlr8r.com/" title="Haxlr8r"></a> 
+        <a class="funder sosventures header-brand" rel="external nofollow" href="http://www.sosventures.com/" title="Sosventures"></a> 
+    </div>
+</section>
