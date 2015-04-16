@@ -3,51 +3,131 @@
  * -----------
  */
 
-$header-height-45: 45vh;
-$header-height-55: 65vh;
-$header-height-100: 100vh;
-
 section#home {
-    background-color: $colour-header-grey;
-    min-height: 100vh;
-
-    @include media(smartphone) {
-        background: transparent;
-        min-height: initial;
-    }
-}
-
-/*
- * Branding Logo
- * -------------
- */
-
-h1.brand {
-    background: center center/auto 40vh no-repeat border-box $ouro-logo;
-    font-size: 12vh;
-    line-height: $header-height-55;
-    text-transform: uppercase;
-
-    @include media(smartphone) {
-        background-color: $colour-header-grey;
-        background-size: auto 50%;
-        font-size: 15vh;
-        line-height: $header-height-100;
-    }
-}
-
-/*
- * Home Sub-text
- * -------------
- */
-
-div.blurbs {
-    // All hild content is absolutely positioned.
-    height: calc(100vh - #{$header-height-55});
+    box-sizing: border-box;
+    height: 100vh;
+    padding-top: $navigation-height;
     position: relative;
 
-    @include media(smartphone) {
-        height: initial;
-        position: relative;
+    @include media(tablet) {
+        padding-top: 0;
     }
+
+    @include media(smartphone) {
+        padding-top: 0;
+    }
+
+    h1, h3, p, a {
+        color: #fff;
+    }
+}
+
+/*
+ * Main Ouro Brand
+ * ---------------
+ */
+
+.header-brand {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+#brand {
+    background-color: #fff;
+    background-image: url($brand-ouro);
+    border: 2px solid $colour-ouro-light;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    @include flex-size(35%, 1);
+    @include prefix(transform, translate(-50%, -50%));
+
+    @include media(portrait) {
+        @include flex-size(50%, 1);
+    }
+
+    @include media(smartphone) {
+        @include flex-size(70%, 1);
+    }
+
+}
+
+/*
+ * Funder Branding
+ * ---------------
+ */
+
+#funders {
+    position: absolute;
+    bottom: $margin-19;
+    right: $margin-19;
+
+    @include media(tablet) {
+        bottom: $margin-19 * 2;
+    }
+
+    a {
+        background-color: rgba(255,255,255,0.3);
+        display: inline-block;
+        transition: background-color .3s;
+        @include flex-size(130px, 1);
+
+        @include media(smartphone) {
+            @include flex-size(70px, 1);
+        }
+
+        &:hover {
+            background-color: #fff;
+        }
+    }
+
+    .haxlr8r {
+        background-image: url($brand-haxlr8r);
+        background-size: auto 70%;
+        margin-right: $margin-7;
+    }
+
+    .sosventures {
+        background-image: url($brand-sosventures);
+        background-size: 90% auto;
+    }
+}
+
+/*
+ * Timelapse Video
+ * ---------------
+ */
+
+#timelapse {
+    height: 100vh;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -3;
+
+    video {
+        /* Internet Explorer does not support object-fit in any shape or form.
+         * Therefore I set a width and height followed by object fit. */
+        // min-height: 100%;
+        // width: auto;
+        background: center center/cover url($video-fallback);
+        object-fit: cover;
+
+        @include media(tablet) {
+            display: none;
+        }
+
+        @include media(smartphone) {
+            display: none;
+        }
+    }
+}
+
+video {
+    height: inherit;
+    width: 100%;
 }
