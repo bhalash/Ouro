@@ -5,7 +5,7 @@
  * $padding, $padding * 0.8, $padding * 0.6, etc...
  */
 
-@mixin content_padding($padding, $media_arr) {
+@mixin content-padding($padding, $media_arr) {
     $padding-mod: 1; 
 
     padding-left: $padding;
@@ -31,7 +31,7 @@
  * -------------------------
  */
 
-@mixin generate-social-links($element, $size, $sprites) {
+@mixin generate-social-links($element, $size, $sprites, $service: null) {
     /*
      * Generate social Links
      * ---------------------
@@ -83,15 +83,23 @@
         background-repeat: no-repeat;
         display: block;
         height: 0;
-        padding-top: $size;
+        padding-bottom: $size;
         width: $size;
     }
 
-    @each $service, $nth in $social-styles {
-        // Iterate map to produce social links.
+    @if ($service) {
+        // If you supply a service, just output link for that.
         #{$element}.#{$service} {
-            background-color: nth($nth, 1);
-            background-position: nth($nth, 2) nth($nth, 3);
+            background-color: nth(map-get($social-styles, $service), 1);
+            background-position: nth(map-get($social-styles, $service), 2) nth(map-get($social-styles, $service), 3);
+        }
+    } @else {
+        // Else iterate map-list to produce social links.
+        @each $map, $item in $social-styles {
+            #{$element}.#{$map} {
+                background-color: nth($item, 1);
+                background-position: nth($item, 2) nth($item, 3);
+            }
         }
     }
 }
@@ -100,32 +108,27 @@
  * Vendor Property and Value Prefixes
  * ----------------------------------
  * Automatically vendor prefixes to CSS properties and values.
+ * For the most part I only need to prefix for webkit, so that is the default
+ * set.
  */
 
-@mixin prefix($property, $value) {
-    -moz-#{$property}: $value;
-    -ms-#{$property}: $value;
-    -webkit-#{$property}: $value;
+@mixin prefix($property, $value, $prefixes: webkit) {
+    @if ($prefixes) {
+        @each $prefix in $prefixes {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+    }
+
     #{$property}: $value;
 }
 
-@mixin prefix_value($property, $value) {
-    #{$property}: -moz-#{$value};
-    #{$property}: -ms-#{$value};
-    #{$property}: -webkit-#{$value};
-    #{$property}: $value;
-}
+@mixin prefix-value($property, $value, $prefixes: webkit) {
+    @if ($prefixes) {
+        @each $prefix in $prefixes {
+            #{$property}: #{'-' + $prefix + '-' + $value};
+        }
+    }
 
-@mixin webkit($property, $value) {
-    /* Flexbox rules need to be prefixed with -webkit for Safari Mobile. Using
-     * the general prefix mixin for flexbox cluttered up the compiled CSS with 
-     * useless rules. */
-    -webkit-#{$property}: $value;
-    #{$property}: $value;
-}
-
-@mixin webkit_value($property, $value) {
-    #{$property}: -webkit-#{$value};
     #{$property}: $value;
 }
 
@@ -134,7 +137,7 @@
  * --------------------
  */
 
-@mixin flex_size($width, $ratio) {
+@mixin flex-size($width, $ratio) {
     // Ratio should be between 0 and foo.
     height: 0;
     padding-bottom: $width * $ratio;
@@ -145,13 +148,13 @@
     background: center center/cover no-repeat url($image);
 }
 
-@mixin vertical_center($amount) {
+@mixin vertical-center($amount) {
     // Useful for vertically centering elements.
     padding-bottom: $amount;
     padding-top: $amount;
 }
 
-@function rgba_opposite($red: 255, $green: 255, $blue: 255, $alpha: 0) {
+@function rgba-opposite($red: 255, $green: 255, $blue: 255, $alpha: 0) {
     // I do not intend for this to be called directly. 
     // This function inverts RGB colours.
     $red: 255 - $red;
@@ -172,7 +175,7 @@
  * ------------------
  */
 
-@mixin placeholder_style() {
+@mixin placeholder-style() {
     &::-webkit-input-placeholder {
        @content;
     }
