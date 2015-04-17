@@ -19,10 +19,10 @@ A copy of the license is included in the root of the plugin’s directory. The f
 All of the project's code is GPL. [PHPMailer's](https://github.com/PHPMailer/PHPMailer) code is likewise GPL.
 
 ### Media
-The [Sosventures](http://www.sosventures.com) and [Haxlr8r](http://www.haxlr8r.com) vector brand are copyright of their respective companies.
-All Ouro and Ouro_botics vector graphic assets are copyright of Ouro_botics and all rights are reserved.
-Each team avatar picture is copyright of Ouro_botics and all rights are reserved. 
+* The [Sosventures](http://www.sosventures.com) and [Haxlr8r](http://www.haxlr8r.com) vector brand are copyright of their respective companies.
+* All Ouro and Ouro_botics vector graphic assets are copyright of Ouro_botics and all rights are reserved.
+* Each team avatar picture is copyright of Ouro_botics and all rights are reserved. 
 
 ## Credit
-All credit for site design and developement goes to me, [Mark Grealish](http://www.bhalash.com).  
-All credit for [PHPMailer](https://github.com/PHPMailer/PHPMailer) resides with the program's developers. 
+* All credit for site design and developement goes to me, [Mark Grealish](http://www.bhalash.com).  
+* All credit for [PHPMailer](https://github.com/PHPMailer/PHPMailer) resides with the program's developers. 
