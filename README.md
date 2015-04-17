@@ -1,8 +1,9 @@
+![The Ouro_botics logo](/ouro.jpg?raw=true 'Ouro_botics')
+
 # Ouro
 Landing page, branding and other associated media for the [Ouro_botics](http://www.ouro-botics.com) home page.
 
 ## Description
-Ouro. Coming soon and all. Branding for the company and the landing page. Under active development, so things may break.
 
 ## License
 All of the code in the project is licensed under the GPL v3 or later, except as otherwise noted.
@@ -25,4 +26,4 @@ All of the project's code is GPL. [PHPMailer's](https://github.com/PHPMailer/PHP
 
 ## Credit
 * All credit for site design and developement goes to me, [Mark Grealish](http://www.bhalash.com).  
-* All credit for [PHPMailer](https://github.com/PHPMailer/PHPMailer) resides with the program's developers. 
+* :All credit for [PHPMailer](https://github.com/PHPMailer/PHPMailer) resides with the program's developers. 
