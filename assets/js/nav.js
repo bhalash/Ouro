@@ -1,17 +1,34 @@
 /*global $:false */
 
-/*
- * Ouro Fancy Page Scroll
- * ----------------------
+/**
+ * Site Navigation and Scrolling
+ * -----------------------------
+ * @category   Site Navigation and Scrolling
+ * @package    Ouro_botics landing page
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    1.0
+ * @link       https://github.com/bhalash/ouro.ie
+ * 
+ * This file is part of ouro.ie
+ * 
+ * ouro.ie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ouro.ie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
  */
 
 jQuery(document).ready(function($) {
     'use strict'; 
-
-    /*
-     * Objects
-     * -------
-     */
 
     var nav = {
         // Navigation menu anchor element.
@@ -30,14 +47,20 @@ jQuery(document).ready(function($) {
         speed:  100
     };
 
-    /*
+    /**
      * Functions
      * ---------
      * Hide the boxshadow when the window is scrolled to the very top.
      */
 
     var navBoxShadow = function() {
-        // Set box shadow at bottom of nav menu on page scroll.
+        /**
+         * Toggle Header Box Sahdow
+         * ------------------------
+         * @param {none}
+         * @return {none}
+         */
+
         if ($(window).scrollTop() === 0) {
             $(nav.menu).removeClass(nav.shadow);
         } else {
@@ -46,13 +69,29 @@ jQuery(document).ready(function($) {
     };
 
     var currentNavToggle = function(anchor) {
-        // Toggle highlight on anchor.
+        /**
+         * Toggle Navigation Hover Highlight
+         * ---------------------------------
+         * Change the navigation link colour when you hover over it.
+         *  
+         * @param {element} anchor The anchor in question.
+         * @return {none}
+         */
+
         $(nav.anchor).removeClass(nav.current);
         $(anchor).addClass(nav.current);
     };
 
     var currentSectionToggle = function(section) {
-        // Toggle current section and set browser URL.
+        /**
+         * Toggle Navigation Hover Highlight
+         * ---------------------------------
+         * Toggle current section and set browser URL.
+
+         * @param {element} anchor The anchor in question.
+         * @return {none}
+         */
+
         $(nav.section).data(nav.dataCurrent, false);
         $(section).data(nav.dataCurrent, true);
         currentNavToggle($(menu).find('a[href^=#' + $(section).attr('id') + ']'));
@@ -69,7 +108,17 @@ jQuery(document).ready(function($) {
     };
 
     var toggleOnScroll = function() {
-        // Set current nav section as the page scrolls.
+        /**
+         * Toggle Navigation Hover Highlight
+         * ---------------------------------
+         * Set current nav section as the page scrolls. What this means is that 
+         * the highlighted nav section changes to match the current section in
+         * the middle of the page.
+         * 
+         * @param {none}
+         * @return {none}
+         */
+
         $('section').each(function() {
             var navAbove = $(nav.menu).outerHeight() + 20,
                 navBelow = $(nav.menu).outerHeight() + 70,
@@ -84,8 +133,16 @@ jQuery(document).ready(function($) {
     };
 
     var invertTextColour = function() {
-        /* Graduallly invert the colour of the anchor element as the page
-         * scrolls, using RGB values. */
+        /**
+         * Invert Navigation Text Colour
+         * -----------------------------
+         * Graduallly invert the colour of the anchor element as the page 
+         * scrolls, using RGB values. The text begins as white on top of a dark
+         * video or image, and ends as dark grey on a white background.
+         * 
+         * @param {none}
+         * @return {none}
+         */
 
         var limits = {
             /* The dark grey colour is 88,88,88, and white is 255,255,255
@@ -94,12 +151,12 @@ jQuery(document).ready(function($) {
             lower: 88
         };
 
-            // Initial colour.
-        var color = limits.upper, 
-            difference = limits.upper - limits.lower,
-            contentTop = $('#home').height(),
-            windowPos = $(window).scrollTop(),
-            percentage = windowPos / contentTop;
+        // Initial colour.
+        var color = limits.upper;
+        var difference = limits.upper - limits.lower;
+        var contentTop = $('#home').height();
+        var windowPos = $(window).scrollTop();
+        var percentage = windowPos / contentTop;
 
         percentage = (percentage < 0) ? 0 : percentage;
         percentage = (percentage > 1) ? 1 : percentage;
@@ -109,9 +166,7 @@ jQuery(document).ready(function($) {
          * difference = 255 - 80 = 167
          * percentange = (randomly) 0.46
          * 
-         * color = 255 - (167 * 0.46) = 178 (rounded)
-         */
-
+         * color = 255 - (167 * 0.46) = 178 (rounded) */
         color = Math.floor(limits.upper - (difference * percentage));
         color = (color > limits.upper) ? limits.upper : color;
         color = (color < limits.lower) ? limits.lower : color;
@@ -120,8 +175,18 @@ jQuery(document).ready(function($) {
     }
 
     var navOpacityonScroll = function() {
-        // Set the opacity of the nav menu on page scroll.
-        var a = $(window).height() + $('.' + nav.menu).height(), b = $(window).scrollTop(), opacity = 0;
+        /**
+         * Nav Background Opacity
+         * ----------------------
+         * Set the opacity of the navigation as the page scrolls up or down.
+         * 
+         * @param {none}
+         * @return {none}
+         */
+
+        var a = $(window).height() + $('.' + nav.menu).height();
+        var b = $(window).scrollTop();
+        var opacity = 0;
 
         opacity = b / a;
         opacity = (opacity < 0) ? 0 : opacity;
@@ -159,10 +224,10 @@ jQuery(document).ready(function($) {
              * 5. Reenable toggleOnScroll highlight.
              */
 
-            var section = $(this).attr('href'),
-                callbackExecuted = false,
-                a = $(section).offset().top,
-                b = $('nav#menu').outerHeight();
+            var section = $(this).attr('href');
+            var callbackExecuted = false;
+            var a = $(section).offset().top;
+            var b = $('nav#menu').outerHeight();
 
             $(window).off('scroll', toggleOnScroll);
             currentNavToggle(this);

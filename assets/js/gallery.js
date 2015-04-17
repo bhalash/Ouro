@@ -1,22 +1,41 @@
 /*global $:false */
 
-jQuery(document).ready(function($) {
-    /*
-     * Gallery and Lightbox
-     * --------------------
-     * Gallery with lightbox popout for Ouro product images.
-     */
+/**
+ * Ouro Gallery and Lightbox
+ * -------------------------
+ * @category   Gallery and Lightbox
+ * @package    Ouro_botics landing page
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    1.0
+ * @link       https://github.com/bhalash/ouro.ie
+ * 
+ * This file is part of ouro.ie
+ * 
+ * ouro.ie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ouro.ie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
+ */
 
+jQuery(document).ready(function($) {
     'use strict'; 
 
     function Lightbox(id, galleryid) {
-        /*
+        /**
          * Lightbox Class
          * --------------
-         * Takes two arguments:
-         * 
-         * 1. ID of the Lightbox.
-         * 2. ID of the attached gallery.
+         * @param {string} id The assigned ID of the lightbox.
+         * @param {string} galleryid The ID of the associated gallery.
          */
 
         // ID of the gallery.
@@ -44,10 +63,13 @@ jQuery(document).ready(function($) {
         };
 
         this.close = function() {
-            /* 
+            /**
              * Close Lightbox
              * --------------
              * Hide lightbox and resume background page scrolling.
+             *
+             * @param {none}
+             * @return {none}
              */
 
             $(this.id).hide();
@@ -64,10 +86,13 @@ jQuery(document).ready(function($) {
         };
 
         this.show = function() {
-            /*
+            /**
              * Display Lightbox
              * ----------------
              * Display the lightbox and pause background page scrolling.
+             *
+             * @param {none}
+             * @return {none}
              */
 
             $(this.id).show();
@@ -95,13 +120,16 @@ jQuery(document).ready(function($) {
         };
 
         this.setLightboxImage = function(data) {
-            /*
+            /**
              * Set Lightbox Image
              * ------------------
+             *
+             * @param {JSON} Data
+             * @return {none}
              */
-            var image = this.images[data],
-                src = $(image).attr('href'),
-                alt = $(image).find('image').attr('alt');  
+            var image = this.images[data];
+            var src = $(image).attr('href');
+            var alt = $(image).find('image').attr('alt');  
 
             this.current = data;
             this.setImage(src);
@@ -110,11 +138,14 @@ jQuery(document).ready(function($) {
         };
 
         this.decrementImage = function() {
-            /*
+            /**
              * Decrement Image
              * ---------------
              * Show a lowered numbered image from the image array. Does not go 
              * below 0.
+             * 
+             * @param {none}
+             * @return {none}
              */
 
             if (this.open) {
@@ -128,11 +159,14 @@ jQuery(document).ready(function($) {
         };
 
         this.incrementImage = function() {
-            /*
+            /**
              * Increment Image
              * ---------------
              * Show a higher numbered image from the image array. Does not go 
              * above array length.
+             * 
+             * @param {none}
+             * @return {none}
              */
 
             if (this.open) {
@@ -146,7 +180,14 @@ jQuery(document).ready(function($) {
         };
 
         this.setImage = function(src) {
-            // Change lightbox src.
+            /**
+             * Set Lightbox Image
+             * ------------------
+             * Change lightbox src.
+             * @param {none}
+             * @return {none}
+             */
+
             $(this.id).find(this.lightbox.image).attr('src', src);
         };
 
@@ -157,9 +198,12 @@ jQuery(document).ready(function($) {
         };
 
         this.handlers = function() {
-            /*
+            /**
              * Navigation Control Handlers
              * ---------------------------
+             * 
+             * @param {none}
+             * @return {none}
              */
 
             var lightbox = this;
@@ -176,10 +220,13 @@ jQuery(document).ready(function($) {
         };
 
         this.addGalleryImages = function() {
-            /*
+            /**
              * Add Gallery Images to Array
              * ---------------------------
              * Loop through the provided gallery and add each image to the array.
+             * 
+             * @param {none}
+             * @return {none}
              */
 
             var images = [], n = 0;
@@ -193,11 +240,14 @@ jQuery(document).ready(function($) {
         };
 
         this.init = function() {
-            /*
+            /**
              * Initialize Lightbox
              * -------------------
              * 1. Prepend lightbox HTML to <body>.
              * 2. Add all gallery images to lightbox array.
+             * 
+             * @param {none}
+             * @return {none}
              */
 
             $('body').prepend('<div id="' + this.id.substring(1) + '">');
@@ -219,11 +269,12 @@ jQuery(document).ready(function($) {
     // Add lightbox.
     var lightbox = new Lightbox('#lightbox', '#gallery');
 
+    /**
+     * Lightbox Control Keybinds
+     * -------------------------
+     */
+
     $(window).keyup(function(key) {
-        /*
-         * Lightbox Control Keybinds
-         * -------------------------
-         */
         switch (key.keyCode) {
             // Escape
             case 27: lightbox.close(); break;
@@ -234,6 +285,12 @@ jQuery(document).ready(function($) {
             default: break;
         }
     });
+
+    /**
+     * Lightbox Touch and Click Events
+     * -------------------------------
+     * Set click and tap events for the lightbox.
+     */
 
     if ($('html').hasClass('mobile')) {
         $('.gallery a').on('tap', function(event) {

@@ -1,4 +1,31 @@
-/*
+/**
+ * Main Sass Stylesheet
+ * --------------------
+ * @category   Root Sass Stylesheet
+ * @package    Ouro_botics landing page
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    1.0
+ * @link       https://github.com/bhalash/ouro.ie
+ * 
+ * This file is part of ouro.ie
+ * 
+ * ouro.ie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ouro.ie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
  * Path to Images
  * --------------
  */
@@ -10,7 +37,7 @@ $assets-social: $assets + 'social/';
 $assets-panes: $assets + 'panes/';
 $assets-gallery: $assets + 'lightbox/';
 
-/*
+/**
  * Section Backgrounds
  * -------------------
  */
@@ -24,7 +51,7 @@ $sections: (
     contact: ($assets-backgrounds + 'background-contact.jpg')
 );
 
-/*
+/**
  * Bioprinting Workflow Panes
  * --------------------------
  */
@@ -37,21 +64,21 @@ $panes: (
     iterate: ($assets-panes + 'pane-iterate.svg')
 );
 
-/*
+/**
  * Social Network Logos
  * --------------------
  */
 
 $social-sprites: $assets-social + 'social-sprites.svg';
 
-/*
+/**
  * Video Fallback Image
  * --------------------
  */
 
 $video-fallback: $assets + 'video-timelapse-poster.jpg';
 
-/*
+/**
  * Ouro and Funder Branding
  * ------------------------
  */
@@ -63,7 +90,7 @@ $brand-ourobotics-alt: $assets-branding + 'banner-ouro-botics-alt.svg';
 $brand-haxlr8r: $assets-branding + 'funder-haxlr8r.svg';
 $brand-sosventures: $assets-branding + 'funder-sosventures.svg';
 
-/* 
+/** 
  * Font Stacks
  * ------------
  */
@@ -92,7 +119,7 @@ $font-roboto: 'Roboto', 'Source Sans Pro', sans-serif, 'Trebuchet MS';
 $font-sourcecodepro: 'Source Code Pro', 'Courier New', Courier, monospace;
 $font-notoserif: 'Noto Serif', Georgia, serif;
 
-/*
+/**
  * Colours 
  * -------
  */
@@ -109,7 +136,7 @@ $colour-header-grey: #fafafa;
 $colour-error-red: #ed8787;
 $colour-anchor-blue: #3399cc;
 
-/*
+/**
  * Website Breakpoints and Padding
  * -------------------------------
  * These go hand-in-hand; the mixin section_padding iterates through both to
@@ -119,7 +146,7 @@ $colour-anchor-blue: #3399cc;
 $ouro_breakpoints: (1600px, 1200px, 1024px, 768px, 650px);
 $section-padding: 15%;
 
-/*
+/**
  * Margins, Padding and Heights
  * ----------------------------
  */
@@ -140,7 +167,7 @@ $padding-28: $padding * 2;
 
 $navigation-height: 70px;
 
-/*
+/**
  * Mixins and Partials
  * -------------------
  */
@@ -149,7 +176,7 @@ $navigation-height: 70px;
 @import 'mixins';
 @import 'partials';
 
-/*
+/**
  * Imports
  * ------- 
  */

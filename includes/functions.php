@@ -1,12 +1,40 @@
 <?php 
 
-/*
- * PHPMmailer Functions
- * --------------------
+/**
+ * Ouro Landing Page Functions 
+ * ---------------------------
+ * @category   Functions File
+ * @package    Ouro_botics landing page
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    1.0
+ * @link       https://github.com/bhalash/ouro.ie
+ * 
+ * This file is part of ouro.ie
+ * 
+ * ouro.ie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ouro.ie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
  */
 
 function mail_body($data = null) {
-    // Body of email.
+    /**
+     * Generate Content of Mail Body
+     * -----------------------------
+     * @param {string} $data The input data.
+     * @return {string} $body The text of the email.
+     */
+
     $body = '';
 
     if ($data === '') {
@@ -20,7 +48,12 @@ function mail_body($data = null) {
 }
 
 function mail_subject($data = null) {
-    // Subject of email.
+    /**
+     * Generate Email Subject 
+     * ----------------------
+     * @param {string} $data Raw data for email subject
+     * @return {string} $subject The parsed subject.
+     */
     $subject = '';
 
     if ($data === '') {
@@ -38,6 +71,16 @@ function mail_subject($data = null) {
  */
 
 function generate_social_link($service, $handle = null, $title = null) {
+    /**
+     * Generate Site Social Links
+     * --------------------------
+     * Taken parameters of social link and return anchor code.
+     * 
+     * @param {string} $service The chosen service.
+     * @param {string} $handle The social network handle, e.g. twitter.com/foo
+     * @param {string} $title Optional title for the hyperlink.
+     */
+
     $services = array(
         'facebook' => 'facebook.com',
         'youtube' => 'youtube.com',
@@ -47,9 +90,7 @@ function generate_social_link($service, $handle = null, $title = null) {
     );
 
     $social_link = array();
-
     $service = strtolower($service);
-
     $social_link[] = '<a class="' . $service . '" ';
 
     if ($title !== '') {
@@ -60,7 +101,6 @@ function generate_social_link($service, $handle = null, $title = null) {
     $social_link[] = $handle . '" ';
     $social_link[] = 'rel="external nofollow">';
     $social_link[] = '</a>';
-
     printf(implode('', $social_link));
 }
 
@@ -70,7 +110,17 @@ function generate_social_link($service, $handle = null, $title = null) {
  */
 
 function header_verification_tags($tags_array) { 
-    // Iterate through all meta tags.
+    /** 
+     * Generate Site Verification Tags 
+     * -------------------------------
+     * Bing, etc. require a meta tag in the header to verify the site. 
+     * Since this site is available concurrently across several doamins, 
+     * I generate the correct one as needed.
+     * 
+     * @param {array} $tags_array Array of elements for the tag.
+     * @return {string} The meta tag
+     */
+
     foreach ($tags_array as $meta_tag) {
         printf('<meta name="%s" content="%s">', $meta_tag['name'], $meta_tag['content']); 
     }

@@ -1,17 +1,36 @@
 /*global $:false */
 
+/**
+ * The Ouro Contact Form of Awesomeitude
+ * -------------------------------------
+ * Sanitize and Ajax submit information from the now-unused contact form.
+ * 
+ * @category   Functions File
+ * @package    Ouro_botics landing page
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    1.0
+ * @link       https://github.com/bhalash/ouro.ie
+ * 
+ * This file is part of ouro.ie
+ * 
+ * ouro.ie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ouro.ie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 jQuery(function($) {
     'use strict'; 
-    /*
-     * The Ouro Contact Form of Awesomeitude
-     * -------------------------------------
-     */
-
-
-    /*
-     * Objects
-     * -------
-     */
 
     var form = {
         // Contact form elements nad rules.
@@ -32,16 +51,17 @@ jQuery(function($) {
         },
         filled: []
     };
-    
-    /*
-     * Form Submit
-     * -----------
-     * The Ouro contact form.
-     */
 
     Array.prototype.allTrue = function() {
-        // Used to verify that the inputs have a value. I do the validation on 
-        // the server; at this point I just check they aren't empty.
+        /**
+         * Are all Array Elements True?
+         * ----------------------------
+         * Used to verify that the inputs have a value. I do the validation on 
+         * the server; at this point I just check they aren't empty.
+         * 
+         * @param {array} The Array itself
+         * @return {bool} Array elements are all true true/false.
+         */
         for (var i = 0; i < this.length; i++) {
             if (!this[i]) {
                 return false;
@@ -52,13 +72,28 @@ jQuery(function($) {
     };
 
     $(form.sendmessage).find('input, textarea').blur(function() {
+        /**
+         * Remove Unfilled Class on Blur
+         * -----------------------------
+         * @param {none}
+         * @return {none}
+         */
         if ($(this).prop('required') && $(this).hasClass(form.unfilled) && $(this).val().length > 0) {
             $(this).removeClass(form.unfilled);
         }
     });
 
     $(form.sendmessage).submit(function(event) {
-    // $(form.sendmessage).bind('submit', function(event) {
+        /**
+         * Submit Contact Form
+         * -------------------
+         * Submit the contact form over Ajax and listen for response from 
+         * server.
+         * 
+         * @param {none}
+         * @return {none}
+         */
+         
         event.preventDefault();
         form.filled = [];
 
@@ -86,8 +121,13 @@ jQuery(function($) {
         });
         
         if (form.filled.allTrue()) {
+            /*
+             * Form Ajax Submission and Response
+             * ---------------------------------
+             * Submit form to server if all fields are filled. Main validation 
+             * occurs there. 
+             */
 
-            // If the fields are filled, submit them as JSON to the server.
             var dataOut = {
                 'name': $(form.inputs.name).val(),
                 'email': $(form.inputs.email).val(),
@@ -119,11 +159,9 @@ jQuery(function($) {
             });
 
         } else {
-
             $('.' + form.unfilled).first().focus();
             $(form.output).addClass(form.unfilled);
             $(form.output).text(form.messages.initial);
-
         }
 
         window.setTimeout(function() {
