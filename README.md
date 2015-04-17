@@ -4,6 +4,7 @@
 Landing page, branding and other associated media for the [Ouro_botics](http://www.ouro-botics.com) home page.
 
 ## Description
+This is the source code for the Ouro_botics introduction and landing page.
 
 ## License
 All of the code in the project is licensed under the GPL v3 or later, except as otherwise noted.
