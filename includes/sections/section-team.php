@@ -5,7 +5,7 @@
  * @category   Team Section Script
  * @package    Ouro_botics landing page
  * @author     Mark Grealish <mark@bhalash.com>
- * @copyright  2015 Mark Grealish
+ * @copyright  Copyright (c) 2015, Ouro_botics
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
  * @version    1.0
  * @link       https://github.com/bhalash/ouro.ie
