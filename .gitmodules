@@ -1,3 +1,6 @@
 [submodule "includes/PHPMailer"]
 	path = includes/PHPMailer
 	url = git@github.com:PHPMailer/PHPMailer.git
+[submodule "assets/css/scss-helpers"]
+	path = assets/css/scss-helpers
+	url = git@github.com:bhalash/scss-helpers.git
