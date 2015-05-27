@@ -41,8 +41,6 @@ jQuery(document).ready(function($) {
         menu: 'nav#menu',
         // In case I need to change it later. 
         section: 'section',
-        // Box shadow at the bottom of the nav menu.
-        shadow: 'nav-box-shadow',
         // Animations peed
         speed:  100
     };
@@ -52,21 +50,6 @@ jQuery(document).ready(function($) {
      * ---------
      * Hide the boxshadow when the window is scrolled to the very top.
      */
-
-    var navBoxShadow = function() {
-        /**
-         * Toggle Header Box Sahdow
-         * ------------------------
-         * @param {none}
-         * @return {none}
-         */
-
-        if ($(window).scrollTop() === 0) {
-            $(nav.menu).removeClass(nav.shadow);
-        } else {
-            $(nav.menu).addClass(nav.shadow);
-        }
-    };
 
     var currentNavToggle = function(anchor) {
         /**
@@ -206,7 +189,6 @@ jQuery(document).ready(function($) {
      * ------------
      */
      
-    $(window).on('scroll', navBoxShadow);
     $(window).on('scroll', navOpacityonScroll);
 
     if (!$('html').hasClass('mobile')) {
