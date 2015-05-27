@@ -44,8 +44,8 @@
 </nav>
 <section id="home">
     <div id="timelapse">
-        <video preload loop autoplay poster="/assets/images/video-timelapse-poster.jpg">
-            <source src="/assets/videos/video-timelapse.mp4" type="video/mp4">
+        <video preload loop autoplay poster="<?php printf(ASSETS . '/images/video-timelapse-poster.jpg'); ?>">
+            <source src="<?php printf(ASSETS . '/videos/video-timelapse.mp4'); ?>" type="video/mp4">
             Your browser can't show you our awesome video, sorry. D:
         </video>
     </div>

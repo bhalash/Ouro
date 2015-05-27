@@ -28,7 +28,7 @@
 
 define('ROOT', __DIR__);
 define('INCLUDES', ROOT . '/includes');
-define('ASSETS', '/assets');
+define('ASSETS', '/ouro/assets');
 define('IS_DEV_SITE', ($_SERVER['SERVER_NAME'] === 'ix.bhalash.com'));
 define('COMPANY_TWITTER', 'ouro_botics');
 define('COMPANY_FACEBOOK', 'ourobotics');
@@ -43,12 +43,12 @@ define('COMPANY_GREETER_EMAIL', 'hello@ouro.ie');
  * ---------------
  */
 
-if (IS_DEV_SITE) {
+// if (IS_DEV_SITE) {
     ini_set('error_reporting', 1);
     ini_set('display_errors', 1);
     ini_set('log_errors', 1);
     error_reporting(E_ALL|E_STRICT);
-}
+// }
 
 /** 
  * Domain Verification Meta Tags

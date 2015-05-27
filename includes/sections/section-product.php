@@ -36,8 +36,8 @@
             /* Lazy iteration of images. There are no descriptions
              * available for images. */
             $ouro_images = array(
-                'full' => '/assets/images/gallery/full/',
-                'thumb' => '/assets/images/gallery/thumb/',
+                'full' => ASSETS . '/images/gallery/full/',
+                'thumb' => ASSETS . '/images/gallery/thumb/',
                 'alt' => 'The ' . PRODUCT_NAME . ' Bioprinter',
                 'extension' => '.jpg'
             );
