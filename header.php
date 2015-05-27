@@ -34,16 +34,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="no">
-
+    <link rel="dns-prefetch" href="//caladan.bhalash.com">
     <?php // Change site title on the sandbox, because occasionally I forget and goof up. Whoops. ?>
     <title><?php printf('%s', (IS_DEV_SITE) ? 'Ix Sandbox' : COMPANY_NAME); ?></title>
-
     <?php // Stylesheets and favicon ?>
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans:400,300|Fjalla+One" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="<?php printf('%s', ASSETS . '/sass/style.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php printf('%s', ASSETS . '/css/style.css'); ?>">
     <!-- [if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif] -->
     <link rel="icon" href="<?php printf('%s', ASSETS . '/images/favicon.png'); ?>">
-
     <?php // Site verificaiton ?>
     <?php header_verification_tags($meta_verification); ?>
 
