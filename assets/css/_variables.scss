@@ -33,7 +33,6 @@
 $assets: '../images/';
 $assets-branding: $assets + 'branding/';
 $assets-backgrounds: $assets + 'backgrounds/';
-$assets-social: $assets + 'social/';
 $assets-panes: $assets + 'panes/';
 $assets-gallery: $assets + 'lightbox/';
 
@@ -63,13 +62,6 @@ $panes: (
     print: ($assets-panes + 'pane-print.svg'),
     iterate: ($assets-panes + 'pane-iterate.svg')
 );
-
-/**
- * Social Network Logos
- * --------------------
- */
-
-$social-sprites: $assets-social + 'social-sprites.svg';
 
 /**
  * Video Fallback Image
@@ -121,7 +113,7 @@ $font-notoserif: 'Noto Serif', Georgia, serif;
 
 /**
  * Colours 
- * -------
+ * -----------------------------------------------------------------------------
  */
 
 $colour-ouro-dark: #669c5f;
@@ -138,17 +130,17 @@ $colour-anchor-blue: #3399cc;
 
 /**
  * Website Breakpoints and Padding
- * -------------------------------
+ * -----------------------------------------------------------------------------
  * These go hand-in-hand; the mixin section_padding iterates through both to
  * generate responsive padding sizes for the site.
  */
 
-$ouro_breakpoints: (1600px, 1200px, 1024px, 768px, 650px);
+$ouro-breakpoints: (max 1600px, max 1200px, max 1024px, max 768px, max 650px);
 $section-padding: 15%;
 
 /**
  * Margins, Padding and Heights
- * ----------------------------
+ * -----------------------------------------------------------------------------
  */
 
 $margin: 13px;
@@ -166,30 +158,3 @@ $padding-19: $padding * 1.5;
 $padding-28: $padding * 2;
 
 $navigation-height: 70px;
-
-/**
- * Mixins and Partials
- * -------------------
- */
-
-@import 'media';
-@import 'mixins';
-@import 'partials';
-
-/**
- * Imports
- * ------- 
- */
-
-@import 'reset';
-@import 'typography';
-@import 'sections';
-// Individual Sections.
-@import 'sections/home';
-@import 'sections/team';
-@import 'sections/bioprint';
-@import 'sections/contact';
-// Page subsections.
-@import 'nav';
-@import 'gallery';
-@import 'footer';
