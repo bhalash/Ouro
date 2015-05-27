@@ -8,7 +8,8 @@ Options -Indexes
     AddType application/x-font-ttf ttf ttc
     AddType font/opentype otf
     AddType application/x-font-woff woff
-    AddType image/svg+xml svg svgz 
+    AddType image/svg+xml svg svgz
+    AddType video/mp4 mp4
     AddEncoding gzip svgz
 </Ifmodule>
 
@@ -17,7 +18,7 @@ Options -Indexes
 Header set Cache-Control "max-age=31536000, public"
 </FilesMatch>
 
-<FilesMatch "\.(jpg|png|gif|css|js)$">
+<FilesMatch "\.(jpg|png|gif|css|js|mp4)$">
     Header set Cache-Control "max-age=604800, public"
 </FilesMatch>
 
@@ -28,9 +29,10 @@ Header set Cache-Control "max-age=31536000, public"
     AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
     AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
     AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+    AddOutputFilterByType DEFLATE video/mp4
 </Ifmodule>
 
-# Set expiry date on content. 
+# Set expiry date on content.
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
@@ -39,6 +41,7 @@ Header set Cache-Control "max-age=31536000, public"
     ExpiresByType image/png "access plus 1 month"
     ExpiresByType image/jpg "access plus 1 month"
     ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
     ExpiresByType text/css "access 1 month"
     ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
