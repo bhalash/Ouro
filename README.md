@@ -1,10 +1,10 @@
-![The Ouro_botics logo](/ouro.jpg?raw=true 'Ouro_botics')
+![The Ouro\_botics logo](/ouro.jpg?raw=true 'Ouro\_botics')
 
 # Ouro
-Landing page, branding and other associated media for the [Ouro_botics](http://www.ouro-botics.com) home page.
+Landing page, branding and other associated media for the [Ouro\_botics](http://www.ouro-botics.com) home page.
 
 ## Description
-This is the source code for the Ouro_botics introduction and landing page.
+This is the source code for the Ouro\_botics introduction and landing page.
 
 ## License
 All of the code in the project is licensed under the GPL v3 or later, except as otherwise noted.
@@ -18,13 +18,12 @@ All of the code in the project is licensed under the GPL v3 or later, except as 
 A copy of the license is included in the root of the plugin’s directory. The file is named LICENSE.
 
 ### Code 
-All of the project's code is GPL. [PHPMailer's](https://github.com/PHPMailer/PHPMailer) code is likewise GPL.
+All of the project's code is GPL. 
+
+### Includes and Libraries 
+[PHPMailer](https://github.com/PHPMailer/PHPMailer) is copyright of [Marcus Boniton](https://github.com/Synchro) and included under the GPL v2.1.
 
 ### Media
 * The [Sosventures](http://www.sosventures.com) and [Haxlr8r](http://www.haxlr8r.com) vector brand are copyright of their respective companies.
-* All Ouro and Ouro_botics vector graphic assets are copyright of Ouro_botics and all rights are reserved.
-* Each team avatar picture is copyright of Ouro_botics and all rights are reserved. 
-
-## Credit
-* All credit for site design and developement goes to me, [Mark Grealish](http://www.bhalash.com).  
-* :All credit for [PHPMailer](https://github.com/PHPMailer/PHPMailer) resides with the program's developers. 
+* All Ouro and Ouro\_botics vector graphic assets are copyright of Ouro\_botics and all rights are reserved.
+* Each team avatar picture is copyright of Ouro\_botics and all rights are reserved. 
