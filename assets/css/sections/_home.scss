@@ -64,15 +64,15 @@ section#home {
     left: 50%;
     position: absolute;
     top: 50%;
-    @include flex-size(35%, 1);
+    @include square-flex(35% 1);
     @include prefix(transform, translate(-50%, -50%));
 
     @include media(portrait) {
-        @include flex-size(50%, 1);
+        @include square-flex(50% 1);
     }
 
     @include media(smartphone) {
-        @include flex-size(70%, 1);
+        @include square-flex(70% 1);
     }
 
 }
@@ -95,10 +95,10 @@ section#home {
         background-color: rgba(255,255,255,0.3);
         display: inline-block;
         transition: background-color .3s;
-        @include flex-size(130px, 1);
+        @include square-flex(130px 1);
 
         @include media(smartphone) {
-            @include flex-size(70px, 1);
+            @include square-flex(70px 1);
         }
 
         &:hover {

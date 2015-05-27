@@ -40,13 +40,9 @@ nav#menu {
     right: 0;
     top: 0;
     z-index: 3;
-    @include prefix-value(display, flex);
-    @include prefix(align-items, center);
-    @include prefix(flex-direction, row);
-    @include prefix(flex-wrap, nowrap);
-    @include prefix(justify-content, space-between);
+    @include flex-parent(row, space-between, nowrap, center);
 
-    @include media(max, $nav-center-toggle) {
+    @include media(max $nav-center-toggle) {
         @include prefix(justify-content, center);
     }
 
@@ -82,11 +78,10 @@ h4#ouro-name {
     display: inline-block;
     font-size: 1.6em;
     padding-right: $padding;
-    @include prefix(flex, 0 1 auto);
+    @include flex-child(1);
 
-    @include media(max, $nav-center-toggle) {
+    @include media(max $nav-center-toggle) {
         text-align: right;
-        @include prefix(flex, 1);
     }
 
     @include media(portrait) {
@@ -126,9 +121,9 @@ ul#nav-sections {
     display: inline-block;
     text-align: left;
     // Middle item is set to fill and text is left-aligned.
-    @include prefix(flex, 1 1 auto);
+    @include flex-child(1 1 auto);
 
-    @include media(max, $nav-center-toggle) {
+    @include media(max $nav-center-toggle) {
         display: none;
     }
 
@@ -153,11 +148,10 @@ ul#nav-sections {
 ul#nav-social {
     // External social links
     padding-left: $padding;
-    @include prefix(flex, 0 1 auto);
+    @include flex-child(1);
 
-    @include media(max, $nav-center-toggle) {
+    @include media(max $nav-center-toggle) {
         text-align: left;
-        @include prefix(flex, 1);
     }
 
     @include media(smartphone) {
@@ -166,5 +160,5 @@ ul#nav-social {
 }
 
 ul#nav-social, ul.team-social {
-    @include generate-social-links(a, 35px, $social-sprites);
+    @include generate-social-link(a, 35px 1);
 }

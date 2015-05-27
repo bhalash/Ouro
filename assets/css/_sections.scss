@@ -27,16 +27,16 @@
 
 /**
  * Website Padding
- * ---------------
+ * -----------------------------------------------------------------------------
  */
 
 .content, nav#menu {
-    @include content_padding($section-padding, $ouro_breakpoints);
+    @include content-padding($section-padding, $ouro-breakpoints);
 }
 
 /**
  * Base Section Layout
- * -------------------
+ * -----------------------------------------------------------------------------
  */
 
 section {
@@ -67,7 +67,7 @@ section:not(#home) {
 
 /**
  * Section Interior Container
- * --------------------------
+ * -----------------------------------------------------------------------------
  * Internet Explorer and Safari Mobile both have problems vertically centering
  * flex children in cases where the parent has a minimum height still. With 
  * Internet Explorer it appears to be a bug, and 
@@ -94,10 +94,11 @@ section:not(#home) {
 
 /**
  * Section Backdrops
- * -----------------
+ * -----------------------------------------------------------------------------
  * Backdrop image for each section.
  */
 
 section#contact {
-    @include cover(nth(map-get($sections, contact), 1));
+    @extend %cover-picture;
+    background-image: url(nth(map-get($sections, contact), 1));
 }

@@ -31,16 +31,14 @@ $hover-transition-speed: .1s;
 
 .teamlist {
     height: 100%;
-    @include prefix-value(display, flex, webkit);
-    @include prefix(flex-direction, row, webkit);
-    @include prefix(flex-wrap, nowrap, webkit);
+    @include flex-parent(row, initial, nowrap);
 
-    @include media(max, $team-break-800) { 
-        @include prefix(flex-wrap, wrap, webkit);
+    @include media(max $team-break-800) { 
+        @include prefix(flex-wrap, wrap);
     }
 
     @include media(smartphone) {
-        @include prefix(flex-direction, column, webkit);
+        @include flex-parent(column);
     }
 }
 
@@ -49,18 +47,18 @@ $hover-transition-speed: .1s;
      * 1x4 on a smartphone. */
     opacity: 0;
     position: relative;
-    @include prefix(flex, 1, webkit);
+    @include flex-child(1);
 
-    @include media(max, $team-break-800) {
-        @include prefix(flex, 0 1 33.3%, webkit);
+    @include media(max $team-break-800) {
+        @include flex-child(0 1 33%);
     }
 
-    @include media(max, $team-break-550) {
-        @include prefix(flex, 0 1 50%, webkit);
+    @include media(max $team-break-550) {
+        @include flex-child(0 1 50%);
     }
 
     @include media(smartphone) {
-        @include prefix(flex, 1, webkit);
+        @include flex-child(1);
     }
 
     a.avatar {
@@ -126,18 +124,13 @@ ul.team-social {
     transition: opacity $hover-transition-speed linear;
     top: 0;
 
-    @include prefix-value(display, flex, webkit);
-    @include prefix(align-items, center, webkit);
-    @include prefix(flex-direction, row, webkit);
-    @include prefix(flex-wrap, nowrap, webkit);
+    @include flex-parent(row, center, nowrap, center);
 
     p {
         margin: auto;    
         text-align: center;
         width: 100%;
-
-        @include prefix(align-self, center, webkit);
-        @include prefix(flex, 1, webkit);
+        @include flex-child(1, center);
     }
 
     span {
