@@ -1,6 +1,6 @@
 /**
  * Gallery and Lightbox
- * --------------------
+ * -----------------------------------------------------------------------------
  * @category   Gallery and Lightbox Stylesheet
  * @package    Ouro_botics landing page
  * @author     Mark Grealish <mark@bhalash.com>
@@ -39,19 +39,17 @@ $control-inset-right: $control-inset center;
 
 /*
  * Gallery Container
- * -----------------
+ * -----------------------------------------------------------------------------
  */
 
 div.gallery {
     box-sizing: border-box;
-    @include prefix-value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(flex-wrap, wrap);
+    @include flex-parent(row, center, wrap, center);
 }
 
 /*
  * Gallery Individual Image
- * ------------------------
+ * -----------------------------------------------------------------------------
  */
 
 a.image {
@@ -61,19 +59,18 @@ a.image {
     opacity: 0;
     overflow: hidden;
 
-    @include prefix(align-self, center);
-    @include prefix(flex, 0 1 12.5%);
+    @include flex-child(1 0 12.5%);
 
     @include media(portrait) {
-        @include prefix(flex, 0 1 16.6667%);
+        @include flex-child(1 0 16.667%);
     }
 
-    @include media(max, 650) {
-        @include prefix(flex, 0 1 20%);
+    @include media(max 650px) {
+        @include flex-child(1 0 20%);
     }
 
     @include media(smartphone) {
-        @include prefix(flex, 0 1 33.3%);
+        @include flex-child(1 0 33.3%);
     }
 
     img {
@@ -95,46 +92,35 @@ a.image {
 
 /*
  * Gallery Lightbox
- * ----------------
+ * -----------------------------------------------------------------------------
  */
 
 div#lightbox {
     background-color: rgba(#000, 0.9);
-    bottom: 0;
     display: none;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
     z-index: 5;
+    @include fixed(0);
 
     img {
         margin: auto;
+        height: initial;
         max-height: 95%;
-        width: auto;
-
-        @include media(portrait) {
-            height: auto;
-            max-width: 95%;
-            max-height: none;
-        }
+        max-width: 95%;
+        width: initial;
     }
 }
 
 /*
  * Gallery Lightbox Controls
- * -------------------------
+ * -----------------------------------------------------------------------------
  */
 
 a.close {
     background: center center/$lightbox-control-size no-repeat $lightbox-close;
     display: block;
     height: 50px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
     width: 50px;
+    @include absolute(10px 10px, top right);
 
     @include media(smartphone) {
         height: 60px;
@@ -143,20 +129,14 @@ a.close {
 }
 
 nav.controls {
-    bottom: 10px;
     height: 60px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    @include prefix-value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(justify-content, space-between);
+    @include absolute(0 10px 0, right bottom left);
+    @include flex-parent(row, space-between);
 
     .control {
         height: inherit;
         width: 50%;
-        @include prefix-value(display, flex);
-        @include prefix(justify-content, flex-start);
+        @include flex-parent(row, flex-start);
     }
 
     .left {
