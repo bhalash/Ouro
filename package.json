@@ -1,0 +1,38 @@
+{
+  "name": "ouro-botics.com",
+  "version": "1.0.0",
+  "description": "Packages necessary to transpile, prefix and compress Ouro's Sass.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "~3.9.0",
+    "gulp-autoprefixer": "~2.3.1",
+    "gulp-ruby-sass": "~1.0.5",
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-watch": "~4.2.4",
+    "html5shiv": "~3.7.2"
+  },
+  "devDependencies": {
+    "gulp-uglify": "~1.2.0",
+    "gulp-rename": "~1.2.2",
+    "object-fit": "~0.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bhalash/ouro.ie.git"
+  },
+  "keywords": [
+    "wordpress",
+    "css",
+    "html5",
+    "sass",
+    "scss"
+  ],
+  "author": "Mark Grealish",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/bhalash/ouro.ie/issues"
+  }
+}
