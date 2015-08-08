@@ -79,5 +79,5 @@
     <meta name="twitter:url" content="<?php printf($card_url); ?>">
 </head>
     <body>
-        <?php include_once(INCLUDES . '/sections/section-head.php'); ?>
+        <?php include_once('sections/section-head.php'); ?>
         <div id="content">
