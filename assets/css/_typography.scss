@@ -30,182 +30,56 @@
  * ------------
  */
 
-h1, h2, h3, h4, h5, h6 {
-    color: $colour-text-grey;
+h2, h3, h4 {
+    color: palette(black, mid-light);
     font-weight: 100;
-    letter-spacing: 1px;
+    @include rem(letter-spacing, 0.1);
 }
 
-h1, h2, h3 {
-    font-family: $font-fjallaone;
+h2, h3 {
+    font-family: map-get($fonts, fjallaone);
 }
 
-h4, h5, h6 {
-    font-family: $font-opensans;
-    font-weight: $font-weight-text;
-    margin-bottom: $margin;
+h4 {
+    font-weight: 400;
+    @include margin($vspace, bottom);
 }
 
-h1, %h1 { font-size: $headline-size-h1; }
-h2, %h2 { font-size: $headline-size-h2; }
-h3, %h3 { font-size: $headline-size-h3; }
-h4, %h4 { font-size: $headline-size-h4; }
-h5, %h5 { font-size: $headline-size-h5; }
-h6, %h6 { font-size: $headline-size-h6; }
+h2 {
+    @include font-size(4);
+}
 
-/**
- * Non-healine Items 
- * -----------------
- */
+h3 {
+    @include font-size(3);
+}
 
-p, %p {
+h4 {
+    @include font-size(2);
+}
+
+input, p, li {
     // This is the baseline for all non-headline text.
-    color: $colour-text-grey;
-    font-family: $font-opensans;
-    font-size: $text-size-10;
-    font-weight: $font-weight-text;
-    line-height: $line-height-text;
+    -webkit-font-smoothing: antialiased;
+    color: palette(black, mid-light); 
+    font-weight: 400;
 }
 
-a, abbr, acronym, big, cite, code, del, em, ins, small, span, strike, strong, sub, sup {
+p {
+    @include margin($vspace, bottom);
+}
+
+a {
     font-family: inherit;
     font-size: inherit;
-}
-
-/**
- * Bold Text
- * ---------
- */
-
-a, b, cite, dt, strong {
     font-weight: bold;
 }
 
-/**
- * Italic Text
- * -----------
- */
-
-em, i, ins, q, var {
-    font-style: italic;
-}
-
-/**
- * Code Blocks
- * -----------
- */
-
-code, kbd, pre, pre span, tt, var {
-    font-family: $font-sourcecodepro;
-    font-size: $text-size-09;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    -webkit-font-smoothing: antialiased;
-}
-
-pre {
-    background-color: transparent;
-    color: #fff;
-    line-height: 1.2em;
-    overflow: auto;
-}
-
-/**
- * Miscellaneous Inline Elements
- * -----------------------------
- */
-
-abbr, acronym {
-    background: $colour-ouro-light;
-    padding: 1px 3px;
-}
-
-big {
-    font-size: 130%;
-}
-
-cite {
-    font-size: 85%;
-    display: block;
-    margin: 7px 0 0 2px;
-
-    &:before {
-        content: '-';
-    }
-}
-
-del, strike {
-    text-decoration: line-through;
-}
-
-dt {
-    font-size: 105%;
-}
-
-dd {
-    margin-bottom: 5px;
-    padding-left: $padding;
-
-    &:before {
-        content: '» ';
-    }
-}
-
-ins { 
-    font-size: 90%;
-}
-
-li {
-    line-height: 1em;
-}
-
-q {
-    font-size: 95%;
-}
-
-small {
-    font-size: 88%;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-sub, sup {
-    font-size: 85%;
-}
-
-sub {
-    vertical-align: sub;
-}
-
-sup {
-    vertical-align: super;
-}
-
 ol, ul {
-    margin: 0 $margin-28;
-}
-
-ul {
-    list-style-type: square;   
-}
-
-address, dd, dt, p, li, th, td {
-    -webkit-font-smoothing: antialiased;
-    @extend %p;
-}
-
-input, textarea, button, blockquote, li {
-    @extend %p;
-}
-
-blockquote, ol, p, pre, ul {
-    margin-bottom: $margin;
-}
-
-blockquote {
-    border-left: 3px solid rgba(0,0,0,0.4);
-    padding: 0 $margin-19;
+    list-style-type: none;
+    margin: 0;
 }
 
 li {
     margin-bottom: 0;
+    @include line-height(1);
 }

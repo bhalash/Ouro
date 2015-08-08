@@ -1,0 +1,69 @@
+/**
+ * Template Assets
+ * -----------------------------------------------------------------------------
+ * @category   Root Sass Stylesheet
+ * @package    Ouro_botics landing page
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015, Ouro_botics
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    1.0
+ * @link       https://github.com/bhalash/ouro.ie
+ * 
+ * This file is part of ouro.ie
+ * 
+ * ouro.ie is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ouro.ie is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+$assets-dir: '../images/';
+
+$brands: $assets-dir + 'branding/';
+$sections: $assets-dir + 'backgrounds/';
+$panes: $assets-dir + 'panes/';
+$gallery: $assets-dir + 'lightbox/';
+
+$assets: (
+    brand: (
+        ouro: (
+            main: $brands + 'logo-ouro.svg',
+            alt: $brands + 'logo-ouro-alt.svg' 
+        ),
+        ourobotics: (
+            main: $brands + 'banner-ouro-botics.svg',
+            alt: $brands + 'banner-ouro-botics-alt.svg'
+        ),
+        hax: $brands + 'funder-haxlr8r.svg',
+        sosventures: $brands + 'funder-sosventures.svg'
+    ),
+    pane: (
+        conceive: $panes + 'pane-conceive.svg',
+        diagram: $panes + 'pane-diagram.svg',
+        design: $panes + 'pane-design.svg',
+        print: $panes + 'pane-print.svg',
+        iterate: $panes + 'pane-iterate.svg'
+    ),
+    section: (
+        home: $sections + 'background-intro.jpg',
+        bioprint: $sections + 'background-bioprint.jpg',
+        intro: $sections + 'background-home.jpg',
+        team: $sections + 'background-team.jpg',
+        product: $sections + 'background-product.jpg',
+        contact: $sections + 'background-contact.jpg'
+    ),
+    gallery: (
+        close: $gallery + 'lightbox-close.svg',
+        left: $gallery + 'lighbox-indicator-left.svg',
+        right: $gallery + 'lightbox-indicator-right.svg'
+    ),
+    video: $assets-dir + 'video-timelapse-poster.jpg'
+);

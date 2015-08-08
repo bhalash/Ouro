@@ -1,10 +1,10 @@
 /**
- * Main Sass Stylesheet
+ * Section: Bioprinting
  * --------------------
- * @category   Root Sass Stylesheet
+ * @category   Bioprinting Section Stylesheet
  * @package    Ouro_botics landing page
  * @author     Mark Grealish <mark@bhalash.com>
- * @copyright  Copyright (c) 2015, Ouro_botics
+ * @copyright  2015 Mark Grealish
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
  * @version    1.0
  * @link       https://github.com/bhalash/ouro.ie
@@ -25,27 +25,45 @@
  * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * Mixins and Partials
- * -----------------------------------------------------------------------------
- */
+div.bioprint-panes {
+    @include flex-parent(row, initial, nowrap);
+    @include margin($vspace 0);
 
-/**
- * Imports
- * -----------------------------------------------------------------------------
- */
+    @include media(smartphone) {
+        @include flex-parent(column);
+    }
+}
 
-@import 'variables';
-@import 'scss-helpers/bhalash-helpers';
-@import 'reset';
-@import 'typography';
-@import 'sections';
-// Individual Sections.
-@import 'sections/home';
-@import 'sections/team';
-@import 'sections/bioprint';
-@import 'sections/contact';
-// Page subsections.
-@import 'nav';
-@import 'gallery';
-@import 'footer';
+div.pane {
+    box-sizing: border-box;
+    @include flex-child(1);
+}
+
+div.pane-image {
+    @extend %cover-picture;
+    background-color: palette(ouro, light);
+    background-size: auto 75%; 
+    opacity: 0;
+    @include square-flex(100% 1);
+}
+
+.pane-conceive {
+    background-image: asset(pane, conceive);
+}
+
+.pane-diagram {
+    background-image: asset(pane, diagram);
+}
+
+.pane-design {
+    background-image: asset(pane, design);
+}
+
+.pane-print {
+    background-image: asset(pane, print);
+}
+
+.pane-iterate {
+    background-image: asset(pane, iterate);
+}
+

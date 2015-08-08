@@ -1,10 +1,10 @@
 /**
- * Section: Bioprinting
+ * Main Sass Stylesheet
  * --------------------
- * @category   Bioprinting Section Stylesheet
+ * @category   Root Sass Stylesheet
  * @package    Ouro_botics landing page
  * @author     Mark Grealish <mark@bhalash.com>
- * @copyright  2015 Mark Grealish
+ * @copyright  Copyright (c) 2015, Ouro_botics
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
  * @version    1.0
  * @link       https://github.com/bhalash/ouro.ie
@@ -25,33 +25,16 @@
  * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$bioprint-background-size: auto 75%;
-
-div.bioprint-panes {
-    margin: $margin 0;
-    @include flex-parent(row, initial, nowrap);
-
-    @include media(smartphone) {
-        @include flex-parent(column);
-    }
-}
-
-div.pane {
-    box-sizing: border-box;
-    @include flex-child(1);
-}
-
-div.pane-image {
-    @extend %cover-picture;
-    background-color: $colour-ouro-light;
-    background-size: $bioprint-background-size;
-    opacity: 0;
-
-    @include square-flex(100% 1);
-}
-
-@each $value, $key in $panes {
-    .pane-#{$value} {
-        background-image: url(nth($key, 1));
-    }
-}
+@import 'scss-helpers/bhalash-helpers';
+@import 'assets';
+@import 'variables';
+@import 'reset';
+@import 'typography';
+@import 'sections';
+@import 'home';
+@import 'team';
+@import 'bioprint';
+@import 'contact';
+@import 'nav';
+@import 'gallery';
+@import 'footer';

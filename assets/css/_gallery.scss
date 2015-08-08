@@ -28,10 +28,6 @@
 // Size of control image.
 $lightbox-control-size: auto 40%;
 
-$lightbox-close: url($assets-gallery + 'lightbox-close.svg');
-$lightbox-indicator-left: url($assets-gallery + 'lightbox-indicator-left.svg');
-$lightbox-indicator-right: url($assets-gallery + 'lightbox-indicator-right.svg'); 
-
 // Inset of previous-next image controls.
 $control-inset: 20px;
 $control-inset-left: calc(100% - #{$control-inset}) center;
@@ -81,7 +77,7 @@ a.image {
     }
 
     &:hover {
-        background-color: $colour-ouro-light;
+        background-color: palette(ouro, light);
     }
 
     span {
@@ -116,7 +112,7 @@ div#lightbox {
  */
 
 a.close {
-    background: center center/$lightbox-control-size no-repeat $lightbox-close;
+    background: center/$lightbox-control-size no-repeat asset(gallery, close);
     display: block;
     height: 50px;
     width: 50px;
@@ -140,10 +136,10 @@ nav.controls {
     }
 
     .left {
-        background: $control-inset-left/$lightbox-control-size no-repeat $lightbox-indicator-left;
+        background: $control-inset-left/$lightbox-control-size no-repeat asset(gallery, left);
     }
 
     .right {
-        background: $control-inset-right/$lightbox-control-size no-repeat $lightbox-indicator-right;
+        background: $control-inset-right/$lightbox-control-size no-repeat asset(gallery, left);
     }
 }

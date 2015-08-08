@@ -29,33 +29,26 @@ $nav-center-toggle: 850px;
 
 .nav-box-shadow {
     // Box shadow attached on window scroll.
-    border-bottom: 1px solid $colour-light-grey;
+    border-bottom: 1px solid palette(white, light);
 }
 
 nav#menu {
-    background: #fff;
-    height: $navigation-height;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
+    background: palettte(white, x-light);
     z-index: 3;
+    @include fixed(0 0 0, top right left);
     @include flex-parent(row, space-between, nowrap, center);
+    @include height($navigation-height);
 
     @include media(max $nav-center-toggle) {
-        @include prefix(justify-content, center);
+        justify-content: center;
     }
 
     a {
         transition: color .2s, background-color .4s;
     }
 
-    ul, h4 {
+    h4 {
         margin: 0;
-    }
-
-    ul {
-        list-style-type: none;
     }
 
     li {
@@ -64,7 +57,7 @@ nav#menu {
 
     a.nav:hover, .current-nav {
         // !important, or otherwise the JS will overwrite it.
-        color: $colour-ouro-light !important;
+        color: palette(ouro, light) !important;
     }
 }
 
@@ -76,22 +69,22 @@ nav#menu {
 h4#ouro-name {
     // Company name
     display: inline-block;
-    font-size: 1.6em;
-    padding-right: $padding;
     @include flex-child(1);
+    @include font-size(1.6);
+    @include padding($vspace, right);
 
     @include media(max $nav-center-toggle) {
         text-align: right;
     }
 
     @include media(portrait) {
-        padding-right: $padding;
+        @include padding($vspace, right);
     }
 
     @include media(smartphone) {
-        font-size: 1.1em;
         padding: 0;
         text-align: center;
+        @include font-size(1.1);
     }
 
     span {
@@ -103,12 +96,12 @@ h4#ouro-name {
 h4#ouro-name a.current-nav span {
     &:nth-child(1) {
         // Ouro_
-        color: $colour-ouro-light;
+        color: palette(ouro, light);
     }
 
     &:nth-child(2) {
         // botics
-        color: $colour-ouro-dark;
+        color: palette(ouro, dark);
     }
 }
 
@@ -132,11 +125,11 @@ ul#nav-sections {
     }
 
     li {
-        font-size: $text-size-09;
+        @include font-size(1.4);
     }
 
     a {
-        padding: 0 $padding-7;
+        @include padding(0 0.7);
     }
 }
 
@@ -147,7 +140,7 @@ ul#nav-sections {
 
 ul#nav-social {
     // External social links
-    padding-left: $padding;
+    min-width: 160px;
     @include flex-child(1);
 
     @include media(max $nav-center-toggle) {
@@ -159,6 +152,6 @@ ul#nav-social {
     }
 }
 
-ul#nav-social, ul.team-social {
-    @include generate-social-link(a, 35px 1);
+.social-links a {
+    @include social-link(35px 1);
 }

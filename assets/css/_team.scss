@@ -34,7 +34,7 @@ $hover-transition-speed: .1s;
     @include flex-parent(row, initial, nowrap);
 
     @include media(max $team-break-800) { 
-        @include prefix(flex-wrap, wrap);
+        flex-wrap: wrap;
     }
 
     @include media(smartphone) {
@@ -69,8 +69,8 @@ $hover-transition-speed: .1s;
 
         img {
             box-sizing: border-box;
-            padding: 5px;
             width: 100%;
+            @include padding(0.5);
         }
     }
 
@@ -79,9 +79,9 @@ $hover-transition-speed: .1s;
     }
 
     .description span.name {
-        font-size: 1.3em;
         font-weight: bold;
-        border-bottom: 1px solid $colour-text-grey;
+        border-bottom: 1px solid palette(black, mid-light);
+        @include font-size(1.3);
     }
 }
 
@@ -92,12 +92,11 @@ $hover-transition-speed: .1s;
  */
 
 ul.team-social {
-    bottom: $margin;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    position: absolute; 
     width: 100%;
+    @include absolute($vspace, bottom);
 
     li {
         display: inline-block;
@@ -113,17 +112,12 @@ ul.team-social {
 
 .description {
     @extend %noselect;
-    bottom: 0;
-    left: 0;
     /* I use opacity instead of display in order to take advantage of the 
      * transition. */
     opacity: 0;
-    position: absolute;
-    right: 0;
     // Transition to stop text appearaning immediately.
     transition: opacity $hover-transition-speed linear;
-    top: 0;
-
+    @include absolute(0);
     @include flex-parent(row, center, nowrap, center);
 
     p {
@@ -148,13 +142,11 @@ ul.team-social {
  */
 
 div[class^=blind-] {
-    background: rgba($colour-text-white, 0.8);
+    background: rgba(palette(white, x-light), 0.8);
     display: block;
-    position: absolute; 
     height: 0;
-    left: 0;
-    right: 0;
     transition: height $hover-transition-speed;
+    @include absolute(0 0, right left);
 }
 
 .blind-top {

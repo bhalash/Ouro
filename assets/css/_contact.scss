@@ -29,38 +29,15 @@
  * along with Ouro_botics. If not, see <http://www.gnu.org/licenses/>.
  */
 
- section#contact form {
+section#contact form {
     p {
-        padding: 5px;
+        @include padding(0.5);
 
         &:not(.messages) {
             margin: 0;
             padding: 0;
         }
     }
-
-    // Unused becuase of Mailchimp. Left in in case we go back.
-    
-    // .messages {
-    //     color: map-get($colours, text_grey);
-    // }
-
-    // .unfilled {
-    //     background: map-get($colours, error_red);
-    // }
-
-    // .success {
-    //     background: #87ed90;
-    // }
-
-    // .unfilled, .success {
-    //     color: #fff;
-    //     transition: background-color .2s;
-
-    //     @include placeholder_style() {
-    //         color: #fff;
-    //     }
-    // }
 }
 
 form { 
@@ -70,27 +47,26 @@ form {
     max-width: 660px;
 
     input, textarea {
-        background-color: $colour-light-grey;
+        background-color: palette(white, x-light);
         display: block;
-        font-size: $text-size-10;
-        padding: $padding;
         width: 100%;
+        @include padding($vspace);
 
         &:not([type=submit]) {
-            margin-bottom: $margin;
             text-align: left;
+            @include margin($vspace, bottom);
 
             &:focus {
-                box-shadow: 0 0 1px 1px $colour-ouro-light;
+                box-shadow: 0 0 1px 1px palette(ouro, light);
             }
         }
     }
 
     input[type=submit] {
-        background-color: $colour-ouro-light;
-        color: $colour-text-white;
-        text-transform: uppercase;
+        background-color: palette(ouro, light);
+        color: palette(white, x-light);
         margin: 0 auto;
+        text-transform: uppercase;
         width: 50%;
 
         @include media(smartphone) {
@@ -98,25 +74,15 @@ form {
         }
 
         &:active {
-            background: $colour-ouro-dark;
+            background: palette(ouro, dark);
         }
     }
 
     textarea {
-        min-height: 125px;
+        @include rem(min-height, 12.5);
     }
 
     input:-webkit-autofill {
-        color: rgba($colour-text-white, 0.2) !important;
-    }
-
-    .mce_inline_error {
-        /* MailChimp tries to charge developers for CSS customization of forms.
-         * Something something YOLO. */
-        background: $colour-error-red !important;
-
-        @include placeholder_style() {
-            color: $colour-text-white !important;
-        }
+        color: rgba(palette(white, x-light), 0.2) !important;
     }
 }

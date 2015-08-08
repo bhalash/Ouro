@@ -49,7 +49,7 @@ section {
         }
 
         a {
-            box-shadow: rgba($colour-ouro-light, 0.4) 0px -5px 0px 0px inset;
+            box-shadow: rgba(palette(ouro, light), 0.4) 0px -5px 0px 0px inset;
         }
     }
 }
@@ -57,12 +57,12 @@ section {
 .inverse {
     h3, p {
         background: transparent;
-        color: #fff;
+        color: palette(White, x-light);
     }
 }
 
 section:not(#home) {
-    min-height: calc(100vh - #{$navigation-height});
+    min-height: calc(100vh - #{$navigation-height * 10 + "px"});
 }
 
 /**
@@ -77,18 +77,15 @@ section:not(#home) {
 
 .content {
     box-sizing: border-box;
-    left: 0;
     overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 50%;
     width: 100%;
-    @include prefix(transform, translateY(-50%));
+    transform: translateY(-50%);
+    @include absolute(50% 0 0, top right left);
 
     @include media(smartphone) {
-        padding: 40px 5%;
         position: initial;
-        @include prefix(transform, none);
+        transform: none;
+        @include padding(4 0.5);
     }
 }
 
@@ -100,5 +97,5 @@ section:not(#home) {
 
 section#contact {
     @extend %cover-picture;
-    background-image: url(nth(map-get($sections, contact), 1));
+    background-image: asset(section, contact);
 }

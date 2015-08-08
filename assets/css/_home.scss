@@ -28,8 +28,8 @@
 section#home {
     box-sizing: border-box;
     height: 100vh;
-    padding-top: $navigation-height;
     position: relative;
+    @include padding($navigation-height, top);
 
     @include media(tablet) {
         padding-top: 0;
@@ -40,7 +40,7 @@ section#home {
     }
 
     h1, h3, p, a {
-        color: #fff;
+        color: palette(white, x-light);
     }
 }
 
@@ -56,16 +56,12 @@ section#home {
 }
 
 #brand {
-    background-color: #fff;
-    background-image: url($brand-ouro);
-    background-size: auto 90%;
-    border: 2px solid $colour-ouro-light;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05);
-    left: 50%;
-    position: absolute;
-    top: 50%;
+    background: palette(white, x-light) center/auto 90% no-repeat asset(brand, ouro main);
+    border: 2px solid palette(ouro, light);
+    box-shadow: 0px 0px 30px 0px rgba(palette(black, x-dark), 0.05);
+    transform: translate(-50%, -50%);
+    @include absolute(50% 50%, left top);
     @include square-flex(35% 1);
-    @include prefix(transform, translate(-50%, -50%));
 
     @include media(portrait) {
         @include square-flex(50% 1);
@@ -74,7 +70,6 @@ section#home {
     @include media(smartphone) {
         @include square-flex(70% 1);
     }
-
 }
 
 /*
@@ -83,16 +78,14 @@ section#home {
  */
 
 #funders {
-    position: absolute;
-    bottom: $margin-19;
-    right: $margin-19;
+    @include absolute(1.9 1.9, right bottom);
 
     @include media(tablet) {
-        bottom: $margin-19 * 2;
+        @include rem(bottom, 3.8);
     }
 
     a {
-        background-color: rgba(255,255,255,0.3);
+        background-color: rgba(palette(white, x-light), 0.3);
         display: inline-block;
         transition: background-color .3s;
         @include square-flex(130px 1);
@@ -102,18 +95,18 @@ section#home {
         }
 
         &:hover {
-            background-color: #fff;
+            background-color: palette(white, x-light);
         }
     }
 
     .haxlr8r {
-        background-image: url($brand-haxlr8r);
+        background-image: asset(brand, hax);
         background-size: auto 70%;
-        margin-right: $margin-7;
+        @include margin($vspace * 0.5, right);
     }
 
     .sosventures {
-        background-image: url($brand-sosventures);
+        background-image: asset(brand, sosventures);
         background-size: 90% auto;
     }
 }
@@ -124,14 +117,12 @@ section#home {
  */
 
 #timelapse {
-    background: center center/cover url($video-fallback);
+    background: center/cover asset(video);
     height: 100vh;
-    left: 0;
     overflow: hidden;
-    position: absolute;
-    top: 0;
     width: 100%;
     z-index: -3;
+    @include absolute(0 0, top left);
 
     video {
         // There is a JavaScript fallback for this in main.js
