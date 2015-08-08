@@ -39,7 +39,7 @@
                     </a>
                     <div class="description">
                         <?php if (!empty($member['social'])) : ?>
-                            <ul class="team-social">
+                            <ul class="team-social social-links">
                                 <?php foreach ($member['social'] as $service => $handle) : ?>
                                     <li><?php generate_social_link($service, $handle); ?></li>
                                 <?php endforeach; ?>

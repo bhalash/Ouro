@@ -35,7 +35,7 @@
         <li><a class="nav" href="#team"><?php printf(COMPANY_NAME); ?> Team</a></li>
         <li><a class="nav" href="#contact">Contact Us!</a></li>
     </ul>
-    <ul id="nav-social">
+    <ul class="social-links" id="nav-social">
         <li><?php generate_social_link('twitter', COMPANY_TWITTER, COMPANY_NAME . ' on Twitter'); ?></li>
         <li><?php generate_social_link('facebook', COMPANY_FACEBOOK, COMPANY_NAME . ' on Facebook'); ?></li>
         <li><?php generate_social_link('youtube', COMPANY_YOUTUBE, COMPANY_NAME . ' on YouTube'); ?></li>
