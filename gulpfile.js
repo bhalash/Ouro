@@ -44,7 +44,7 @@ var paths = {
     css: {
         folder: assets.css,
         batch: assets.css + '*.scss',
-        main: assets.css + 'main.scss',
+        main: assets.css + 'style.scss',
         out: assets.css
     },
     js: {
@@ -78,7 +78,7 @@ gulp.task('css-dev', function() {
 });
 
 gulp.task('css', function() {
-    // Build CSS.
+    // Production CSS.
     sass(paths.css.main, {
             style: 'compressed'
         })
@@ -102,4 +102,8 @@ gulp.task('js', function() {
 gulp.task('default', function() {
     gulp.watch(paths.js.batch, ['js']);
     gulp.watch(paths.css.batch, ['css']);
+});
+
+gulp.task('css-dev-watch', function() {
+    gulp.watch(paths.css.batch, ['css-dev']);
 });
