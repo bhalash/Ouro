@@ -27,7 +27,7 @@
 
 #footer {
     @include absolute(0 0 0, right bottom left);
-    padding: 20px;
+    @include padding(2);
 
     @include media(smartphone) {
         position: initial;
