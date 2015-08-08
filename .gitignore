@@ -5,11 +5,26 @@
 # STFP and other plugins
 sftp-config.json
 
+#################
+# Node
+#################
+
+node_modules/
+
+#################
 # Sass and CSS
+#################
+
 .sass-cache/
 sass/.sass-cache/
-# *.css
-# *.css.map
+style.css
+style.css.map
+
+#################
+## JavaScript
+#################
+
+min/*.min.js
 
 ###################
 ## apache file
