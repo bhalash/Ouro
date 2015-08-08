@@ -29,7 +29,7 @@
 define('ROOT', __DIR__);
 define('INCLUDES', ROOT . '/includes');
 define('ASSETS', '/ouro/assets');
-define('IS_DEV_SITE', ($_SERVER['SERVER_NAME'] === 'ix.bhalash.com'));
+define('IS_DEV_SITE', ($_SERVER['SERVER_NAME'] === 'caladan.bhalash.com'));
 define('COMPANY_TWITTER', 'ouro_botics');
 define('COMPANY_FACEBOOK', 'ourobotics');
 define('COMPANY_YOUTUBE', 'channel/UC0_5AybJ9uL8ZRaN_jvHA5g');
@@ -43,12 +43,12 @@ define('COMPANY_GREETER_EMAIL', 'hello@ouro.ie');
  * ---------------
  */
 
-// if (IS_DEV_SITE) {
+if (IS_DEV_SITE) {
     ini_set('error_reporting', 1);
     ini_set('display_errors', 1);
     ini_set('log_errors', 1);
     error_reporting(E_ALL|E_STRICT);
-// }
+}
 
 /** 
  * Domain Verification Meta Tags
@@ -88,6 +88,15 @@ $ouro_team = array(
         'avatar' => $avatar_path . 'team-jemma.jpg',
         'social' => array(
             'twitter' => 'sciencegirlg'
+        )
+    ),
+    'mark' => array(
+        'name' => 'Mark Grealish',
+        'title' => 'Web Developer',
+        'avatar' => $avatar_path . 'team-mark.jpg',
+        'social' => array(
+            'twitter' => 'bhalash',
+            'github' => 'bhalash'
         )
     ),
     'alanna' => array(
